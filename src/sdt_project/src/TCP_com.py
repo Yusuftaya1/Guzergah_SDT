@@ -48,7 +48,7 @@ class TCP_Socket:
 class UI_subscriber(Node):
     def __init__(self):
         super().__init__('ui_subscriber')
-        self.socket = TCP_Socket()  # Create an instance of TCP_Socket
+        self.socket = TCP_Socket()
         self.create_subscription(
             SensorValues,
             '/AGV/sensor_values',
@@ -57,7 +57,6 @@ class UI_subscriber(Node):
         )
 
     def sensor_values_callback(self, msg):
-        # Convert the message to a JSON string
         msg_dict = {
             "sag_motor_sicaklik": msg.sag_motor_sicaklik,
             "sol_motor_sicaklik": msg.sol_motor_sicaklik,
@@ -68,7 +67,7 @@ class UI_subscriber(Node):
             "asiri_agirlik":      msg.asiri_agirlik
         }
         msg_json = json.dumps(msg_dict)
-        self.socket.data_transfer(msg_json)
+        self.socket.data_transfer(msg_json.encode())
 
 def main(args=None):
     rclpy.init(args=args)
