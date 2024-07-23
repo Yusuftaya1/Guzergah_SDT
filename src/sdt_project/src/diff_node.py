@@ -24,7 +24,6 @@ class MotorController(Node):
     def angle_callback(self, msg):
         angle = msg.data
         linear = 0.1
-
         w = angle * (1.0 - self.coef)
         if w != 0.0:
             hiz_sol = linear - (w * (self.wheel_distance / 2.0))
@@ -39,7 +38,7 @@ class MotorController(Node):
         motor_values_msg = MotorValues()
         motor_values_msg.sag_teker_hiz = hiz_sol_angular
         motor_values_msg.sol_teker_hiz = hiz_sag_angular
-        motor_values_msg.linear_actuator = False
+        #motor_values_msg.linear_actuator = False
 
         self.motor_values_pub.publish(motor_values_msg)
 
