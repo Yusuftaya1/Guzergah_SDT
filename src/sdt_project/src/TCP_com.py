@@ -61,11 +61,11 @@ class UI_subscriber(Node):
         msg_dict = {
             "sag_motor_sicaklik": msg.sag_motor_sicaklik,
             "sol_motor_sicaklik": msg.sol_motor_sicaklik,
-            "lift_sicaklik": msg.lift_sicaklik,
-            "sag_motor_akim": msg.sag_motor_akim,
-            "sol_motor_akim": msg.sol_motor_akim,
-            "lift_akim": msg.lift_akim,
-            "asiri_agirlik": msg.asiri_agirlik
+            "lift_sicaklik":      msg.lift_sicaklik,
+            "sag_motor_akim":     msg.sag_motor_akim,
+            "sol_motor_akim":     msg.sol_motor_akim,
+            "lift_akim":          msg.lift_akim,
+            "asiri_agirlik":      msg.asiri_agirlik
         }
         msg_json = json.dumps(msg_dict)
         self.socket.data_transfer(msg_json)
