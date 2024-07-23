@@ -19,7 +19,7 @@ set(msg_files
 rosidl_generate_interfaces(${PROJECT_NAME}
   ${msg_files}
 )
-
+################  NODES #################
 install(PROGRAMS
   src/usb_com.py
   DESTINATION lib/${PROJECT_NAME}
@@ -28,12 +28,16 @@ install(PROGRAMS
   src/manuel_kumanda.py
   DESTINATION lib/${PROJECT_NAME}
 )
-
 install(PROGRAMS
-  src/UI_try.py
+  src/TCP_com.py
+  DESTINATION lib/${PROJECT_NAME}
+)
+install(PROGRAMS
+  src/diff_node.py
   DESTINATION lib/${PROJECT_NAME}
 )
 
+################  LAUNCH  ###############
 install(FILES
   launch/node_start.launch.py
   DESTINATION share/${PROJECT_NAME}/launch
