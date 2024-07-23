@@ -1,0 +1,9 @@
+float64 sag_motor_sicaklik
+float64 sol_motor_sicaklik
+float64 lift_sicaklik
+
+float64 sag_motor_akim
+float64 sol_motor_akim
+float64 lift_akim
+
+bool asiri_agirlik

@@ -29,6 +29,11 @@ install(PROGRAMS
   DESTINATION lib/${PROJECT_NAME}
 )
 
+install(PROGRAMS
+  src/UI_try.py
+  DESTINATION lib/${PROJECT_NAME}
+)
+
 install(FILES
   launch/node_start.launch.py
   DESTINATION share/${PROJECT_NAME}/launch

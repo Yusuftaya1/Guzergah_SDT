@@ -1,0 +1,24 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from sdt_project/msg/SensorValues.msg
+// generated code does not contain a copyright notice
+
+
+module sdt_project {
+  module msg {
+    struct SensorValues {
+      double sag_motor_sicaklik;
+
+      double sol_motor_sicaklik;
+
+      double lift_sicaklik;
+
+      double sag_motor_akim;
+
+      double sol_motor_akim;
+
+      double lift_akim;
+
+      boolean asiri_agirlik;
+    };
+  };
+};
