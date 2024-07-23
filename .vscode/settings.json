@@ -1,0 +1,16 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/yusuf/tcp/install/tcp_package/lib/python3.10/site-packages",
+        "/home/yusuf/tcp/src/tcp_package/tcp_package",
+        "/home/yusuf/mission_ws/src/mission_pkg/mission_pkg",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/yusuf/tcp/install/tcp_package/lib/python3.10/site-packages",
+        "/home/yusuf/tcp/src/tcp_package/tcp_package",
+        "/home/yusuf/mission_ws/src/mission_pkg/mission_pkg",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ]
+}

@@ -1,0 +1,15 @@
+/home/yusuf/Guzergah_SDT/install/sdt_project/share/ament_index/resource_index/package_run_dependencies/sdt_project
+/home/yusuf/Guzergah_SDT/install/sdt_project/share/ament_index/resource_index/parent_prefix_path/sdt_project
+/home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/environment/ament_prefix_path.sh
+/home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/environment/ament_prefix_path.dsv
+/home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/environment/path.sh
+/home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/environment/path.dsv
+/home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/local_setup.bash
+/home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/local_setup.sh
+/home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/local_setup.zsh
+/home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/local_setup.dsv
+/home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/package.dsv
+/home/yusuf/Guzergah_SDT/install/sdt_project/share/ament_index/resource_index/packages/sdt_project
+/home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/cmake/sdt_projectConfig.cmake
+/home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/cmake/sdt_projectConfig-version.cmake
+/home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/package.xml

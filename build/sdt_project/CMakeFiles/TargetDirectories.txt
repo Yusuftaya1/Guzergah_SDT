@@ -1,0 +1,9 @@
+/home/yusuf/Guzergah_SDT/build/sdt_project/CMakeFiles/uninstall.dir
+/home/yusuf/Guzergah_SDT/build/sdt_project/CMakeFiles/sdt_project_uninstall.dir
+/home/yusuf/Guzergah_SDT/build/sdt_project/CMakeFiles/test.dir
+/home/yusuf/Guzergah_SDT/build/sdt_project/CMakeFiles/edit_cache.dir
+/home/yusuf/Guzergah_SDT/build/sdt_project/CMakeFiles/rebuild_cache.dir
+/home/yusuf/Guzergah_SDT/build/sdt_project/CMakeFiles/list_install_components.dir
+/home/yusuf/Guzergah_SDT/build/sdt_project/CMakeFiles/install.dir
+/home/yusuf/Guzergah_SDT/build/sdt_project/CMakeFiles/install/local.dir
+/home/yusuf/Guzergah_SDT/build/sdt_project/CMakeFiles/install/strip.dir

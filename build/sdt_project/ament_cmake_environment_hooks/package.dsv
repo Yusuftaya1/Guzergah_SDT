@@ -1,0 +1,4 @@
+source;share/sdt_project/local_setup.bash
+source;share/sdt_project/local_setup.dsv
+source;share/sdt_project/local_setup.sh
+source;share/sdt_project/local_setup.zsh
