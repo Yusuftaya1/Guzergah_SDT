@@ -6,15 +6,13 @@ from sdt_project.msg import MotorValues
 class MotorController(Node):
     def __init__(self):
         super().__init__('motor_controller')
-        
         self.declare_parameter('wheel_distance', 0.35)
         self.declare_parameter('wheel_radius', 0.1)
         self.declare_parameter('angle_coef', 0.02)
-        
         self.wheel_distance = self.get_parameter('wheel_distance').get_parameter_value().double_value
         self.wheel_radius = self.get_parameter('wheel_radius').get_parameter_value().double_value
         self.coef = self.get_parameter('angle_coef').get_parameter_value().double_value
-
+        
         self.angle_sub = self.create_subscription(
             Float64,
             '/AGV/angle',
@@ -25,7 +23,7 @@ class MotorController(Node):
 
     def angle_callback(self, msg):
         angle = msg.data
-        linear = 0.1  # Örnek lineer hız
+        linear = 0.1
 
         w = angle * (1.0 - self.coef)
         if w != 0.0:

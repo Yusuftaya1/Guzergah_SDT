@@ -36,7 +36,10 @@ install(PROGRAMS
   src/diff_node.py
   DESTINATION lib/${PROJECT_NAME}
 )
-
+install(PROGRAMS
+  src/line_follower.py
+  DESTINATION lib/${PROJECT_NAME}
+)
 ################  LAUNCH  ###############
 install(FILES
   launch/node_start.launch.py

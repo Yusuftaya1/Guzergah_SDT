@@ -35,7 +35,7 @@ class DifferentialDriveController(Node):
         command = f'{right_wheel_velocity_str},{left_wheel_velocity_str}\n'
         self.get_logger().info(f'Seri porta gönderilen veri: {right_wheel_velocity_str},{left_wheel_velocity_str},{llinear_actuator_str}\n')
         self.serial_port.write(command.encode())
-    
+
 def main(args=None):
     rclpy.init(args=args)
     differential_drive_controller = DifferentialDriveController()
