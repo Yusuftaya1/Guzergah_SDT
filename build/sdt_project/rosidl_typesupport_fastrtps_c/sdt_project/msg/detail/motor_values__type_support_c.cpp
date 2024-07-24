@@ -61,7 +61,7 @@ static bool _MotorValues__cdr_serialize(
 
   // Field name: linear_actuator
   {
-    cdr << (ros_message->linear_actuator ? true : false);
+    cdr << ros_message->linear_actuator;
   }
 
   return true;
@@ -88,9 +88,7 @@ static bool _MotorValues__cdr_deserialize(
 
   // Field name: linear_actuator
   {
-    uint8_t tmp;
-    cdr >> tmp;
-    ros_message->linear_actuator = tmp ? true : false;
+    cdr >> ros_message->linear_actuator;
   }
 
   return true;
@@ -177,8 +175,9 @@ size_t max_serialized_size_sdt_project__msg__MotorValues(
   {
     size_t array_size = 1;
 
-    last_member_size = array_size * sizeof(uint8_t);
-    current_alignment += array_size * sizeof(uint8_t);
+    last_member_size = array_size * sizeof(uint16_t);
+    current_alignment += array_size * sizeof(uint16_t) +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint16_t));
   }
 
   size_t ret_val = current_alignment - initial_alignment;

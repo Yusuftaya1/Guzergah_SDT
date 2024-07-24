@@ -26,9 +26,9 @@ class USBComNode(Node):
 
     def motor_values_callback(self, msg):
         motor_velues = MotorValues()
-        right_wheel_velocity  = 123 #motor_velues.sag_teker_hiz
-        left_wheel_velocity   = 265 #motor_velues.sol_teker_hiz
-        linear_actuator       = 587 #motor_velues.linear_actuator
+        right_wheel_velocity  = motor_velues.sag_teker_hiz
+        left_wheel_velocity   = motor_velues.sol_teker_hiz
+        linear_actuator       = motor_velues.linear_actuator
         self.send_wheel_velocities(right_wheel_velocity, left_wheel_velocity, linear_actuator)
 
     def send_wheel_velocities(self, right_wheel_velocity, left_wheel_velocity, linear_actuator):

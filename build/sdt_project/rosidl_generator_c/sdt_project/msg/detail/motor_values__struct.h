@@ -22,7 +22,7 @@ typedef struct sdt_project__msg__MotorValues
 {
   uint16_t sag_teker_hiz;
   uint16_t sol_teker_hiz;
-  bool linear_actuator;
+  uint16_t linear_actuator;
 } sdt_project__msg__MotorValues;
 
 // Struct for a sequence of sdt_project__msg__MotorValues.

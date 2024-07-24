@@ -73,8 +73,8 @@ bool sdt_project__msg__motor_values__convert_from_py(PyObject * _pymsg, void * _
     if (!field) {
       return false;
     }
-    assert(PyBool_Check(field));
-    ros_message->linear_actuator = (Py_True == field);
+    assert(PyLong_Check(field));
+    ros_message->linear_actuator = (uint16_t)PyLong_AsUnsignedLong(field);
     Py_DECREF(field);
   }
 
@@ -123,7 +123,7 @@ PyObject * sdt_project__msg__motor_values__convert_to_py(void * raw_ros_message)
   }
   {  // linear_actuator
     PyObject * field = NULL;
-    field = PyBool_FromLong(ros_message->linear_actuator ? 1 : 0);
+    field = PyLong_FromUnsignedLong(ros_message->linear_actuator);
     {
       int rc = PyObject_SetAttrString(_pymessage, "linear_actuator", field);
       Py_DECREF(field);

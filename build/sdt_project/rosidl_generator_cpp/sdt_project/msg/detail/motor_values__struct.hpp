@@ -40,7 +40,7 @@ struct MotorValues_
     {
       this->sag_teker_hiz = 0;
       this->sol_teker_hiz = 0;
-      this->linear_actuator = false;
+      this->linear_actuator = 0;
     }
   }
 
@@ -52,7 +52,7 @@ struct MotorValues_
     {
       this->sag_teker_hiz = 0;
       this->sol_teker_hiz = 0;
-      this->linear_actuator = false;
+      this->linear_actuator = 0;
     }
   }
 
@@ -64,7 +64,7 @@ struct MotorValues_
     uint16_t;
   _sol_teker_hiz_type sol_teker_hiz;
   using _linear_actuator_type =
-    bool;
+    uint16_t;
   _linear_actuator_type linear_actuator;
 
   // setters for named parameter idiom
@@ -81,7 +81,7 @@ struct MotorValues_
     return *this;
   }
   Type & set__linear_actuator(
-    const bool & _arg)
+    const uint16_t & _arg)
   {
     this->linear_actuator = _arg;
     return *this;

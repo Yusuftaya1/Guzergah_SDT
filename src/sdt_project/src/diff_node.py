@@ -1,3 +1,9 @@
+"""
+mode_status YA DA action_status MSG KULLANILARAK MOTOR VALUES DEĞERİ 
+QR BİLGİSİNE GÖRE , ÇİZGİYE GÖRE YA DA ESCAPE BLOCK OLARAK GÖNDERİLECEK
+
+"""
+
 import rclpy
 from rclpy.node import Node
 from std_msgs.msg import Float64
@@ -6,12 +12,9 @@ from sdt_project.msg import MotorValues
 class MotorController(Node):
     def __init__(self):
         super().__init__('motor_controller')
-        self.declare_parameter('wheel_distance', 0.35)
-        self.declare_parameter('wheel_radius', 0.1)
-        self.declare_parameter('angle_coef', 0.02)
-        self.wheel_distance = self.get_parameter('wheel_distance').get_parameter_value().double_value
-        self.wheel_radius = self.get_parameter('wheel_radius').get_parameter_value().double_value
-        self.coef = self.get_parameter('angle_coef').get_parameter_value().double_value
+        self.wheel_distance = 0.35
+        self.wheel_radius = 0.1
+        self.coef = 0.02    
         
         self.angle_sub = self.create_subscription(
             Float64,

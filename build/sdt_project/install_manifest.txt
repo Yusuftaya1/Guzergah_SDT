@@ -70,8 +70,11 @@
 /home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/msg/MotorValues.msg
 /home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/msg/SensorValues.msg
 /home/yusuf/Guzergah_SDT/install/sdt_project/lib/sdt_project/usb_com.py
-/home/yusuf/Guzergah_SDT/install/sdt_project/lib/sdt_project/manuel_kumanda.py
-/home/yusuf/Guzergah_SDT/install/sdt_project/lib/sdt_project/UI_try.py
+/home/yusuf/Guzergah_SDT/install/sdt_project/lib/sdt_project/try.py
+/home/yusuf/Guzergah_SDT/install/sdt_project/lib/sdt_project/TCP_com.py
+/home/yusuf/Guzergah_SDT/install/sdt_project/lib/sdt_project/diff_node.py
+/home/yusuf/Guzergah_SDT/install/sdt_project/lib/sdt_project/line_follower.py
+/home/yusuf/Guzergah_SDT/install/sdt_project/lib/sdt_project/pub_try.py
 /home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/launch/node_start.launch.py
 /home/yusuf/Guzergah_SDT/install/sdt_project/share/ament_index/resource_index/package_run_dependencies/sdt_project
 /home/yusuf/Guzergah_SDT/install/sdt_project/share/ament_index/resource_index/parent_prefix_path/sdt_project

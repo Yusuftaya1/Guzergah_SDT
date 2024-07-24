@@ -37,7 +37,7 @@ cdr_serialize(
   // Member: sol_teker_hiz
   cdr << ros_message.sol_teker_hiz;
   // Member: linear_actuator
-  cdr << (ros_message.linear_actuator ? true : false);
+  cdr << ros_message.linear_actuator;
   return true;
 }
 
@@ -54,11 +54,7 @@ cdr_deserialize(
   cdr >> ros_message.sol_teker_hiz;
 
   // Member: linear_actuator
-  {
-    uint8_t tmp;
-    cdr >> tmp;
-    ros_message.linear_actuator = tmp ? true : false;
-  }
+  cdr >> ros_message.linear_actuator;
 
   return true;
 }
@@ -140,8 +136,9 @@ max_serialized_size_MotorValues(
   {
     size_t array_size = 1;
 
-    last_member_size = array_size * sizeof(uint8_t);
-    current_alignment += array_size * sizeof(uint8_t);
+    last_member_size = array_size * sizeof(uint16_t);
+    current_alignment += array_size * sizeof(uint16_t) +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint16_t));
   }
 
   size_t ret_val = current_alignment - initial_alignment;

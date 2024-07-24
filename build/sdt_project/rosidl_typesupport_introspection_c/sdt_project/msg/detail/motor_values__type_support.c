@@ -68,7 +68,7 @@ static rosidl_typesupport_introspection_c__MessageMember sdt_project__msg__Motor
   },
   {
     "linear_actuator",  // name
-    rosidl_typesupport_introspection_c__ROS_TYPE_BOOLEAN,  // type
+    rosidl_typesupport_introspection_c__ROS_TYPE_UINT16,  // type
     0,  // upper bound of string
     NULL,  // members of sub message
     false,  // is array

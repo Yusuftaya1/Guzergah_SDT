@@ -10,7 +10,7 @@ module sdt_project {
 
       uint16 sol_teker_hiz;
 
-      boolean linear_actuator;
+      uint16 linear_actuator;
     };
   };
 };

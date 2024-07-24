@@ -63,13 +63,13 @@ class MotorValues(metaclass=Metaclass_MotorValues):
     _fields_and_field_types = {
         'sag_teker_hiz': 'uint16',
         'sol_teker_hiz': 'uint16',
-        'linear_actuator': 'boolean',
+        'linear_actuator': 'uint16',
     }
 
     SLOT_TYPES = (
         rosidl_parser.definition.BasicType('uint16'),  # noqa: E501
         rosidl_parser.definition.BasicType('uint16'),  # noqa: E501
-        rosidl_parser.definition.BasicType('boolean'),  # noqa: E501
+        rosidl_parser.definition.BasicType('uint16'),  # noqa: E501
     )
 
     def __init__(self, **kwargs):
@@ -78,7 +78,7 @@ class MotorValues(metaclass=Metaclass_MotorValues):
             ', '.join(sorted(k for k in kwargs.keys() if '_' + k not in self.__slots__))
         self.sag_teker_hiz = kwargs.get('sag_teker_hiz', int())
         self.sol_teker_hiz = kwargs.get('sol_teker_hiz', int())
-        self.linear_actuator = kwargs.get('linear_actuator', bool())
+        self.linear_actuator = kwargs.get('linear_actuator', int())
 
     def __repr__(self):
         typename = self.__class__.__module__.split('.')
@@ -161,6 +161,8 @@ class MotorValues(metaclass=Metaclass_MotorValues):
     def linear_actuator(self, value):
         if __debug__:
             assert \
-                isinstance(value, bool), \
-                "The 'linear_actuator' field must be of type 'bool'"
+                isinstance(value, int), \
+                "The 'linear_actuator' field must be of type 'int'"
+            assert value >= 0 and value < 65536, \
+                "The 'linear_actuator' field must be an unsigned integer in [0, 65535]"
         self._linear_actuator = value

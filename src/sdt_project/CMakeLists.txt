@@ -25,7 +25,7 @@ install(PROGRAMS
   DESTINATION lib/${PROJECT_NAME}
 )
 install(PROGRAMS
-  src/manuel_kumanda.py
+  src/try.py
   DESTINATION lib/${PROJECT_NAME}
 )
 install(PROGRAMS
@@ -38,6 +38,10 @@ install(PROGRAMS
 )
 install(PROGRAMS
   src/line_follower.py
+  DESTINATION lib/${PROJECT_NAME}
+)
+install(PROGRAMS
+  src/pub_try.py
   DESTINATION lib/${PROJECT_NAME}
 )
 ################  LAUNCH  ###############

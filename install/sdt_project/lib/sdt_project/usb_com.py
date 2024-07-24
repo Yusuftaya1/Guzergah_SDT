@@ -6,7 +6,6 @@ TEKER HIZLARI "diff_node" içerisinde hesaplanır ve "motor_values_node"a "motor
 MESAJI GÖNDERİLİR "motor_values_node" dan ALINAN VERİLER SERİ PORTA YAZILIR
 
 SERİ PORTTAN ALINAN "SensorValues.msg" MESAJI "Interface_node" a gönderilir
-
 """
 
 import rclpy
