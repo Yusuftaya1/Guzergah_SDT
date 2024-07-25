@@ -1,0 +1,321 @@
+[0.000000] (-) TimerEvent: {}
+[0.000150] (sdt_project) JobQueued: {'identifier': 'sdt_project', 'dependencies': OrderedDict()}
+[0.000219] (sdt_project) JobStarted: {'identifier': 'sdt_project'}
+[0.010789] (sdt_project) JobProgress: {'identifier': 'sdt_project', 'progress': 'cmake'}
+[0.012331] (sdt_project) JobProgress: {'identifier': 'sdt_project', 'progress': 'build'}
+[0.012511] (sdt_project) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/yusuf/Guzergah_SDT/build/sdt_project', '--', '-j8', '-l8'], 'cwd': '/home/yusuf/Guzergah_SDT/build/sdt_project', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'yusuf'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/yusuf/Guzergah_SDT/install/sdt_project/lib:/home/yusuf/Guzergah_TIKA/install/tika_project/lib:/home/yusuf/usb_cam/install/usb_cam/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/yusuf'), ('OLDPWD', '/home/yusuf'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('MANAGERPID', '1334'), ('SYSTEMD_EXEC_PID', '1506'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator25ef4b219e3b005583550f2b0f9f990c3'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '2739'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/yusuf/Guzergah_SDT/install:/home/yusuf/tcp/install:/home/yusuf/turtlebot3_ws/install:/home/yusuf/Guzergah_TIKA/install:/home/yusuf/usb_cam/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'yusuf'), ('JOURNAL_STREAM', '8:33908'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'yusuf'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/home/yusuf/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/YUBUNTU:@/tmp/.ICE-unix/1478,unix/YUBUNTU:/tmp/.ICE-unix/1478'), ('INVOCATION_ID', '0444ce0b86b948b98dbe9fb26f228c80'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('IBUS_DISABLE_SNOOPER', '1'), ('RMW_IMPLEMENTATION', 'rmw_cyclonedds_cpp'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.KDXFR2'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/yusuf/Guzergah_SDT/install/sdt_project:/home/yusuf/Guzergah_TIKA/install/tika_project:/home/yusuf/usb_cam/install/usb_cam:/home/yusuf/tcp/install/tcp_package:/home/yusuf/turtlebot3_ws/install/turtlebot3_simulations:/home/yusuf/turtlebot3_ws/install/turtlebot3_gazebo:/home/yusuf/turtlebot3_ws/install/turtlebot3_fake_node:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('TERMINATOR_UUID', 'urn:uuid:ab29e530-e067-41dd-96bf-dbfcbf04df56'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/yusuf/Guzergah_SDT/build/sdt_project'), ('TURTLEBOT3_MODEL', 'waffle'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/yusuf/Guzergah_SDT/install/sdt_project/local/lib/python3.10/dist-packages:/home/yusuf/Guzergah_TIKA/install/tika_project/local/lib/python3.10/dist-packages:/home/yusuf/tcp/install/tcp_package/lib/python3.10/site-packages:/home/yusuf/tcp/src/tcp_package/tcp_package:/home/yusuf/mission_ws/src/mission_pkg/mission_pkg:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/yusuf/Guzergah_SDT/install/sdt_project:/home/yusuf/Guzergah_TIKA/install/tika_project:/home/yusuf/usb_cam/install/usb_cam:/home/yusuf/turtlebot3_ws/install/turtlebot3_simulations:/home/yusuf/turtlebot3_ws/install/turtlebot3_gazebo:/home/yusuf/turtlebot3_ws/install/turtlebot3_fake_node:/home/yusuf/tcp/install/tcp_package:/opt/ros/humble')]), 'shell': False}
+[0.046655] (sdt_project) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.9 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.098756] (-) TimerEvent: {}
+[0.199212] (-) TimerEvent: {}
+[0.216438] (sdt_project) StdoutLine: {'line': b'-- Found rosidl_default_generators: 1.2.0 (/opt/ros/humble/share/rosidl_default_generators/cmake)\n'}
+[0.218954] (sdt_project) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.222902] (sdt_project) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[0.266735] (sdt_project) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.299322] (-) TimerEvent: {}
+[0.300036] (sdt_project) StdoutLine: {'line': b'-- Found rclcpp: 16.0.9 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[0.399492] (-) TimerEvent: {}
+[0.411099] (sdt_project) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[0.413421] (sdt_project) StdoutLine: {'line': b'-- Found rmw_cyclonedds_cpp: 1.3.4 (/opt/ros/humble/share/rmw_cyclonedds_cpp/cmake)\n'}
+[0.461529] (sdt_project) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_cyclonedds_cpp' as default\n"}
+[0.499583] (-) TimerEvent: {}
+[0.600116] (-) TimerEvent: {}
+[0.642191] (sdt_project) StdoutLine: {'line': b'-- Found rclpy: 3.3.13 (/opt/ros/humble/share/rclpy/cmake)\n'}
+[0.700233] (-) TimerEvent: {}
+[0.800560] (-) TimerEvent: {}
+[0.901038] (-) TimerEvent: {}
+[0.936139] (sdt_project) StdoutLine: {'line': b'-- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)\n'}
+[1.001190] (-) TimerEvent: {}
+[1.101484] (-) TimerEvent: {}
+[1.157145] (sdt_project) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[1.201617] (-) TimerEvent: {}
+[1.302066] (-) TimerEvent: {}
+[1.402406] (-) TimerEvent: {}
+[1.442329] (sdt_project) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[1.471645] (sdt_project) StdoutLine: {'line': b'-- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)\n'}
+[1.498523] (sdt_project) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[1.498818] (sdt_project) StdoutLine: {'line': b'-- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10\n'}
+[1.498943] (sdt_project) StdoutLine: {'line': b'-- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so\n'}
+[1.502626] (-) TimerEvent: {}
+[1.520542] (sdt_project) StdoutLine: {'line': b'-- Configuring done\n'}
+[1.559191] (sdt_project) StdoutLine: {'line': b'-- Generating done\n'}
+[1.562757] (sdt_project) StdoutLine: {'line': b'-- Build files have been written to: /home/yusuf/Guzergah_SDT/build/sdt_project\n'}
+[1.593484] (sdt_project) StdoutLine: {'line': b'[  2%] \x1b[34m\x1b[1mGenerating C code for ROS interfaces\x1b[0m\n'}
+[1.602758] (-) TimerEvent: {}
+[1.606559] (sdt_project) StdoutLine: {'line': b'[  5%] \x1b[34m\x1b[1mGenerating C++ code for ROS interfaces\x1b[0m\n'}
+[1.619185] (sdt_project) StdoutLine: {'line': b'[  5%] Built target ament_cmake_python_copy_sdt_project\n'}
+[1.702895] (-) TimerEvent: {}
+[1.803387] (-) TimerEvent: {}
+[1.903776] (-) TimerEvent: {}
+[2.004229] (-) TimerEvent: {}
+[2.020254] (sdt_project) StdoutLine: {'line': b'running egg_info\n'}
+[2.021505] (sdt_project) StdoutLine: {'line': b'writing sdt_project.egg-info/PKG-INFO\n'}
+[2.022131] (sdt_project) StdoutLine: {'line': b'writing dependency_links to sdt_project.egg-info/dependency_links.txt\n'}
+[2.022431] (sdt_project) StdoutLine: {'line': b'writing top-level names to sdt_project.egg-info/top_level.txt\n'}
+[2.026888] (sdt_project) StdoutLine: {'line': b"reading manifest file 'sdt_project.egg-info/SOURCES.txt'\n"}
+[2.028224] (sdt_project) StdoutLine: {'line': b"writing manifest file 'sdt_project.egg-info/SOURCES.txt'\n"}
+[2.092287] (sdt_project) StdoutLine: {'line': b'[  5%] Built target sdt_project__cpp\n'}
+[2.103966] (sdt_project) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target sdt_project__rosidl_generator_c\x1b[0m\n'}
+[2.104297] (-) TimerEvent: {}
+[2.104510] (sdt_project) StdoutLine: {'line': b'[  5%] Built target ament_cmake_python_build_sdt_project_egg\n'}
+[2.108629] (sdt_project) StdoutLine: {'line': b'[  7%] \x1b[34m\x1b[1mGenerating C++ type support dispatch for ROS interfaces\x1b[0m\n'}
+[2.111017] (sdt_project) StdoutLine: {'line': b'[ 10%] \x1b[34m\x1b[1mGenerating C++ type support for eProsima Fast-RTPS\x1b[0m\n'}
+[2.111611] (sdt_project) StdoutLine: {'line': b'[ 12%] \x1b[34m\x1b[1mGenerating C++ introspection for ROS interfaces\x1b[0m\n'}
+[2.123624] (sdt_project) StdoutLine: {'line': b'[ 15%] \x1b[32mBuilding C object CMakeFiles/sdt_project__rosidl_generator_c.dir/rosidl_generator_c/sdt_project/msg/detail/sensor_values__functions.c.o\x1b[0m\n'}
+[2.127320] (sdt_project) StdoutLine: {'line': b'[ 17%] \x1b[32mBuilding C object CMakeFiles/sdt_project__rosidl_generator_c.dir/rosidl_generator_c/sdt_project/msg/detail/motor_values__functions.c.o\x1b[0m\n'}
+[2.204454] (-) TimerEvent: {}
+[2.243701] (sdt_project) StdoutLine: {'line': b'[ 20%] \x1b[32m\x1b[1mLinking C shared library libsdt_project__rosidl_generator_c.so\x1b[0m\n'}
+[2.304603] (-) TimerEvent: {}
+[2.305245] (sdt_project) StdoutLine: {'line': b'[ 20%] Built target sdt_project__rosidl_generator_c\n'}
+[2.324861] (sdt_project) StdoutLine: {'line': b'[ 23%] \x1b[34m\x1b[1mGenerating C type support for eProsima Fast-RTPS\x1b[0m\n'}
+[2.327909] (sdt_project) StdoutLine: {'line': b'[ 25%] \x1b[34m\x1b[1mGenerating C introspection for ROS interfaces\x1b[0m\n'}
+[2.331204] (sdt_project) StdoutLine: {'line': b'[ 28%] \x1b[34m\x1b[1mGenerating C type support dispatch for ROS interfaces\x1b[0m\n'}
+[2.404783] (-) TimerEvent: {}
+[2.505827] (-) TimerEvent: {}
+[2.606462] (-) TimerEvent: {}
+[2.706855] (-) TimerEvent: {}
+[2.743307] (sdt_project) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target sdt_project__rosidl_typesupport_cpp\x1b[0m\n'}
+[2.801170] (sdt_project) StdoutLine: {'line': b'[ 30%] \x1b[32mBuilding CXX object CMakeFiles/sdt_project__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/sdt_project/msg/motor_values__type_support.cpp.o\x1b[0m\n'}
+[2.803040] (sdt_project) StdoutLine: {'line': b'[ 33%] \x1b[32mBuilding CXX object CMakeFiles/sdt_project__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/sdt_project/msg/sensor_values__type_support.cpp.o\x1b[0m\n'}
+[2.804275] (sdt_project) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target sdt_project__rosidl_typesupport_introspection_cpp\x1b[0m\n'}
+[2.811403] (-) TimerEvent: {}
+[2.837139] (sdt_project) StdoutLine: {'line': b'[ 35%] \x1b[32mBuilding CXX object CMakeFiles/sdt_project__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/sdt_project/msg/detail/motor_values__type_support.cpp.o\x1b[0m\n'}
+[2.867060] (sdt_project) StdoutLine: {'line': b'[ 38%] \x1b[32mBuilding CXX object CMakeFiles/sdt_project__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/sdt_project/msg/detail/sensor_values__type_support.cpp.o\x1b[0m\n'}
+[2.911504] (-) TimerEvent: {}
+[3.012246] (-) TimerEvent: {}
+[3.052704] (sdt_project) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target sdt_project__rosidl_typesupport_fastrtps_cpp\x1b[0m\n'}
+[3.066303] (sdt_project) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target sdt_project__rosidl_typesupport_c\x1b[0m\n'}
+[3.097013] (sdt_project) StdoutLine: {'line': b'[ 41%] \x1b[32mBuilding CXX object CMakeFiles/sdt_project__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/sdt_project/msg/detail/dds_fastrtps/motor_values__type_support.cpp.o\x1b[0m\n'}
+[3.108276] (sdt_project) StdoutLine: {'line': b'[ 43%] \x1b[32mBuilding CXX object CMakeFiles/sdt_project__rosidl_typesupport_c.dir/rosidl_typesupport_c/sdt_project/msg/motor_values__type_support.cpp.o\x1b[0m\n'}
+[3.112398] (-) TimerEvent: {}
+[3.125343] (sdt_project) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target sdt_project__rosidl_typesupport_introspection_c\x1b[0m\n'}
+[3.129561] (sdt_project) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target sdt_project__rosidl_typesupport_fastrtps_c\x1b[0m\n'}
+[3.177972] (sdt_project) StdoutLine: {'line': b'[ 46%] \x1b[32mBuilding C object CMakeFiles/sdt_project__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/sdt_project/msg/detail/motor_values__type_support.c.o\x1b[0m\n'}
+[3.202519] (sdt_project) StdoutLine: {'line': b'[ 48%] \x1b[32mBuilding CXX object CMakeFiles/sdt_project__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/sdt_project/msg/detail/motor_values__type_support_c.cpp.o\x1b[0m\n'}
+[3.212544] (-) TimerEvent: {}
+[3.225073] (sdt_project) StdoutLine: {'line': b'[ 51%] \x1b[32mBuilding CXX object CMakeFiles/sdt_project__rosidl_typesupport_c.dir/rosidl_typesupport_c/sdt_project/msg/sensor_values__type_support.cpp.o\x1b[0m\n'}
+[3.299040] (sdt_project) StdoutLine: {'line': b'[ 53%] \x1b[32mBuilding C object CMakeFiles/sdt_project__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/sdt_project/msg/detail/sensor_values__type_support.c.o\x1b[0m\n'}
+[3.312697] (-) TimerEvent: {}
+[3.332116] (sdt_project) StdoutLine: {'line': b'[ 56%] \x1b[32m\x1b[1mLinking CXX shared library libsdt_project__rosidl_typesupport_c.so\x1b[0m\n'}
+[3.389994] (sdt_project) StdoutLine: {'line': b'[ 58%] \x1b[32m\x1b[1mLinking C shared library libsdt_project__rosidl_typesupport_introspection_c.so\x1b[0m\n'}
+[3.412896] (-) TimerEvent: {}
+[3.500067] (sdt_project) StdoutLine: {'line': b'[ 58%] Built target sdt_project__rosidl_typesupport_c\n'}
+[3.513080] (-) TimerEvent: {}
+[3.518789] (sdt_project) StdoutLine: {'line': b'[ 58%] Built target sdt_project__rosidl_typesupport_introspection_c\n'}
+[3.549683] (sdt_project) StdoutLine: {'line': b'[ 61%] \x1b[32mBuilding CXX object CMakeFiles/sdt_project__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/sdt_project/msg/detail/dds_fastrtps/sensor_values__type_support.cpp.o\x1b[0m\n'}
+[3.564780] (sdt_project) StdoutLine: {'line': b'[ 64%] \x1b[32mBuilding CXX object CMakeFiles/sdt_project__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/sdt_project/msg/detail/sensor_values__type_support_c.cpp.o\x1b[0m\n'}
+[3.613233] (-) TimerEvent: {}
+[3.713901] (-) TimerEvent: {}
+[3.762645] (sdt_project) StdoutLine: {'line': b'[ 66%] \x1b[32m\x1b[1mLinking CXX shared library libsdt_project__rosidl_typesupport_cpp.so\x1b[0m\n'}
+[3.814734] (-) TimerEvent: {}
+[3.834711] (sdt_project) StdoutLine: {'line': b'[ 66%] Built target sdt_project__rosidl_typesupport_cpp\n'}
+[3.849959] (sdt_project) StdoutLine: {'line': b'[ 69%] \x1b[32m\x1b[1mLinking CXX shared library libsdt_project__rosidl_typesupport_introspection_cpp.so\x1b[0m\n'}
+[3.914887] (-) TimerEvent: {}
+[3.920209] (sdt_project) StdoutLine: {'line': b'[ 69%] Built target sdt_project__rosidl_typesupport_introspection_cpp\n'}
+[4.015168] (-) TimerEvent: {}
+[4.115586] (-) TimerEvent: {}
+[4.216003] (-) TimerEvent: {}
+[4.316514] (-) TimerEvent: {}
+[4.410175] (sdt_project) StdoutLine: {'line': b'[ 71%] \x1b[32m\x1b[1mLinking CXX shared library libsdt_project__rosidl_typesupport_fastrtps_c.so\x1b[0m\n'}
+[4.416736] (-) TimerEvent: {}
+[4.517230] (-) TimerEvent: {}
+[4.530032] (sdt_project) StdoutLine: {'line': b'[ 71%] Built target sdt_project__rosidl_typesupport_fastrtps_c\n'}
+[4.530441] (sdt_project) StdoutLine: {'line': b'[ 74%] \x1b[32m\x1b[1mLinking CXX shared library libsdt_project__rosidl_typesupport_fastrtps_cpp.so\x1b[0m\n'}
+[4.617552] (-) TimerEvent: {}
+[4.634111] (sdt_project) StdoutLine: {'line': b'[ 74%] Built target sdt_project__rosidl_typesupport_fastrtps_cpp\n'}
+[4.658483] (sdt_project) StdoutLine: {'line': b'[ 74%] Built target sdt_project\n'}
+[4.685803] (sdt_project) StdoutLine: {'line': b'[ 76%] \x1b[34m\x1b[1mGenerating Python code for ROS interfaces\x1b[0m\n'}
+[4.717788] (-) TimerEvent: {}
+[4.818266] (-) TimerEvent: {}
+[4.918817] (-) TimerEvent: {}
+[5.019311] (-) TimerEvent: {}
+[5.119704] (-) TimerEvent: {}
+[5.177133] (sdt_project) StdoutLine: {'line': b'[ 76%] Built target sdt_project__py\n'}
+[5.190977] (sdt_project) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target sdt_project__rosidl_generator_py\x1b[0m\n'}
+[5.207933] (sdt_project) StdoutLine: {'line': b'[ 79%] \x1b[32mBuilding C object CMakeFiles/sdt_project__rosidl_generator_py.dir/rosidl_generator_py/sdt_project/msg/_motor_values_s.c.o\x1b[0m\n'}
+[5.208841] (sdt_project) StdoutLine: {'line': b'[ 82%] \x1b[32mBuilding C object CMakeFiles/sdt_project__rosidl_generator_py.dir/rosidl_generator_py/sdt_project/msg/_sensor_values_s.c.o\x1b[0m\n'}
+[5.219824] (-) TimerEvent: {}
+[5.320319] (-) TimerEvent: {}
+[5.361549] (sdt_project) StdoutLine: {'line': b'[ 84%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/sdt_project/libsdt_project__rosidl_generator_py.so\x1b[0m\n'}
+[5.409785] (sdt_project) StdoutLine: {'line': b'[ 84%] Built target sdt_project__rosidl_generator_py\n'}
+[5.420493] (-) TimerEvent: {}
+[5.422756] (sdt_project) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target sdt_project__rosidl_typesupport_introspection_c__pyext\x1b[0m\n'}
+[5.423082] (sdt_project) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target sdt_project__rosidl_typesupport_c__pyext\x1b[0m\n'}
+[5.423232] (sdt_project) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target sdt_project__rosidl_typesupport_fastrtps_c__pyext\x1b[0m\n'}
+[5.439948] (sdt_project) StdoutLine: {'line': b'[ 87%] \x1b[32mBuilding C object CMakeFiles/sdt_project__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/sdt_project/_sdt_project_s.ep.rosidl_typesupport_fastrtps_c.c.o\x1b[0m\n'}
+[5.440591] (sdt_project) StdoutLine: {'line': b'[ 89%] \x1b[32mBuilding C object CMakeFiles/sdt_project__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/sdt_project/_sdt_project_s.ep.rosidl_typesupport_c.c.o\x1b[0m\n'}
+[5.449782] (sdt_project) StdoutLine: {'line': b'[ 92%] \x1b[32mBuilding C object CMakeFiles/sdt_project__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/sdt_project/_sdt_project_s.ep.rosidl_typesupport_introspection_c.c.o\x1b[0m\n'}
+[5.520625] (-) TimerEvent: {}
+[5.590072] (sdt_project) StdoutLine: {'line': b'[ 94%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/sdt_project/sdt_project_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\x1b[0m\n'}
+[5.598045] (sdt_project) StdoutLine: {'line': b'[ 97%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/sdt_project/sdt_project_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\x1b[0m\n'}
+[5.620769] (-) TimerEvent: {}
+[5.636932] (sdt_project) StdoutLine: {'line': b'[ 97%] Built target sdt_project__rosidl_typesupport_fastrtps_c__pyext\n'}
+[5.641641] (sdt_project) StdoutLine: {'line': b'[ 97%] Built target sdt_project__rosidl_typesupport_c__pyext\n'}
+[5.675426] (sdt_project) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/sdt_project/sdt_project_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\x1b[0m\n'}
+[5.716091] (sdt_project) StdoutLine: {'line': b'[100%] Built target sdt_project__rosidl_typesupport_introspection_c__pyext\n'}
+[5.720898] (-) TimerEvent: {}
+[5.730129] (sdt_project) CommandEnded: {'returncode': 0}
+[5.821009] (-) TimerEvent: {}
+[5.852815] (sdt_project) JobProgress: {'identifier': 'sdt_project', 'progress': 'install'}
+[5.866871] (sdt_project) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/yusuf/Guzergah_SDT/build/sdt_project'], 'cwd': '/home/yusuf/Guzergah_SDT/build/sdt_project', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'yusuf'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/yusuf/Guzergah_SDT/install/sdt_project/lib:/home/yusuf/Guzergah_TIKA/install/tika_project/lib:/home/yusuf/usb_cam/install/usb_cam/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/yusuf'), ('OLDPWD', '/home/yusuf'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('MANAGERPID', '1334'), ('SYSTEMD_EXEC_PID', '1506'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator25ef4b219e3b005583550f2b0f9f990c3'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '2739'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/yusuf/Guzergah_SDT/install:/home/yusuf/tcp/install:/home/yusuf/turtlebot3_ws/install:/home/yusuf/Guzergah_TIKA/install:/home/yusuf/usb_cam/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'yusuf'), ('JOURNAL_STREAM', '8:33908'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'yusuf'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/home/yusuf/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/YUBUNTU:@/tmp/.ICE-unix/1478,unix/YUBUNTU:/tmp/.ICE-unix/1478'), ('INVOCATION_ID', '0444ce0b86b948b98dbe9fb26f228c80'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('IBUS_DISABLE_SNOOPER', '1'), ('RMW_IMPLEMENTATION', 'rmw_cyclonedds_cpp'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.KDXFR2'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/yusuf/Guzergah_SDT/install/sdt_project:/home/yusuf/Guzergah_TIKA/install/tika_project:/home/yusuf/usb_cam/install/usb_cam:/home/yusuf/tcp/install/tcp_package:/home/yusuf/turtlebot3_ws/install/turtlebot3_simulations:/home/yusuf/turtlebot3_ws/install/turtlebot3_gazebo:/home/yusuf/turtlebot3_ws/install/turtlebot3_fake_node:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('TERMINATOR_UUID', 'urn:uuid:ab29e530-e067-41dd-96bf-dbfcbf04df56'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/yusuf/Guzergah_SDT/build/sdt_project'), ('TURTLEBOT3_MODEL', 'waffle'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/yusuf/Guzergah_SDT/install/sdt_project/local/lib/python3.10/dist-packages:/home/yusuf/Guzergah_TIKA/install/tika_project/local/lib/python3.10/dist-packages:/home/yusuf/tcp/install/tcp_package/lib/python3.10/site-packages:/home/yusuf/tcp/src/tcp_package/tcp_package:/home/yusuf/mission_ws/src/mission_pkg/mission_pkg:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/yusuf/Guzergah_SDT/install/sdt_project:/home/yusuf/Guzergah_TIKA/install/tika_project:/home/yusuf/usb_cam/install/usb_cam:/home/yusuf/turtlebot3_ws/install/turtlebot3_simulations:/home/yusuf/turtlebot3_ws/install/turtlebot3_gazebo:/home/yusuf/turtlebot3_ws/install/turtlebot3_fake_node:/home/yusuf/tcp/install/tcp_package:/opt/ros/humble')]), 'shell': False}
+[5.877977] (sdt_project) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[5.878474] (sdt_project) StdoutLine: {'line': b'-- Up-to-date: /home/yusuf/Guzergah_SDT/install/sdt_project/share/ament_index/resource_index/rosidl_interfaces/sdt_project\n'}
+[5.878661] (sdt_project) StdoutLine: {'line': b'-- Up-to-date: /home/yusuf/Guzergah_SDT/install/sdt_project/include/sdt_project/sdt_project\n'}
+[5.878820] (sdt_project) StdoutLine: {'line': b'-- Up-to-date: /home/yusuf/Guzergah_SDT/install/sdt_project/include/sdt_project/sdt_project/msg\n'}
+[5.879012] (sdt_project) StdoutLine: {'line': b'-- Installing: /home/yusuf/Guzergah_SDT/install/sdt_project/include/sdt_project/sdt_project/msg/motor_values.h\n'}
+[5.879189] (sdt_project) StdoutLine: {'line': b'-- Installing: /home/yusuf/Guzergah_SDT/install/sdt_project/include/sdt_project/sdt_project/msg/sensor_values.h\n'}
+[5.879402] (sdt_project) StdoutLine: {'line': b'-- Up-to-date: /home/yusuf/Guzergah_SDT/install/sdt_project/include/sdt_project/sdt_project/msg/detail\n'}
+[5.879556] (sdt_project) StdoutLine: {'line': b'-- Installing: /home/yusuf/Guzergah_SDT/install/sdt_project/include/sdt_project/sdt_project/msg/detail/sensor_values__type_support.h\n'}
+[5.879721] (sdt_project) StdoutLine: {'line': b'-- Installing: /home/yusuf/Guzergah_SDT/install/sdt_project/include/sdt_project/sdt_project/msg/detail/motor_values__type_support.h\n'}
+[5.879845] (sdt_project) StdoutLine: {'line': b'-- Installing: /home/yusuf/Guzergah_SDT/install/sdt_project/include/sdt_project/sdt_project/msg/detail/motor_values__functions.h\n'}
+[5.879991] (sdt_project) StdoutLine: {'line': b'-- Installing: /home/yusuf/Guzergah_SDT/install/sdt_project/include/sdt_project/sdt_project/msg/detail/motor_values__struct.h\n'}
+[5.880113] (sdt_project) StdoutLine: {'line': b'-- Installing: /home/yusuf/Guzergah_SDT/install/sdt_project/include/sdt_project/sdt_project/msg/detail/sensor_values__struct.h\n'}
+[5.880240] (sdt_project) StdoutLine: {'line': b'-- Installing: /home/yusuf/Guzergah_SDT/install/sdt_project/include/sdt_project/sdt_project/msg/detail/motor_values__functions.c\n'}
+[5.880383] (sdt_project) StdoutLine: {'line': b'-- Installing: /home/yusuf/Guzergah_SDT/install/sdt_project/include/sdt_project/sdt_project/msg/detail/sensor_values__functions.c\n'}
+[5.880575] (sdt_project) StdoutLine: {'line': b'-- Installing: /home/yusuf/Guzergah_SDT/install/sdt_project/include/sdt_project/sdt_project/msg/detail/sensor_values__functions.h\n'}
+[5.880729] (sdt_project) StdoutLine: {'line': b'-- Up-to-date: /home/yusuf/Guzergah_SDT/install/sdt_project/include/sdt_project/sdt_project/msg/rosidl_generator_c__visibility_control.h\n'}
+[5.880867] (sdt_project) StdoutLine: {'line': b'-- Up-to-date: /home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/environment/library_path.sh\n'}
+[5.881131] (sdt_project) StdoutLine: {'line': b'-- Installing: /home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/environment/library_path.dsv\n'}
+[5.881281] (sdt_project) StdoutLine: {'line': b'-- Installing: /home/yusuf/Guzergah_SDT/install/sdt_project/lib/libsdt_project__rosidl_generator_c.so\n'}
+[5.881457] (sdt_project) StdoutLine: {'line': b'-- Set runtime path of "/home/yusuf/Guzergah_SDT/install/sdt_project/lib/libsdt_project__rosidl_generator_c.so" to ""\n'}
+[5.881586] (sdt_project) StdoutLine: {'line': b'-- Up-to-date: /home/yusuf/Guzergah_SDT/install/sdt_project/include/sdt_project/sdt_project\n'}
+[5.881719] (sdt_project) StdoutLine: {'line': b'-- Up-to-date: /home/yusuf/Guzergah_SDT/install/sdt_project/include/sdt_project/sdt_project/msg\n'}
+[5.881984] (sdt_project) StdoutLine: {'line': b'-- Up-to-date: /home/yusuf/Guzergah_SDT/install/sdt_project/include/sdt_project/sdt_project/msg/rosidl_typesupport_fastrtps_c__visibility_control.h\n'}
+[5.882142] (sdt_project) StdoutLine: {'line': b'-- Up-to-date: /home/yusuf/Guzergah_SDT/install/sdt_project/include/sdt_project/sdt_project/msg/detail\n'}
+[5.882325] (sdt_project) StdoutLine: {'line': b'-- Installing: /home/yusuf/Guzergah_SDT/install/sdt_project/include/sdt_project/sdt_project/msg/detail/motor_values__rosidl_typesupport_fastrtps_c.h\n'}
+[5.882471] (sdt_project) StdoutLine: {'line': b'-- Installing: /home/yusuf/Guzergah_SDT/install/sdt_project/include/sdt_project/sdt_project/msg/detail/sensor_values__rosidl_typesupport_fastrtps_c.h\n'}
+[5.882641] (sdt_project) StdoutLine: {'line': b'-- Installing: /home/yusuf/Guzergah_SDT/install/sdt_project/lib/libsdt_project__rosidl_typesupport_fastrtps_c.so\n'}
+[5.882802] (sdt_project) StdoutLine: {'line': b'-- Set runtime path of "/home/yusuf/Guzergah_SDT/install/sdt_project/lib/libsdt_project__rosidl_typesupport_fastrtps_c.so" to ""\n'}
+[5.883011] (sdt_project) StdoutLine: {'line': b'-- Up-to-date: /home/yusuf/Guzergah_SDT/install/sdt_project/include/sdt_project/sdt_project\n'}
+[5.883175] (sdt_project) StdoutLine: {'line': b'-- Up-to-date: /home/yusuf/Guzergah_SDT/install/sdt_project/include/sdt_project/sdt_project/msg\n'}
+[5.883306] (sdt_project) StdoutLine: {'line': b'-- Up-to-date: /home/yusuf/Guzergah_SDT/install/sdt_project/include/sdt_project/sdt_project/msg/rosidl_typesupport_introspection_c__visibility_control.h\n'}
+[5.883478] (sdt_project) StdoutLine: {'line': b'-- Up-to-date: /home/yusuf/Guzergah_SDT/install/sdt_project/include/sdt_project/sdt_project/msg/detail\n'}
+[5.883615] (sdt_project) StdoutLine: {'line': b'-- Installing: /home/yusuf/Guzergah_SDT/install/sdt_project/include/sdt_project/sdt_project/msg/detail/motor_values__rosidl_typesupport_introspection_c.h\n'}
+[5.883742] (sdt_project) StdoutLine: {'line': b'-- Installing: /home/yusuf/Guzergah_SDT/install/sdt_project/include/sdt_project/sdt_project/msg/detail/sensor_values__type_support.c\n'}
+[5.883869] (sdt_project) StdoutLine: {'line': b'-- Installing: /home/yusuf/Guzergah_SDT/install/sdt_project/include/sdt_project/sdt_project/msg/detail/motor_values__type_support.c\n'}
+[5.884035] (sdt_project) StdoutLine: {'line': b'-- Installing: /home/yusuf/Guzergah_SDT/install/sdt_project/include/sdt_project/sdt_project/msg/detail/sensor_values__rosidl_typesupport_introspection_c.h\n'}
+[5.884195] (sdt_project) StdoutLine: {'line': b'-- Installing: /home/yusuf/Guzergah_SDT/install/sdt_project/lib/libsdt_project__rosidl_typesupport_introspection_c.so\n'}
+[5.884336] (sdt_project) StdoutLine: {'line': b'-- Set runtime path of "/home/yusuf/Guzergah_SDT/install/sdt_project/lib/libsdt_project__rosidl_typesupport_introspection_c.so" to ""\n'}
+[5.884473] (sdt_project) StdoutLine: {'line': b'-- Installing: /home/yusuf/Guzergah_SDT/install/sdt_project/lib/libsdt_project__rosidl_typesupport_c.so\n'}
+[5.884691] (sdt_project) StdoutLine: {'line': b'-- Set runtime path of "/home/yusuf/Guzergah_SDT/install/sdt_project/lib/libsdt_project__rosidl_typesupport_c.so" to ""\n'}
+[5.884893] (sdt_project) StdoutLine: {'line': b'-- Up-to-date: /home/yusuf/Guzergah_SDT/install/sdt_project/include/sdt_project/sdt_project\n'}
+[5.885074] (sdt_project) StdoutLine: {'line': b'-- Up-to-date: /home/yusuf/Guzergah_SDT/install/sdt_project/include/sdt_project/sdt_project/msg\n'}
+[5.885241] (sdt_project) StdoutLine: {'line': b'-- Installing: /home/yusuf/Guzergah_SDT/install/sdt_project/include/sdt_project/sdt_project/msg/sensor_values.hpp\n'}
+[5.885429] (sdt_project) StdoutLine: {'line': b'-- Up-to-date: /home/yusuf/Guzergah_SDT/install/sdt_project/include/sdt_project/sdt_project/msg/detail\n'}
+[5.885600] (sdt_project) StdoutLine: {'line': b'-- Installing: /home/yusuf/Guzergah_SDT/install/sdt_project/include/sdt_project/sdt_project/msg/detail/sensor_values__struct.hpp\n'}
+[5.885769] (sdt_project) StdoutLine: {'line': b'-- Installing: /home/yusuf/Guzergah_SDT/install/sdt_project/include/sdt_project/sdt_project/msg/detail/motor_values__traits.hpp\n'}
+[5.885922] (sdt_project) StdoutLine: {'line': b'-- Installing: /home/yusuf/Guzergah_SDT/install/sdt_project/include/sdt_project/sdt_project/msg/detail/sensor_values__traits.hpp\n'}
+[5.886085] (sdt_project) StdoutLine: {'line': b'-- Installing: /home/yusuf/Guzergah_SDT/install/sdt_project/include/sdt_project/sdt_project/msg/detail/motor_values__builder.hpp\n'}
+[5.886248] (sdt_project) StdoutLine: {'line': b'-- Installing: /home/yusuf/Guzergah_SDT/install/sdt_project/include/sdt_project/sdt_project/msg/detail/sensor_values__builder.hpp\n'}
+[5.886423] (sdt_project) StdoutLine: {'line': b'-- Installing: /home/yusuf/Guzergah_SDT/install/sdt_project/include/sdt_project/sdt_project/msg/detail/motor_values__struct.hpp\n'}
+[5.886619] (sdt_project) StdoutLine: {'line': b'-- Installing: /home/yusuf/Guzergah_SDT/install/sdt_project/include/sdt_project/sdt_project/msg/motor_values.hpp\n'}
+[5.886887] (sdt_project) StdoutLine: {'line': b'-- Up-to-date: /home/yusuf/Guzergah_SDT/install/sdt_project/include/sdt_project/sdt_project\n'}
+[5.887251] (sdt_project) StdoutLine: {'line': b'-- Up-to-date: /home/yusuf/Guzergah_SDT/install/sdt_project/include/sdt_project/sdt_project/msg\n'}
+[5.887462] (sdt_project) StdoutLine: {'line': b'-- Up-to-date: /home/yusuf/Guzergah_SDT/install/sdt_project/include/sdt_project/sdt_project/msg/detail\n'}
+[5.887633] (sdt_project) StdoutLine: {'line': b'-- Installing: /home/yusuf/Guzergah_SDT/install/sdt_project/include/sdt_project/sdt_project/msg/detail/sensor_values__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[5.887782] (sdt_project) StdoutLine: {'line': b'-- Up-to-date: /home/yusuf/Guzergah_SDT/install/sdt_project/include/sdt_project/sdt_project/msg/detail/dds_fastrtps\n'}
+[5.887927] (sdt_project) StdoutLine: {'line': b'-- Installing: /home/yusuf/Guzergah_SDT/install/sdt_project/include/sdt_project/sdt_project/msg/detail/motor_values__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[5.888051] (sdt_project) StdoutLine: {'line': b'-- Up-to-date: /home/yusuf/Guzergah_SDT/install/sdt_project/include/sdt_project/sdt_project/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h\n'}
+[5.888170] (sdt_project) StdoutLine: {'line': b'-- Installing: /home/yusuf/Guzergah_SDT/install/sdt_project/lib/libsdt_project__rosidl_typesupport_fastrtps_cpp.so\n'}
+[5.888342] (sdt_project) StdoutLine: {'line': b'-- Set runtime path of "/home/yusuf/Guzergah_SDT/install/sdt_project/lib/libsdt_project__rosidl_typesupport_fastrtps_cpp.so" to ""\n'}
+[5.888505] (sdt_project) StdoutLine: {'line': b'-- Up-to-date: /home/yusuf/Guzergah_SDT/install/sdt_project/include/sdt_project/sdt_project\n'}
+[5.888651] (sdt_project) StdoutLine: {'line': b'-- Up-to-date: /home/yusuf/Guzergah_SDT/install/sdt_project/include/sdt_project/sdt_project/msg\n'}
+[5.888793] (sdt_project) StdoutLine: {'line': b'-- Up-to-date: /home/yusuf/Guzergah_SDT/install/sdt_project/include/sdt_project/sdt_project/msg/detail\n'}
+[5.888960] (sdt_project) StdoutLine: {'line': b'-- Installing: /home/yusuf/Guzergah_SDT/install/sdt_project/include/sdt_project/sdt_project/msg/detail/motor_values__type_support.cpp\n'}
+[5.889130] (sdt_project) StdoutLine: {'line': b'-- Installing: /home/yusuf/Guzergah_SDT/install/sdt_project/include/sdt_project/sdt_project/msg/detail/motor_values__rosidl_typesupport_introspection_cpp.hpp\n'}
+[5.889278] (sdt_project) StdoutLine: {'line': b'-- Installing: /home/yusuf/Guzergah_SDT/install/sdt_project/include/sdt_project/sdt_project/msg/detail/sensor_values__rosidl_typesupport_introspection_cpp.hpp\n'}
+[5.889400] (sdt_project) StdoutLine: {'line': b'-- Installing: /home/yusuf/Guzergah_SDT/install/sdt_project/include/sdt_project/sdt_project/msg/detail/sensor_values__type_support.cpp\n'}
+[5.889546] (sdt_project) StdoutLine: {'line': b'-- Installing: /home/yusuf/Guzergah_SDT/install/sdt_project/lib/libsdt_project__rosidl_typesupport_introspection_cpp.so\n'}
+[5.889690] (sdt_project) StdoutLine: {'line': b'-- Set runtime path of "/home/yusuf/Guzergah_SDT/install/sdt_project/lib/libsdt_project__rosidl_typesupport_introspection_cpp.so" to ""\n'}
+[5.889812] (sdt_project) StdoutLine: {'line': b'-- Installing: /home/yusuf/Guzergah_SDT/install/sdt_project/lib/libsdt_project__rosidl_typesupport_cpp.so\n'}
+[5.889974] (sdt_project) StdoutLine: {'line': b'-- Set runtime path of "/home/yusuf/Guzergah_SDT/install/sdt_project/lib/libsdt_project__rosidl_typesupport_cpp.so" to ""\n'}
+[5.890118] (sdt_project) StdoutLine: {'line': b'-- Up-to-date: /home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/environment/pythonpath.sh\n'}
+[5.890269] (sdt_project) StdoutLine: {'line': b'-- Installing: /home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/environment/pythonpath.dsv\n'}
+[5.890415] (sdt_project) StdoutLine: {'line': b'-- Up-to-date: /home/yusuf/Guzergah_SDT/install/sdt_project/local/lib/python3.10/dist-packages/sdt_project-0.0.0-py3.10.egg-info\n'}
+[5.890583] (sdt_project) StdoutLine: {'line': b'-- Installing: /home/yusuf/Guzergah_SDT/install/sdt_project/local/lib/python3.10/dist-packages/sdt_project-0.0.0-py3.10.egg-info/dependency_links.txt\n'}
+[5.890723] (sdt_project) StdoutLine: {'line': b'-- Installing: /home/yusuf/Guzergah_SDT/install/sdt_project/local/lib/python3.10/dist-packages/sdt_project-0.0.0-py3.10.egg-info/SOURCES.txt\n'}
+[5.890885] (sdt_project) StdoutLine: {'line': b'-- Installing: /home/yusuf/Guzergah_SDT/install/sdt_project/local/lib/python3.10/dist-packages/sdt_project-0.0.0-py3.10.egg-info/top_level.txt\n'}
+[5.891047] (sdt_project) StdoutLine: {'line': b'-- Installing: /home/yusuf/Guzergah_SDT/install/sdt_project/local/lib/python3.10/dist-packages/sdt_project-0.0.0-py3.10.egg-info/PKG-INFO\n'}
+[5.891214] (sdt_project) StdoutLine: {'line': b'-- Up-to-date: /home/yusuf/Guzergah_SDT/install/sdt_project/local/lib/python3.10/dist-packages/sdt_project\n'}
+[5.891339] (sdt_project) StdoutLine: {'line': b'-- Installing: /home/yusuf/Guzergah_SDT/install/sdt_project/local/lib/python3.10/dist-packages/sdt_project/sdt_project_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\n'}
+[5.891518] (sdt_project) StdoutLine: {'line': b'-- Installing: /home/yusuf/Guzergah_SDT/install/sdt_project/local/lib/python3.10/dist-packages/sdt_project/_sdt_project_s.ep.rosidl_typesupport_introspection_c.c\n'}
+[5.891658] (sdt_project) StdoutLine: {'line': b'-- Installing: /home/yusuf/Guzergah_SDT/install/sdt_project/local/lib/python3.10/dist-packages/sdt_project/sdt_project_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\n'}
+[5.891804] (sdt_project) StdoutLine: {'line': b'-- Installing: /home/yusuf/Guzergah_SDT/install/sdt_project/local/lib/python3.10/dist-packages/sdt_project/libsdt_project__rosidl_generator_py.so\n'}
+[5.891949] (sdt_project) StdoutLine: {'line': b'-- Installing: /home/yusuf/Guzergah_SDT/install/sdt_project/local/lib/python3.10/dist-packages/sdt_project/sdt_project_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\n'}
+[5.892111] (sdt_project) StdoutLine: {'line': b'-- Up-to-date: /home/yusuf/Guzergah_SDT/install/sdt_project/local/lib/python3.10/dist-packages/sdt_project/msg\n'}
+[5.892249] (sdt_project) StdoutLine: {'line': b'-- Installing: /home/yusuf/Guzergah_SDT/install/sdt_project/local/lib/python3.10/dist-packages/sdt_project/msg/_sensor_values_s.c\n'}
+[5.892399] (sdt_project) StdoutLine: {'line': b'-- Installing: /home/yusuf/Guzergah_SDT/install/sdt_project/local/lib/python3.10/dist-packages/sdt_project/msg/_sensor_values.py\n'}
+[5.892542] (sdt_project) StdoutLine: {'line': b'-- Installing: /home/yusuf/Guzergah_SDT/install/sdt_project/local/lib/python3.10/dist-packages/sdt_project/msg/_motor_values_s.c\n'}
+[5.892689] (sdt_project) StdoutLine: {'line': b'-- Installing: /home/yusuf/Guzergah_SDT/install/sdt_project/local/lib/python3.10/dist-packages/sdt_project/msg/_motor_values.py\n'}
+[5.892821] (sdt_project) StdoutLine: {'line': b'-- Installing: /home/yusuf/Guzergah_SDT/install/sdt_project/local/lib/python3.10/dist-packages/sdt_project/msg/__init__.py\n'}
+[5.892951] (sdt_project) StdoutLine: {'line': b'-- Installing: /home/yusuf/Guzergah_SDT/install/sdt_project/local/lib/python3.10/dist-packages/sdt_project/__init__.py\n'}
+[5.893082] (sdt_project) StdoutLine: {'line': b'-- Installing: /home/yusuf/Guzergah_SDT/install/sdt_project/local/lib/python3.10/dist-packages/sdt_project/_sdt_project_s.ep.rosidl_typesupport_c.c\n'}
+[5.893240] (sdt_project) StdoutLine: {'line': b'-- Installing: /home/yusuf/Guzergah_SDT/install/sdt_project/local/lib/python3.10/dist-packages/sdt_project/_sdt_project_s.ep.rosidl_typesupport_fastrtps_c.c\n'}
+[5.921125] (-) TimerEvent: {}
+[5.941392] (sdt_project) StdoutLine: {'line': b"Listing '/home/yusuf/Guzergah_SDT/install/sdt_project/local/lib/python3.10/dist-packages/sdt_project'...\n"}
+[5.941721] (sdt_project) StdoutLine: {'line': b"Compiling '/home/yusuf/Guzergah_SDT/install/sdt_project/local/lib/python3.10/dist-packages/sdt_project/__init__.py'...\n"}
+[5.941868] (sdt_project) StdoutLine: {'line': b"Listing '/home/yusuf/Guzergah_SDT/install/sdt_project/local/lib/python3.10/dist-packages/sdt_project/msg'...\n"}
+[5.942018] (sdt_project) StdoutLine: {'line': b"Compiling '/home/yusuf/Guzergah_SDT/install/sdt_project/local/lib/python3.10/dist-packages/sdt_project/msg/__init__.py'...\n"}
+[5.942171] (sdt_project) StdoutLine: {'line': b"Compiling '/home/yusuf/Guzergah_SDT/install/sdt_project/local/lib/python3.10/dist-packages/sdt_project/msg/_motor_values.py'...\n"}
+[5.942302] (sdt_project) StdoutLine: {'line': b"Compiling '/home/yusuf/Guzergah_SDT/install/sdt_project/local/lib/python3.10/dist-packages/sdt_project/msg/_sensor_values.py'...\n"}
+[5.948719] (sdt_project) StdoutLine: {'line': b'-- Installing: /home/yusuf/Guzergah_SDT/install/sdt_project/local/lib/python3.10/dist-packages/sdt_project/sdt_project_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\n'}
+[5.949535] (sdt_project) StdoutLine: {'line': b'-- Set runtime path of "/home/yusuf/Guzergah_SDT/install/sdt_project/local/lib/python3.10/dist-packages/sdt_project/sdt_project_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so" to ""\n'}
+[5.949893] (sdt_project) StdoutLine: {'line': b'-- Installing: /home/yusuf/Guzergah_SDT/install/sdt_project/local/lib/python3.10/dist-packages/sdt_project/sdt_project_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\n'}
+[5.950455] (sdt_project) StdoutLine: {'line': b'-- Set runtime path of "/home/yusuf/Guzergah_SDT/install/sdt_project/local/lib/python3.10/dist-packages/sdt_project/sdt_project_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so" to ""\n'}
+[5.950861] (sdt_project) StdoutLine: {'line': b'-- Installing: /home/yusuf/Guzergah_SDT/install/sdt_project/local/lib/python3.10/dist-packages/sdt_project/sdt_project_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\n'}
+[5.951653] (sdt_project) StdoutLine: {'line': b'-- Set runtime path of "/home/yusuf/Guzergah_SDT/install/sdt_project/local/lib/python3.10/dist-packages/sdt_project/sdt_project_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so" to ""\n'}
+[5.951951] (sdt_project) StdoutLine: {'line': b'-- Installing: /home/yusuf/Guzergah_SDT/install/sdt_project/lib/libsdt_project__rosidl_generator_py.so\n'}
+[5.952605] (sdt_project) StdoutLine: {'line': b'-- Set runtime path of "/home/yusuf/Guzergah_SDT/install/sdt_project/lib/libsdt_project__rosidl_generator_py.so" to ""\n'}
+[5.952759] (sdt_project) StdoutLine: {'line': b'-- Installing: /home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/msg/MotorValues.idl\n'}
+[5.952932] (sdt_project) StdoutLine: {'line': b'-- Up-to-date: /home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/msg/SensorValues.idl\n'}
+[5.953134] (sdt_project) StdoutLine: {'line': b'-- Installing: /home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/msg/MotorValues.msg\n'}
+[5.953317] (sdt_project) StdoutLine: {'line': b'-- Up-to-date: /home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/msg/SensorValues.msg\n'}
+[5.953493] (sdt_project) StdoutLine: {'line': b'-- Up-to-date: /home/yusuf/Guzergah_SDT/install/sdt_project/lib/sdt_project/usb_com.py\n'}
+[5.953662] (sdt_project) StdoutLine: {'line': b'-- Up-to-date: /home/yusuf/Guzergah_SDT/install/sdt_project/lib/sdt_project/try.py\n'}
+[5.953790] (sdt_project) StdoutLine: {'line': b'-- Up-to-date: /home/yusuf/Guzergah_SDT/install/sdt_project/lib/sdt_project/TCP_com.py\n'}
+[5.953947] (sdt_project) StdoutLine: {'line': b'-- Installing: /home/yusuf/Guzergah_SDT/install/sdt_project/lib/sdt_project/diff_node.py\n'}
+[5.954099] (sdt_project) StdoutLine: {'line': b'-- Up-to-date: /home/yusuf/Guzergah_SDT/install/sdt_project/lib/sdt_project/line_follower.py\n'}
+[5.954269] (sdt_project) StdoutLine: {'line': b'-- Up-to-date: /home/yusuf/Guzergah_SDT/install/sdt_project/lib/sdt_project/pub_try.py\n'}
+[5.954396] (sdt_project) StdoutLine: {'line': b'-- Up-to-date: /home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/launch/node_start.launch.py\n'}
+[5.954589] (sdt_project) StdoutLine: {'line': b'-- Up-to-date: /home/yusuf/Guzergah_SDT/install/sdt_project/share/ament_index/resource_index/package_run_dependencies/sdt_project\n'}
+[5.954724] (sdt_project) StdoutLine: {'line': b'-- Installing: /home/yusuf/Guzergah_SDT/install/sdt_project/share/ament_index/resource_index/parent_prefix_path/sdt_project\n'}
+[5.954864] (sdt_project) StdoutLine: {'line': b'-- Up-to-date: /home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/environment/ament_prefix_path.sh\n'}
+[5.955062] (sdt_project) StdoutLine: {'line': b'-- Installing: /home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/environment/ament_prefix_path.dsv\n'}
+[5.955186] (sdt_project) StdoutLine: {'line': b'-- Up-to-date: /home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/environment/path.sh\n'}
+[5.955343] (sdt_project) StdoutLine: {'line': b'-- Installing: /home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/environment/path.dsv\n'}
+[5.955502] (sdt_project) StdoutLine: {'line': b'-- Up-to-date: /home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/local_setup.bash\n'}
+[5.955656] (sdt_project) StdoutLine: {'line': b'-- Up-to-date: /home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/local_setup.sh\n'}
+[5.955802] (sdt_project) StdoutLine: {'line': b'-- Up-to-date: /home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/local_setup.zsh\n'}
+[5.955953] (sdt_project) StdoutLine: {'line': b'-- Installing: /home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/local_setup.dsv\n'}
+[5.956135] (sdt_project) StdoutLine: {'line': b'-- Installing: /home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/package.dsv\n'}
+[5.956308] (sdt_project) StdoutLine: {'line': b'-- Up-to-date: /home/yusuf/Guzergah_SDT/install/sdt_project/share/ament_index/resource_index/packages/sdt_project\n'}
+[5.956451] (sdt_project) StdoutLine: {'line': b'-- Up-to-date: /home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/cmake/export_sdt_project__rosidl_generator_cExport.cmake\n'}
+[5.956604] (sdt_project) StdoutLine: {'line': b'-- Up-to-date: /home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/cmake/export_sdt_project__rosidl_generator_cExport-noconfig.cmake\n'}
+[5.956728] (sdt_project) StdoutLine: {'line': b'-- Up-to-date: /home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/cmake/export_sdt_project__rosidl_typesupport_fastrtps_cExport.cmake\n'}
+[5.956889] (sdt_project) StdoutLine: {'line': b'-- Up-to-date: /home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/cmake/export_sdt_project__rosidl_typesupport_fastrtps_cExport-noconfig.cmake\n'}
+[5.957052] (sdt_project) StdoutLine: {'line': b'-- Up-to-date: /home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/cmake/sdt_project__rosidl_typesupport_introspection_cExport.cmake\n'}
+[5.957197] (sdt_project) StdoutLine: {'line': b'-- Up-to-date: /home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/cmake/sdt_project__rosidl_typesupport_introspection_cExport-noconfig.cmake\n'}
+[5.957339] (sdt_project) StdoutLine: {'line': b'-- Up-to-date: /home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/cmake/sdt_project__rosidl_typesupport_cExport.cmake\n'}
+[5.957491] (sdt_project) StdoutLine: {'line': b'-- Up-to-date: /home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/cmake/sdt_project__rosidl_typesupport_cExport-noconfig.cmake\n'}
+[5.957635] (sdt_project) StdoutLine: {'line': b'-- Up-to-date: /home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/cmake/export_sdt_project__rosidl_generator_cppExport.cmake\n'}
+[5.957794] (sdt_project) StdoutLine: {'line': b'-- Up-to-date: /home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/cmake/export_sdt_project__rosidl_typesupport_fastrtps_cppExport.cmake\n'}
+[5.957932] (sdt_project) StdoutLine: {'line': b'-- Up-to-date: /home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/cmake/export_sdt_project__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake\n'}
+[5.958076] (sdt_project) StdoutLine: {'line': b'-- Up-to-date: /home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/cmake/sdt_project__rosidl_typesupport_introspection_cppExport.cmake\n'}
+[5.958229] (sdt_project) StdoutLine: {'line': b'-- Up-to-date: /home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/cmake/sdt_project__rosidl_typesupport_introspection_cppExport-noconfig.cmake\n'}
+[5.958409] (sdt_project) StdoutLine: {'line': b'-- Up-to-date: /home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/cmake/sdt_project__rosidl_typesupport_cppExport.cmake\n'}
+[5.958566] (sdt_project) StdoutLine: {'line': b'-- Up-to-date: /home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/cmake/sdt_project__rosidl_typesupport_cppExport-noconfig.cmake\n'}
+[5.958720] (sdt_project) StdoutLine: {'line': b'-- Up-to-date: /home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/cmake/export_sdt_project__rosidl_generator_pyExport.cmake\n'}
+[5.958899] (sdt_project) StdoutLine: {'line': b'-- Up-to-date: /home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/cmake/export_sdt_project__rosidl_generator_pyExport-noconfig.cmake\n'}
+[5.959065] (sdt_project) StdoutLine: {'line': b'-- Up-to-date: /home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/cmake/rosidl_cmake-extras.cmake\n'}
+[5.959193] (sdt_project) StdoutLine: {'line': b'-- Up-to-date: /home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[5.959321] (sdt_project) StdoutLine: {'line': b'-- Up-to-date: /home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[5.959445] (sdt_project) StdoutLine: {'line': b'-- Up-to-date: /home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/cmake/ament_cmake_export_targets-extras.cmake\n'}
+[5.959572] (sdt_project) StdoutLine: {'line': b'-- Up-to-date: /home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake\n'}
+[5.959696] (sdt_project) StdoutLine: {'line': b'-- Up-to-date: /home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[5.959856] (sdt_project) StdoutLine: {'line': b'-- Up-to-date: /home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake\n'}
+[5.959974] (sdt_project) StdoutLine: {'line': b'-- Up-to-date: /home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/cmake/sdt_projectConfig.cmake\n'}
+[5.960095] (sdt_project) StdoutLine: {'line': b'-- Up-to-date: /home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/cmake/sdt_projectConfig-version.cmake\n'}
+[5.960214] (sdt_project) StdoutLine: {'line': b'-- Up-to-date: /home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/package.xml\n'}
+[5.962964] (sdt_project) CommandEnded: {'returncode': 0}
+[6.021245] (-) TimerEvent: {}
+[6.110606] (sdt_project) JobEnded: {'identifier': 'sdt_project', 'rc': 0}
+[6.112118] (-) EventReactorShutdown: {}

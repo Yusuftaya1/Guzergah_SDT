@@ -1,3 +1,3 @@
-uint16 sag_teker_hiz
-uint16 sol_teker_hiz
-uint16 linear_actuator
+float64 sag_teker_hiz
+float64 sol_teker_hiz
+float64 linear_actuator

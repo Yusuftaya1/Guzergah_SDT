@@ -40,7 +40,7 @@ void MotorValues_fini_function(void * message_memory)
 static const ::rosidl_typesupport_introspection_cpp::MessageMember MotorValues_message_member_array[3] = {
   {
     "sag_teker_hiz",  // name
-    ::rosidl_typesupport_introspection_cpp::ROS_TYPE_UINT16,  // type
+    ::rosidl_typesupport_introspection_cpp::ROS_TYPE_DOUBLE,  // type
     0,  // upper bound of string
     nullptr,  // members of sub message
     false,  // is array
@@ -57,7 +57,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember MotorValues_m
   },
   {
     "sol_teker_hiz",  // name
-    ::rosidl_typesupport_introspection_cpp::ROS_TYPE_UINT16,  // type
+    ::rosidl_typesupport_introspection_cpp::ROS_TYPE_DOUBLE,  // type
     0,  // upper bound of string
     nullptr,  // members of sub message
     false,  // is array
@@ -74,7 +74,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember MotorValues_m
   },
   {
     "linear_actuator",  // name
-    ::rosidl_typesupport_introspection_cpp::ROS_TYPE_UINT16,  // type
+    ::rosidl_typesupport_introspection_cpp::ROS_TYPE_DOUBLE,  // type
     0,  // upper bound of string
     nullptr,  // members of sub message
     false,  // is array

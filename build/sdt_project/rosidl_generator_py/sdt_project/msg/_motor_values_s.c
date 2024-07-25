@@ -55,8 +55,8 @@ bool sdt_project__msg__motor_values__convert_from_py(PyObject * _pymsg, void * _
     if (!field) {
       return false;
     }
-    assert(PyLong_Check(field));
-    ros_message->sag_teker_hiz = (uint16_t)PyLong_AsUnsignedLong(field);
+    assert(PyFloat_Check(field));
+    ros_message->sag_teker_hiz = PyFloat_AS_DOUBLE(field);
     Py_DECREF(field);
   }
   {  // sol_teker_hiz
@@ -64,8 +64,8 @@ bool sdt_project__msg__motor_values__convert_from_py(PyObject * _pymsg, void * _
     if (!field) {
       return false;
     }
-    assert(PyLong_Check(field));
-    ros_message->sol_teker_hiz = (uint16_t)PyLong_AsUnsignedLong(field);
+    assert(PyFloat_Check(field));
+    ros_message->sol_teker_hiz = PyFloat_AS_DOUBLE(field);
     Py_DECREF(field);
   }
   {  // linear_actuator
@@ -73,8 +73,8 @@ bool sdt_project__msg__motor_values__convert_from_py(PyObject * _pymsg, void * _
     if (!field) {
       return false;
     }
-    assert(PyLong_Check(field));
-    ros_message->linear_actuator = (uint16_t)PyLong_AsUnsignedLong(field);
+    assert(PyFloat_Check(field));
+    ros_message->linear_actuator = PyFloat_AS_DOUBLE(field);
     Py_DECREF(field);
   }
 
@@ -101,7 +101,7 @@ PyObject * sdt_project__msg__motor_values__convert_to_py(void * raw_ros_message)
   sdt_project__msg__MotorValues * ros_message = (sdt_project__msg__MotorValues *)raw_ros_message;
   {  // sag_teker_hiz
     PyObject * field = NULL;
-    field = PyLong_FromUnsignedLong(ros_message->sag_teker_hiz);
+    field = PyFloat_FromDouble(ros_message->sag_teker_hiz);
     {
       int rc = PyObject_SetAttrString(_pymessage, "sag_teker_hiz", field);
       Py_DECREF(field);
@@ -112,7 +112,7 @@ PyObject * sdt_project__msg__motor_values__convert_to_py(void * raw_ros_message)
   }
   {  // sol_teker_hiz
     PyObject * field = NULL;
-    field = PyLong_FromUnsignedLong(ros_message->sol_teker_hiz);
+    field = PyFloat_FromDouble(ros_message->sol_teker_hiz);
     {
       int rc = PyObject_SetAttrString(_pymessage, "sol_teker_hiz", field);
       Py_DECREF(field);
@@ -123,7 +123,7 @@ PyObject * sdt_project__msg__motor_values__convert_to_py(void * raw_ros_message)
   }
   {  // linear_actuator
     PyObject * field = NULL;
-    field = PyLong_FromUnsignedLong(ros_message->linear_actuator);
+    field = PyFloat_FromDouble(ros_message->linear_actuator);
     {
       int rc = PyObject_SetAttrString(_pymessage, "linear_actuator", field);
       Py_DECREF(field);

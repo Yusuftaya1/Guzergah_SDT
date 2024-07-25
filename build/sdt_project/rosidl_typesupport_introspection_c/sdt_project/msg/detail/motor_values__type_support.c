@@ -34,7 +34,7 @@ void sdt_project__msg__MotorValues__rosidl_typesupport_introspection_c__MotorVal
 static rosidl_typesupport_introspection_c__MessageMember sdt_project__msg__MotorValues__rosidl_typesupport_introspection_c__MotorValues_message_member_array[3] = {
   {
     "sag_teker_hiz",  // name
-    rosidl_typesupport_introspection_c__ROS_TYPE_UINT16,  // type
+    rosidl_typesupport_introspection_c__ROS_TYPE_DOUBLE,  // type
     0,  // upper bound of string
     NULL,  // members of sub message
     false,  // is array
@@ -51,7 +51,7 @@ static rosidl_typesupport_introspection_c__MessageMember sdt_project__msg__Motor
   },
   {
     "sol_teker_hiz",  // name
-    rosidl_typesupport_introspection_c__ROS_TYPE_UINT16,  // type
+    rosidl_typesupport_introspection_c__ROS_TYPE_DOUBLE,  // type
     0,  // upper bound of string
     NULL,  // members of sub message
     false,  // is array
@@ -68,7 +68,7 @@ static rosidl_typesupport_introspection_c__MessageMember sdt_project__msg__Motor
   },
   {
     "linear_actuator",  // name
-    rosidl_typesupport_introspection_c__ROS_TYPE_UINT16,  // type
+    rosidl_typesupport_introspection_c__ROS_TYPE_DOUBLE,  // type
     0,  // upper bound of string
     NULL,  // members of sub message
     false,  // is array

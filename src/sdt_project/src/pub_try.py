@@ -13,7 +13,7 @@ class BoolPublisher(Node):
 
     def timer_callback(self):
         msg = Bool()
-        self.bool_value = not self.bool_value  # Toggle the boolean value
+        self.bool_value = not self.bool_value 
         msg.data = self.bool_value
         self.publisher_.publish(msg)
         self.get_logger().info(f'Publishing: {msg.data}')

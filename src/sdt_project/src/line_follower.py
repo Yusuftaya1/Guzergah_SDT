@@ -11,35 +11,30 @@ import numpy as np
 import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import Image
+from std_msgs.msg import Float64, Bool
 from cv_bridge import CvBridge
-import std_msgs.msg
-
 
 class CizgiTakip(Node):
     def __init__(self):   # ros2 düğümünü baslatır
         super().__init__('serit_takip_node')
         print("waiting for navigate_ready")
         #self.sub_mode = self.create_subscription(std_msgs.msg.Int8, '/AGV/main_mode_topic', self.mode_callback, 10)
-        self.sub_image = self.create_subscription(Image, 'camera/image_raw', self.kamera_callback, 10)
-        self.pub_angle = self.create_publisher(std_msgs.msg.Float64, '/AGV/angle', 10)
-        self.pub_line = self.create_publisher(std_msgs.msg.Bool, '/AGV/line', 10)  # abonelik kalitesi 10
+        self.sub_image = self.create_subscription(Image, 'image_raw', self.kamera_callback, 10)
+        self.pub_angle = self.create_publisher(Float64, '/AGV/angle', 10)
+        self.pub_line = self.create_publisher(Bool, '/AGV/line', 10)
+        self.cizgi_mesaji = Bool()
+        self.aci_mesaji = Float64()
         self.bridge = CvBridge() # opencv ıle ros dugumlerı arasında ıletısım kurmak ıcın
         self.bias = 1
 
         # PID parametreleri
-        self.kp = 0.5   # katsayılar kp ki kd
-        self.ki = 0.0    # target angle hedef acısı
-        self.kd = 0.1     # kamera callbackden aldığı veriye göre output pub_angle da yayınladı
-        self.target_angle = 0.0    #target angele ı hedeflenen acıya göre ayarlanacak
+        self.kp = 0.5               # katsayılar kp ki kd
+        self.ki = 0.0               # target angle hedef acısı
+        self.kd = 0.1               # kamera callbackden aldığı veriye göre output pub_angle da yayınladı
+        self.target_angle = 0.0     # target angele ı hedeflenen acıya göre ayarlanacak
         self.error = 0.0            # en son entegre olunmus hali
         self.prev_error = 0.0
         self.integral = 0.0
-
-    # def mode_callback(self, msg):
-    #     if msg.data == 1:
-    #         self.go_forward = True
-    #     else:
-    #         self.go_forward = False
 
     def kamera_callback(self, msg):
         img = self.bridge.imgmsg_to_cv2(msg, "bgr8")
@@ -68,22 +63,24 @@ class CizgiTakip(Node):
             else:
                 self.cizgi_mesaji.data = False
             self.pub_line.publish(self.cizgi_mesaji)
+            #self.get_logger().info(f'Publishing: {self.cizgi_mesaji}')
 
         if min_max_cx == float('inf') or min_max_cx == -float('inf'):
             min_max_cx = roi.shape[1] / 2
 
-        current_angle = 1.0 - 2.0 * min_max_cx / roi.shape[1]
+        self.aci_mesaji.data = 1.0 - 2.0 * min_max_cx / roi.shape[1]
 
-        # PID kontrolü
-        self.error = self.target_angle - current_angle
-        self.integral += self.error
-        derivative = self.error - self.prev_error
-        output = self.kp * self.error + self.ki * self.integral + self.kd * derivative
+        # # PID kontrolü
+        # self.error = self.target_angle - self.aci_mesaji.data
+        # self.integral += self.error
+        # derivative = self.error - self.prev_error
+        # output = self.kp * self.error + self.ki * self.integral + self.kd * derivative
 
-        self.prev_error = self.error
+        # self.prev_error = self.error
 
-        if self.go_forward:
-            self.pub_angle.publish(output)
+        self.pub_angle.publish(self.aci_mesaji)
+        self.get_logger().info(f'Publishing: {self.aci_mesaji.data}')
+        #self.pub_angle.publish(current_angle)
 
         cv2.imshow("Dilate", dilate_img)
         cv2.waitKey(1)

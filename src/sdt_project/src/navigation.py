@@ -17,5 +17,6 @@ motor_values NEREDEN ALINACAK ONU BELİRLER
 2 == turn
 3 == escape_block
 mode_status node
+
 """
 

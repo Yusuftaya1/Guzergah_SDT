@@ -38,9 +38,9 @@ struct MotorValues_
     if (rosidl_runtime_cpp::MessageInitialization::ALL == _init ||
       rosidl_runtime_cpp::MessageInitialization::ZERO == _init)
     {
-      this->sag_teker_hiz = 0;
-      this->sol_teker_hiz = 0;
-      this->linear_actuator = 0;
+      this->sag_teker_hiz = 0.0;
+      this->sol_teker_hiz = 0.0;
+      this->linear_actuator = 0.0;
     }
   }
 
@@ -50,38 +50,38 @@ struct MotorValues_
     if (rosidl_runtime_cpp::MessageInitialization::ALL == _init ||
       rosidl_runtime_cpp::MessageInitialization::ZERO == _init)
     {
-      this->sag_teker_hiz = 0;
-      this->sol_teker_hiz = 0;
-      this->linear_actuator = 0;
+      this->sag_teker_hiz = 0.0;
+      this->sol_teker_hiz = 0.0;
+      this->linear_actuator = 0.0;
     }
   }
 
   // field types and members
   using _sag_teker_hiz_type =
-    uint16_t;
+    double;
   _sag_teker_hiz_type sag_teker_hiz;
   using _sol_teker_hiz_type =
-    uint16_t;
+    double;
   _sol_teker_hiz_type sol_teker_hiz;
   using _linear_actuator_type =
-    uint16_t;
+    double;
   _linear_actuator_type linear_actuator;
 
   // setters for named parameter idiom
   Type & set__sag_teker_hiz(
-    const uint16_t & _arg)
+    const double & _arg)
   {
     this->sag_teker_hiz = _arg;
     return *this;
   }
   Type & set__sol_teker_hiz(
-    const uint16_t & _arg)
+    const double & _arg)
   {
     this->sol_teker_hiz = _arg;
     return *this;
   }
   Type & set__linear_actuator(
-    const uint16_t & _arg)
+    const double & _arg)
   {
     this->linear_actuator = _arg;
     return *this;

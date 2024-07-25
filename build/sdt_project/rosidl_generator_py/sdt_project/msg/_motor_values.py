@@ -7,6 +7,8 @@
 
 import builtins  # noqa: E402, I100
 
+import math  # noqa: E402, I100
+
 import rosidl_parser.definition  # noqa: E402, I100
 
 
@@ -61,24 +63,24 @@ class MotorValues(metaclass=Metaclass_MotorValues):
     ]
 
     _fields_and_field_types = {
-        'sag_teker_hiz': 'uint16',
-        'sol_teker_hiz': 'uint16',
-        'linear_actuator': 'uint16',
+        'sag_teker_hiz': 'double',
+        'sol_teker_hiz': 'double',
+        'linear_actuator': 'double',
     }
 
     SLOT_TYPES = (
-        rosidl_parser.definition.BasicType('uint16'),  # noqa: E501
-        rosidl_parser.definition.BasicType('uint16'),  # noqa: E501
-        rosidl_parser.definition.BasicType('uint16'),  # noqa: E501
+        rosidl_parser.definition.BasicType('double'),  # noqa: E501
+        rosidl_parser.definition.BasicType('double'),  # noqa: E501
+        rosidl_parser.definition.BasicType('double'),  # noqa: E501
     )
 
     def __init__(self, **kwargs):
         assert all('_' + key in self.__slots__ for key in kwargs.keys()), \
             'Invalid arguments passed to constructor: %s' % \
             ', '.join(sorted(k for k in kwargs.keys() if '_' + k not in self.__slots__))
-        self.sag_teker_hiz = kwargs.get('sag_teker_hiz', int())
-        self.sol_teker_hiz = kwargs.get('sol_teker_hiz', int())
-        self.linear_actuator = kwargs.get('linear_actuator', int())
+        self.sag_teker_hiz = kwargs.get('sag_teker_hiz', float())
+        self.sol_teker_hiz = kwargs.get('sol_teker_hiz', float())
+        self.linear_actuator = kwargs.get('linear_actuator', float())
 
     def __repr__(self):
         typename = self.__class__.__module__.split('.')
@@ -131,10 +133,10 @@ class MotorValues(metaclass=Metaclass_MotorValues):
     def sag_teker_hiz(self, value):
         if __debug__:
             assert \
-                isinstance(value, int), \
-                "The 'sag_teker_hiz' field must be of type 'int'"
-            assert value >= 0 and value < 65536, \
-                "The 'sag_teker_hiz' field must be an unsigned integer in [0, 65535]"
+                isinstance(value, float), \
+                "The 'sag_teker_hiz' field must be of type 'float'"
+            assert not (value < -1.7976931348623157e+308 or value > 1.7976931348623157e+308) or math.isinf(value), \
+                "The 'sag_teker_hiz' field must be a double in [-1.7976931348623157e+308, 1.7976931348623157e+308]"
         self._sag_teker_hiz = value
 
     @builtins.property
@@ -146,10 +148,10 @@ class MotorValues(metaclass=Metaclass_MotorValues):
     def sol_teker_hiz(self, value):
         if __debug__:
             assert \
-                isinstance(value, int), \
-                "The 'sol_teker_hiz' field must be of type 'int'"
-            assert value >= 0 and value < 65536, \
-                "The 'sol_teker_hiz' field must be an unsigned integer in [0, 65535]"
+                isinstance(value, float), \
+                "The 'sol_teker_hiz' field must be of type 'float'"
+            assert not (value < -1.7976931348623157e+308 or value > 1.7976931348623157e+308) or math.isinf(value), \
+                "The 'sol_teker_hiz' field must be a double in [-1.7976931348623157e+308, 1.7976931348623157e+308]"
         self._sol_teker_hiz = value
 
     @builtins.property
@@ -161,8 +163,8 @@ class MotorValues(metaclass=Metaclass_MotorValues):
     def linear_actuator(self, value):
         if __debug__:
             assert \
-                isinstance(value, int), \
-                "The 'linear_actuator' field must be of type 'int'"
-            assert value >= 0 and value < 65536, \
-                "The 'linear_actuator' field must be an unsigned integer in [0, 65535]"
+                isinstance(value, float), \
+                "The 'linear_actuator' field must be of type 'float'"
+            assert not (value < -1.7976931348623157e+308 or value > 1.7976931348623157e+308) or math.isinf(value), \
+                "The 'linear_actuator' field must be a double in [-1.7976931348623157e+308, 1.7976931348623157e+308]"
         self._linear_actuator = value

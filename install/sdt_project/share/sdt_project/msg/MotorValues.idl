@@ -6,11 +6,11 @@
 module sdt_project {
   module msg {
     struct MotorValues {
-      uint16 sag_teker_hiz;
+      double sag_teker_hiz;
 
-      uint16 sol_teker_hiz;
+      double sol_teker_hiz;
 
-      uint16 linear_actuator;
+      double linear_actuator;
     };
   };
 };

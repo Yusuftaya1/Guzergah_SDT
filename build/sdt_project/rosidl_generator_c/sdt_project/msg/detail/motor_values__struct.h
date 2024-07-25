@@ -20,9 +20,9 @@ extern "C"
 /// Struct defined in msg/MotorValues in the package sdt_project.
 typedef struct sdt_project__msg__MotorValues
 {
-  uint16_t sag_teker_hiz;
-  uint16_t sol_teker_hiz;
-  uint16_t linear_actuator;
+  double sag_teker_hiz;
+  double sol_teker_hiz;
+  double linear_actuator;
 } sdt_project__msg__MotorValues;
 
 // Struct for a sequence of sdt_project__msg__MotorValues.
