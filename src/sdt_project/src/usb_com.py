@@ -3,7 +3,7 @@
 USB HABERLEŞME SAĞLANMASI;
 
 TEKER HIZLARI "diff_node" içerisinde hesaplanır ve "motor_values_node"a "motor_values.msg"
-MESAJI GÖNDERİLİR "motor_values_node" dan ALINAN VERİLER SERİ PORTA YAZILIR
+MESAJI GÖNDERİLİR "motor_values" dan ALINAN VERİLER SERİ PORTA YAZILIR
 
 SERİ PORTTAN ALINAN "SensorValues.msg" MESAJI "Interface_node" a gönderilir
 """
