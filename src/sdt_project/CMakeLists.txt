@@ -37,7 +37,7 @@ install(PROGRAMS
   DESTINATION lib/${PROJECT_NAME}
 )
 install(PROGRAMS
-  src/subtry.py
+  src/manuel_kumanda.py
   DESTINATION lib/${PROJECT_NAME}
 )
 ###############  LAUNCH  ###############

@@ -1,0 +1,6 @@
+[31mCMake Error at cmake_install.cmake:391 (file):
+  file INSTALL cannot find
+  "/home/yusuf/Guzergah_SDT/src/sdt_project/src/subtry.py": No such file or
+  directory.
+
+[0m

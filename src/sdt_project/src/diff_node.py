@@ -17,8 +17,7 @@ class MotorController(Node):
         super().__init__('motor_controller')
         self.wheel_distance = 0.35
         self.wheel_radius = 0.1
-        self.coef = 0.02    
-        self.motor_values_msg = MotorValues()
+        self.coef = 0.02 
         self.angle_sub = self.create_subscription(
             Float64,
             '/AGV/angle',
@@ -26,7 +25,8 @@ class MotorController(Node):
             10
         )
         self.motor_values_pub = self.create_publisher(MotorValues, '/AGV/motor_values', 10)
-        
+        self.motor_values_msg = MotorValues()
+
 
     def angle_callback(self, msg):
         angle = msg.data

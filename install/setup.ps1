@@ -23,8 +23,8 @@ function _colcon_prefix_chain_powershell_source_script {
 
 # source chained prefixes
 _colcon_prefix_chain_powershell_source_script "/opt/ros/humble\local_setup.ps1"
-_colcon_prefix_chain_powershell_source_script "/home/yusuf/usb_cam/install\local_setup.ps1"
 _colcon_prefix_chain_powershell_source_script "/home/yusuf/Guzergah_TIKA/install\local_setup.ps1"
+_colcon_prefix_chain_powershell_source_script "/home/yusuf/usb_cam/install\local_setup.ps1"
 _colcon_prefix_chain_powershell_source_script "/home/yusuf/turtlebot3_ws/install\local_setup.ps1"
 _colcon_prefix_chain_powershell_source_script "/home/yusuf/tcp/install\local_setup.ps1"
 

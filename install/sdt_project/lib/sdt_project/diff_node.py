@@ -17,8 +17,7 @@ class MotorController(Node):
         super().__init__('motor_controller')
         self.wheel_distance = 0.35
         self.wheel_radius = 0.1
-        self.coef = 0.02    
-        self.motor_values_msg = MotorValues()
+        self.coef = 0.02 
         self.angle_sub = self.create_subscription(
             Float64,
             '/AGV/angle',
@@ -26,7 +25,8 @@ class MotorController(Node):
             10
         )
         self.motor_values_pub = self.create_publisher(MotorValues, '/AGV/motor_values', 10)
-        
+        self.motor_values_msg = MotorValues()
+
 
     def angle_callback(self, msg):
         angle = msg.data
@@ -42,12 +42,12 @@ class MotorController(Node):
         hiz_sol_angular = hiz_sol / (2 * 3.14159265 * self.wheel_radius)
         hiz_sag_angular = hiz_sag / (2 * 3.14159265 * self.wheel_radius)
 
-        self.motor_values_msg.sag_teker_hiz = hiz_sag_angular
-        self.motor_values_msg.sol_teker_hiz = hiz_sol_angular
+        self.motor_values_msg.sag_teker_hiz = 2000*hiz_sag_angular
+        self.motor_values_msg.sol_teker_hiz = 2000*hiz_sol_angular
         #motor_values_msg.linear_actuator = False
 
-        self.get_logger().info(f'sol_teker_hiz: {2000*(self.motor_values_msg.sol_teker_hiz)}')
-        self.get_logger().info(f'sag_teker_hiz: {2000*(self.motor_values_msg.sag_teker_hiz)}')
+        self.get_logger().info(f'sol_teker_hiz: {(self.motor_values_msg.sol_teker_hiz)}')
+        self.get_logger().info(f'sag_teker_hiz: {(self.motor_values_msg.sag_teker_hiz)}')
 
         self.motor_values_pub.publish(self.motor_values_msg)
 
