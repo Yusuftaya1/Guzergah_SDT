@@ -25,10 +25,6 @@ install(PROGRAMS
   DESTINATION lib/${PROJECT_NAME}
 )
 install(PROGRAMS
-  src/try.py
-  DESTINATION lib/${PROJECT_NAME}
-)
-install(PROGRAMS
   src/TCP_com.py
   DESTINATION lib/${PROJECT_NAME}
 )
@@ -41,10 +37,10 @@ install(PROGRAMS
   DESTINATION lib/${PROJECT_NAME}
 )
 install(PROGRAMS
-  src/pub_try.py
+  src/subtry.py
   DESTINATION lib/${PROJECT_NAME}
 )
-################  LAUNCH  ###############
+###############  LAUNCH  ###############
 install(FILES
   launch/node_start.launch.py
   DESTINATION share/${PROJECT_NAME}/launch

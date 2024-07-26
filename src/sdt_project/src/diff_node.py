@@ -18,15 +18,15 @@ class MotorController(Node):
         self.wheel_distance = 0.35
         self.wheel_radius = 0.1
         self.coef = 0.02    
-        
+        self.motor_values_msg = MotorValues()
         self.angle_sub = self.create_subscription(
             Float64,
             '/AGV/angle',
             self.angle_callback,
             10
         )
-        #self.motor_values_pub = self.create_publisher(MotorValues, '/AGV/motor_values_node', 10)
-        self.motor_values_msg = MotorValues()
+        self.motor_values_pub = self.create_publisher(MotorValues, '/AGV/motor_values', 10)
+        
 
     def angle_callback(self, msg):
         angle = msg.data
@@ -49,7 +49,7 @@ class MotorController(Node):
         self.get_logger().info(f'sol_teker_hiz: {2000*(self.motor_values_msg.sol_teker_hiz)}')
         self.get_logger().info(f'sag_teker_hiz: {2000*(self.motor_values_msg.sag_teker_hiz)}')
 
-        #self.motor_values_pub.publish(motor_values_msg)
+        self.motor_values_pub.publish(self.motor_values_msg)
 
 def main(args=None):
     rclpy.init(args=args)
