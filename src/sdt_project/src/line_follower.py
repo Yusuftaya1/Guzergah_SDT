@@ -68,21 +68,21 @@ class CizgiTakip(Node):
         if min_max_cx == float('inf') or min_max_cx == -float('inf'):
             min_max_cx = roi.shape[1] / 2
 
-        self.aci_mesaji.data = 1.0 - 2.0 * min_max_cx / roi.shape[1]
+        aci_mesaji = 1.0 - 2.0 * min_max_cx / roi.shape[1]
 
-        # # PID kontrolü
-        # self.error = self.target_angle - self.aci_mesaji.data
-        # self.integral += self.error
-        # derivative = self.error - self.prev_error
-        # output = self.kp * self.error + self.ki * self.integral + self.kd * derivative
+        # PID kontrolü
+        self.error = self.target_angle - aci_mesaji
+        self.integral += self.error
+        derivative = self.error - self.prev_error
+        self.aci_mesaji.data = self.kp * self.error + self.ki * self.integral + self.kd * derivative
 
-        # self.prev_error = self.error
+        self.prev_error = self.error
 
         self.pub_angle.publish(self.aci_mesaji)
         self.get_logger().info(f'Publishing: {self.aci_mesaji.data}')
         #self.pub_angle.publish(current_angle)
 
-        cv2.imshow("Dilate", dilate_img)
+        #cv2.imshow("Dilate", dilate_img)
         cv2.waitKey(1)
 
 
