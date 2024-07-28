@@ -28,9 +28,9 @@ class CizgiTakip(Node):
         self.bias = 1
 
         # PID parametreleri
-        self.kp = 0.5               # katsayılar kp ki kd
+        self.kp = 0.3              # katsayılar kp ki kd
         self.ki = 0.0               # target angle hedef acısı
-        self.kd = 0.1               # kamera callbackden aldığı veriye göre output pub_angle da yayınladı
+        self.kd = 0.2              # kamera callbackden aldığı veriye göre output pub_angle da yayınladı
         self.target_angle = 0.0     # target angele ı hedeflenen acıya göre ayarlanacak
         self.error = 0.0            # en son entegre olunmus hali
         self.prev_error = 0.0
@@ -38,7 +38,7 @@ class CizgiTakip(Node):
 
     def kamera_callback(self, msg):
         img = self.bridge.imgmsg_to_cv2(msg, "bgr8")
-
+        
         roi = img[2 * img.shape[0] // 3 + 10:img.shape[0], 10:img.shape[1] - 20]
         mono = cv2.cvtColor(roi, cv2.COLOR_BGR2GRAY)
         blur = cv2.GaussianBlur(mono, (9, 9), 2, 2)
@@ -68,13 +68,13 @@ class CizgiTakip(Node):
         if min_max_cx == float('inf') or min_max_cx == -float('inf'):
             min_max_cx = roi.shape[1] / 2
 
-        aci_mesaji = 1.0 - 2.0 * min_max_cx / roi.shape[1]
+        aci_mesajii = 1.0 - 2.0 * min_max_cx / roi.shape[1]
 
         # PID kontrolü
-        self.error = self.target_angle - aci_mesaji
+        self.error = self.target_angle - aci_mesajii
         self.integral += self.error
         derivative = self.error - self.prev_error
-        self.aci_mesaji.data = self.kp * self.error + self.ki * self.integral + self.kd * derivative
+        self.aci_mesaji.data  = self.kp * self.error + self.ki * self.integral + self.kd * derivative
 
         self.prev_error = self.error
 
@@ -82,7 +82,7 @@ class CizgiTakip(Node):
         self.get_logger().info(f'Publishing: {self.aci_mesaji.data}')
         #self.pub_angle.publish(current_angle)
 
-        #cv2.imshow("Dilate", dilate_img)
+        cv2.imshow("Dilate", dilate_img)
         cv2.waitKey(1)
 
 
