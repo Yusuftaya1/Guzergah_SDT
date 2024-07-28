@@ -42,12 +42,12 @@ class MotorController(Node):
         hiz_sol_angular = hiz_sol / (2 * 3.14159265 * self.wheel_radius)
         hiz_sag_angular = hiz_sag / (2 * 3.14159265 * self.wheel_radius)
 
-        self.motor_values_msg.sag_teker_hiz = 2000*hiz_sag_angular
-        self.motor_values_msg.sol_teker_hiz = 2000*hiz_sol_angular
+        self.motor_values_msg.sag_teker_hiz = 2000*hiz_sol_angular
+        self.motor_values_msg.sol_teker_hiz = 2000*hiz_sag_angular
         #motor_values_msg.linear_actuator = False
 
-        self.get_logger().info(f'sol_teker_hiz: {(self.motor_values_msg.sol_teker_hiz)}')
-        self.get_logger().info(f'sag_teker_hiz: {(self.motor_values_msg.sag_teker_hiz)}')
+        self.get_logger().info(f'sol_teker_hiz: {(self.motor_values_msg.sag_teker_hiz)}')
+        self.get_logger().info(f'sag_teker_hiz: {(self.motor_values_msg.sol_teker_hiz)}')
 
         self.motor_values_pub.publish(self.motor_values_msg)
 
