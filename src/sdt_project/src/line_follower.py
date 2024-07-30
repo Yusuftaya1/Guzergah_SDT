@@ -39,6 +39,7 @@ class CizgiTakip(Node):
         dilate_img = cv2.dilate(erode_img, dilate, iterations=1)
         contours, _ = cv2.findContours(dilate_img, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
         min_max_cx = -float('inf') if self.bias > 0 else float('inf')
+
         for cont in contours:
             mu = cv2.moments(cont, False)
             if mu['m00'] > 100.0:
@@ -59,7 +60,6 @@ class CizgiTakip(Node):
             min_max_cx = roi.shape[1] / 2
 
         self.aci_mesaji.data = 1.0 - 2.0 * min_max_cx / roi.shape[1]
-
         self.pub_angle.publish(self.aci_mesaji)
         self.get_logger().info(f'Publishing: {self.aci_mesaji.data}')
         #self.pub_angle.publish(current_angle)
