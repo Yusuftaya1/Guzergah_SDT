@@ -27,8 +27,8 @@ class DifferentialDriveController(Node):
         self.send_wheel_velocities(right_wheel_velocity, left_wheel_velocity,linear_actuator)
 
     def send_wheel_velocities(self, right_wheel_velocity, left_wheel_velocity,linear_actuator):
-        right_wheel_velocity = max(min(right_wheel_velocity, 600), -600)
-        left_wheel_velocity = max(min(left_wheel_velocity, 600), -600)
+        right_wheel_velocity = max(min(right_wheel_velocity, 1000), -1000)
+        left_wheel_velocity = max(min(left_wheel_velocity, 1000), -1000)
         linear_actuator = max(min(linear_actuator, 600), -600)
 
         right_wheel_velocity_str = f'{int(right_wheel_velocity):05}'

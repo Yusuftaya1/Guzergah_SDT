@@ -21,20 +21,10 @@ class CizgiTakip(Node):
         #self.sub_mode = self.create_subscription(std_msgs.msg.Int8, '/AGV/main_mode_topic', self.mode_callback, 10)
         self.sub_image = self.create_subscription(Image, 'image_raw', self.kamera_callback, 10)
         self.pub_angle = self.create_publisher(Float64, '/AGV/angle', 10)
-        self.pub_line = self.create_publisher(Bool, '/AGV/line', 10)
         self.cizgi_mesaji = Bool()
         self.aci_mesaji = Float64()
-        self.bridge = CvBridge() # opencv ıle ros dugumlerı arasında ıletısım kurmak ıcın
+        self.bridge = CvBridge()
         self.bias = 1
-
-        # PID parametreleri
-        self.kp = 0.3              # katsayılar kp ki kd
-        self.ki = 0.0               # target angle hedef acısı
-        self.kd = 0.2              # kamera callbackden aldığı veriye göre output pub_angle da yayınladı
-        self.target_angle = 0.0     # target angele ı hedeflenen acıya göre ayarlanacak
-        self.error = 0.0            # en son entegre olunmus hali
-        self.prev_error = 0.0
-        self.integral = 0.0
 
     def kamera_callback(self, msg):
         img = self.bridge.imgmsg_to_cv2(msg, "bgr8")
@@ -48,6 +38,7 @@ class CizgiTakip(Node):
         dilate_img = cv2.dilate(erode_img, dilate, iterations=1)
         contours, _ = cv2.findContours(dilate_img, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
         min_max_cx = -float('inf') if self.bias > 0 else float('inf')
+
         for cont in contours:
             mu = cv2.moments(cont, False)
             if mu['m00'] > 100.0:
@@ -58,29 +49,17 @@ class CizgiTakip(Node):
                     min_max_cx = cx
                 elif self.bias < 0 and min_max_cx > cx:
                     min_max_cx = cx
-                self.cizgi_mesaji.data = True
             else:
                 self.cizgi_mesaji.data = False
-            self.pub_line.publish(self.cizgi_mesaji)
-            #self.get_logger().info(f'Publishing: {self.cizgi_mesaji}')
+                self.get_logger().info("Cizgi mesaji: ", self.cizgi_mesaji)
 
         if min_max_cx == float('inf') or min_max_cx == -float('inf'):
             min_max_cx = roi.shape[1] / 2
 
-        aci_mesajii = 1.0 - 2.0 * min_max_cx / roi.shape[1]
-
-        # PID kontrolü
-        self.error = self.target_angle - aci_mesajii
-        self.integral += self.error
-        derivative = self.error - self.prev_error
-        self.aci_mesaji.data  = self.kp * self.error + self.ki * self.integral + self.kd * derivative
-
-        self.prev_error = self.error
-
+        self.aci_mesaji.data = 1.0 - 2.0 * min_max_cx / roi.shape[1]
         self.pub_angle.publish(self.aci_mesaji)
         self.get_logger().info(f'Publishing: {self.aci_mesaji.data}')
-        #self.pub_angle.publish(current_angle)
-
+        
         cv2.imshow("Dilate", dilate_img)
         cv2.waitKey(1)
 
