@@ -392,6 +392,14 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/sdt_project" TYPE PROGRAM FILES "/home/yusuf/Guzergah_SDT/src/sdt_project/src/sensor_deneme.py")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/sdt_project" TYPE PROGRAM FILES "/home/yusuf/Guzergah_SDT/src/sdt_project/src/line_try.py")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/sdt_project/launch" TYPE FILE FILES "/home/yusuf/Guzergah_SDT/src/sdt_project/launch/node_start.launch.py")
 endif()
 

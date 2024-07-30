@@ -38,7 +38,6 @@ class CizgiTakip(Node):
 
     def kamera_callback(self, msg):
         img = self.bridge.imgmsg_to_cv2(msg, "bgr8")
-        
         roi = img[2 * img.shape[0] // 3 + 10:img.shape[0], 10:img.shape[1] - 20]
         mono = cv2.cvtColor(roi, cv2.COLOR_BGR2GRAY)
         blur = cv2.GaussianBlur(mono, (9, 9), 2, 2)

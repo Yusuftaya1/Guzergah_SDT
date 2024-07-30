@@ -40,6 +40,14 @@ install(PROGRAMS
   src/manuel_kumanda.py
   DESTINATION lib/${PROJECT_NAME}
 )
+install(PROGRAMS
+  src/sensor_deneme.py
+  DESTINATION lib/${PROJECT_NAME}
+)
+install(PROGRAMS
+  src/line_try.py
+  DESTINATION lib/${PROJECT_NAME}
+)
 ###############  LAUNCH  ###############
 install(FILES
   launch/node_start.launch.py
