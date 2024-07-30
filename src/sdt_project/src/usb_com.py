@@ -31,10 +31,6 @@ class USBComNode(Node):
         self.send_wheel_velocities(right_wheel_velocity, left_wheel_velocity, linear_actuator)
 
     def send_wheel_velocities(self, right_wheel_velocity, left_wheel_velocity, linear_actuator):
-        right_wheel_velocity = max(min(right_wheel_velocity, 600), -600)
-        left_wheel_velocity = max(min(left_wheel_velocity, 600), -600)
-        linear_actuator = max(min(linear_actuator, 250), -250)
-
         right_wheel_velocity_str = f'{int(right_wheel_velocity):05}'
         left_wheel_velocity_str = f'{int(left_wheel_velocity):05}'
         linear_actuator_str = f'{int(linear_actuator):05}'
