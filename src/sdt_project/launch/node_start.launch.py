@@ -17,14 +17,13 @@ def generate_launch_description():
             name='diff_node',
             output='screen'
         ),
-        
         Node(
             package='sdt_project',
             executable='qr_detect.py',
             name='usb_node',
             output='screen'
         ),
-         Node(
+        Node(
             package='sdt_project',
             executable='usb_com.py',
             name='qr_status',
