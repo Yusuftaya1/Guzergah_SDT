@@ -72,13 +72,22 @@ class CizgiTakip(Node):
         # PID kontrolü
         self.error = self.target_angle - aci_mesajii
         self.integral += self.error
+        self.integral = np.clip(self.integral, -10, 10)  # Sınırlama
         derivative = self.error - self.prev_error
         self.aci_mesaji.data = self.kp * self.error + self.ki * self.integral + self.kd * derivative
         self.prev_error = self.error
-
+        
         self.pub_angle.publish(self.aci_mesaji)
         self.get_logger().info(f'Publishing: {self.aci_mesaji.data}')
 
+        #################  SİSTEM ANEWLİZ ###################################
+        self.get_logger().info(f'min_cx: {min_cx}')
+        self.get_logger().info(f'cx: {cx}')
+        self.get_logger().info(f'center_x: {center_x}')
+        self.get_logger().info(f'self.error: {self.error}')
+        self.get_logger().info(f'integral: {self.integral}')
+        ######################################################################
+        
         #cv2.imshow("Dilate", dilate_img)
         #cv2.waitKey(1)
 

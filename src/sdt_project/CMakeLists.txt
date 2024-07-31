@@ -37,15 +37,19 @@ install(PROGRAMS
   DESTINATION lib/${PROJECT_NAME}
 )
 install(PROGRAMS
+  src/pid_line_follow.py
+  DESTINATION lib/${PROJECT_NAME}
+)
+install(PROGRAMS
   src/manuel_kumanda.py
   DESTINATION lib/${PROJECT_NAME}
 )
 install(PROGRAMS
-  src/sensor_deneme.py
+  src/navigation.py
   DESTINATION lib/${PROJECT_NAME}
 )
 install(PROGRAMS
-  src/line_try.py
+  src/qr_detect.py
   DESTINATION lib/${PROJECT_NAME}
 )
 ###############  LAUNCH  ###############

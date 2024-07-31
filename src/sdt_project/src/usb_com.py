@@ -37,9 +37,9 @@ class USBComNode(Node):
         
         command = f'{right_wheel_velocity_str},{left_wheel_velocity_str},{linear_actuator_str}\n'
 
-        if self.serial_port.in_waiting == 0:
-            self.get_logger().info(f'Seri porta gönderilen veri: {command}')
-            self.serial_port.write(command.encode())
+        #if self.serial_port.in_waiting == 0:
+        self.get_logger().info(f'Seri porta gönderilen veri: {command}')
+        self.serial_port.write(command.encode())
 
     def read_serialport_and_publish(self):
         if self.serial_port.in_waiting > 0:
