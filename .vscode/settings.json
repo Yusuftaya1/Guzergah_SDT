@@ -12,5 +12,6 @@
         "/home/yusuf/mission_ws/src/mission_pkg/mission_pkg",
         "/opt/ros/humble/lib/python3.10/site-packages",
         "/opt/ros/humble/local/lib/python3.10/dist-packages"
-    ]
+    ],
+    "cmake.sourceDirectory": "/home/yusuf/Guzergah_SDT/src/sdt_project"
 }

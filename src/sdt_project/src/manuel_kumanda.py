@@ -21,7 +21,7 @@ class DifferentialDriveController(Node):
     def cmd_vel_callback(self, msg):
         linear_velocity  = msg.linear.x
         angular_velocity = msg.angular.z
-        linear_actuator  = 0
+        linear_actuator  = msg.linear.z 
         right_wheel_velocity = (linear_velocity)+ (angular_velocity * self.wheel_separation / 2)
         left_wheel_velocity  = (linear_velocity)- (angular_velocity * self.wheel_separation / 2)
         self.send_wheel_velocities(right_wheel_velocity, left_wheel_velocity,linear_actuator)
@@ -29,12 +29,14 @@ class DifferentialDriveController(Node):
     def send_wheel_velocities(self, right_wheel_velocity, left_wheel_velocity,linear_actuator):
         right_wheel_velocity = max(min(right_wheel_velocity, 1000), -1000)
         left_wheel_velocity = max(min(left_wheel_velocity, 1000), -1000)
-        linear_actuator = max(min(linear_actuator, 600), -600)
+        linear_actuator = max(min(linear_actuator, 1000), -1000)
 
         right_wheel_velocity_str = f'{int(right_wheel_velocity):05}'
         left_wheel_velocity_str = f'{int(left_wheel_velocity):05}'
         llinear_actuator_str = f'{int(linear_actuator):05}'
 
+       
+       
         command = f'{right_wheel_velocity_str},{left_wheel_velocity_str},{llinear_actuator_str}\n'
         self.get_logger().info(f'Seri porta gönderilen veri:{right_wheel_velocity_str},{left_wheel_velocity_str},{llinear_actuator_str}\n')
         self.serial_port.write(command.encode())

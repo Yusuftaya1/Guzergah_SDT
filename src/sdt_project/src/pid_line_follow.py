@@ -26,7 +26,7 @@ class CizgiTakip(Node):
         
         # PID kontrolcüsü oluşturuluyor
         #self.pid = PID(0.15, 0.0005, 0.2, setpoint=0)
-        self.pid = PID(1.0, 0.0, 0.2, setpoint=0)
+        self.pid = PID(1.0, 0.002, 0.0022, setpoint=0)
         self.pid.output_limits = (-1, 1)
         self.target_angle = 0.0
 
