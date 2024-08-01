@@ -25,7 +25,7 @@ class QRCodeDetector(Node):
             self.get_logger().info(f"QR kod okundu: {data}")
             qr_msg.data = data
         else:
-            qr_msg.data = "0"
+            qr_msg.data = None
             self.get_logger().info(f"QR kod yok: {qr_msg.data}")
 
         self.qr_pub.publish(qr_msg)

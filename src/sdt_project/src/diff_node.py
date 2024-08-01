@@ -26,6 +26,7 @@ class MotorController(Node):
         self.motor_values_msg = MotorValues()
         self.stop_duration = 10
         self.forward_duration = 2
+        self.turn_duration = 3
 
     def yuk_alma(self):
         self.motor_values_msg.sag_teker_hiz = 0.0
@@ -34,7 +35,7 @@ class MotorController(Node):
         self.publish_motor_values()
         self.get_logger().info('Yük alımı için duruyor...')
         time.sleep(self.stop_duration)
-        self.qr_id = None  # QR ID sıfırla
+        self.qr_id = None
         self.get_logger().info('Yük alındı, 2 saniye boyunca ilerliyor...')
 
     def yuk_birakma(self):
@@ -44,7 +45,7 @@ class MotorController(Node):
         self.publish_motor_values()
         self.get_logger().info('Yük bırakmak için duruyor...')
         time.sleep(self.stop_duration)
-        self.qr_id = None  # QR ID sıfırla
+        self.qr_id = None
         self.get_logger().info('Yük bırakıldı, 2 saniye boyunca ilerliyor...')
 
     def run_qr(self):
@@ -52,6 +53,20 @@ class MotorController(Node):
         self.motor_values_msg.sol_teker_hiz = 400.0
         self.publish_motor_values()
         time.sleep(self.forward_duration)
+    
+    def turn_right(self):
+        self.motor_values_msg.sag_teker_hiz = 150.0
+        self.motor_values_msg.sol_teker_hiz = 400.0
+        self.publish_motor_values()
+        self.get_logger().info('Saga donus...')
+        time.sleep(self.turn_duration)
+
+    def turn_left(self):
+        self.motor_values_msg.sag_teker_hiz = 400.0
+        self.motor_values_msg.sol_teker_hiz = 150.0
+        self.publish_motor_values()
+        self.get_logger().info('Sola donus...')
+        time.sleep(self.turn_duration)
 
     def qr_callback(self, msg):
         self.qr_id = msg.data
@@ -69,6 +84,13 @@ class MotorController(Node):
         elif self.qr_id == "2":
             self.yuk_birakma()
             self.run_qr()
+
+        elif self.qr_id == "3":
+            self.turn_right()
+
+        elif self.qr_id == "4":
+            self.turn_left()
+
         else:
             if w != 0.0:
                 hiz_sag = linear + (w * (self.wheel_distance / 2.0))

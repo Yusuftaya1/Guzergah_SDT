@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-
+"""
+teleop_keyboard PAKETİ İLE ARACIN KONTROL EDİLMESİ
+"""
 import rclpy
 from rclpy.node import Node
 from geometry_msgs.msg import Twist
