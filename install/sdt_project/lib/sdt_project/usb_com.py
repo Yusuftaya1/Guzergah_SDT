@@ -13,6 +13,7 @@ import serial
 from rclpy.node import Node
 from sdt_project.msg import MotorValues
 from sdt_project.msg import SensorValues
+from std_msgs.msg import Float64
 
 class USBComNode(Node):
     def __init__(self):
@@ -20,6 +21,7 @@ class USBComNode(Node):
         self.serial_port = serial.Serial('/dev/ttyUSB0', 115200, timeout=1)
         self.sensor_values_publisher = self.create_publisher(SensorValues, '/AGV/sensor_values', 10)
         self.subscription = self.create_subscription(MotorValues,'/AGV/motor_values',self.motor_values_callback,10)    
+        self.angle_sub = self.create_subscription(Float64,'/AGV/angle',self.send_angle,10)
         self.wheel_separation = 0.5
         self.wheel_radius = 0.1
         self.timer = self.create_timer(0.5, self.read_serialport_and_publish)
@@ -30,6 +32,11 @@ class USBComNode(Node):
         linear_actuator       = msg.linear_actuator
         self.send_wheel_velocities(right_wheel_velocity, left_wheel_velocity, linear_actuator)
 
+    def send_angle(self,msg):
+        command = f'{msg.data}\n'
+        self.get_logger().info(f'Seri porta gönderilen veri: {command}')
+        self.serial_port.write(command.encode())
+    
     def send_wheel_velocities(self, right_wheel_velocity, left_wheel_velocity, linear_actuator):
         right_wheel_velocity_str = f'{int(right_wheel_velocity):05}'
         left_wheel_velocity_str = f'{int(left_wheel_velocity):05}'
@@ -40,7 +47,7 @@ class USBComNode(Node):
         #if self.serial_port.in_waiting == 0:
         self.get_logger().info(f'Seri porta gönderilen veri: {command}')
         self.serial_port.write(command.encode())
-
+    
     def read_serialport_and_publish(self):
         if self.serial_port.in_waiting > 0:
             try:

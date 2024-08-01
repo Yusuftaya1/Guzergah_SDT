@@ -35,6 +35,8 @@ class DifferentialDriveController(Node):
         left_wheel_velocity_str = f'{int(left_wheel_velocity):05}'
         llinear_actuator_str = f'{int(linear_actuator):05}'
 
+       
+       
         command = f'{right_wheel_velocity_str},{left_wheel_velocity_str},{llinear_actuator_str}\n'
         self.get_logger().info(f'Seri porta gönderilen veri:{right_wheel_velocity_str},{left_wheel_velocity_str},{llinear_actuator_str}\n')
         self.serial_port.write(command.encode())

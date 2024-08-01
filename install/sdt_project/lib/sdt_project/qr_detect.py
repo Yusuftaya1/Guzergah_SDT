@@ -17,14 +17,7 @@ class QRCodeDetector(Node):
         self.detector = cv2.QRCodeDetector()
 
     def image_callback(self, msg):
-        try:
-            # ROS mesajını OpenCV formatına çevir
-            cv_image = self.bridge.imgmsg_to_cv2(msg, 'bgr8')
-        except Exception as e:
-            self.get_logger().error(f"Image conversion error: {e}")
-            return
-
-        # QR kodunu tespit et ve decode et
+        cv_image = self.bridge.imgmsg_to_cv2(msg, 'bgr8')
         data, bbox, _ = self.detector.detectAndDecode(cv_image)
         qr_msg = String()
 
