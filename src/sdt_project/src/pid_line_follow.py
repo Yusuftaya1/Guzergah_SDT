@@ -3,7 +3,6 @@
 
 """
 Şerit Takip Etme ve PID Kontrolü
-SUB to image_raw CALCULATE angle and PUBLISH to /AGV/angle
 """
 
 import cv2
@@ -24,18 +23,24 @@ class CizgiTakip(Node):
         self.cizgi_mesaji = Bool()
         self.aci_mesaji = Float64()
         self.bridge = CvBridge()
+        
+        # PID kontrolcüsü oluşturuluyor
+        #self.pid = PID(0.15, 0.0005, 0.2, setpoint=0)
+        self.pid = PID(1.0, 0.002, 0.0022, setpoint=0)
+        self.pid.output_limits = (-1, 1)
+        self.target_angle = 0.0
 
     def kamera_callback(self, msg):
-        img         =   self.bridge.imgmsg_to_cv2(msg, "bgr8")
-        roi         =   img[2 * img.shape[0] // 3:img.shape[0], 0:img.shape[1]]
-        mono        =   cv2.cvtColor(roi, cv2.COLOR_BGR2GRAY)
-        blur        =   cv2.GaussianBlur(mono, (9, 9), 2)
-        _, thresh   =   cv2.threshold(blur, 0, 255, cv2.THRESH_BINARY_INV | cv2.THRESH_OTSU)
-        erode       =   cv2.getStructuringElement(cv2.MORPH_RECT, (3, 3))
-        dilate      =   cv2.getStructuringElement(cv2.MORPH_RECT, (5, 5))
-        erode_img   =   cv2.erode(thresh, erode, iterations=1)
-        dilate_img  =   cv2.dilate(erode_img, dilate, iterations=1)
-        contours, _ =   cv2.findContours(dilate_img, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
+        img = self.bridge.imgmsg_to_cv2(msg, "bgr8")
+        roi = img[2 * img.shape[0] // 3:img.shape[0], 0:img.shape[1]]
+        mono = cv2.cvtColor(roi, cv2.COLOR_BGR2GRAY)
+        blur = cv2.GaussianBlur(mono, (9, 9), 2)
+        _, thresh = cv2.threshold(blur, 0, 255, cv2.THRESH_BINARY_INV | cv2.THRESH_OTSU)
+        erode = cv2.getStructuringElement(cv2.MORPH_RECT, (3, 3))
+        dilate = cv2.getStructuringElement(cv2.MORPH_RECT, (5, 5))
+        erode_img = cv2.erode(thresh, erode, iterations=1)
+        dilate_img = cv2.dilate(erode_img, dilate, iterations=1)
+        contours, _ = cv2.findContours(dilate_img, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
 
         if not contours:
             self.cizgi_mesaji.data = False
@@ -62,10 +67,16 @@ class CizgiTakip(Node):
             return
         
         center_x = (min_cx + max_cx) / 2
-        self.aci_mesaji.data = 1.0 - 2.0 * center_x / roi.shape[1]
-        self.get_logger().info(f'aci_mesaji.data: {self.aci_mesaji.data}')
-        self.pub_angle.publish(self.aci_mesaji)
+        aci_mesajii = 1.0 - 2.0 * center_x / roi.shape[1]
+
+        # PID kontrolü
+        self.pid.setpoint = self.target_angle
+        control_signal = self.pid(aci_mesajii)
+        self.aci_mesaji.data = float(control_signal)
         
+        self.pub_angle.publish(self.aci_mesaji)
+        self.get_logger().info(f'Publishing: {self.aci_mesaji.data}')
+
         cv2.imshow("Dilate", dilate_img)
         cv2.waitKey(1)
 
