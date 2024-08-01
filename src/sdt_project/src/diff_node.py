@@ -27,6 +27,32 @@ class MotorController(Node):
         self.stop_duration = 10
         self.forward_duration = 2
 
+    def yuk_alma(self):
+        self.motor_values_msg.sag_teker_hiz = 0.0
+        self.motor_values_msg.sol_teker_hiz = 0.0
+        self.motor_values_msg.linear_actuator = 750.0
+        self.publish_motor_values()
+        self.get_logger().info('Yük alımı için duruyor...')
+        time.sleep(self.stop_duration)
+        self.qr_id = None  # QR ID sıfırla
+        self.get_logger().info('Yük alındı, 2 saniye boyunca ilerliyor...')
+
+    def yuk_birakma(self):
+        self.motor_values_msg.sag_teker_hiz = 0.0
+        self.motor_values_msg.sol_teker_hiz = 0.0
+        self.motor_values_msg.linear_actuator = 250.0
+        self.publish_motor_values()
+        self.get_logger().info('Yük bırakmak için duruyor...')
+        time.sleep(self.stop_duration)
+        self.qr_id = None  # QR ID sıfırla
+        self.get_logger().info('Yük bırakıldı, 2 saniye boyunca ilerliyor...')
+
+    def run_qr(self):
+        self.motor_values_msg.sag_teker_hiz = 400.0
+        self.motor_values_msg.sol_teker_hiz = 400.0
+        self.publish_motor_values()
+        time.sleep(self.forward_duration)
+
     def qr_callback(self, msg):
         self.qr_id = msg.data
         self.get_logger().info(f'QR ID : {self.qr_id}')
@@ -37,32 +63,12 @@ class MotorController(Node):
         w = angle * (1.0 - self.coef)
         
         if self.qr_id == "1":
-            self.motor_values_msg.sag_teker_hiz = 0.0
-            self.motor_values_msg.sol_teker_hiz = 0.0
-            self.motor_values_msg.linear_actuator = 750.0
-            self.publish_motor_values()
-            self.get_logger().info('Yük alımı için duruyor...')
-            time.sleep(self.stop_duration)
-            self.qr_id = None  # QR ID sıfırla
-            self.get_logger().info('Yük alındı, 2 saniye boyunca ilerliyor...')
-            self.motor_values_msg.sag_teker_hiz = 400.0
-            self.motor_values_msg.sol_teker_hiz = 400.0
-            self.publish_motor_values()
-            time.sleep(self.forward_duration)
+            self.yuk_alma()
+            self.run_qr()
 
         elif self.qr_id == "2":
-            self.motor_values_msg.sag_teker_hiz = 0.0
-            self.motor_values_msg.sol_teker_hiz = 0.0
-            self.motor_values_msg.linear_actuator = 250.0
-            self.publish_motor_values()
-            self.get_logger().info('Yük bırakmak için duruyor...')
-            time.sleep(self.stop_duration)
-            self.qr_id = None  # QR ID sıfırla
-            self.get_logger().info('Yük bırakıldı, 2 saniye boyunca ilerliyor...')
-            self.motor_values_msg.sag_teker_hiz = 400.0
-            self.motor_values_msg.sol_teker_hiz = 400.0
-            self.publish_motor_values()
-            time.sleep(self.forward_duration)
+            self.yuk_birakma()
+            self.run_qr()
         else:
             if w != 0.0:
                 hiz_sag = linear + (w * (self.wheel_distance / 2.0))
