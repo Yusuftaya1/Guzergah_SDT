@@ -21,7 +21,7 @@ class USBComNode(Node):
         self.serial_port = serial.Serial('/dev/ttyUSB0', 115200, timeout=1)
         self.sensor_values_publisher = self.create_publisher(SensorValues, '/AGV/sensor_values', 10)
         self.subscription = self.create_subscription(MotorValues,'/AGV/motor_values',self.motor_values_callback,10)    
-        self.angle_sub = self.create_subscription(Float64,'/AGV/angle',self.send_angle,10)
+        #self.angle_sub = self.create_subscription(Float64,'/AGV/angle',self.send_angle,10)
         self.wheel_separation = 0.5
         self.wheel_radius = 0.1
         self.timer = self.create_timer(0.5, self.read_serialport_and_publish)

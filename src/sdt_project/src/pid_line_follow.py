@@ -13,6 +13,7 @@ from sensor_msgs.msg import Image
 from std_msgs.msg import Float64, Bool
 from cv_bridge import CvBridge
 from simple_pid import PID
+import time
 
 class CizgiTakip(Node):
     def __init__(self):
@@ -77,8 +78,8 @@ class CizgiTakip(Node):
         self.pub_angle.publish(self.aci_mesaji)
         self.get_logger().info(f'Publishing: {self.aci_mesaji.data}')
 
-        cv2.imshow("Dilate", dilate_img)
-        cv2.waitKey(1)
+        #cv2.imshow("Dilate", dilate_img)
+        #cv2.waitKey(1)
 
 def main(args=None):
     rclpy.init(args=args)
