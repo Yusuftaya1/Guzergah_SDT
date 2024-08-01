@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 
 """
-mode_status YA DA action_status MSG KULLANILARAK MOTOR VALUES DEĞERİ 
-QR BİLGİSİNE GÖRE , ÇİZGİYE GÖRE YA DA ESCAPE BLOCK OLARAK GÖNDERİLECEK
+Bu ROS 2 düğümü, QR kodu ve açı bilgilerine göre motor değerlerini ayarlayarak
+farklı görevleri yerine getirir.
 """
 
 import rclpy
@@ -26,36 +26,11 @@ class MotorController(Node):
         self.motor_values_msg = MotorValues()
         self.stop_duration = 10
         self.forward_duration = 2
-
-    def yuk_alma(self):
-        self.motor_values_msg.sag_teker_hiz = 0.0
-        self.motor_values_msg.sol_teker_hiz = 0.0
-        self.motor_values_msg.linear_actuator = 750.0
-        self.publish_motor_values()
-        self.get_logger().info('Yük alımı için duruyor...')
-        time.sleep(self.stop_duration)
-        self.qr_id = None  # QR ID sıfırla
-        self.get_logger().info('Yük alındı, 2 saniye boyunca ilerliyor...')
-
-    def yuk_birakma(self):
-        self.motor_values_msg.sag_teker_hiz = 0.0
-        self.motor_values_msg.sol_teker_hiz = 0.0
-        self.motor_values_msg.linear_actuator = 250.0
-        self.publish_motor_values()
-        self.get_logger().info('Yük bırakmak için duruyor...')
-        time.sleep(self.stop_duration)
-        self.qr_id = None  # QR ID sıfırla
-        self.get_logger().info('Yük bırakıldı, 2 saniye boyunca ilerliyor...')
-
-    def run_qr(self):
-        self.motor_values_msg.sag_teker_hiz = 400.0
-        self.motor_values_msg.sol_teker_hiz = 400.0
-        self.publish_motor_values()
-        time.sleep(self.forward_duration)
+        self.turn_duration = 3
 
     def qr_callback(self, msg):
         self.qr_id = msg.data
-        self.get_logger().info(f'QR ID : {self.qr_id}')
+        self.get_logger().info(f'QR ID: {self.qr_id}')
 
     def angle_callback(self, msg):
         angle = msg.data
@@ -63,32 +38,71 @@ class MotorController(Node):
         w = angle * (1.0 - self.coef)
         
         if self.qr_id == "1":
-            self.yuk_alma()
-            self.run_qr()
+            self.perform_load_action(750.0)
+            self.get_logger().info('Yük alındı, 2 saniye boyunca ilerliyor...')
+            self.run_forward()
 
         elif self.qr_id == "2":
-            self.yuk_birakma()
-            self.run_qr()
-        else:
-            if w != 0.0:
-                hiz_sag = linear + (w * (self.wheel_distance / 2.0))
-                hiz_sol = linear - (w * (self.wheel_distance / 2.0))
-            else:
-                hiz_sag = linear
-                hiz_sol = linear
+            self.perform_load_action(250.0)
+            self.get_logger().info('Yük bırakıldı, 2 saniye boyunca ilerliyor...')
+            self.run_forward()
 
-            hiz_sag_angular = hiz_sag / (2 * 3.14159265 * self.wheel_radius)
-            hiz_sol_angular = hiz_sol / (2 * 3.14159265 * self.wheel_radius)
+        elif self.qr_id == "3":
+            self.perform_turn("right")
+
+        elif self.qr_id == "4":
+            self.perform_turn("left")
+
+        else:
+            # PID kontrol ve motor hızlarını hesapla
+            if w != 0.0:
+                right_speed = linear + (w * (self.wheel_distance / 2.0))
+                left_speed = linear - (w * (self.wheel_distance / 2.0))
+            else:
+                right_speed = linear
+                left_speed = linear
+
+            right_speed_angular = right_speed / (2 * np.pi * self.wheel_radius)
+            left_speed_angular = left_speed / (2 * np.pi * self.wheel_radius)
             
-            self.motor_values_msg.sag_teker_hiz = np.clip(2000 * hiz_sag_angular, -1000, 1000)
-            self.motor_values_msg.sol_teker_hiz = np.clip(2000 * hiz_sol_angular, -1000, 1000)
+            self.motor_values_msg.sag_teker_hiz = np.clip(2000 * right_speed_angular, -1000, 1000)
+            self.motor_values_msg.sol_teker_hiz = np.clip(2000 * left_speed_angular, -1000, 1000)
 
         self.publish_motor_values()
 
+    def perform_load_action(self, actuator_value):
+        self.motor_values_msg.sag_teker_hiz = 0.0
+        self.motor_values_msg.sol_teker_hiz = 0.0
+        self.motor_values_msg.linear_actuator = actuator_value
+        action = 'Yük alımı için' if actuator_value == 750.0 else 'Yük bırakmak için'
+        self.get_logger().info(f'{action} duruyor...')
+        self.publish_motor_values()
+        time.sleep(self.stop_duration)
+        self.qr_id = None
+
+    def perform_turn(self, direction):
+        if direction == "right":
+            self.motor_values_msg.sag_teker_hiz = 150.0
+            self.motor_values_msg.sol_teker_hiz = 400.0
+            self.get_logger().info('Sağa dönüş...')
+        elif direction == "left":
+            self.motor_values_msg.sag_teker_hiz = 400.0
+            self.motor_values_msg.sol_teker_hiz = 150.0
+            self.get_logger().info('Sola dönüş...')
+        
+        time.sleep(self.turn_duration)
+        self.qr_id = None
+
+    def run_forward(self):
+        self.motor_values_msg.sag_teker_hiz = 400.0
+        self.motor_values_msg.sol_teker_hiz = 400.0
+        self.publish_motor_values()
+        time.sleep(self.forward_duration)
+
     def publish_motor_values(self):
-        self.get_logger().info(f'sol_teker_hiz: {self.motor_values_msg.sol_teker_hiz}')
-        self.get_logger().info(f'sag_teker_hiz: {self.motor_values_msg.sag_teker_hiz}')
-        self.get_logger().info(f'linear_actuator: {self.motor_values_msg.linear_actuator}')
+        self.get_logger().info(f'Sol teker hız: {self.motor_values_msg.sol_teker_hiz}')
+        self.get_logger().info(f'Sağ teker hız: {self.motor_values_msg.sag_teker_hiz}')
+        self.get_logger().info(f'Linear aktüatör: {self.motor_values_msg.linear_actuator}')
         self.motor_values_pub.publish(self.motor_values_msg)
 
 def main(args=None):

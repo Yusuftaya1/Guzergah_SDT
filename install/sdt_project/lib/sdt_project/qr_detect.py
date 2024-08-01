@@ -17,8 +17,23 @@ class QRCodeDetector(Node):
         self.detector = cv2.QRCodeDetector()
 
     def image_callback(self, msg):
-        cv_image = self.bridge.imgmsg_to_cv2(msg, 'bgr8')
-        data, bbox, _ = self.detector.detectAndDecode(cv_image)
+        try:
+            cv_image = self.bridge.imgmsg_to_cv2(msg, 'bgr8')
+        except Exception as e:
+            self.get_logger().error(f"Resim dönüştürme hatası: {e}")
+            return
+
+        # Görüntünün uygun bir biçimde olup olmadığını kontrol edin
+        if cv_image is None or cv_image.size == 0:
+            self.get_logger().error("Boş veya geçersiz bir görüntü alındı.")
+            return
+
+        try:
+            data, bbox, _ = self.detector.detectAndDecode(cv_image)
+        except cv2.error as e:
+            self.get_logger().error(f"OpenCV hatası: {e}")
+            data = None
+
         qr_msg = String()
 
         if data:
