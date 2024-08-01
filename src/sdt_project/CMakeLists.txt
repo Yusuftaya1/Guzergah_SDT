@@ -19,39 +19,21 @@ set(msg_files
 rosidl_generate_interfaces(${PROJECT_NAME}
   ${msg_files}
 )
-################  NODES #################
+
+###############  NODES  ###############
 install(PROGRAMS
   src/usb_com.py
-  DESTINATION lib/${PROJECT_NAME}
-)
-install(PROGRAMS
   src/TCP_com.py
-  DESTINATION lib/${PROJECT_NAME}
-)
-install(PROGRAMS
   src/diff_node.py
-  DESTINATION lib/${PROJECT_NAME}
-)
-install(PROGRAMS
   src/line_follower.py
-  DESTINATION lib/${PROJECT_NAME}
-)
-install(PROGRAMS
   src/pid_line_follow.py
-  DESTINATION lib/${PROJECT_NAME}
-)
-install(PROGRAMS
   src/manuel_kumanda.py
-  DESTINATION lib/${PROJECT_NAME}
-)
-install(PROGRAMS
   src/navigation.py
-  DESTINATION lib/${PROJECT_NAME}
-)
-install(PROGRAMS
   src/qr_detect.py
+  src/engel_video.py
   DESTINATION lib/${PROJECT_NAME}
 )
+
 ###############  LAUNCH  ###############
 install(FILES
   launch/node_start.launch.py
