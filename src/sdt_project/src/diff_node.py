@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 
 """
-Bu ROS 2 düğümü, QR kodu ve açı bilgilerine göre motor değerlerini ayarlayarak
-farklı görevleri yerine getirir.
+Bu ROS 2 düğümü, QR kodu ve açı bilgilerine göre motor 
+değerlerini ayarlayarak farklı görevleri yerine getirir.
 """
 
 import rclpy

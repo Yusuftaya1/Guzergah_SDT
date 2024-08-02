@@ -20,13 +20,13 @@ def generate_launch_description():
         Node(
             package='sdt_project',
             executable='qr_detect.py',
-            name='usb_node',
+            name='qr_status',
             output='screen'
         ),
         Node(
             package='sdt_project',
             executable='usb_com.py',
-            name='qr_status',
+            name='usb_node',
             output='screen'
         ),
 

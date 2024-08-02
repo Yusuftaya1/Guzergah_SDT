@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Şerit Takip Etme ve PID Kontrolü
+Şerit Takip Etme 
 SUB to image_raw CALCULATE angle and PUBLISH to /AGV/angle
 """
 
