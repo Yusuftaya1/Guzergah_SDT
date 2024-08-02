@@ -59,7 +59,7 @@ class MotorController(Node):
         self.angle_sub = self.create_subscription(Float64, '/AGV/angle', self.angle_callback, 10)
         self.qr_status_sub = self.create_subscription(String, '/qr_code_data', self.qr_callback, 10)
         self.motor_values_pub = self.create_publisher(MotorValues, '/AGV/motor_values', 10)
-        self.engel_sub = self.create_subscription(String, 'engel_tespit', self.engel_callback, 10)
+        #self.engel_sub = self.create_subscription(String, 'engel_tespit', self.engel_callback, 10)
         self.motor_values_msg = MotorValues()
     
     def qr_callback(self, msg):
@@ -102,7 +102,7 @@ class MotorController(Node):
                 np.clip(2000 * right_speed_angular, -1000, 1000),
                 np.clip(2000 * left_speed_angular, -1000, 1000)
             )
-
+    """
     def engel_callback(self, msg):
         self.engel = msg.data
         if self.engel == "1" and not self.engel_detected:
@@ -123,7 +123,8 @@ class MotorController(Node):
                     self.get_logger().info('Engel 7 saniye boyunca ortadan kalkmadı, engelden kaçılıyor...')
                     self.task_manager.engelden_kacma()
                     self.engel_detected = False
-
+    """
+    
     def set_motor_values(self, right_speed, left_speed, actuator_value=None):
         self.motor_values_msg.sag_teker_hiz = right_speed
         self.motor_values_msg.sol_teker_hiz = left_speed

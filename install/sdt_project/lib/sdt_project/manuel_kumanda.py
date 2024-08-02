@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-teleop_keyboard PAKETİ İLE ARACIN KONTROL EDİLMESİ
+teleop_keyboard PAKETİ İLE ARACIN MANUEL KONTROL EDİLMESİ
 """
 import rclpy
 from rclpy.node import Node
-from geometry_msgs.msg import Twist
+from geometry_msgs.msg import Twist 
 import serial
 
 class DifferentialDriveController(Node):

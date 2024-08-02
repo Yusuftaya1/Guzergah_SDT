@@ -6,7 +6,7 @@ def generate_launch_description():
     return LaunchDescription([
         Node(
             package='sdt_project',
-            executable='pid_line_follower.py',
+            executable='pid_line_follow.py',
             name='line_follower',
             output='screen'
         ),
