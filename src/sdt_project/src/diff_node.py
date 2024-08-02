@@ -13,13 +13,49 @@ from sdt_project.msg import MotorValues
 import numpy as np
 import time
 
+class TaskManager:
+    def __init__(self, motor_controller):
+        self.motor_controller = motor_controller
+    
+    def perform_load_action(self, actuator_value):
+        self.motor_controller.set_motor_values(0.0, 0.0, actuator_value)
+        action = 'Yük alımı için' if actuator_value == 750.0 else 'Yük bırakmak için'
+        self.motor_controller.get_logger().info(f'{action} duruyor...')
+        time.sleep(10)
+        self.motor_controller.qr_id = None
+
+    def perform_turn(self, direction):
+        if direction == "right":
+            self.motor_controller.set_motor_values(150.0, 400.0)
+            self.motor_controller.get_logger().info('Sağa dönüş...')
+        elif direction == "left":
+            self.motor_controller.set_motor_values(400.0, 150.0)
+            self.motor_controller.get_logger().info('Sola dönüş...')
+        time.sleep(2)
+        self.motor_controller.qr_id = None
+
+    def run_forward(self):
+        self.motor_controller.set_motor_values(400.0, 400.0)
+        time.sleep(2)
+    
+    def engelden_kacma(self):
+        self.motor_controller.set_motor_values(0.0, 400.0)
+        time.sleep(1.5)
+        self.motor_controller.set_motor_values(400.0, 400.0)
+        time.sleep(1.5)
+        self.motor_controller.set_motor_values(0.0, 400.0)
+        time.sleep(1.5)
+        self.motor_controller.set_motor_values(400.0, 400.0)
+        time.sleep(1.5)
+
 class MotorController(Node):
     def __init__(self):
         super().__init__('motor_controller')
         self.wheel_distance = 0.35
         self.wheel_radius = 0.1
         self.coef = 0.02
-        self.qr_id = None 
+        self.qr_id = None
+        self.task_manager = TaskManager(self)
         self.angle_sub = self.create_subscription(Float64, '/AGV/angle', self.angle_callback, 10)
         self.qr_status_sub = self.create_subscription(String, '/qr_code_data', self.qr_callback, 10)
         self.motor_values_pub = self.create_publisher(MotorValues, '/AGV/motor_values', 10)
@@ -36,20 +72,20 @@ class MotorController(Node):
         w = angle * (1.0 - self.coef)
         
         if self.qr_id == "1":
-            self.perform_load_action(750.0)
-            self.get_logger().info('Yük alındı, 2 saniye boyunca ilerliyor...')
-            self.run_forward()
+            self.task_manager.perform_load_action(750.0)
+            self.get_logger().info('Yük alındı , devam ediliyor...')
+            self.task_manager.run_forward()
 
         elif self.qr_id == "2":
-            self.perform_load_action(250.0)
-            self.get_logger().info('Yük bırakıldı, 2 saniye boyunca ilerliyor...')
-            self.run_forward()
+            self.task_manager.perform_load_action(250.0)
+            self.get_logger().info('Yük bırakıldı , devam ediliyor...')
+            self.task_manager.run_forward()
 
         elif self.qr_id == "3":
-            self.perform_turn("right")
+            self.task_manager.perform_turn("right")
 
         elif self.qr_id == "4":
-            self.perform_turn("left")
+            self.task_manager.perform_turn("left")
 
         else:
             if w != 0.0:
@@ -79,45 +115,14 @@ class MotorController(Node):
         if self.engel_detected:
             if self.engel == "0":
                 self.get_logger().info('Engel ortadan kalktı, devam ediliyor...')
-                self.run_forward()
+                self.task_manager.run_forward()
                 self.engel_detected = False
             else:
                 self.engel_timer_count += 1
                 if self.engel_timer_count >= 7:
                     self.get_logger().info('Engel 7 saniye boyunca ortadan kalkmadı, engelden kaçılıyor...')
-                    self.engelden_kacma()
+                    self.task_manager.engelden_kacma()
                     self.engel_detected = False
-
-    def perform_load_action(self, actuator_value):
-        self.set_motor_values(0.0, 0.0, actuator_value)
-        action = 'Yük alımı için' if actuator_value == 750.0 else 'Yük bırakmak için'
-        self.get_logger().info(f'{action} duruyor...')
-        time.sleep(10)
-        self.qr_id = None
-
-    def perform_turn(self, direction):
-        if direction == "right":
-            self.set_motor_values(150.0, 400.0)
-            self.get_logger().info('Sağa dönüş...')
-        elif direction == "left":
-            self.set_motor_values(400.0, 150.0)
-            self.get_logger().info('Sola dönüş...')
-        time.sleep(2)
-        self.qr_id = None
-
-    def run_forward(self):
-        self.set_motor_values(400.0, 400.0)
-        time.sleep(2)
-    
-    def engelden_kacma(self):
-        self.set_motor_values(0.0, 400.0)
-        time.sleep(1.5)
-        self.set_motor_values(400.0, 400.0)
-        time.sleep(1.5)
-        self.set_motor_values(0.0, 400.0)
-        time.sleep(1.5)
-        self.set_motor_values(400.0, 400.0)
-        time.sleep(1.5)
 
     def set_motor_values(self, right_speed, left_speed, actuator_value=None):
         self.motor_values_msg.sag_teker_hiz = right_speed

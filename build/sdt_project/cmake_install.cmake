@@ -372,35 +372,17 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/sdt_project" TYPE PROGRAM FILES "/home/yusuf/Guzergah_SDT/src/sdt_project/src/usb_com.py")
-endif()
-
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/sdt_project" TYPE PROGRAM FILES "/home/yusuf/Guzergah_SDT/src/sdt_project/src/TCP_com.py")
-endif()
-
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/sdt_project" TYPE PROGRAM FILES "/home/yusuf/Guzergah_SDT/src/sdt_project/src/diff_node.py")
-endif()
-
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/sdt_project" TYPE PROGRAM FILES "/home/yusuf/Guzergah_SDT/src/sdt_project/src/line_follower.py")
-endif()
-
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/sdt_project" TYPE PROGRAM FILES "/home/yusuf/Guzergah_SDT/src/sdt_project/src/pid_line_follow.py")
-endif()
-
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/sdt_project" TYPE PROGRAM FILES "/home/yusuf/Guzergah_SDT/src/sdt_project/src/manuel_kumanda.py")
-endif()
-
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/sdt_project" TYPE PROGRAM FILES "/home/yusuf/Guzergah_SDT/src/sdt_project/src/navigation.py")
-endif()
-
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/sdt_project" TYPE PROGRAM FILES "/home/yusuf/Guzergah_SDT/src/sdt_project/src/qr_detect.py")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/sdt_project" TYPE PROGRAM FILES
+    "/home/yusuf/Guzergah_SDT/src/sdt_project/src/usb_com.py"
+    "/home/yusuf/Guzergah_SDT/src/sdt_project/src/TCP_com.py"
+    "/home/yusuf/Guzergah_SDT/src/sdt_project/src/diff_node.py"
+    "/home/yusuf/Guzergah_SDT/src/sdt_project/src/line_follower.py"
+    "/home/yusuf/Guzergah_SDT/src/sdt_project/src/pid_line_follow.py"
+    "/home/yusuf/Guzergah_SDT/src/sdt_project/src/manuel_kumanda.py"
+    "/home/yusuf/Guzergah_SDT/src/sdt_project/src/navigation.py"
+    "/home/yusuf/Guzergah_SDT/src/sdt_project/src/qr_detect.py"
+    "/home/yusuf/Guzergah_SDT/src/sdt_project/src/engel_video.py"
+    )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)

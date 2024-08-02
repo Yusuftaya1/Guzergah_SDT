@@ -77,6 +77,7 @@
 /home/yusuf/Guzergah_SDT/install/sdt_project/lib/sdt_project/manuel_kumanda.py
 /home/yusuf/Guzergah_SDT/install/sdt_project/lib/sdt_project/navigation.py
 /home/yusuf/Guzergah_SDT/install/sdt_project/lib/sdt_project/qr_detect.py
+/home/yusuf/Guzergah_SDT/install/sdt_project/lib/sdt_project/engel_video.py
 /home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/launch/node_start.launch.py
 /home/yusuf/Guzergah_SDT/install/sdt_project/share/ament_index/resource_index/package_run_dependencies/sdt_project
 /home/yusuf/Guzergah_SDT/install/sdt_project/share/ament_index/resource_index/parent_prefix_path/sdt_project
