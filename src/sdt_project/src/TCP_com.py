@@ -51,7 +51,7 @@ class UI_sub(Node):
         self.subscription = self.create_subscription(SensorValues, '/AGV/sensor_values', self.sensor_callback, 10)
         self.engel_status = self.create_subscription(String, 'engel_tespit', self.engel_callback, 10)
         self.qr_status =    self.create_subscription(String,'/qr_code_data',self.qr_callback, 10)
-        self.sensor_data =  SensorValues()
+        self.sensor_data =  None
         self.engel_statu =  None
         self.qr_statu = None
         self.timer = self.create_timer(1.0, self.merge_and_send)
@@ -77,7 +77,7 @@ class UI_sub(Node):
                 "asiri_agirlik":      self.sensor_data.asiri_agirlik,
                 "engel":              self.engel_statu.data,
                 "map":                None,
-                "QR":                 self.qr_statu
+                "QR":                 self.qr_statu.data
             }
             
             self.socket.send_data(msg_dict)
