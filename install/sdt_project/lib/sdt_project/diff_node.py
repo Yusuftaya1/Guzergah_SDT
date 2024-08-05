@@ -8,7 +8,7 @@ değerlerini ayarlayarak farklı görevleri yerine getirir.
 
 import rclpy
 from rclpy.node import Node
-from std_msgs.msg import Float64, String
+from std_msgs.msg import Float64, String, Bool
 from sdt_project.msg import MotorValues
 import numpy as np
 import time
@@ -31,22 +31,22 @@ class TaskManager:
         elif direction == "left":
             self.motor_controller.set_motor_values(400.0, 150.0)
             self.motor_controller.get_logger().info('Sola dönüş...')
-        time.sleep(2)
+        time.sleep(3)
         self.motor_controller.qr_id = None
 
     def run_forward(self):
         self.motor_controller.set_motor_values(400.0, 400.0)
-        time.sleep(2)
+        time.sleep(3)
     
     def engelden_kacma(self):
         self.motor_controller.set_motor_values(0.0, 400.0)
-        time.sleep(1.5)
+        time.sleep(1.7)
         self.motor_controller.set_motor_values(400.0, 400.0)
-        time.sleep(1.5)
-        self.motor_controller.set_motor_values(0.0, 400.0)
-        time.sleep(1.5)
+        time.sleep(3.5)
+        self.motor_controller.set_motor_values(400.0, 0.0)
+        time.sleep(2.4)
         self.motor_controller.set_motor_values(400.0, 400.0)
-        time.sleep(1.5)
+        time.sleep(1.9)
 
 class MotorController(Node):
     def __init__(self):
@@ -55,13 +55,15 @@ class MotorController(Node):
         self.wheel_radius = 0.1
         self.coef = 0.02
         self.qr_id = None
+        self.engel_detected = False
         self.task_manager = TaskManager(self)
         self.angle_sub = self.create_subscription(Float64, '/AGV/angle', self.angle_callback, 10)
         self.qr_status_sub = self.create_subscription(String, '/qr_code_data', self.qr_callback, 10)
         self.motor_values_pub = self.create_publisher(MotorValues, '/AGV/motor_values', 10)
-        #self.engel_sub = self.create_subscription(String, 'engel_tespit', self.engel_callback, 10)
+        self.engel_sub = self.create_subscription(Bool, 'engel_tespit', self.engel_callback, 10)
         self.motor_values_msg = MotorValues()
-    
+        self.engel_check_timer = self.create_timer(1.0, self.check_engel_status)
+
     def qr_callback(self, msg):
         self.qr_id = msg.data
         self.get_logger().info(f'QR ID: {self.qr_id}')
@@ -77,7 +79,7 @@ class MotorController(Node):
             self.task_manager.run_forward()
 
         elif self.qr_id == "2":
-            self.task_manager.perform_load_action(250.0)
+            self.task_manager.perform_load_action(-750.0)
             self.get_logger().info('Yük bırakıldı , devam ediliyor...')
             self.task_manager.run_forward()
 
@@ -87,7 +89,7 @@ class MotorController(Node):
         elif self.qr_id == "4":
             self.task_manager.perform_turn("left")
 
-        else:
+        elif self.engel_detected == False:
             if w != 0.0:
                 right_speed = linear + (w * (self.wheel_distance / 2.0))
                 left_speed = linear - (w * (self.wheel_distance / 2.0))
@@ -102,18 +104,20 @@ class MotorController(Node):
                 np.clip(2000 * right_speed_angular, -1000, 1000),
                 np.clip(2000 * left_speed_angular, -1000, 1000)
             )
-    """
+    
     def engel_callback(self, msg):
+        self.get_logger().info('Engel tespit FONKSİYOOONNNNNNNNNNNN...')
         self.engel = msg.data
-        if self.engel == "1" and not self.engel_detected:
-            self.engel_check_timer = self.create_timer(1.0, self.check_engel_status)
+        if self.engel == True and not self.engel_detected:
+            self.engel_detected = True
             self.engel_timer_count = 0
             self.get_logger().info('Engel tespit edildi, bekleniyor...')
             self.set_motor_values(0.0, 0.0)
 
     def check_engel_status(self):
+        self.get_logger().info('Engel KONTROLL FONKSİYOOONNNNNNNNNNNN...')
         if self.engel_detected:
-            if self.engel == "0":
+            if self.engel == False:
                 self.get_logger().info('Engel ortadan kalktı, devam ediliyor...')
                 self.task_manager.run_forward()
                 self.engel_detected = False
@@ -123,7 +127,6 @@ class MotorController(Node):
                     self.get_logger().info('Engel 7 saniye boyunca ortadan kalkmadı, engelden kaçılıyor...')
                     self.task_manager.engelden_kacma()
                     self.engel_detected = False
-    """
     
     def set_motor_values(self, right_speed, left_speed, actuator_value=None):
         self.motor_values_msg.sag_teker_hiz = right_speed
