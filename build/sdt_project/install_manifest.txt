@@ -72,8 +72,7 @@
 /home/yusuf/Guzergah_SDT/install/sdt_project/lib/sdt_project/usb_com.py
 /home/yusuf/Guzergah_SDT/install/sdt_project/lib/sdt_project/TCP_com.py
 /home/yusuf/Guzergah_SDT/install/sdt_project/lib/sdt_project/diff_node.py
-/home/yusuf/Guzergah_SDT/install/sdt_project/lib/sdt_project/line_follower.py
-/home/yusuf/Guzergah_SDT/install/sdt_project/lib/sdt_project/pid_line_follow.py
+/home/yusuf/Guzergah_SDT/install/sdt_project/lib/sdt_project/pid_line_follower.py
 /home/yusuf/Guzergah_SDT/install/sdt_project/lib/sdt_project/manuel_kumanda.py
 /home/yusuf/Guzergah_SDT/install/sdt_project/lib/sdt_project/navigation.py
 /home/yusuf/Guzergah_SDT/install/sdt_project/lib/sdt_project/qr_detect.py

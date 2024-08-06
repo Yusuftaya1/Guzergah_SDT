@@ -25,8 +25,7 @@ install(PROGRAMS
   src/usb_com.py
   src/TCP_com.py
   src/diff_node.py
-  src/line_follower.py
-  src/pid_line_follow.py
+  src/pid_line_follower.py
   src/manuel_kumanda.py
   src/navigation.py
   src/qr_detect.py
