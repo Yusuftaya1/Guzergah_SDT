@@ -74,6 +74,7 @@ class USBComNode(Node):
 
         except Exception as e:
             self.get_logger().error(f'Veri ayrıştırma hatası: {str(e)}')
+            pass
         return sensor_values_msg
 
     def destroy_node(self):

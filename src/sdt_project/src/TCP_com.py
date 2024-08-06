@@ -10,7 +10,7 @@ from std_msgs.msg import String
 
 class TCP_Socket():
     def __init__(self):
-        self.target_host = "10.7.91.190"
+        self.target_host = "10.7.88.216"
         self.target_port = 2626
         self.client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.connected = False
@@ -68,16 +68,13 @@ class UI_sub(Node):
     def merge_and_send(self):
         if self.sensor_data and self.engel_statu:
             msg_dict = {
-                "sag_motor_sicaklik": self.sensor_data.sag_motor_sicaklik,
-                "sol_motor_sicaklik": self.sensor_data.sol_motor_sicaklik,
-                "lift_sicaklik":      self.sensor_data.lift_sicaklik,
-                "sag_motor_akim":     self.sensor_data.sag_motor_akim,
-                "sol_motor_akim":     self.sensor_data.sol_motor_akim,
-                "lift_akim":          self.sensor_data.lift_akim,
-                "asiri_agirlik":      self.sensor_data.asiri_agirlik,
-                "engel":              self.engel_statu.data,
-                "map":                None,
-                "QR":                 self.qr_statu.data
+                "sag_motor_sicaklik": 24,
+                "sol_motor_sicaklik": 25,
+                "lift_sicaklik":      17,
+                "sag_motor_akim":     10,
+                "sol_motor_akim":     8,
+                "lift_akim":          9,
+                "asiri_agirlik":      True,
             }
             
             self.socket.send_data(msg_dict)

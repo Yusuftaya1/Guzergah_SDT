@@ -29,6 +29,12 @@ def generate_launch_description():
             name='usb_node',
             output='screen'
         ),
+        Node(
+            package='sdt_project',
+            executable='engel_video.py',
+            name='engel_tespit',
+            output='screen'
+        ),
 
         
     ])

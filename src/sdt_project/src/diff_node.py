@@ -1,11 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-"""
-Bu ROS 2 düğümü, QR kodu ve açı bilgilerine göre motor 
-değerlerini ayarlayarak farklı görevleri yerine getirir.
-"""
-
 import rclpy
 from rclpy.node import Node
 from std_msgs.msg import Float64, String, Bool
@@ -21,32 +16,38 @@ class TaskManager:
         self.motor_controller.set_motor_values(0.0, 0.0, actuator_value)
         action = 'Yük alımı için' if actuator_value == 750.0 else 'Yük bırakmak için'
         self.motor_controller.get_logger().info(f'{action} duruyor...')
-        time.sleep(10)
+        self.run_forward(self)
+        time.sleep(14)
         self.motor_controller.qr_id = None
 
     def perform_turn(self, direction):
         if direction == "right":
-            self.motor_controller.set_motor_values(150.0, 400.0)
+            self.motor_controller.set_motor_values(180.0, 330.0)
             self.motor_controller.get_logger().info('Sağa dönüş...')
         elif direction == "left":
-            self.motor_controller.set_motor_values(400.0, 150.0)
+            self.motor_controller.set_motor_values(300.0, 180.0)
             self.motor_controller.get_logger().info('Sola dönüş...')
-        time.sleep(3)
+        time.sleep(4.4)
         self.motor_controller.qr_id = None
 
     def run_forward(self):
-        self.motor_controller.set_motor_values(400.0, 400.0)
-        time.sleep(3)
+        self.motor_controller.set_motor_values(250.0, 250.0)
+        time.sleep(2)
     
     def engelden_kacma(self):
-        self.motor_controller.set_motor_values(0.0, 400.0)
-        time.sleep(1.7)
-        self.motor_controller.set_motor_values(400.0, 400.0)
-        time.sleep(3.5)
-        self.motor_controller.set_motor_values(400.0, 0.0)
-        time.sleep(2.4)
-        self.motor_controller.set_motor_values(400.0, 400.0)
-        time.sleep(1.9)
+        self.motor_controller.set_motor_values(-300.0, -300.0)
+        time.sleep(1.6)
+        self.motor_controller.set_motor_values(350.0, 0.0)
+        time.sleep(1.4)
+        self.motor_controller.set_motor_values(350.0, 350.0)
+        time.sleep(4.5)
+        self.motor_controller.set_motor_values(0.0, 350.0)
+        time.sleep(3.0)
+        self.motor_controller.set_motor_values(300.0, 350.0)
+        time.sleep(4.0)
+        self.motor_controller.set_motor_values(350.0, 0.0)
+        time.sleep(1.2)
+        
 
 class MotorController(Node):
     def __init__(self):
@@ -71,51 +72,52 @@ class MotorController(Node):
     def angle_callback(self, msg):
         angle = msg.data
         linear = 0.1
-        w = angle * (1.0 - self.coef)
         
         if self.qr_id == "1":
-            self.task_manager.perform_load_action(750.0)
+            self.task_manager.perform_load_action(1000.0)
             self.get_logger().info('Yük alındı , devam ediliyor...')
             self.task_manager.run_forward()
 
         elif self.qr_id == "2":
-            self.task_manager.perform_load_action(-750.0)
+            self.task_manager.perform_load_action(-1000.0)
             self.get_logger().info('Yük bırakıldı , devam ediliyor...')
             self.task_manager.run_forward()
 
         elif self.qr_id == "3":
             self.task_manager.perform_turn("right")
 
-        elif self.qr_id == "4":
+        elif self.qr_id == "4" or self.qr_id == "5" :
             self.task_manager.perform_turn("left")
 
-        elif self.engel_detected == False:
+        elif self.engel_detected == False :
+            # Normalleştirilmiş kontrol sinyali kullanarak motor hızlarını ayarlayın
+            w = angle * (1.0 - self.coef)
+            
             if w != 0.0:
-                right_speed = linear + (w * (self.wheel_distance / 2.0))
-                left_speed = linear - (w * (self.wheel_distance / 2.0))
+                right_speed = 2.5*linear + (w * (self.wheel_distance / 2.0))
+                left_speed = 2.5*linear -(w * (self.wheel_distance / 2.0))
             else:
                 right_speed = linear
                 left_speed = linear
 
-            right_speed_angular = right_speed / (2 * np.pi * self.wheel_radius)
-            left_speed_angular = left_speed / (2 * np.pi * self.wheel_radius)
+            right_speed_normalized = np.clip(right_speed, -1, 1)
+            left_speed_normalized = np.clip(left_speed, -1, 1)
             
             self.set_motor_values(
-                np.clip(2000 * right_speed_angular, -1000, 1000),
-                np.clip(2000 * left_speed_angular, -1000, 1000)
+                np.clip(1000 * right_speed_normalized, -1000, 1000),
+                np.clip(1000 * left_speed_normalized, -1000, 1000)
             )
     
     def engel_callback(self, msg):
-        self.get_logger().info('Engel tespit FONKSİYOOONNNNNNNNNNNN...')
         self.engel = msg.data
         if self.engel == True and not self.engel_detected:
             self.engel_detected = True
             self.engel_timer_count = 0
             self.get_logger().info('Engel tespit edildi, bekleniyor...')
+            
             self.set_motor_values(0.0, 0.0)
 
     def check_engel_status(self):
-        self.get_logger().info('Engel KONTROLL FONKSİYOOONNNNNNNNNNNN...')
         if self.engel_detected:
             if self.engel == False:
                 self.get_logger().info('Engel ortadan kalktı, devam ediliyor...')

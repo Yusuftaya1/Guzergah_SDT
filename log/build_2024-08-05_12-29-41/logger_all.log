@@ -1,0 +1,153 @@
+[0.238s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[0.238s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=8, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0x72b21a7b97e0>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x72b21a9363e0>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x72b21a9363e0>>)
+[0.644s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.645s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.645s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.645s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.645s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.645s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.645s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/yusuf/Guzergah_SDT'
+[0.645s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.646s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.646s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.646s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.646s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.646s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.646s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.646s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.646s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.671s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.672s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.672s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.672s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.672s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.672s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.672s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.673s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.673s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.673s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.673s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.674s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.674s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.674s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.674s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[0.675s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[0.675s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[0.675s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[0.675s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[0.675s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[0.675s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[0.675s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[0.675s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[0.675s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[0.676s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[0.676s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[0.676s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[0.676s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[0.676s] Level 1:colcon.colcon_core.package_identification:_identify(src/sdt_project) by extensions ['ignore', 'ignore_ament_install']
+[0.676s] Level 1:colcon.colcon_core.package_identification:_identify(src/sdt_project) by extension 'ignore'
+[0.676s] Level 1:colcon.colcon_core.package_identification:_identify(src/sdt_project) by extension 'ignore_ament_install'
+[0.676s] Level 1:colcon.colcon_core.package_identification:_identify(src/sdt_project) by extensions ['colcon_pkg']
+[0.677s] Level 1:colcon.colcon_core.package_identification:_identify(src/sdt_project) by extension 'colcon_pkg'
+[0.677s] Level 1:colcon.colcon_core.package_identification:_identify(src/sdt_project) by extensions ['colcon_meta']
+[0.677s] Level 1:colcon.colcon_core.package_identification:_identify(src/sdt_project) by extension 'colcon_meta'
+[0.677s] Level 1:colcon.colcon_core.package_identification:_identify(src/sdt_project) by extensions ['ros']
+[0.677s] Level 1:colcon.colcon_core.package_identification:_identify(src/sdt_project) by extension 'ros'
+[0.682s] DEBUG:colcon.colcon_core.package_identification:Package 'src/sdt_project' with type 'ros.ament_cmake' and name 'sdt_project'
+[0.682s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.682s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.682s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.683s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.683s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.748s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.748s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.752s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 1 installed packages in /home/yusuf/tcp/install
+[0.753s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 3 installed packages in /home/yusuf/turtlebot3_ws/install
+[0.754s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 1 installed packages in /home/yusuf/usb_cam/install
+[0.755s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 1 installed packages in /home/yusuf/Guzergah_SDT/install
+[0.756s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 1 installed packages in /home/yusuf/Guzergah_TIKA/install
+[0.760s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 395 installed packages in /opt/ros/humble
+[0.764s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.880s] Level 5:colcon.colcon_core.verb:set package 'sdt_project' build argument 'cmake_args' from command line to 'None'
+[0.880s] Level 5:colcon.colcon_core.verb:set package 'sdt_project' build argument 'cmake_target' from command line to 'None'
+[0.880s] Level 5:colcon.colcon_core.verb:set package 'sdt_project' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.880s] Level 5:colcon.colcon_core.verb:set package 'sdt_project' build argument 'cmake_clean_cache' from command line to 'False'
+[0.880s] Level 5:colcon.colcon_core.verb:set package 'sdt_project' build argument 'cmake_clean_first' from command line to 'False'
+[0.880s] Level 5:colcon.colcon_core.verb:set package 'sdt_project' build argument 'cmake_force_configure' from command line to 'False'
+[0.880s] Level 5:colcon.colcon_core.verb:set package 'sdt_project' build argument 'ament_cmake_args' from command line to 'None'
+[0.880s] Level 5:colcon.colcon_core.verb:set package 'sdt_project' build argument 'catkin_cmake_args' from command line to 'None'
+[0.880s] Level 5:colcon.colcon_core.verb:set package 'sdt_project' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.880s] DEBUG:colcon.colcon_core.verb:Building package 'sdt_project' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/yusuf/Guzergah_SDT/build/sdt_project', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/yusuf/Guzergah_SDT/install/sdt_project', 'merge_install': False, 'path': '/home/yusuf/Guzergah_SDT/src/sdt_project', 'symlink_install': False, 'test_result_base': None}
+[0.881s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.882s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.883s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/yusuf/Guzergah_SDT/src/sdt_project' with build type 'ament_cmake'
+[0.883s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/yusuf/Guzergah_SDT/src/sdt_project'
+[0.888s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.889s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.889s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.918s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/yusuf/Guzergah_SDT/build/sdt_project': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/yusuf/tcp/install/tcp_package:/opt/ros/humble /usr/bin/cmake --build /home/yusuf/Guzergah_SDT/build/sdt_project -- -j8 -l8
+[1.907s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/yusuf/Guzergah_SDT/build/sdt_project' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/yusuf/tcp/install/tcp_package:/opt/ros/humble /usr/bin/cmake --build /home/yusuf/Guzergah_SDT/build/sdt_project -- -j8 -l8
+[2.112s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/yusuf/Guzergah_SDT/build/sdt_project': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/yusuf/tcp/install/tcp_package:/opt/ros/humble /usr/bin/cmake --install /home/yusuf/Guzergah_SDT/build/sdt_project
+[2.271s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(sdt_project)
+[2.272s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/yusuf/Guzergah_SDT/build/sdt_project' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/yusuf/tcp/install/tcp_package:/opt/ros/humble /usr/bin/cmake --install /home/yusuf/Guzergah_SDT/build/sdt_project
+[2.276s] Level 1:colcon.colcon_core.environment:checking '/home/yusuf/Guzergah_SDT/install/sdt_project' for CMake module files
+[2.278s] Level 1:colcon.colcon_core.environment:checking '/home/yusuf/Guzergah_SDT/install/sdt_project' for CMake config files
+[2.279s] Level 1:colcon.colcon_core.shell:create_environment_hook('sdt_project', 'cmake_prefix_path')
+[2.279s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/hook/cmake_prefix_path.ps1'
+[2.280s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/hook/cmake_prefix_path.dsv'
+[2.281s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/hook/cmake_prefix_path.sh'
+[2.283s] Level 1:colcon.colcon_core.environment:checking '/home/yusuf/Guzergah_SDT/install/sdt_project/lib'
+[2.283s] Level 1:colcon.colcon_core.shell:create_environment_hook('sdt_project', 'ld_library_path_lib')
+[2.284s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/hook/ld_library_path_lib.ps1'
+[2.285s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/hook/ld_library_path_lib.dsv'
+[2.285s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/hook/ld_library_path_lib.sh'
+[2.286s] Level 1:colcon.colcon_core.environment:checking '/home/yusuf/Guzergah_SDT/install/sdt_project/bin'
+[2.286s] Level 1:colcon.colcon_core.environment:checking '/home/yusuf/Guzergah_SDT/install/sdt_project/lib/pkgconfig/sdt_project.pc'
+[2.287s] Level 1:colcon.colcon_core.environment:checking '/home/yusuf/Guzergah_SDT/install/sdt_project/lib/python3.10/site-packages'
+[2.287s] Level 1:colcon.colcon_core.environment:checking '/home/yusuf/Guzergah_SDT/install/sdt_project/bin'
+[2.288s] INFO:colcon.colcon_core.shell:Creating package script '/home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/package.ps1'
+[2.290s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/package.dsv'
+[2.291s] INFO:colcon.colcon_core.shell:Creating package script '/home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/package.sh'
+[2.293s] INFO:colcon.colcon_core.shell:Creating package script '/home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/package.bash'
+[2.295s] INFO:colcon.colcon_core.shell:Creating package script '/home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/package.zsh'
+[2.296s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/yusuf/Guzergah_SDT/install/sdt_project/share/colcon-core/packages/sdt_project)
+[2.554s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(sdt_project)
+[2.555s] Level 1:colcon.colcon_core.environment:checking '/home/yusuf/Guzergah_SDT/install/sdt_project' for CMake module files
+[2.557s] Level 1:colcon.colcon_core.environment:checking '/home/yusuf/Guzergah_SDT/install/sdt_project' for CMake config files
+[2.557s] Level 1:colcon.colcon_core.shell:create_environment_hook('sdt_project', 'cmake_prefix_path')
+[2.558s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/hook/cmake_prefix_path.ps1'
+[2.559s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/hook/cmake_prefix_path.dsv'
+[2.560s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/hook/cmake_prefix_path.sh'
+[2.561s] Level 1:colcon.colcon_core.environment:checking '/home/yusuf/Guzergah_SDT/install/sdt_project/lib'
+[2.561s] Level 1:colcon.colcon_core.shell:create_environment_hook('sdt_project', 'ld_library_path_lib')
+[2.562s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/hook/ld_library_path_lib.ps1'
+[2.562s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/hook/ld_library_path_lib.dsv'
+[2.563s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/hook/ld_library_path_lib.sh'
+[2.564s] Level 1:colcon.colcon_core.environment:checking '/home/yusuf/Guzergah_SDT/install/sdt_project/bin'
+[2.564s] Level 1:colcon.colcon_core.environment:checking '/home/yusuf/Guzergah_SDT/install/sdt_project/lib/pkgconfig/sdt_project.pc'
+[2.564s] Level 1:colcon.colcon_core.environment:checking '/home/yusuf/Guzergah_SDT/install/sdt_project/lib/python3.10/site-packages'
+[2.565s] Level 1:colcon.colcon_core.environment:checking '/home/yusuf/Guzergah_SDT/install/sdt_project/bin'
+[2.566s] INFO:colcon.colcon_core.shell:Creating package script '/home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/package.ps1'
+[2.567s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/package.dsv'
+[2.568s] INFO:colcon.colcon_core.shell:Creating package script '/home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/package.sh'
+[2.569s] INFO:colcon.colcon_core.shell:Creating package script '/home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/package.bash'
+[2.570s] INFO:colcon.colcon_core.shell:Creating package script '/home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/package.zsh'
+[2.571s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/yusuf/Guzergah_SDT/install/sdt_project/share/colcon-core/packages/sdt_project)
+[2.572s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[2.573s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[2.573s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[2.573s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[2.585s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[2.585s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[2.586s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[2.611s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[2.612s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/yusuf/Guzergah_SDT/install/local_setup.ps1'
+[2.614s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/yusuf/Guzergah_SDT/install/_local_setup_util_ps1.py'
+[2.619s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/yusuf/Guzergah_SDT/install/setup.ps1'
+[2.623s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/yusuf/Guzergah_SDT/install/local_setup.sh'
+[2.625s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/yusuf/Guzergah_SDT/install/_local_setup_util_sh.py'
+[2.626s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/yusuf/Guzergah_SDT/install/setup.sh'
+[2.630s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/yusuf/Guzergah_SDT/install/local_setup.bash'
+[2.631s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/yusuf/Guzergah_SDT/install/setup.bash'
+[2.634s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/yusuf/Guzergah_SDT/install/local_setup.zsh'
+[2.635s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/yusuf/Guzergah_SDT/install/setup.zsh'

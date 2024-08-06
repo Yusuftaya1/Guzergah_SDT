@@ -1,92 +1,113 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-
-"""
-Şerit Takip Etme ve PID Kontrolü
-"""
-
 import cv2
 import numpy as np
 import rclpy
 from rclpy.node import Node
+from std_msgs.msg import Float64
 from sensor_msgs.msg import Image
-from std_msgs.msg import Float64, Bool
-from cv_bridge import CvBridge
-from simple_pid import PID
-import time
+from cv_bridge import CvBridge, CvBridgeError
 
-class CizgiTakip(Node):
+# PID Kontrolcü sınıfı
+class PID:
+    def __init__(self, kp, ki, kd, setpoint):
+        self.kp = kp
+        self.ki = ki
+        self.kd = kd
+        self.setpoint = setpoint
+        self.integral = 0
+        self.prev_error = 0
+
+    def update(self, measurement):
+        error = self.setpoint - measurement
+        self.integral += error
+        derivative = error - self.prev_error
+        self.prev_error = error
+        return self.kp * error + self.ki * self.integral + self.kd * derivative
+
+class MotorController(Node):
     def __init__(self):
-        super().__init__('serit_takip_node')
-        print("waiting for navigate_ready")
-        self.sub_image = self.create_subscription(Image, 'image_raw', self.kamera_callback, 10)
-        self.pub_angle = self.create_publisher(Float64, '/AGV/angle', 10)
-        self.cizgi_mesaji = Bool()
-        self.aci_mesaji = Float64()
+        super().__init__('motor_controller')
+        self.angle_pub = self.create_publisher(Float64, '/AGV/angle', 10)
+        self.image_sub = self.create_subscription(Image, 'image_raw', self.image_callback, 10)
         self.bridge = CvBridge()
+        self.binary_image = None  # Görüntüyü saklamak için bir değişken ekleyin
+        self.pid = PID(kp=6.0, ki=0.1, kd=0.15, setpoint=160)
+        self.base_speed = 300
+        self.max_speed = 1000
+
+    def publish_angle(self, angle):
+        msg = Float64()
+        msg.data = angle
+        self.angle_pub.publish(msg)
+        self.get_logger().info(f'Published angle: {angle:.2f}')
+
+    def image_callback(self, msg):
+        try:
+            frame = self.bridge.imgmsg_to_cv2(msg, "bgr8")
+            self.process_image(frame)
+        except CvBridgeError as e:
+            self.get_logger().error(f'CvBridge Error: {e}')
+
+    def process_image(self, frame):
+        # Görüntü çözünürlüğünü düşürerek işlem hızını artırın
+        frame = cv2.resize(frame, (320, 240))
+
+        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+        blurred = cv2.GaussianBlur(gray, (3, 3), 0)
+
+        threshold = 60
+        _, binary = cv2.threshold(blurred, threshold, 255, cv2.THRESH_BINARY_INV)
+
+        M = cv2.moments(binary)
+        if M['m00'] != 0:
+            cX = int(M['m10'] / M['m00'])
+        else:
+            cX = frame.shape[1] // 2
+
+        control_signal = self.pid.update(cX)
+
+        # PID kontrol sinyalini -1 ile +1 arasında yeniden ölçeklendirin
+        control_signal_normalized = np.clip(control_signal, -self.max_speed, self.max_speed) / self.max_speed
+
+        # Köşeleri algılamak için kenarları kontrol et
+        edge_threshold = 50  # Kenar algılama için threshold değeri
+        edges = cv2.Canny(blurred, edge_threshold, edge_threshold * 2)
+        edge_moments = cv2.moments(edges)
         
-        # PID kontrolcüsü oluşturuluyor
-        #self.pid = PID(0.15, 0.0005, 0.2, setpoint=0)
-        self.pid = PID(1.0, 0.002, 0.0022, setpoint=0)
-        self.pid.output_limits = (-1, 1)
-        self.target_angle = 0.0
+        if edge_moments['m00'] != 0:
+            edge_cX = int(edge_moments['m10'] / edge_moments['m00'])
+            if abs(edge_cX - cX) > 50:  # Eğer köşe algılandıysa
+                control_signal_normalized *= 1.5  # Kontrol sinyalini artır
+                control_signal_normalized = np.clip(control_signal_normalized, -1, 1)
 
-    def kamera_callback(self, msg):
-        img = self.bridge.imgmsg_to_cv2(msg, "bgr8")
-        roi = img[2 * img.shape[0] // 3:img.shape[0], 0:img.shape[1]]
-        mono = cv2.cvtColor(roi, cv2.COLOR_BGR2GRAY)
-        blur = cv2.GaussianBlur(mono, (9, 9), 2)
-        _, thresh = cv2.threshold(blur, 0, 255, cv2.THRESH_BINARY_INV | cv2.THRESH_OTSU)
-        erode = cv2.getStructuringElement(cv2.MORPH_RECT, (3, 3))
-        dilate = cv2.getStructuringElement(cv2.MORPH_RECT, (5, 5))
-        erode_img = cv2.erode(thresh, erode, iterations=1)
-        dilate_img = cv2.dilate(erode_img, dilate, iterations=1)
-        contours, _ = cv2.findContours(dilate_img, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
+        print(f"PID Kontrol Sinyali: {control_signal:.2f}")
+        print(f"PID Kontrol Sinyali (Normalleştirilmiş): {control_signal_normalized:.2f}")
 
-        if not contours:
-            self.cizgi_mesaji.data = False
-            self.aci_mesaji.data = 0.0
-            self.pub_angle.publish(self.aci_mesaji)
-            return
-        
-        min_cx = roi.shape[1]
-        max_cx = 0
-        for cont in contours:
-            mu = cv2.moments(cont, False)
-            if mu['m00'] > 100.0:
-                r = cv2.boundingRect(cont)
-                cx = r[0] + r[2] // 2
-                if cx < min_cx:
-                    min_cx = cx
-                if cx > max_cx:
-                    max_cx = cx
+        # Normalize edilmiş değeri yayınla
+        self.publish_angle(control_signal_normalized)
 
-        if max_cx == 0 or min_cx == roi.shape[1]:
-            self.cizgi_mesaji.data = False
-            self.aci_mesaji.data = 0.0
-            self.pub_angle.publish(self.aci_mesaji)
-            return
-        
-        center_x = (min_cx + max_cx) / 2
-        aci_mesajii = 1.0 - 2.0 * center_x / roi.shape[1]
+        self.binary_image = binary  # Görüntüyü saklayın
 
-        # PID kontrolü
-        self.pid.setpoint = self.target_angle
-        control_signal = self.pid(aci_mesajii)
-        self.aci_mesaji.data = float(control_signal)
-        
-        self.pub_angle.publish(self.aci_mesaji)
-        self.get_logger().info(f'Publishing: {self.aci_mesaji.data}')
+def main():
+    rclpy.init()
 
-        #cv2.imshow("Dilate", dilate_img)
-        #cv2.waitKey(1)
+    motor_controller = MotorController()
 
-def main(args=None):
-    rclpy.init(args=args)
-    cizgi_takip = CizgiTakip()
-    rclpy.spin(cizgi_takip)
-    cizgi_takip.destroy_node()
-    rclpy.shutdown()
+    # Pencereyi oluşturun ve bir kez görüntü gösterin
+    cv2.namedWindow('Filtrelenmiş Görüntü', cv2.WINDOW_NORMAL)
 
-if __name__ == '__main__':
+    try:
+        while rclpy.ok():
+            rclpy.spin_once(motor_controller, timeout_sec=0.1)
+            if motor_controller.binary_image is not None:
+                cv2.imshow('Filtrelenmiş Görüntü', motor_controller.binary_image)
+                motor_controller.binary_image = None  # Görüntüyü bir kez gösterdikten sonra sıfırlayın
+                if cv2.waitKey(1) & 0xFF == ord('q'):
+                    break
+    finally:
+        cv2.destroyAllWindows()
+        rclpy.shutdown()
+
+if __name__ == "__main__":
     main()
