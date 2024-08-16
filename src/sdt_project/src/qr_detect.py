@@ -23,7 +23,6 @@ class QRCodeDetector(Node):
             self.get_logger().error(f"Resim dönüştürme hatası: {e}")
             return
 
-        # Görüntünün uygun bir biçimde olup olmadığını kontrol edin
         if cv_image is None or cv_image.size == 0:
             self.get_logger().error("Boş veya geçersiz bir görüntü alındı.")
             return

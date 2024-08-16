@@ -71,8 +71,8 @@ class CizgiTakip(Node):
         self.pub_angle.publish(self.aci_mesaji)
         self.get_logger().info(f'Publishing: {self.aci_mesaji.data}')
 
-        #cv2.imshow("Edges", edges)
-        #cv2.waitKey(1)
+        cv2.imshow("Edges", edges)
+        cv2.waitKey(1)
 
 def main(args=None):
     rclpy.init(args=args)

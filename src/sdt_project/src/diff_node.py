@@ -14,7 +14,7 @@ class TaskManager:
     
     def perform_load_action(self, actuator_value):
         self.motor_controller.set_motor_values(0.0, 0.0, actuator_value)
-        action = 'Yük alımı için' if actuator_value == 750.0 else 'Yük bırakmak için'
+        action = 'Yük alımı için' if actuator_value == 1000.0 else 'Yük bırakmak için'
         self.motor_controller.get_logger().info(f'{action} duruyor...')
         self.run_forward(self)
         time.sleep(14)
@@ -90,7 +90,6 @@ class MotorController(Node):
             self.task_manager.perform_turn("left")
 
         elif self.engel_detected == False :
-            # Normalleştirilmiş kontrol sinyali kullanarak motor hızlarını ayarlayın
             w = angle * (1.0 - self.coef)
             
             if w != 0.0:

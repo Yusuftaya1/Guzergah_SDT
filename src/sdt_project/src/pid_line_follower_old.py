@@ -13,7 +13,6 @@ from sensor_msgs.msg import Image
 from std_msgs.msg import Float64, Bool
 from cv_bridge import CvBridge
 from simple_pid import PID
-import time
 
 class CizgiTakip(Node):
     def __init__(self):

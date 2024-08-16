@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Kod denendi videoda kullanıldı
+Kod denendi -calisiyo- videoda kullanıldı
 """
 import cv2
 import numpy as np
@@ -52,12 +52,9 @@ class MotorController(Node):
             self.get_logger().error(f'CvBridge Error: {e}')
 
     def process_image(self, frame):
-        # Görüntü çözünürlüğünü düşürerek işlem hızını artırın
         frame = cv2.resize(frame, (320, 240))
-
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
         blurred = cv2.GaussianBlur(gray, (3, 3), 0)
-
         threshold = 60
         _, binary = cv2.threshold(blurred, threshold, 255, cv2.THRESH_BINARY_INV)
 
@@ -79,21 +76,17 @@ class MotorController(Node):
                 control_signal_normalized *= 1.5
                 control_signal_normalized = np.clip(control_signal_normalized, -1, 1)
 
-        print(f"PID Kontrol Sinyali: {control_signal:.2f}")
+        #print(f"PID Kontrol Sinyali: {control_signal:.2f}")
         print(f"PID Kontrol Sinyali (Normalleştirilmiş): {control_signal_normalized:.2f}")
 
         self.publish_angle(control_signal_normalized)
-
         self.binary_image = binary
 
 def main():
     rclpy.init()
 
     motor_controller = MotorController()
-
-    # Pencereyi oluşturun ve bir kez görüntü gösterin
     cv2.namedWindow('Filtrelenmiş Görüntü', cv2.WINDOW_NORMAL)
-
     try:
         while rclpy.ok():
             rclpy.spin_once(motor_controller, timeout_sec=0.1)

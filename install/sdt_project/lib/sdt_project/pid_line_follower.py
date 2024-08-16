@@ -11,7 +11,6 @@ from std_msgs.msg import Float64
 from sensor_msgs.msg import Image
 from cv_bridge import CvBridge, CvBridgeError
 
-# PID Kontrolcü sınıfı
 class PID:
     def __init__(self, kp, ki, kd, setpoint):
         self.kp = kp
@@ -34,7 +33,7 @@ class MotorController(Node):
         self.angle_pub = self.create_publisher(Float64, '/AGV/angle', 10)
         self.image_sub = self.create_subscription(Image, 'image_raw', self.image_callback, 10)
         self.bridge = CvBridge()
-        self.binary_image = None  # Görüntüyü saklamak için bir değişken ekleyin
+        self.binary_image = None
         self.pid = PID(kp=6.0, ki=0.1, kd=0.15, setpoint=160)
         self.base_speed = 300
         self.max_speed = 1000
@@ -69,28 +68,23 @@ class MotorController(Node):
             cX = frame.shape[1] // 2
 
         control_signal = self.pid.update(cX)
-
-        # PID kontrol sinyalini -1 ile +1 arasında yeniden ölçeklendirin
         control_signal_normalized = np.clip(control_signal, -self.max_speed, self.max_speed) / self.max_speed
-
-        # Köşeleri algılamak için kenarları kontrol et
-        edge_threshold = 50  # Kenar algılama için threshold değeri
+        edge_threshold = 50
         edges = cv2.Canny(blurred, edge_threshold, edge_threshold * 2)
         edge_moments = cv2.moments(edges)
         
         if edge_moments['m00'] != 0:
             edge_cX = int(edge_moments['m10'] / edge_moments['m00'])
-            if abs(edge_cX - cX) > 50:  # Eğer köşe algılandıysa
-                control_signal_normalized *= 1.5  # Kontrol sinyalini artır
+            if abs(edge_cX - cX) > 50:
+                control_signal_normalized *= 1.5
                 control_signal_normalized = np.clip(control_signal_normalized, -1, 1)
 
         print(f"PID Kontrol Sinyali: {control_signal:.2f}")
         print(f"PID Kontrol Sinyali (Normalleştirilmiş): {control_signal_normalized:.2f}")
 
-        # Normalize edilmiş değeri yayınla
         self.publish_angle(control_signal_normalized)
 
-        self.binary_image = binary  # Görüntüyü saklayın
+        self.binary_image = binary
 
 def main():
     rclpy.init()

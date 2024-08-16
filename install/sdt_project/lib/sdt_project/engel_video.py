@@ -17,10 +17,8 @@ class SerialReader(Node):
         data = self.serial_connection.readline().decode('utf-8').strip()
         msg = Bool()
         if data == "1":
-            self.get_logger().info(f'trueeee')
             msg.data = True
         else:
-            self.get_logger().info(f'falseeee')
             msg.data = False
         self.publisher_.publish(msg)
         self.get_logger().info(f'Published: {msg.data}')

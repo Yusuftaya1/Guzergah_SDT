@@ -68,12 +68,12 @@ class UI_sub(Node):
     def merge_and_send(self):
         if self.sensor_data and self.engel_statu:
             msg_dict = {
-                "sag_motor_sicaklik": 24,
-                "sol_motor_sicaklik": 25,
-                "lift_sicaklik":      17,
-                "sag_motor_akim":     10,
-                "sol_motor_akim":     8,
-                "lift_akim":          9,
+                "sag_motor_sicaklik": "24\n",
+                "sol_motor_sicaklik": "25\n",
+                "lift_sicaklik":      "30\n",
+                "sag_motor_akim":     "15\n",
+                "sol_motor_akim":     "14\n",
+                "lift_akim":          "9\n",
                 "asiri_agirlik":      True,
             }
             
