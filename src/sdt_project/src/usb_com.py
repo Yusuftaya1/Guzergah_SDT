@@ -21,10 +21,10 @@ class USBComNode(Node):
         self.serial_port = serial.Serial('/dev/ttyUSB0', 115200, timeout=1)
         self.sensor_values_publisher = self.create_publisher(SensorValues, '/AGV/sensor_values', 10)
         self.subscription = self.create_subscription(MotorValues,'/AGV/motor_values',self.motor_values_callback,10)    
-        #self.angle_sub = self.create_subscription(Float64,'/AGV/angle',self.send_angle,10)
         self.wheel_separation = 0.5
         self.wheel_radius = 0.1
-        self.timer = self.create_timer(0.5, self.read_serialport_and_publish)
+        self.timer = self.create_timer(1.0, self.read_serialport_and_publish)
+        self.sensor_values_msg = SensorValues()
 
     def motor_values_callback(self, msg):
         right_wheel_velocity  = msg.sag_teker_hiz
@@ -44,9 +44,9 @@ class USBComNode(Node):
         
         command = f'{right_wheel_velocity_str},{left_wheel_velocity_str},{linear_actuator_str}\n'
 
-        #if self.serial_port.in_waiting == 0:
-        self.get_logger().info(f'Seri porta gönderilen veri: {command}')
-        self.serial_port.write(command.encode())
+        if self.serial_port.in_waiting == 0:
+            self.get_logger().info(f'Seri porta gönderilen veri: {command}')
+            self.serial_port.write(command.encode())
     
     def read_serialport_and_publish(self):
         if self.serial_port.in_waiting > 0:
@@ -59,23 +59,22 @@ class USBComNode(Node):
                 self.get_logger().error(f'USB verisi okunurken hata: {str(e)}')
     
     def usb_data_splitter(self, usb_data):
-        sensor_values_msg = SensorValues()
         try:
             values = usb_data.split(',')
-            sensor_values_msg.sag_motor_sicaklik = float(values[0])
-            sensor_values_msg.sol_motor_sicaklik = float(values[1])
-            sensor_values_msg.lift_sicaklik = float(values[2])
+            self.sensor_values_msg.sag_motor_sicaklik = float(values[0])
+            self.sensor_values_msg.sol_motor_sicaklik = float(values[1])
+            self.sensor_values_msg.lift_sicaklik = float(values[2])
 
-            sensor_values_msg.sag_motor_akim = float(values[3])
-            sensor_values_msg.sol_motor_akim = float(values[4])
-            sensor_values_msg.lift_akim = float(values[5])
+            self.sensor_values_msg.sag_motor_akim = float(values[3])
+            self.sensor_values_msg.sol_motor_akim = float(values[4])
+            self.sensor_values_msg.lift_akim = float(values[5])
 
-            sensor_values_msg.asiri_agirlik = bool(values[6])
+            self.sensor_values_msg.asiri_agirlik = bool(values[6])
 
         except Exception as e:
             self.get_logger().error(f'Veri ayrıştırma hatası: {str(e)}')
             pass
-        return sensor_values_msg
+        return self.sensor_values_msg
 
     def destroy_node(self):
         self.serial_port.close()

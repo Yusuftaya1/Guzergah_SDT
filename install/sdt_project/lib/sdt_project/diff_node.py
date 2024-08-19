@@ -128,11 +128,10 @@ class MotorController(Node):
                     self.task_manager.engelden_kacma()
                     self.engel_detected = False
     
-    def set_motor_values(self, right_speed, left_speed, actuator_value=None):
+    def set_motor_values(self, right_speed, left_speed, actuator_value=0):
         self.motor_values_msg.sag_teker_hiz = right_speed
         self.motor_values_msg.sol_teker_hiz = left_speed
-        if actuator_value is not None:
-            self.motor_values_msg.linear_actuator = actuator_value
+        self.motor_values_msg.linear_actuator = actuator_value
         self.publish_motor_values()
 
     def publish_motor_values(self):

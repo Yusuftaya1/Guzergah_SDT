@@ -10,7 +10,7 @@ from std_msgs.msg import String
 
 class TCP_Socket():
     def __init__(self):
-        self.target_host = "10.7.88.216"
+        self.target_host = "10.7.91.176"
         self.target_port = 2626
         self.client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.connected = False
@@ -29,8 +29,8 @@ class TCP_Socket():
         if self.connected:
             try:
                 self.client.send(msg)
-                response = self.client.recv(4096)
-                print("\nRESPONSE:" + response.decode('utf-8') + "\n")
+                #response = self.client.recv(4096)
+                #print("\nRESPONSE:" + response.decode('utf-8') + "\n")
             except ConnectionError:
                 print("Bağlantı hatası: Veri gönderilirken bir hata oluştu.")
 
@@ -48,36 +48,58 @@ class UI_sub(Node):
     def __init__(self):
         super().__init__('UI_com_node')
         self.socket = TCP_Socket()
+        self.socket.connect()
         self.subscription = self.create_subscription(SensorValues, '/AGV/sensor_values', self.sensor_callback, 10)
         self.engel_status = self.create_subscription(String, 'engel_tespit', self.engel_callback, 10)
-        self.qr_status =    self.create_subscription(String,'/qr_code_data',self.qr_callback, 10)
         self.sensor_data =  None
-        self.engel_statu =  None
-        self.qr_statu = None
         self.timer = self.create_timer(1.0, self.merge_and_send)
+        self.map =[
+            [ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ],
+            [ 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1 ],
+            [ 1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1 ],
+            [ 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1 ],
+            [ 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 1 ],
+            [ 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1 ],
+            [ 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1 ],
+            [ 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1 ],
+            [ 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1 ],
+            [ 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1 ],
+            [ 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1 ],
+            [ 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1 ],
+            [ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ]
+        ]
 
     def sensor_callback(self, msg):
-        self.sensor_data = msg
+        self.sag_motor_sicaklik = msg.sag_motor_sicaklik
+        self.sol_motor_sicaklik = msg.sol_motor_sicaklik
+        self.lift_sicaklik = msg.lift_sicaklik
+    
+        self.sag_motor_akim = msg.sag_motor_akim
+        self.sol_motor_akim = msg.sol_motor_akim
+        self.lift_akim = msg.lift_akim
 
-    def engel_callback(self, msg):
+        self.asiri_agirlik = msg.asiri_agirlik
+
+    def engel_callback(self, msg=False):
         self.engel_statu = msg
 
-    def qr_callback(self,msg):
-        self.qr_statu = msg
-
     def merge_and_send(self):
-        if self.sensor_data and self.engel_statu:
-            msg_dict = {
-                "sag_motor_sicaklik": "24\n",
-                "sol_motor_sicaklik": "25\n",
-                "lift_sicaklik":      "30\n",
-                "sag_motor_akim":     "15\n",
-                "sol_motor_akim":     "14\n",
-                "lift_akim":          "9\n",
-                "asiri_agirlik":      True,
-            }
+        #if self.sensor_data:
+        msg_dict = {
+            "sag_motor_sicaklik": 14,
+            "sol_motor_sicaklik": 15,
+            "lift_sicaklik":      16,
+
+            "sag_motor_akim":     6,
+            "sol_motor_akim":     7,
+            "lift_akim":          8,
+
+            "asiri_agirlik":      True,
+            "engel":              False,
+            "map":      self.map
+        }
             
-            self.socket.send_data(msg_dict)
+        self.socket.send_data(msg_dict)
 
 def main(args=None):
     rclpy.init(args=args)

@@ -7,10 +7,11 @@ import socket
 from rclpy.node import Node
 from sdt_project.msg import SensorValues 
 from std_msgs.msg import String
+from nav_msgs.msg import OccupancyGrid
 
 class TCP_Socket():
     def __init__(self):
-        self.target_host = "10.7.88.216"
+        self.target_host = "10.7.91.176"
         self.target_port = 2626
         self.client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.connected = False
@@ -29,8 +30,6 @@ class TCP_Socket():
         if self.connected:
             try:
                 self.client.send(msg)
-                response = self.client.recv(4096)
-                print("\nRESPONSE:" + response.decode('utf-8') + "\n")
             except ConnectionError:
                 print("Bağlantı hatası: Veri gönderilirken bir hata oluştu.")
 
@@ -48,36 +47,46 @@ class UI_sub(Node):
     def __init__(self):
         super().__init__('UI_com_node')
         self.socket = TCP_Socket()
+        self.socket.connect()
         self.subscription = self.create_subscription(SensorValues, '/AGV/sensor_values', self.sensor_callback, 10)
         self.engel_status = self.create_subscription(String, 'engel_tespit', self.engel_callback, 10)
-        self.qr_status =    self.create_subscription(String,'/qr_code_data',self.qr_callback, 10)
-        self.sensor_data =  None
-        self.engel_statu =  None
-        self.qr_statu = None
+        self.map_sub = self.create_subscription(OccupancyGrid, 'map', self.map_callback, 10)
+        self.sensor_data = None
         self.timer = self.create_timer(1.0, self.merge_and_send)
 
     def sensor_callback(self, msg):
-        self.sensor_data = msg
+        self.sag_motor_sicaklik = msg.sag_motor_sicaklik
+        self.sol_motor_sicaklik = msg.sol_motor_sicaklik
+        self.lift_sicaklik = msg.lift_sicaklik
+    
+        self.sag_motor_akim = msg.sag_motor_akim
+        self.sol_motor_akim = msg.sol_motor_akim
+        self.lift_akim = msg.lift_akim
+
+        self.asiri_agirlik = msg.asiri_agirlik
 
     def engel_callback(self, msg):
-        self.engel_statu = msg
+        self.engel_statu = msg.data
 
-    def qr_callback(self,msg):
-        self.qr_statu = msg
+    def map_callback(self, msg):
+        self.map = msg.data
 
     def merge_and_send(self):
-        if self.sensor_data and self.engel_statu:
-            msg_dict = {
-                "sag_motor_sicaklik": "24\n",
-                "sol_motor_sicaklik": "25\n",
-                "lift_sicaklik":      "30\n",
-                "sag_motor_akim":     "15\n",
-                "sol_motor_akim":     "14\n",
-                "lift_akim":          "9\n",
-                "asiri_agirlik":      True,
-            }
-            
-            self.socket.send_data(msg_dict)
+        msg_dict = {
+            "sag_motor_sicaklik": self.sag_motor_sicaklik,
+            "sol_motor_sicaklik": self.sol_motor_sicaklik,
+            "lift_sicaklik":      self.lift_sicaklik,
+
+            "sag_motor_akim":     self.sag_motor_akim,
+            "sol_motor_akim":     self.sol_motor_akim,
+            "lift_akim":          self.lift_akim,
+
+            "asiri_agirlik":      self.asiri_agirlik,
+            "engel":              self.engel_statu,
+            "map":                self.map
+        }
+        
+        self.socket.send_data(msg_dict)
 
 def main(args=None):
     rclpy.init(args=args)
