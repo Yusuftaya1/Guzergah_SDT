@@ -1,6 +1,15 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+"""
+Motor kontrolleri burada yapılır 
 
+/mode_status 
+engel_tespit 
+/AGV/angle
+
+/AGV/motor_values
+
+"""
 import rclpy
 from rclpy.node import Node
 from std_msgs.msg import Float64, String, Bool
@@ -47,8 +56,17 @@ class TaskManager:
         time.sleep(4.0)
         self.motor_controller.set_motor_values(350.0, 0.0)
         time.sleep(1.2)
-        
+    
+    def rotate_around(self, direction, duration=2.0):
+        if direction == "clockwise":
+            self.motor_controller.set_motor_values(350.0, -350.0)
+        elif direction == "counterclockwise":
+            self.motor_controller.set_motor_values(-350.0, 350.0)
+        time.sleep(duration)
 
+    def AutonomusCharge(self):
+        pass
+    
 class MotorController(Node):
     def __init__(self):
         super().__init__('motor_controller')
@@ -59,37 +77,47 @@ class MotorController(Node):
         self.engel_detected = False
         self.task_manager = TaskManager(self)
         self.angle_sub = self.create_subscription(Float64, '/AGV/angle', self.angle_callback, 10)
-        self.qr_status_sub = self.create_subscription(String, '/qr_code_data', self.qr_callback, 10)
         self.motor_values_pub = self.create_publisher(MotorValues, '/AGV/motor_values', 10)
         self.engel_sub = self.create_subscription(Bool, 'engel_tespit', self.engel_callback, 10)
+        self.mode_status_sub = self.create_subscription(String, '/mode_status', self.mode_callback, 10)
         self.motor_values_msg = MotorValues()
         self.engel_check_timer = self.create_timer(1.0, self.check_engel_status)
 
-    def qr_callback(self, msg):
-        self.qr_id = msg.data
-        self.get_logger().info(f'QR ID: {self.qr_id}')
+    def mode_callback(self,msg):
+        self.mode = msg
 
     def angle_callback(self, msg):
         angle = msg.data
         linear = 0.1
         
-        if self.qr_id == "1":
+        if self.mode == "Turn Right":
+            self.task_manager.perform_turn("right")
+
+        if self.mode == "Turn Left":
+            self.task_manager.perform_turn("left")
+        
+        if self.mode == "clockwise":
+            self.task_manager.rotate_around("clockwise",1.3)
+
+        if self.mode == "counterclockwise":
+            self.task_manager.rotate_around("counterclockwise",1.3)
+        
+        if self.mode == "Load":
             self.task_manager.perform_load_action(1000.0)
             self.get_logger().info('Yük alındı , devam ediliyor...')
             self.task_manager.run_forward()
 
-        elif self.qr_id == "2":
+        if self.mode == "Unload":
             self.task_manager.perform_load_action(-1000.0)
             self.get_logger().info('Yük bırakıldı , devam ediliyor...')
             self.task_manager.run_forward()
+        
+        if self.mode =="Finish":
+            self.get_logger().info('Finish komutu alındı, sistem durduruluyor...')
+            self.set_motor_values(0.0, 0.0)
+            rclpy.shutdown()
 
-        elif self.qr_id == "3":
-            self.task_manager.perform_turn("right")
-
-        elif self.qr_id == "4" or self.qr_id == "5" :
-            self.task_manager.perform_turn("left")
-
-        elif self.engel_detected == False :
+        if self.engel_detected == False :
             w = angle * (1.0 - self.coef)
             
             if w != 0.0:
@@ -106,7 +134,7 @@ class MotorController(Node):
                 np.clip(1000 * right_speed_normalized, -1000, 1000),
                 np.clip(1000 * left_speed_normalized, -1000, 1000)
             )
-    
+
     def engel_callback(self, msg):
         self.engel = msg.data
         if self.engel == True and not self.engel_detected:

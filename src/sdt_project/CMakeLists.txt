@@ -28,7 +28,7 @@ install(PROGRAMS
   src/pid_library.py
   src/pid_line_follower.py
   src/manuel_kumanda.py
-  src/navigation.py
+  src/navigation_1.py
   src/qr_detect.py
   src/engel_video.py
   DESTINATION lib/${PROJECT_NAME}

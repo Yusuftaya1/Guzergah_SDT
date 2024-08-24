@@ -19,4 +19,24 @@ motor_values NEREDEN ALINACAK ONU BELİRLER
 mode_status node
 
 """
+import rclpy
+from rclpy.node import Node
+from std_msgs.msg import Float64, String, Bool
 
+class Navigation:
+    def __init__(self):
+        super().__init__('Navigation')
+        self.qr_status_sub = self.create_subscription(String, '/qr_code_data', self.qr_callback, 10)
+        
+
+
+    def qr_callback(self, msg):
+        self.qr_id = msg.data
+        self.get_logger().info(f'QR ID: {self.qr_id}')
+
+
+def main(args=None):
+    rclpy.init(args=args)
+    node = Navigation()
+    rclpy.spin(node)
+    rclpy.shutdown()

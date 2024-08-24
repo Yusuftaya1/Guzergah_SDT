@@ -7,6 +7,7 @@ import socket
 from rclpy.node import Node
 from sdt_project.msg import SensorValues 
 from std_msgs.msg import String
+from nav_msgs.msg import OccupancyGrid
 
 class TCP_Socket():
     def __init__(self):
@@ -29,8 +30,6 @@ class TCP_Socket():
         if self.connected:
             try:
                 self.client.send(msg)
-                #response = self.client.recv(4096)
-                #print("\nRESPONSE:" + response.decode('utf-8') + "\n")
             except ConnectionError:
                 print("Bağlantı hatası: Veri gönderilirken bir hata oluştu.")
 
@@ -51,23 +50,9 @@ class UI_sub(Node):
         self.socket.connect()
         self.subscription = self.create_subscription(SensorValues, '/AGV/sensor_values', self.sensor_callback, 10)
         self.engel_status = self.create_subscription(String, 'engel_tespit', self.engel_callback, 10)
-        self.sensor_data =  None
+        self.map_sub = self.create_subscription(OccupancyGrid, 'map', self.map_callback, 10)
+        self.sensor_data = None
         self.timer = self.create_timer(1.0, self.merge_and_send)
-        self.map =[
-            [ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ],
-            [ 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1 ],
-            [ 1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1 ],
-            [ 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1 ],
-            [ 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 1 ],
-            [ 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1 ],
-            [ 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1 ],
-            [ 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1 ],
-            [ 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1 ],
-            [ 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1 ],
-            [ 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1 ],
-            [ 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1 ],
-            [ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ]
-        ]
 
     def sensor_callback(self, msg):
         self.sag_motor_sicaklik = msg.sag_motor_sicaklik
@@ -80,25 +65,26 @@ class UI_sub(Node):
 
         self.asiri_agirlik = msg.asiri_agirlik
 
-    def engel_callback(self, msg=False):
-        self.engel_statu = msg
+    def engel_callback(self, msg):
+        self.engel_statu = msg.data
+
+    def map_callback(self, msg):
+        self.map = msg.data
 
     def merge_and_send(self):
-        #if self.sensor_data:
         msg_dict = {
             "sag_motor_sicaklik": 14,
-            "sol_motor_sicaklik": 15,
-            "lift_sicaklik":      16,
+            "sol_motor_sicaklik":15,
+            "lift_sicaklik":     16,
 
             "sag_motor_akim":     6,
             "sol_motor_akim":     7,
-            "lift_akim":          8,
+            "lift_akim":         8,
 
             "asiri_agirlik":      True,
             "engel":              False,
-            "map":      self.map
         }
-            
+        
         self.socket.send_data(msg_dict)
 
 def main(args=None):

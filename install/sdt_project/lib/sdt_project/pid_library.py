@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Kod denenecek PID Lib
+Kod denenecek PID Library
 """
 import cv2
 import numpy as np
@@ -76,7 +76,7 @@ def main():
             rclpy.spin_once(motor_controller, timeout_sec=0.1)
             if motor_controller.binary_image is not None:
                 cv2.imshow('Filtrelenmiş Görüntü', motor_controller.binary_image)
-                motor_controller.binary_image = None
+                motor_controller.binary_image = None  # Görüntüyü bir kez gösterdikten sonra sıfırlayın
                 if cv2.waitKey(1) & 0xFF == ord('q'):
                     break
     finally:

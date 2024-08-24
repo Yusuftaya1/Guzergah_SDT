@@ -59,36 +59,18 @@ class MotorController(Node):
         self.engel_detected = False
         self.task_manager = TaskManager(self)
         self.angle_sub = self.create_subscription(Float64, '/AGV/angle', self.angle_callback, 10)
-        self.qr_status_sub = self.create_subscription(String, '/qr_code_data', self.qr_callback, 10)
         self.motor_values_pub = self.create_publisher(MotorValues, '/AGV/motor_values', 10)
         self.engel_sub = self.create_subscription(Bool, 'engel_tespit', self.engel_callback, 10)
         self.motor_values_msg = MotorValues()
         self.engel_check_timer = self.create_timer(1.0, self.check_engel_status)
-
-    def qr_callback(self, msg):
-        self.qr_id = msg.data
-        self.get_logger().info(f'QR ID: {self.qr_id}')
 
     def angle_callback(self, msg):
         angle = msg.data
         linear = 0.1
         
         if self.qr_id == "1":
-            self.task_manager.perform_load_action(1000.0)
-            self.get_logger().info('Yük alındı , devam ediliyor...')
-            self.task_manager.run_forward()
-
-        elif self.qr_id == "2":
-            self.task_manager.perform_load_action(-1000.0)
-            self.get_logger().info('Yük bırakıldı , devam ediliyor...')
-            self.task_manager.run_forward()
-
-        elif self.qr_id == "3":
-            self.task_manager.perform_turn("right")
-
-        elif self.qr_id == "4" or self.qr_id == "5" :
-            self.task_manager.perform_turn("left")
-
+            pass
+        
         elif self.engel_detected == False :
             w = angle * (1.0 - self.coef)
             
