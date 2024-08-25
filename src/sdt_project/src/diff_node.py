@@ -8,8 +8,8 @@ engel_tespit
 /AGV/angle
 
 /AGV/motor_values
-
 """
+
 import rclpy
 from rclpy.node import Node
 from std_msgs.msg import Float64, String, Bool

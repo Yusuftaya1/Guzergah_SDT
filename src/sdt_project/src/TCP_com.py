@@ -30,8 +30,16 @@ class TCP_Socket():
         if self.connected:
             try:
                 self.client.send(msg)
+                response = self.client.recv(4096)
+                if response == "Charge":
+                    pass
+                else: 
+                    pass
+                print("\nRESPONSE:" + response.decode('utf-8') + "\n")
+                
             except ConnectionError:
                 print("Bağlantı hatası: Veri gönderilirken bir hata oluştu.")
+
 
     def close(self):
         if self.connected:
