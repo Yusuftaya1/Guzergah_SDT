@@ -4,6 +4,19 @@ from launch_ros.actions import Node
 
 def generate_launch_description():
     return LaunchDescription([
+         Node(
+            package='slam_toolbox', 
+            executable='sync_slam_toolbox_node',
+            name='slam_toolbox',
+            output='screen',
+            parameters=[{
+                'use_sim_time': False
+            }],
+            remappings=[
+                ('/scan', '/my_scan_topic'), 
+                ('/map', '/my_map_topic'),
+            ]
+        ),
         Node(
             package='usb_cam',
             executable='usb_cam_node_exe',
@@ -20,12 +33,6 @@ def generate_launch_description():
             package='sdt_project',
             executable='diff_node.py',
             name='diff_node',
-            output='screen'
-        ),
-        Node(
-            package='sdt_project',
-            executable='qr_detect.py',
-            name='qr_detectt',
             output='screen'
         ),
         Node(

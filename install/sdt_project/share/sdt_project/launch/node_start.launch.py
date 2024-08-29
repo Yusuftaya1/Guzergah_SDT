@@ -5,12 +5,17 @@ from launch_ros.actions import Node
 def generate_launch_description():
     return LaunchDescription([
         Node(
-            package='sdt_project',
-            executable='pid_line_follow.py',
-            name='line_follower',
+            package='usb_cam',
+            executable='usb_cam_node_exe',
+            name='camera',
             output='screen'
         ),
-
+        Node(
+            package='sdt_project',
+            executable='pid_library.py',
+            name='camera',
+            output='screen'
+        ),
         Node(
             package='sdt_project',
             executable='diff_node.py',
@@ -20,7 +25,7 @@ def generate_launch_description():
         Node(
             package='sdt_project',
             executable='qr_detect.py',
-            name='qr_status',
+            name='qr_detectt',
             output='screen'
         ),
         Node(
@@ -31,10 +36,8 @@ def generate_launch_description():
         ),
         Node(
             package='sdt_project',
-            executable='engel_video.py',
-            name='engel_tespit',
+            executable='TCP_com.py',
+            name='usb_node',
             output='screen'
         ),
-
-        
     ])

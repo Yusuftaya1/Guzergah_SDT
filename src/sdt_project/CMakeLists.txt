@@ -26,18 +26,18 @@ install(PROGRAMS
   src/TCP_com.py
   src/diff_node.py
   src/pid_library.py
-  src/pid_line_follower.py
   src/manuel_kumanda.py
   src/navigation_1.py
   src/qr_detect.py
-  src/engel_video.py
   DESTINATION lib/${PROJECT_NAME}
 )
 
 ###############  LAUNCH  ###############
 install(FILES
   launch/node_start.launch.py
+  launch/SLAM.launch.py 
   DESTINATION share/${PROJECT_NAME}/launch
 )
+
 
 ament_package()

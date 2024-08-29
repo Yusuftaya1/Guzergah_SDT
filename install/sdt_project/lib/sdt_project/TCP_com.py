@@ -5,7 +5,7 @@ import rclpy
 import json
 import socket
 from rclpy.node import Node
-from sdt_project.msg import SensorValues 
+from sdt_project.msg import SensorValues
 from std_msgs.msg import String
 from nav_msgs.msg import OccupancyGrid
 
@@ -14,7 +14,9 @@ class TCP_Socket():
         self.target_host = "10.7.91.176"
         self.target_port = 2626
         self.client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self.client.settimeout(1.0)
         self.connected = False
+        self.received_msg = None
 
     def connect(self):
         try:
@@ -30,6 +32,13 @@ class TCP_Socket():
         if self.connected:
             try:
                 self.client.send(msg)
+                try:
+                    response = self.client.recv(4096).decode('utf-8')
+                    self.received_msg = response
+                    print("\nRESPONSE:" + response + "\n")
+                except socket.timeout:
+                    self.received_msg = None
+                
             except ConnectionError:
                 print("Bağlantı hatası: Veri gönderilirken bir hata oluştu.")
 
@@ -43,6 +52,9 @@ class TCP_Socket():
         self.data_transfer(msg_json.encode('utf-8'))
         print(f"Sent sensor data: {send_to_ui}")
 
+    def get_received_msg(self):
+        return self.received_msg
+
 class UI_sub(Node):
     def __init__(self):
         super().__init__('UI_com_node')
@@ -51,7 +63,7 @@ class UI_sub(Node):
         self.subscription = self.create_subscription(SensorValues, '/AGV/sensor_values', self.sensor_callback, 10)
         self.engel_status = self.create_subscription(String, 'engel_tespit', self.engel_callback, 10)
         self.map_sub = self.create_subscription(OccupancyGrid, 'map', self.map_callback, 10)
-        self.sensor_data = None
+        self.charge_pub = self.create_publisher(String, 'charge_status', 10)
         self.timer = self.create_timer(1.0, self.merge_and_send)
 
     def sensor_callback(self, msg):
@@ -73,19 +85,26 @@ class UI_sub(Node):
 
     def merge_and_send(self):
         msg_dict = {
-            "sag_motor_sicaklik": 14,
-            "sol_motor_sicaklik":15,
-            "lift_sicaklik":     16,
+            "sag_motor_sicaklik": self.sag_motor_sicaklik,
+            "sol_motor_sicaklik": self.sol_motor_sicaklik,
+            "lift_sicaklik":      self.lift_sicaklik,
 
-            "sag_motor_akim":     6,
-            "sol_motor_akim":     7,
-            "lift_akim":         8,
+            "sag_motor_akim":     self.sag_motor_akim,
+            "sol_motor_akim":     self.sol_motor_akim,
+            "lift_akim":          self.lift_akim,
 
-            "asiri_agirlik":      True,
-            "engel":              False,
+            "asiri_agirlik":      self.asiri_agirlik,
+            "engel":              self.engel_statu,
+            "map":                self.map
         }
         
         self.socket.send_data(msg_dict)
+        received_msg = self.socket.get_received_msg()
+
+        if received_msg == "Charge":
+            charge_msg = String()
+            charge_msg.data = "Charge"
+            self.charge_pub.publish(charge_msg)
 
 def main(args=None):
     rclpy.init(args=args)

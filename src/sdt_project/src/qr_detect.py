@@ -40,8 +40,6 @@ class QRCodeDetector(Node):
             qr_msg.data = data
         else:
             qr_msg.data = "0"
-            self.get_logger().info(f"QR kod yok: {qr_msg.data}")
-
         self.qr_pub.publish(qr_msg)
 
         # Görüntüyü göstermek için (isteğe bağlı)
