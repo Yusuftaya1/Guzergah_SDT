@@ -1,0 +1,78 @@
+frames:
+  - name: map
+    parent: world
+    transform:
+      translation:
+        x: 0.0
+        y: 0.0
+        z: 0.0
+      rotation:
+        x: 0.0
+        y: 0.0
+        z: 0.0
+        w: 1.0
+
+  - name: odom
+    parent: map
+    transform:
+      translation:
+        x: 0.0
+        y: 0.0
+        z: 0.0
+      rotation:
+        x: 0.0
+        y: 0.0
+        z: 0.0
+        w: 1.0
+
+  - name: base_link
+    parent: odom
+    transform:
+      translation:
+        x: 0.0
+        y: 0.0
+        z: 0.0
+      rotation:
+        x: 0.0
+        y: 0.0
+        z: 0.0
+        w: 1.0
+
+  - name: base_footprint
+    parent: base_link
+    transform:
+      translation:
+        x: 0.0
+        y: 0.0
+        z: 0.0
+      rotation:
+        x: 0.0
+        y: 0.0
+        z: 0.0
+        w: 1.0
+
+  - name: lidar_link
+    parent: odom
+    transform:
+      translation:
+        x: 0.2
+        y: 0.0
+        z: 0.1
+      rotation:
+        x: 0.0
+        y: 0.0
+        z: 0.0
+        w: 1.0
+
+  - name: laser
+    parent: lidar_link
+    transform:
+      translation:
+        x: 0.0
+        y: 0.0
+        z: 0.1
+      rotation:
+        x: 0.0
+        y: 0.0
+        z: 0.0
+        w: 1.0

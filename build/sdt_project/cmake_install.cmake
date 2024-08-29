@@ -376,6 +376,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
     "/home/yusuf/Guzergah_SDT/src/sdt_project/src/usb_com.py"
     "/home/yusuf/Guzergah_SDT/src/sdt_project/src/TCP_com.py"
     "/home/yusuf/Guzergah_SDT/src/sdt_project/src/diff_node.py"
+    "/home/yusuf/Guzergah_SDT/src/sdt_project/src/tf_brodcast.py"
     "/home/yusuf/Guzergah_SDT/src/sdt_project/src/pid_library.py"
     "/home/yusuf/Guzergah_SDT/src/sdt_project/src/manuel_kumanda.py"
     "/home/yusuf/Guzergah_SDT/src/sdt_project/src/navigation_1.py"

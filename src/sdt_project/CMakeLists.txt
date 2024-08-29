@@ -25,6 +25,7 @@ install(PROGRAMS
   src/usb_com.py
   src/TCP_com.py
   src/diff_node.py
+  src/tf_brodcast.py
   src/pid_library.py
   src/manuel_kumanda.py
   src/navigation_1.py
