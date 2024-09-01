@@ -17,45 +17,41 @@ class Navigation(Node):
     def qr_callback(self, msg):
         qr_data = msg.data
         self.get_logger().info(f'QR ID: {qr_data}')
-        self.qr_id = self.extract_first_part(qr_data)
-
-        if self.qr_id == "Q45":
-            self.mode_msg = "Load"
-            self.target_point = "D"
-
-        elif self.qr_id == "Q33":
-            self.mode_msg = "Unload"
-            self.target_point = "C"
-
-        elif self.qr_id == "Q38":
-            self.mode_msg = "Load"
-            self.target_point = "A"
-
-        elif self.qr_id == "Q50":
-            self.mode_msg = "Unload"
-            self.target_point = "S1"
+        self.qr_id = self.extract_first_part(qr_data)  
         
         if self.target_point == "A":
             if self.qr_id in ["Q36", "Q18"]:
                 self.mode_msg = "Turn Left"
+            elif self.qr_id == "Q50":
+                self.mode_msg = "Unload"
+                self.target_point = "S1"
             else:
                 self.mode_msg = "None"
 
         elif self.target_point == "B":
             if self.qr_id in ["Q41", "Q9"]:
                 self.mode_msg = "Turn Right"
+            elif self.qr_id == "Q45":
+                self.mode_msg = "Load"
+                self.target_point = "D"
             else:
                 self.mode_msg = "None"
 
         elif self.target_point == "C":
             if self.qr_id in ["Q31", "Q4"]:
                 self.mode_msg = "Turn Right"
+            elif self.qr_id == "Q38":
+                self.mode_msg = "Load"
+                self.target_point = "A"
             else:
                 self.mode_msg = "None"
 
         elif self.target_point == "D":
             if self.qr_id in ["Q43", "Q26"]:
                 self.mode_msg = "Turn Right"
+            elif self.qr_id == "Q33":
+                self.mode_msg = "Unload"
+                self.target_point = "C"
             else:
                 self.mode_msg = "None"
 

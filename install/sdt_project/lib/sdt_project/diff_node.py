@@ -94,7 +94,7 @@ class MotorController(Node):
     def mode_callback(self, msg):
         self.mode = msg
         if self.mode == "Turn Right":
-            self.task_manager("right")
+            self.task_manager.perform_turn("right")
 
         if self.mode == "Turn Left":
             self.task_manager.perform_turn("left")
