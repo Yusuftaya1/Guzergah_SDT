@@ -36,16 +36,8 @@ cdr_serialize(
   cdr << ros_message.sag_motor_sicaklik;
   // Member: sol_motor_sicaklik
   cdr << ros_message.sol_motor_sicaklik;
-  // Member: lift_sicaklik
-  cdr << ros_message.lift_sicaklik;
-  // Member: sag_motor_akim
-  cdr << ros_message.sag_motor_akim;
-  // Member: sol_motor_akim
-  cdr << ros_message.sol_motor_akim;
-  // Member: lift_akim
-  cdr << ros_message.lift_akim;
-  // Member: asiri_agirlik
-  cdr << (ros_message.asiri_agirlik ? true : false);
+  // Member: motor_akim
+  cdr << ros_message.motor_akim;
   return true;
 }
 
@@ -61,24 +53,8 @@ cdr_deserialize(
   // Member: sol_motor_sicaklik
   cdr >> ros_message.sol_motor_sicaklik;
 
-  // Member: lift_sicaklik
-  cdr >> ros_message.lift_sicaklik;
-
-  // Member: sag_motor_akim
-  cdr >> ros_message.sag_motor_akim;
-
-  // Member: sol_motor_akim
-  cdr >> ros_message.sol_motor_akim;
-
-  // Member: lift_akim
-  cdr >> ros_message.lift_akim;
-
-  // Member: asiri_agirlik
-  {
-    uint8_t tmp;
-    cdr >> tmp;
-    ros_message.asiri_agirlik = tmp ? true : false;
-  }
+  // Member: motor_akim
+  cdr >> ros_message.motor_akim;
 
   return true;
 }
@@ -108,33 +84,9 @@ get_serialized_size(
     current_alignment += item_size +
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
-  // Member: lift_sicaklik
+  // Member: motor_akim
   {
-    size_t item_size = sizeof(ros_message.lift_sicaklik);
-    current_alignment += item_size +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
-  }
-  // Member: sag_motor_akim
-  {
-    size_t item_size = sizeof(ros_message.sag_motor_akim);
-    current_alignment += item_size +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
-  }
-  // Member: sol_motor_akim
-  {
-    size_t item_size = sizeof(ros_message.sol_motor_akim);
-    current_alignment += item_size +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
-  }
-  // Member: lift_akim
-  {
-    size_t item_size = sizeof(ros_message.lift_akim);
-    current_alignment += item_size +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
-  }
-  // Member: asiri_agirlik
-  {
-    size_t item_size = sizeof(ros_message.asiri_agirlik);
+    size_t item_size = sizeof(ros_message.motor_akim);
     current_alignment += item_size +
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
@@ -180,48 +132,13 @@ max_serialized_size_SensorValues(
       eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint64_t));
   }
 
-  // Member: lift_sicaklik
+  // Member: motor_akim
   {
     size_t array_size = 1;
 
     last_member_size = array_size * sizeof(uint64_t);
     current_alignment += array_size * sizeof(uint64_t) +
       eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint64_t));
-  }
-
-  // Member: sag_motor_akim
-  {
-    size_t array_size = 1;
-
-    last_member_size = array_size * sizeof(uint64_t);
-    current_alignment += array_size * sizeof(uint64_t) +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint64_t));
-  }
-
-  // Member: sol_motor_akim
-  {
-    size_t array_size = 1;
-
-    last_member_size = array_size * sizeof(uint64_t);
-    current_alignment += array_size * sizeof(uint64_t) +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint64_t));
-  }
-
-  // Member: lift_akim
-  {
-    size_t array_size = 1;
-
-    last_member_size = array_size * sizeof(uint64_t);
-    current_alignment += array_size * sizeof(uint64_t) +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint64_t));
-  }
-
-  // Member: asiri_agirlik
-  {
-    size_t array_size = 1;
-
-    last_member_size = array_size * sizeof(uint8_t);
-    current_alignment += array_size * sizeof(uint8_t);
   }
 
   size_t ret_val = current_alignment - initial_alignment;
@@ -232,7 +149,7 @@ max_serialized_size_SensorValues(
     using DataType = sdt_project::msg::SensorValues;
     is_plain =
       (
-      offsetof(DataType, asiri_agirlik) +
+      offsetof(DataType, motor_akim) +
       last_member_size
       ) == ret_val;
   }

@@ -23,19 +23,14 @@ class USBComNode(Node):
         self.subscription = self.create_subscription(MotorValues,'/AGV/motor_values',self.motor_values_callback,10)    
         self.wheel_separation = 0.5
         self.wheel_radius = 0.1
-        self.timer = self.create_timer(1.0, self.read_serialport_and_publish)
+        self.timer = self.create_timer(2.0, self.read_serialport_and_publish)
         self.sensor_values_msg = SensorValues()
 
     def motor_values_callback(self, msg):
-        right_wheel_velocity  = msg.sag_teker_hiz
-        left_wheel_velocity   = msg.sol_teker_hiz
-        linear_actuator       = msg.linear_actuator
+        right_wheel_velocity  = 333 #msg.sag_teker_hiz
+        left_wheel_velocity   = 444 #msg.sol_teker_hiz
+        linear_actuator       = 555 #msg.linear_actuator
         self.send_wheel_velocities(right_wheel_velocity, left_wheel_velocity, linear_actuator)
-
-    def send_angle(self,msg):
-        command = f'{msg.data}\n'
-        self.get_logger().info(f'Seri porta gönderilen veri: {command}')
-        self.serial_port.write(command.encode())
     
     def send_wheel_velocities(self, right_wheel_velocity, left_wheel_velocity, linear_actuator):
         right_wheel_velocity_str = f'{int(right_wheel_velocity):05}'
@@ -52,7 +47,7 @@ class USBComNode(Node):
         if self.serial_port.in_waiting > 0:
             try:
                 usb_data = self.serial_port.readline().decode('utf-8').strip()
-                self.get_logger().info(f'USB\'den gelen veri: {usb_data}')
+                self.get_logger().info(f'USB den gelen veri: {usb_data}')
                 sensor_values_msg = self.usb_data_splitter(usb_data)
                 self.sensor_values_publisher.publish(sensor_values_msg)
             except Exception as e:
@@ -63,13 +58,7 @@ class USBComNode(Node):
             values = usb_data.split(',')
             self.sensor_values_msg.sag_motor_sicaklik = float(values[0])
             self.sensor_values_msg.sol_motor_sicaklik = float(values[1])
-            self.sensor_values_msg.lift_sicaklik = float(values[2])
-
-            self.sensor_values_msg.sag_motor_akim = float(values[3])
-            self.sensor_values_msg.sol_motor_akim = float(values[4])
-            self.sensor_values_msg.lift_akim = float(values[5])
-
-            self.sensor_values_msg.asiri_agirlik = bool(values[6])
+            self.sensor_values_msg.motor_akim = float(values[2])
 
         except Exception as e:
             self.get_logger().error(f'Veri ayrıştırma hatası: {str(e)}')

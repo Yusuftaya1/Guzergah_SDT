@@ -68,49 +68,13 @@ bool sdt_project__msg__sensor_values__convert_from_py(PyObject * _pymsg, void * 
     ros_message->sol_motor_sicaklik = PyFloat_AS_DOUBLE(field);
     Py_DECREF(field);
   }
-  {  // lift_sicaklik
-    PyObject * field = PyObject_GetAttrString(_pymsg, "lift_sicaklik");
+  {  // motor_akim
+    PyObject * field = PyObject_GetAttrString(_pymsg, "motor_akim");
     if (!field) {
       return false;
     }
     assert(PyFloat_Check(field));
-    ros_message->lift_sicaklik = PyFloat_AS_DOUBLE(field);
-    Py_DECREF(field);
-  }
-  {  // sag_motor_akim
-    PyObject * field = PyObject_GetAttrString(_pymsg, "sag_motor_akim");
-    if (!field) {
-      return false;
-    }
-    assert(PyFloat_Check(field));
-    ros_message->sag_motor_akim = PyFloat_AS_DOUBLE(field);
-    Py_DECREF(field);
-  }
-  {  // sol_motor_akim
-    PyObject * field = PyObject_GetAttrString(_pymsg, "sol_motor_akim");
-    if (!field) {
-      return false;
-    }
-    assert(PyFloat_Check(field));
-    ros_message->sol_motor_akim = PyFloat_AS_DOUBLE(field);
-    Py_DECREF(field);
-  }
-  {  // lift_akim
-    PyObject * field = PyObject_GetAttrString(_pymsg, "lift_akim");
-    if (!field) {
-      return false;
-    }
-    assert(PyFloat_Check(field));
-    ros_message->lift_akim = PyFloat_AS_DOUBLE(field);
-    Py_DECREF(field);
-  }
-  {  // asiri_agirlik
-    PyObject * field = PyObject_GetAttrString(_pymsg, "asiri_agirlik");
-    if (!field) {
-      return false;
-    }
-    assert(PyBool_Check(field));
-    ros_message->asiri_agirlik = (Py_True == field);
+    ros_message->motor_akim = PyFloat_AS_DOUBLE(field);
     Py_DECREF(field);
   }
 
@@ -157,55 +121,11 @@ PyObject * sdt_project__msg__sensor_values__convert_to_py(void * raw_ros_message
       }
     }
   }
-  {  // lift_sicaklik
+  {  // motor_akim
     PyObject * field = NULL;
-    field = PyFloat_FromDouble(ros_message->lift_sicaklik);
+    field = PyFloat_FromDouble(ros_message->motor_akim);
     {
-      int rc = PyObject_SetAttrString(_pymessage, "lift_sicaklik", field);
-      Py_DECREF(field);
-      if (rc) {
-        return NULL;
-      }
-    }
-  }
-  {  // sag_motor_akim
-    PyObject * field = NULL;
-    field = PyFloat_FromDouble(ros_message->sag_motor_akim);
-    {
-      int rc = PyObject_SetAttrString(_pymessage, "sag_motor_akim", field);
-      Py_DECREF(field);
-      if (rc) {
-        return NULL;
-      }
-    }
-  }
-  {  // sol_motor_akim
-    PyObject * field = NULL;
-    field = PyFloat_FromDouble(ros_message->sol_motor_akim);
-    {
-      int rc = PyObject_SetAttrString(_pymessage, "sol_motor_akim", field);
-      Py_DECREF(field);
-      if (rc) {
-        return NULL;
-      }
-    }
-  }
-  {  // lift_akim
-    PyObject * field = NULL;
-    field = PyFloat_FromDouble(ros_message->lift_akim);
-    {
-      int rc = PyObject_SetAttrString(_pymessage, "lift_akim", field);
-      Py_DECREF(field);
-      if (rc) {
-        return NULL;
-      }
-    }
-  }
-  {  // asiri_agirlik
-    PyObject * field = NULL;
-    field = PyBool_FromLong(ros_message->asiri_agirlik ? 1 : 0);
-    {
-      int rc = PyObject_SetAttrString(_pymessage, "asiri_agirlik", field);
+      int rc = PyObject_SetAttrString(_pymessage, "motor_akim", field);
       Py_DECREF(field);
       if (rc) {
         return NULL;

@@ -39,38 +39,10 @@ inline void to_flow_style_yaml(
     out << ", ";
   }
 
-  // member: lift_sicaklik
+  // member: motor_akim
   {
-    out << "lift_sicaklik: ";
-    rosidl_generator_traits::value_to_yaml(msg.lift_sicaklik, out);
-    out << ", ";
-  }
-
-  // member: sag_motor_akim
-  {
-    out << "sag_motor_akim: ";
-    rosidl_generator_traits::value_to_yaml(msg.sag_motor_akim, out);
-    out << ", ";
-  }
-
-  // member: sol_motor_akim
-  {
-    out << "sol_motor_akim: ";
-    rosidl_generator_traits::value_to_yaml(msg.sol_motor_akim, out);
-    out << ", ";
-  }
-
-  // member: lift_akim
-  {
-    out << "lift_akim: ";
-    rosidl_generator_traits::value_to_yaml(msg.lift_akim, out);
-    out << ", ";
-  }
-
-  // member: asiri_agirlik
-  {
-    out << "asiri_agirlik: ";
-    rosidl_generator_traits::value_to_yaml(msg.asiri_agirlik, out);
+    out << "motor_akim: ";
+    rosidl_generator_traits::value_to_yaml(msg.motor_akim, out);
   }
   out << "}";
 }  // NOLINT(readability/fn_size)
@@ -99,53 +71,13 @@ inline void to_block_style_yaml(
     out << "\n";
   }
 
-  // member: lift_sicaklik
+  // member: motor_akim
   {
     if (indentation > 0) {
       out << std::string(indentation, ' ');
     }
-    out << "lift_sicaklik: ";
-    rosidl_generator_traits::value_to_yaml(msg.lift_sicaklik, out);
-    out << "\n";
-  }
-
-  // member: sag_motor_akim
-  {
-    if (indentation > 0) {
-      out << std::string(indentation, ' ');
-    }
-    out << "sag_motor_akim: ";
-    rosidl_generator_traits::value_to_yaml(msg.sag_motor_akim, out);
-    out << "\n";
-  }
-
-  // member: sol_motor_akim
-  {
-    if (indentation > 0) {
-      out << std::string(indentation, ' ');
-    }
-    out << "sol_motor_akim: ";
-    rosidl_generator_traits::value_to_yaml(msg.sol_motor_akim, out);
-    out << "\n";
-  }
-
-  // member: lift_akim
-  {
-    if (indentation > 0) {
-      out << std::string(indentation, ' ');
-    }
-    out << "lift_akim: ";
-    rosidl_generator_traits::value_to_yaml(msg.lift_akim, out);
-    out << "\n";
-  }
-
-  // member: asiri_agirlik
-  {
-    if (indentation > 0) {
-      out << std::string(indentation, ' ');
-    }
-    out << "asiri_agirlik: ";
-    rosidl_generator_traits::value_to_yaml(msg.asiri_agirlik, out);
+    out << "motor_akim: ";
+    rosidl_generator_traits::value_to_yaml(msg.motor_akim, out);
     out << "\n";
   }
 }  // NOLINT(readability/fn_size)

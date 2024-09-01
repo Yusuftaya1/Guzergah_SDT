@@ -22,11 +22,7 @@ typedef struct sdt_project__msg__SensorValues
 {
   double sag_motor_sicaklik;
   double sol_motor_sicaklik;
-  double lift_sicaklik;
-  double sag_motor_akim;
-  double sol_motor_akim;
-  double lift_akim;
-  bool asiri_agirlik;
+  double motor_akim;
 } sdt_project__msg__SensorValues;
 
 // Struct for a sequence of sdt_project__msg__SensorValues.

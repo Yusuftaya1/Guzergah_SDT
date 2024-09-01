@@ -10,29 +10,20 @@ class TFPublisher(Node):
 
     def __init__(self):
         super().__init__('tf_publisher')
-
-        # TF'ler için bir liste oluştur
         self.transform_broadcasters = {}
-
-        # YAML dosyasını yükleme
         with open('/home/yusuf/Guzergah_SDT/src/sdt_project/yamls/tf.yaml', 'r') as file:
             self.frames = yaml.safe_load(file)['frames']
-
-        # Her bir çerçeve için bir TransformBroadcaster oluştur
         for frame in self.frames:
             parent_frame = frame['parent']
             child_frame = frame['name']
 
-            # Her bir çerçeve için ayrı bir TransformBroadcaster oluştur
             if parent_frame not in self.transform_broadcasters:
                 self.transform_broadcasters[parent_frame] = TransformBroadcaster(self)
         
-        # TF yayınlayıcıyı periyodik olarak çalıştır
         self.timer = self.create_timer(0.1, self.publish_tf)
 
     def publish_tf(self):
         for frame in self.frames:
-            # TransformStamped mesajı oluşturma
             t = TransformStamped()
             t.header.stamp = self.get_clock().now().to_msg()
             t.header.frame_id = frame['parent']

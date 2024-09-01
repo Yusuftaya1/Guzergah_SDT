@@ -31,7 +31,7 @@ void sdt_project__msg__SensorValues__rosidl_typesupport_introspection_c__SensorV
   sdt_project__msg__SensorValues__fini(message_memory);
 }
 
-static rosidl_typesupport_introspection_c__MessageMember sdt_project__msg__SensorValues__rosidl_typesupport_introspection_c__SensorValues_message_member_array[7] = {
+static rosidl_typesupport_introspection_c__MessageMember sdt_project__msg__SensorValues__rosidl_typesupport_introspection_c__SensorValues_message_member_array[3] = {
   {
     "sag_motor_sicaklik",  // name
     rosidl_typesupport_introspection_c__ROS_TYPE_DOUBLE,  // type
@@ -67,82 +67,14 @@ static rosidl_typesupport_introspection_c__MessageMember sdt_project__msg__Senso
     NULL  // resize(index) function pointer
   },
   {
-    "lift_sicaklik",  // name
+    "motor_akim",  // name
     rosidl_typesupport_introspection_c__ROS_TYPE_DOUBLE,  // type
     0,  // upper bound of string
     NULL,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
-    offsetof(sdt_project__msg__SensorValues, lift_sicaklik),  // bytes offset in struct
-    NULL,  // default value
-    NULL,  // size() function pointer
-    NULL,  // get_const(index) function pointer
-    NULL,  // get(index) function pointer
-    NULL,  // fetch(index, &value) function pointer
-    NULL,  // assign(index, value) function pointer
-    NULL  // resize(index) function pointer
-  },
-  {
-    "sag_motor_akim",  // name
-    rosidl_typesupport_introspection_c__ROS_TYPE_DOUBLE,  // type
-    0,  // upper bound of string
-    NULL,  // members of sub message
-    false,  // is array
-    0,  // array size
-    false,  // is upper bound
-    offsetof(sdt_project__msg__SensorValues, sag_motor_akim),  // bytes offset in struct
-    NULL,  // default value
-    NULL,  // size() function pointer
-    NULL,  // get_const(index) function pointer
-    NULL,  // get(index) function pointer
-    NULL,  // fetch(index, &value) function pointer
-    NULL,  // assign(index, value) function pointer
-    NULL  // resize(index) function pointer
-  },
-  {
-    "sol_motor_akim",  // name
-    rosidl_typesupport_introspection_c__ROS_TYPE_DOUBLE,  // type
-    0,  // upper bound of string
-    NULL,  // members of sub message
-    false,  // is array
-    0,  // array size
-    false,  // is upper bound
-    offsetof(sdt_project__msg__SensorValues, sol_motor_akim),  // bytes offset in struct
-    NULL,  // default value
-    NULL,  // size() function pointer
-    NULL,  // get_const(index) function pointer
-    NULL,  // get(index) function pointer
-    NULL,  // fetch(index, &value) function pointer
-    NULL,  // assign(index, value) function pointer
-    NULL  // resize(index) function pointer
-  },
-  {
-    "lift_akim",  // name
-    rosidl_typesupport_introspection_c__ROS_TYPE_DOUBLE,  // type
-    0,  // upper bound of string
-    NULL,  // members of sub message
-    false,  // is array
-    0,  // array size
-    false,  // is upper bound
-    offsetof(sdt_project__msg__SensorValues, lift_akim),  // bytes offset in struct
-    NULL,  // default value
-    NULL,  // size() function pointer
-    NULL,  // get_const(index) function pointer
-    NULL,  // get(index) function pointer
-    NULL,  // fetch(index, &value) function pointer
-    NULL,  // assign(index, value) function pointer
-    NULL  // resize(index) function pointer
-  },
-  {
-    "asiri_agirlik",  // name
-    rosidl_typesupport_introspection_c__ROS_TYPE_BOOLEAN,  // type
-    0,  // upper bound of string
-    NULL,  // members of sub message
-    false,  // is array
-    0,  // array size
-    false,  // is upper bound
-    offsetof(sdt_project__msg__SensorValues, asiri_agirlik),  // bytes offset in struct
+    offsetof(sdt_project__msg__SensorValues, motor_akim),  // bytes offset in struct
     NULL,  // default value
     NULL,  // size() function pointer
     NULL,  // get_const(index) function pointer
@@ -156,7 +88,7 @@ static rosidl_typesupport_introspection_c__MessageMember sdt_project__msg__Senso
 static const rosidl_typesupport_introspection_c__MessageMembers sdt_project__msg__SensorValues__rosidl_typesupport_introspection_c__SensorValues_message_members = {
   "sdt_project__msg",  // message namespace
   "SensorValues",  // message name
-  7,  // number of fields
+  3,  // number of fields
   sizeof(sdt_project__msg__SensorValues),
   sdt_project__msg__SensorValues__rosidl_typesupport_introspection_c__SensorValues_message_member_array,  // message members
   sdt_project__msg__SensorValues__rosidl_typesupport_introspection_c__SensorValues_init_function,  // function to initialize message memory (memory has to be allocated)

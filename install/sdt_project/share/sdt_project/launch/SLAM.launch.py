@@ -4,6 +4,12 @@ from launch_ros.actions import Node
 
 def generate_launch_description():
     return LaunchDescription([
+        Node(
+            package='sllidar_ros2',
+            executable='sllidar_node',
+            name='lidar',
+            output='screen'
+        ),
          Node(
             package='slam_toolbox', 
             executable='sync_slam_toolbox_node',

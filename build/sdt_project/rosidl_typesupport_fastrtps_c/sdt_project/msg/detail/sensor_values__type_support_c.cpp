@@ -59,29 +59,9 @@ static bool _SensorValues__cdr_serialize(
     cdr << ros_message->sol_motor_sicaklik;
   }
 
-  // Field name: lift_sicaklik
+  // Field name: motor_akim
   {
-    cdr << ros_message->lift_sicaklik;
-  }
-
-  // Field name: sag_motor_akim
-  {
-    cdr << ros_message->sag_motor_akim;
-  }
-
-  // Field name: sol_motor_akim
-  {
-    cdr << ros_message->sol_motor_akim;
-  }
-
-  // Field name: lift_akim
-  {
-    cdr << ros_message->lift_akim;
-  }
-
-  // Field name: asiri_agirlik
-  {
-    cdr << (ros_message->asiri_agirlik ? true : false);
+    cdr << ros_message->motor_akim;
   }
 
   return true;
@@ -106,31 +86,9 @@ static bool _SensorValues__cdr_deserialize(
     cdr >> ros_message->sol_motor_sicaklik;
   }
 
-  // Field name: lift_sicaklik
+  // Field name: motor_akim
   {
-    cdr >> ros_message->lift_sicaklik;
-  }
-
-  // Field name: sag_motor_akim
-  {
-    cdr >> ros_message->sag_motor_akim;
-  }
-
-  // Field name: sol_motor_akim
-  {
-    cdr >> ros_message->sol_motor_akim;
-  }
-
-  // Field name: lift_akim
-  {
-    cdr >> ros_message->lift_akim;
-  }
-
-  // Field name: asiri_agirlik
-  {
-    uint8_t tmp;
-    cdr >> tmp;
-    ros_message->asiri_agirlik = tmp ? true : false;
+    cdr >> ros_message->motor_akim;
   }
 
   return true;
@@ -162,33 +120,9 @@ size_t get_serialized_size_sdt_project__msg__SensorValues(
     current_alignment += item_size +
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
-  // field.name lift_sicaklik
+  // field.name motor_akim
   {
-    size_t item_size = sizeof(ros_message->lift_sicaklik);
-    current_alignment += item_size +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
-  }
-  // field.name sag_motor_akim
-  {
-    size_t item_size = sizeof(ros_message->sag_motor_akim);
-    current_alignment += item_size +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
-  }
-  // field.name sol_motor_akim
-  {
-    size_t item_size = sizeof(ros_message->sol_motor_akim);
-    current_alignment += item_size +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
-  }
-  // field.name lift_akim
-  {
-    size_t item_size = sizeof(ros_message->lift_akim);
-    current_alignment += item_size +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
-  }
-  // field.name asiri_agirlik
-  {
-    size_t item_size = sizeof(ros_message->asiri_agirlik);
+    size_t item_size = sizeof(ros_message->motor_akim);
     current_alignment += item_size +
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
@@ -237,44 +171,13 @@ size_t max_serialized_size_sdt_project__msg__SensorValues(
     current_alignment += array_size * sizeof(uint64_t) +
       eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint64_t));
   }
-  // member: lift_sicaklik
+  // member: motor_akim
   {
     size_t array_size = 1;
 
     last_member_size = array_size * sizeof(uint64_t);
     current_alignment += array_size * sizeof(uint64_t) +
       eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint64_t));
-  }
-  // member: sag_motor_akim
-  {
-    size_t array_size = 1;
-
-    last_member_size = array_size * sizeof(uint64_t);
-    current_alignment += array_size * sizeof(uint64_t) +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint64_t));
-  }
-  // member: sol_motor_akim
-  {
-    size_t array_size = 1;
-
-    last_member_size = array_size * sizeof(uint64_t);
-    current_alignment += array_size * sizeof(uint64_t) +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint64_t));
-  }
-  // member: lift_akim
-  {
-    size_t array_size = 1;
-
-    last_member_size = array_size * sizeof(uint64_t);
-    current_alignment += array_size * sizeof(uint64_t) +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint64_t));
-  }
-  // member: asiri_agirlik
-  {
-    size_t array_size = 1;
-
-    last_member_size = array_size * sizeof(uint8_t);
-    current_alignment += array_size * sizeof(uint8_t);
   }
 
   size_t ret_val = current_alignment - initial_alignment;
@@ -285,7 +188,7 @@ size_t max_serialized_size_sdt_project__msg__SensorValues(
     using DataType = sdt_project__msg__SensorValues;
     is_plain =
       (
-      offsetof(DataType, asiri_agirlik) +
+      offsetof(DataType, motor_akim) +
       last_member_size
       ) == ret_val;
   }

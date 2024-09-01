@@ -38,24 +38,34 @@ class Navigation(Node):
         if self.target_point == "A":
             if self.qr_id in ["Q36", "Q18"]:
                 self.mode_msg = "Turn Left"
+            else:
+                self.mode_msg = "None"
 
         elif self.target_point == "B":
             if self.qr_id in ["Q41", "Q9"]:
                 self.mode_msg = "Turn Right"
+            else:
+                self.mode_msg = "None"
 
         elif self.target_point == "C":
             if self.qr_id in ["Q31", "Q4"]:
                 self.mode_msg = "Turn Right"
+            else:
+                self.mode_msg = "None"
 
         elif self.target_point == "D":
             if self.qr_id in ["Q43", "Q26"]:
                 self.mode_msg = "Turn Right"
+            else:
+                self.mode_msg = "None"
 
         elif self.target_point == "S1":
             if self.qr_id in ["Q48", "Q8"]:
                 self.mode_msg = "Turn Left" 
             elif self.qr_id == "Q22":
                 self.mode_msg = "Finish"
+            else:
+                self.mode_msg = "None"
 
         if self.mode_msg:
             self.publish_mode_status()

@@ -10,15 +10,7 @@ module sdt_project {
 
       double sol_motor_sicaklik;
 
-      double lift_sicaklik;
-
-      double sag_motor_akim;
-
-      double sol_motor_akim;
-
-      double lift_akim;
-
-      boolean asiri_agirlik;
+      double motor_akim;
     };
   };
 };

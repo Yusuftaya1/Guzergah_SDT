@@ -77,7 +77,9 @@
 /home/yusuf/Guzergah_SDT/install/sdt_project/lib/sdt_project/manuel_kumanda.py
 /home/yusuf/Guzergah_SDT/install/sdt_project/lib/sdt_project/navigation_1.py
 /home/yusuf/Guzergah_SDT/install/sdt_project/lib/sdt_project/qr_detect.py
-/home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/launch/node_start.launch.py
+/home/yusuf/Guzergah_SDT/install/sdt_project/lib/sdt_project/map.py
+/home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/launch/mission1.launch.py
+/home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/launch/mission2.launch.py
 /home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/launch/SLAM.launch.py
 /home/yusuf/Guzergah_SDT/install/sdt_project/share/ament_index/resource_index/package_run_dependencies/sdt_project
 /home/yusuf/Guzergah_SDT/install/sdt_project/share/ament_index/resource_index/parent_prefix_path/sdt_project

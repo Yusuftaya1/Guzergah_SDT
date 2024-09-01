@@ -22,13 +22,10 @@ class Navigation(Node):
         self.qr_status_sub = self.create_subscription(String, '/qr_code_data', self.qr_callback, 10)
         self.mode_status_pub = self.create_publisher(String, '/mode_status', 10)
         self.target_point = "A"
-        self.mode_msg = None
+        self.mode_msg = "Start"
 
     def qr_callback(self, msg):
-        qr_data = msg.data
-        self.get_logger().info(f'QR ID: {qr_data}')
-        self.qr_id = self.extract_first_part(qr_data)
-
+        self.qr_id = msg.data
         if self.qr_id == "Q33":
             self.mode_msg = "Load"
             self.target_point = "B"
@@ -44,37 +41,46 @@ class Navigation(Node):
         elif self.qr_id == "Q45":
             self.mode_msg = "Unload"
             self.target_point = "S1"
-        
+
+
         if self.target_point == "A":
             if self.qr_id in ["Q11", "Q41"]:
                 self.mode_msg = "Turn Right"
+            else:
+                self.mode_msg = "None"
 
         elif self.target_point == "B":
             if self.qr_id in ["Q35", "Q18"]:
                 self.mode_msg = "Turn Left"
+            else:
+                self.mode_msg = "None"
 
         elif self.target_point == "C":
             if self.qr_id in ["Q52", "Q24"]:
                 self.mode_msg = "Turn Right"
+            else:
+                self.mode_msg = "None"
 
         elif self.target_point == "D":
             if self.qr_id in ["Q40", "Q3"]:
                 self.mode_msg = "Turn Left"
+            else:
+                self.mode_msg = "None"
 
         elif self.target_point == "S1":
             if self.qr_id in ["Q47", "Q8"]:
                 self.mode_msg = "Turn Left" 
             elif self.qr_id == "Q22":
                 self.mode_msg = "Finish"
+            else:
+                self.mode_msg = "None"
 
         if self.mode_msg:
             self.publish_mode_status()
+            self.get_logger().info(f'QR ID: {self.qr_id}')
+            self.get_logger().info(f'TARGET: {self.target_point}')
+            self.get_logger().info(f'MODE: {self.mode_msg}')
 
-    def extract_first_part(self, qr_data):
-        parts = qr_data.split(';')
-        if parts:
-            return parts[0]
-        return None
 
     def publish_mode_status(self):
         msg = String()

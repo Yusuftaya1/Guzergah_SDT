@@ -19,11 +19,7 @@ sdt_project__msg__SensorValues__init(sdt_project__msg__SensorValues * msg)
   }
   // sag_motor_sicaklik
   // sol_motor_sicaklik
-  // lift_sicaklik
-  // sag_motor_akim
-  // sol_motor_akim
-  // lift_akim
-  // asiri_agirlik
+  // motor_akim
   return true;
 }
 
@@ -35,11 +31,7 @@ sdt_project__msg__SensorValues__fini(sdt_project__msg__SensorValues * msg)
   }
   // sag_motor_sicaklik
   // sol_motor_sicaklik
-  // lift_sicaklik
-  // sag_motor_akim
-  // sol_motor_akim
-  // lift_akim
-  // asiri_agirlik
+  // motor_akim
 }
 
 bool
@@ -56,24 +48,8 @@ sdt_project__msg__SensorValues__are_equal(const sdt_project__msg__SensorValues *
   if (lhs->sol_motor_sicaklik != rhs->sol_motor_sicaklik) {
     return false;
   }
-  // lift_sicaklik
-  if (lhs->lift_sicaklik != rhs->lift_sicaklik) {
-    return false;
-  }
-  // sag_motor_akim
-  if (lhs->sag_motor_akim != rhs->sag_motor_akim) {
-    return false;
-  }
-  // sol_motor_akim
-  if (lhs->sol_motor_akim != rhs->sol_motor_akim) {
-    return false;
-  }
-  // lift_akim
-  if (lhs->lift_akim != rhs->lift_akim) {
-    return false;
-  }
-  // asiri_agirlik
-  if (lhs->asiri_agirlik != rhs->asiri_agirlik) {
+  // motor_akim
+  if (lhs->motor_akim != rhs->motor_akim) {
     return false;
   }
   return true;
@@ -91,16 +67,8 @@ sdt_project__msg__SensorValues__copy(
   output->sag_motor_sicaklik = input->sag_motor_sicaklik;
   // sol_motor_sicaklik
   output->sol_motor_sicaklik = input->sol_motor_sicaklik;
-  // lift_sicaklik
-  output->lift_sicaklik = input->lift_sicaklik;
-  // sag_motor_akim
-  output->sag_motor_akim = input->sag_motor_akim;
-  // sol_motor_akim
-  output->sol_motor_akim = input->sol_motor_akim;
-  // lift_akim
-  output->lift_akim = input->lift_akim;
-  // asiri_agirlik
-  output->asiri_agirlik = input->asiri_agirlik;
+  // motor_akim
+  output->motor_akim = input->motor_akim;
   return true;
 }
 

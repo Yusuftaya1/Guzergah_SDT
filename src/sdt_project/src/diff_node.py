@@ -37,7 +37,7 @@ class TaskManager:
         elif direction == "left":
             self.motor_controller.set_motor_values(300.0, 180.0)
             self.motor_controller.get_logger().info('Sola dönüş...')
-        time.sleep(4.4)
+        time.sleep(4.2 )
         self.motor_controller.qr_id = None
 
     def run_forward(self):
@@ -162,8 +162,7 @@ class MotorController(Node):
             self.get_logger().info('Engel tespit edildi!')
         else:
             self.engel_detected = False
-            self.get_logger().info('Alanda engel bulunmuyor.')
-
+                
     def check_engel_status(self):
         if self.engel_detected:
             if self.engel == False:

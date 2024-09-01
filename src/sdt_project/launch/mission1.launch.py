@@ -11,6 +11,12 @@ def generate_launch_description():
             output='screen'
         ),
         Node(
+            package='sllidar_ros2',
+            executable='sllidar_node',
+            name='lidar',
+            output='screen'
+        ),
+        Node(
             package='sdt_project',
             executable='pid_library.py',
             name='camera',
@@ -40,4 +46,11 @@ def generate_launch_description():
             name='usb_node',
             output='screen'
         ),
+        Node(
+            package='sdt_project',
+            executable='navigation1.py',
+            name='usb_node',
+            output='screen'
+        )
+        
     ])

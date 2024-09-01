@@ -40,11 +40,7 @@ struct SensorValues_
     {
       this->sag_motor_sicaklik = 0.0;
       this->sol_motor_sicaklik = 0.0;
-      this->lift_sicaklik = 0.0;
-      this->sag_motor_akim = 0.0;
-      this->sol_motor_akim = 0.0;
-      this->lift_akim = 0.0;
-      this->asiri_agirlik = false;
+      this->motor_akim = 0.0;
     }
   }
 
@@ -56,11 +52,7 @@ struct SensorValues_
     {
       this->sag_motor_sicaklik = 0.0;
       this->sol_motor_sicaklik = 0.0;
-      this->lift_sicaklik = 0.0;
-      this->sag_motor_akim = 0.0;
-      this->sol_motor_akim = 0.0;
-      this->lift_akim = 0.0;
-      this->asiri_agirlik = false;
+      this->motor_akim = 0.0;
     }
   }
 
@@ -71,21 +63,9 @@ struct SensorValues_
   using _sol_motor_sicaklik_type =
     double;
   _sol_motor_sicaklik_type sol_motor_sicaklik;
-  using _lift_sicaklik_type =
+  using _motor_akim_type =
     double;
-  _lift_sicaklik_type lift_sicaklik;
-  using _sag_motor_akim_type =
-    double;
-  _sag_motor_akim_type sag_motor_akim;
-  using _sol_motor_akim_type =
-    double;
-  _sol_motor_akim_type sol_motor_akim;
-  using _lift_akim_type =
-    double;
-  _lift_akim_type lift_akim;
-  using _asiri_agirlik_type =
-    bool;
-  _asiri_agirlik_type asiri_agirlik;
+  _motor_akim_type motor_akim;
 
   // setters for named parameter idiom
   Type & set__sag_motor_sicaklik(
@@ -100,34 +80,10 @@ struct SensorValues_
     this->sol_motor_sicaklik = _arg;
     return *this;
   }
-  Type & set__lift_sicaklik(
+  Type & set__motor_akim(
     const double & _arg)
   {
-    this->lift_sicaklik = _arg;
-    return *this;
-  }
-  Type & set__sag_motor_akim(
-    const double & _arg)
-  {
-    this->sag_motor_akim = _arg;
-    return *this;
-  }
-  Type & set__sol_motor_akim(
-    const double & _arg)
-  {
-    this->sol_motor_akim = _arg;
-    return *this;
-  }
-  Type & set__lift_akim(
-    const double & _arg)
-  {
-    this->lift_akim = _arg;
-    return *this;
-  }
-  Type & set__asiri_agirlik(
-    const bool & _arg)
-  {
-    this->asiri_agirlik = _arg;
+    this->motor_akim = _arg;
     return *this;
   }
 
@@ -179,19 +135,7 @@ struct SensorValues_
     if (this->sol_motor_sicaklik != other.sol_motor_sicaklik) {
       return false;
     }
-    if (this->lift_sicaklik != other.lift_sicaklik) {
-      return false;
-    }
-    if (this->sag_motor_akim != other.sag_motor_akim) {
-      return false;
-    }
-    if (this->sol_motor_akim != other.sol_motor_akim) {
-      return false;
-    }
-    if (this->lift_akim != other.lift_akim) {
-      return false;
-    }
-    if (this->asiri_agirlik != other.asiri_agirlik) {
+    if (this->motor_akim != other.motor_akim) {
       return false;
     }
     return true;

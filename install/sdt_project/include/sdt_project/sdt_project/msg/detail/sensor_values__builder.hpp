@@ -21,80 +21,16 @@ namespace msg
 namespace builder
 {
 
-class Init_SensorValues_asiri_agirlik
+class Init_SensorValues_motor_akim
 {
 public:
-  explicit Init_SensorValues_asiri_agirlik(::sdt_project::msg::SensorValues & msg)
+  explicit Init_SensorValues_motor_akim(::sdt_project::msg::SensorValues & msg)
   : msg_(msg)
   {}
-  ::sdt_project::msg::SensorValues asiri_agirlik(::sdt_project::msg::SensorValues::_asiri_agirlik_type arg)
+  ::sdt_project::msg::SensorValues motor_akim(::sdt_project::msg::SensorValues::_motor_akim_type arg)
   {
-    msg_.asiri_agirlik = std::move(arg);
+    msg_.motor_akim = std::move(arg);
     return std::move(msg_);
-  }
-
-private:
-  ::sdt_project::msg::SensorValues msg_;
-};
-
-class Init_SensorValues_lift_akim
-{
-public:
-  explicit Init_SensorValues_lift_akim(::sdt_project::msg::SensorValues & msg)
-  : msg_(msg)
-  {}
-  Init_SensorValues_asiri_agirlik lift_akim(::sdt_project::msg::SensorValues::_lift_akim_type arg)
-  {
-    msg_.lift_akim = std::move(arg);
-    return Init_SensorValues_asiri_agirlik(msg_);
-  }
-
-private:
-  ::sdt_project::msg::SensorValues msg_;
-};
-
-class Init_SensorValues_sol_motor_akim
-{
-public:
-  explicit Init_SensorValues_sol_motor_akim(::sdt_project::msg::SensorValues & msg)
-  : msg_(msg)
-  {}
-  Init_SensorValues_lift_akim sol_motor_akim(::sdt_project::msg::SensorValues::_sol_motor_akim_type arg)
-  {
-    msg_.sol_motor_akim = std::move(arg);
-    return Init_SensorValues_lift_akim(msg_);
-  }
-
-private:
-  ::sdt_project::msg::SensorValues msg_;
-};
-
-class Init_SensorValues_sag_motor_akim
-{
-public:
-  explicit Init_SensorValues_sag_motor_akim(::sdt_project::msg::SensorValues & msg)
-  : msg_(msg)
-  {}
-  Init_SensorValues_sol_motor_akim sag_motor_akim(::sdt_project::msg::SensorValues::_sag_motor_akim_type arg)
-  {
-    msg_.sag_motor_akim = std::move(arg);
-    return Init_SensorValues_sol_motor_akim(msg_);
-  }
-
-private:
-  ::sdt_project::msg::SensorValues msg_;
-};
-
-class Init_SensorValues_lift_sicaklik
-{
-public:
-  explicit Init_SensorValues_lift_sicaklik(::sdt_project::msg::SensorValues & msg)
-  : msg_(msg)
-  {}
-  Init_SensorValues_sag_motor_akim lift_sicaklik(::sdt_project::msg::SensorValues::_lift_sicaklik_type arg)
-  {
-    msg_.lift_sicaklik = std::move(arg);
-    return Init_SensorValues_sag_motor_akim(msg_);
   }
 
 private:
@@ -107,10 +43,10 @@ public:
   explicit Init_SensorValues_sol_motor_sicaklik(::sdt_project::msg::SensorValues & msg)
   : msg_(msg)
   {}
-  Init_SensorValues_lift_sicaklik sol_motor_sicaklik(::sdt_project::msg::SensorValues::_sol_motor_sicaklik_type arg)
+  Init_SensorValues_motor_akim sol_motor_sicaklik(::sdt_project::msg::SensorValues::_sol_motor_sicaklik_type arg)
   {
     msg_.sol_motor_sicaklik = std::move(arg);
-    return Init_SensorValues_lift_sicaklik(msg_);
+    return Init_SensorValues_motor_akim(msg_);
   }
 
 private:

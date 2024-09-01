@@ -30,12 +30,14 @@ install(PROGRAMS
   src/manuel_kumanda.py
   src/navigation_1.py
   src/qr_detect.py
+  src/map.py
   DESTINATION lib/${PROJECT_NAME}
 )
 
 ###############  LAUNCH  ###############
 install(FILES
-  launch/node_start.launch.py
+  launch/mission1.launch.py
+  launch/mission2.launch.py
   launch/SLAM.launch.py 
   DESTINATION share/${PROJECT_NAME}/launch
 )
