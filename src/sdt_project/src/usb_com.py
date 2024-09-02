@@ -5,9 +5,11 @@ USB HABERLEŞME SAĞLANMASI;
 TEKER HIZLARI "diff_node" içerisinde hesaplanır ve "motor_values_node"a "motor_values.msg"
 MESAJI GÖNDERİLİR "motor_values" dan ALINAN VERİLER SERİ PORTA YAZILIR
 
+
+
 """
 import rclpy
-import serial
+import serial 
 from rclpy.node import Node
 from sdt_project.msg import MotorValues
 
