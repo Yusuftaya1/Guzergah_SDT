@@ -44,6 +44,8 @@ install(FILES
   launch/mission2.launch.py
   launch/mission3.launch.py
   launch/mission4.launch.py
+  launch/cartographer.launch.py
+  launch/occupancy_grid.launch.py
   DESTINATION share/${PROJECT_NAME}/launch
 )
 

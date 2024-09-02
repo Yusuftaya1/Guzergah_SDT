@@ -1,0 +1,95 @@
+[0.024s] Invoking command in '/home/yusuf/Guzergah_SDT/build/slam_gmapping': CMAKE_PREFIX_PATH=/home/yusuf/Guzergah_SDT/install/openslam_gmapping:/home/yusuf/Guzergah_SDT/install/nav2_rviz_plugins:/home/yusuf/Guzergah_SDT/install/nav2_map_server:/home/yusuf/Guzergah_SDT/install/nav_2d_utils:/home/yusuf/Guzergah_SDT/install/dwb_msgs:/home/yusuf/Guzergah_SDT/install/nav_2d_msgs:/home/yusuf/Guzergah_SDT/install/nav2_voxel_grid:/home/yusuf/Guzergah_SDT/install/nav2_velocity_smoother:/home/yusuf/Guzergah_SDT/install/nav2_lifecycle_manager:/home/yusuf/Guzergah_SDT/install/nav2_amcl:/home/yusuf/Guzergah_SDT/install/nav2_util:/home/yusuf/Guzergah_SDT/install/nav2_msgs:/home/yusuf/Guzergah_SDT/install/nav2_common:/home/yusuf/Guzergah_SDT/install/slam_gmapping:/home/yusuf/Guzergah_SDT/install/sdt_project:/home/yusuf/Guzergah_SDT/install/rf2o_laser_odometry:/home/yusuf/usb_cam/install/usb_cam:/home/yusuf/turtlebot3_ws/install/turtlebot3_simulations:/home/yusuf/turtlebot3_ws/install/turtlebot3_gazebo:/home/yusuf/turtlebot3_ws/install/turtlebot3_fake_node:/home/yusuf/Guzergah_SDT/install/nav2_simple_commander:/opt/ros/humble /usr/bin/cmake /home/yusuf/Guzergah_SDT/src/slam_gmapping_Humble/slam_gmapping -DCMAKE_INSTALL_PREFIX=/home/yusuf/Guzergah_SDT/install/slam_gmapping
+[0.151s] -- The C compiler identification is GNU 12.3.0
+[0.275s] -- The CXX compiler identification is GNU 12.3.0
+[0.289s] -- Detecting C compiler ABI info
+[0.438s] -- Detecting C compiler ABI info - done
+[0.449s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.449s] -- Detecting C compile features
+[0.450s] -- Detecting C compile features - done
+[0.458s] -- Detecting CXX compiler ABI info
+[0.636s] -- Detecting CXX compiler ABI info - done
+[0.652s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.652s] -- Detecting CXX compile features
+[0.653s] -- Detecting CXX compile features - done
+[0.657s] [0m -fuse-ld=lld -Wl,--disable-new-dtags[0m
+[0.661s] -- Found ament_cmake: 1.3.10 (/opt/ros/humble/share/ament_cmake/cmake)
+[1.039s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[1.252s] -- Found std_msgs: 4.2.4 (/opt/ros/humble/share/std_msgs/cmake)
+[1.324s] -- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[1.338s] -- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[1.355s] -- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[1.383s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.420s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.486s] -- Found nav_msgs: 4.2.4 (/opt/ros/humble/share/nav_msgs/cmake)
+[1.558s] -- Found tf2: 0.25.7 (/opt/ros/humble/share/tf2/cmake)
+[1.578s] -- Found tf2_ros: 0.25.7 (/opt/ros/humble/share/tf2_ros/cmake)
+[1.710s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[1.717s] -- Found rmw_cyclonedds_cpp: 1.3.4 (/opt/ros/humble/share/rmw_cyclonedds_cpp/cmake)
+[1.768s] -- Using RMW implementation 'rmw_cyclonedds_cpp' as default
+[1.785s] -- Looking for pthread.h
+[1.938s] -- Looking for pthread.h - found
+[1.939s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[2.100s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[2.102s] -- Found Threads: TRUE  
+[2.337s] -- Found tf2_geometry_msgs: 0.25.7 (/opt/ros/humble/share/tf2_geometry_msgs/cmake)
+[2.364s] -- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)
+[2.366s] -- Found Eigen3: TRUE (found version "3.4.0") 
+[2.366s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[2.374s] -- Found sensor_msgs: 4.2.4 (/opt/ros/humble/share/sensor_msgs/cmake)
+[2.410s] -- Found visualization_msgs: 4.2.4 (/opt/ros/humble/share/visualization_msgs/cmake)
+[2.451s] -- Found openslam_gmapping: 0.1.2 (/home/yusuf/Guzergah_SDT/install/openslam_gmapping/share/openslam_gmapping/cmake)
+[2.459s] -- Found ament_lint_auto: 0.12.11 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[2.664s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[2.665s] -- Configured cppcheck include dirs: /home/yusuf/Guzergah_SDT/src/slam_gmapping_Humble/slam_gmapping/include
+[2.665s] -- Configured cppcheck exclude dirs and/or files: 
+[2.666s] -- Added test 'flake8' to check Python code syntax and style conventions
+[2.668s] -- Added test 'lint_cmake' to check CMake code style
+[2.669s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[2.671s] -- Added test 'uncrustify' to check C / C++ code style
+[2.671s] -- Configured uncrustify additional arguments: 
+[2.673s] -- Added test 'xmllint' to check XML markup files
+[2.676s] -- Configuring done
+[2.700s] -- Generating done
+[2.703s] -- Build files have been written to: /home/yusuf/Guzergah_SDT/build/slam_gmapping
+[2.728s] Invoked command in '/home/yusuf/Guzergah_SDT/build/slam_gmapping' returned '0': CMAKE_PREFIX_PATH=/home/yusuf/Guzergah_SDT/install/openslam_gmapping:/home/yusuf/Guzergah_SDT/install/nav2_rviz_plugins:/home/yusuf/Guzergah_SDT/install/nav2_map_server:/home/yusuf/Guzergah_SDT/install/nav_2d_utils:/home/yusuf/Guzergah_SDT/install/dwb_msgs:/home/yusuf/Guzergah_SDT/install/nav_2d_msgs:/home/yusuf/Guzergah_SDT/install/nav2_voxel_grid:/home/yusuf/Guzergah_SDT/install/nav2_velocity_smoother:/home/yusuf/Guzergah_SDT/install/nav2_lifecycle_manager:/home/yusuf/Guzergah_SDT/install/nav2_amcl:/home/yusuf/Guzergah_SDT/install/nav2_util:/home/yusuf/Guzergah_SDT/install/nav2_msgs:/home/yusuf/Guzergah_SDT/install/nav2_common:/home/yusuf/Guzergah_SDT/install/slam_gmapping:/home/yusuf/Guzergah_SDT/install/sdt_project:/home/yusuf/Guzergah_SDT/install/rf2o_laser_odometry:/home/yusuf/usb_cam/install/usb_cam:/home/yusuf/turtlebot3_ws/install/turtlebot3_simulations:/home/yusuf/turtlebot3_ws/install/turtlebot3_gazebo:/home/yusuf/turtlebot3_ws/install/turtlebot3_fake_node:/home/yusuf/Guzergah_SDT/install/nav2_simple_commander:/opt/ros/humble /usr/bin/cmake /home/yusuf/Guzergah_SDT/src/slam_gmapping_Humble/slam_gmapping -DCMAKE_INSTALL_PREFIX=/home/yusuf/Guzergah_SDT/install/slam_gmapping
+[2.731s] Invoking command in '/home/yusuf/Guzergah_SDT/build/slam_gmapping': CMAKE_PREFIX_PATH=/home/yusuf/Guzergah_SDT/install/openslam_gmapping:/home/yusuf/Guzergah_SDT/install/nav2_rviz_plugins:/home/yusuf/Guzergah_SDT/install/nav2_map_server:/home/yusuf/Guzergah_SDT/install/nav_2d_utils:/home/yusuf/Guzergah_SDT/install/dwb_msgs:/home/yusuf/Guzergah_SDT/install/nav_2d_msgs:/home/yusuf/Guzergah_SDT/install/nav2_voxel_grid:/home/yusuf/Guzergah_SDT/install/nav2_velocity_smoother:/home/yusuf/Guzergah_SDT/install/nav2_lifecycle_manager:/home/yusuf/Guzergah_SDT/install/nav2_amcl:/home/yusuf/Guzergah_SDT/install/nav2_util:/home/yusuf/Guzergah_SDT/install/nav2_msgs:/home/yusuf/Guzergah_SDT/install/nav2_common:/home/yusuf/Guzergah_SDT/install/slam_gmapping:/home/yusuf/Guzergah_SDT/install/sdt_project:/home/yusuf/Guzergah_SDT/install/rf2o_laser_odometry:/home/yusuf/usb_cam/install/usb_cam:/home/yusuf/turtlebot3_ws/install/turtlebot3_simulations:/home/yusuf/turtlebot3_ws/install/turtlebot3_gazebo:/home/yusuf/turtlebot3_ws/install/turtlebot3_fake_node:/home/yusuf/Guzergah_SDT/install/nav2_simple_commander:/opt/ros/humble /usr/bin/cmake --build /home/yusuf/Guzergah_SDT/build/slam_gmapping -- -j8 -l8
+[2.833s] [ 50%] [32mBuilding CXX object CMakeFiles/slam_gmapping.dir/src/slam_gmapping.cpp.o[0m
+[3.322s] In file included from [01m[K/home/yusuf/Guzergah_SDT/src/slam_gmapping_Humble/slam_gmapping/include/slam_gmapping/slam_gmapping.h:38[m[K,
+[3.323s]                  from [01m[K/home/yusuf/Guzergah_SDT/src/slam_gmapping_Humble/slam_gmapping/src/slam_gmapping.cpp:24[m[K:
+[3.323s] [01m[K/opt/ros/humble/include/tf2_geometry_msgs/tf2_geometry_msgs/tf2_geometry_msgs.h:35:2:[m[K [01;35m[Kwarning: [m[K#warning This header is obsolete, please include tf2_geometry_msgs/tf2_geometry_msgs.hpp instead [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wcpp-Wcpp]8;;[m[K]
+[3.323s]    35 | #[01;35m[Kwarning[m[K This header is obsolete, please include tf2_geometry_msgs/tf2_geometry_msgs.hpp instead
+[3.323s]       |  [01;35m[K^~~~~~~[m[K
+[11.941s] In file included from [01m[K/home/yusuf/Guzergah_SDT/install/openslam_gmapping/include/gmapping/gridfastslam/gridslamprocessor.h:9[m[K,
+[11.941s]                  from [01m[K/home/yusuf/Guzergah_SDT/src/slam_gmapping_Humble/slam_gmapping/include/slam_gmapping/slam_gmapping.h:45[m[K:
+[11.942s] [01m[K/home/yusuf/Guzergah_SDT/install/openslam_gmapping/include/gmapping/particlefilter/particlefilter.h:[m[K In function ‘[01m[Kvoid rle(OutputIterator&, const Iterator&, const Iterator&)[m[K’:
+[11.942s] [01m[K/home/yusuf/Guzergah_SDT/install/openslam_gmapping/include/gmapping/particlefilter/particlefilter.h:140:9:[m[K [01;35m[Kwarning: [m[Kthis ‘[01m[Kif[m[K’ clause does not guard... [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wmisleading-indentation-Wmisleading-indentation]8;;[m[K]
+[11.942s]   140 |         [01;35m[Kif[m[K (count>0)
+[11.942s]       |         [01;35m[K^~[m[K
+[11.942s] [01m[K/home/yusuf/Guzergah_SDT/install/openslam_gmapping/include/gmapping/particlefilter/particlefilter.h:142:17:[m[K [01;36m[Knote: [m[K...this statement, but the latter is misleadingly indented as if it were guarded by the ‘[01m[Kif[m[K’
+[11.942s]   142 |                 [01;36m[Kout[m[K++;
+[11.942s]       |                 [01;36m[K^~~[m[K
+[39.360s] [100%] [32m[1mLinking CXX executable slam_gmapping[0m
+[40.713s] [100%] Built target slam_gmapping
+[40.735s] Invoked command in '/home/yusuf/Guzergah_SDT/build/slam_gmapping' returned '0': CMAKE_PREFIX_PATH=/home/yusuf/Guzergah_SDT/install/openslam_gmapping:/home/yusuf/Guzergah_SDT/install/nav2_rviz_plugins:/home/yusuf/Guzergah_SDT/install/nav2_map_server:/home/yusuf/Guzergah_SDT/install/nav_2d_utils:/home/yusuf/Guzergah_SDT/install/dwb_msgs:/home/yusuf/Guzergah_SDT/install/nav_2d_msgs:/home/yusuf/Guzergah_SDT/install/nav2_voxel_grid:/home/yusuf/Guzergah_SDT/install/nav2_velocity_smoother:/home/yusuf/Guzergah_SDT/install/nav2_lifecycle_manager:/home/yusuf/Guzergah_SDT/install/nav2_amcl:/home/yusuf/Guzergah_SDT/install/nav2_util:/home/yusuf/Guzergah_SDT/install/nav2_msgs:/home/yusuf/Guzergah_SDT/install/nav2_common:/home/yusuf/Guzergah_SDT/install/slam_gmapping:/home/yusuf/Guzergah_SDT/install/sdt_project:/home/yusuf/Guzergah_SDT/install/rf2o_laser_odometry:/home/yusuf/usb_cam/install/usb_cam:/home/yusuf/turtlebot3_ws/install/turtlebot3_simulations:/home/yusuf/turtlebot3_ws/install/turtlebot3_gazebo:/home/yusuf/turtlebot3_ws/install/turtlebot3_fake_node:/home/yusuf/Guzergah_SDT/install/nav2_simple_commander:/opt/ros/humble /usr/bin/cmake --build /home/yusuf/Guzergah_SDT/build/slam_gmapping -- -j8 -l8
+[40.806s] Invoking command in '/home/yusuf/Guzergah_SDT/build/slam_gmapping': CMAKE_PREFIX_PATH=/home/yusuf/Guzergah_SDT/install/openslam_gmapping:/home/yusuf/Guzergah_SDT/install/nav2_rviz_plugins:/home/yusuf/Guzergah_SDT/install/nav2_map_server:/home/yusuf/Guzergah_SDT/install/nav_2d_utils:/home/yusuf/Guzergah_SDT/install/dwb_msgs:/home/yusuf/Guzergah_SDT/install/nav_2d_msgs:/home/yusuf/Guzergah_SDT/install/nav2_voxel_grid:/home/yusuf/Guzergah_SDT/install/nav2_velocity_smoother:/home/yusuf/Guzergah_SDT/install/nav2_lifecycle_manager:/home/yusuf/Guzergah_SDT/install/nav2_amcl:/home/yusuf/Guzergah_SDT/install/nav2_util:/home/yusuf/Guzergah_SDT/install/nav2_msgs:/home/yusuf/Guzergah_SDT/install/nav2_common:/home/yusuf/Guzergah_SDT/install/slam_gmapping:/home/yusuf/Guzergah_SDT/install/sdt_project:/home/yusuf/Guzergah_SDT/install/rf2o_laser_odometry:/home/yusuf/usb_cam/install/usb_cam:/home/yusuf/turtlebot3_ws/install/turtlebot3_simulations:/home/yusuf/turtlebot3_ws/install/turtlebot3_gazebo:/home/yusuf/turtlebot3_ws/install/turtlebot3_fake_node:/home/yusuf/Guzergah_SDT/install/nav2_simple_commander:/opt/ros/humble /usr/bin/cmake --install /home/yusuf/Guzergah_SDT/build/slam_gmapping
+[40.819s] -- Install configuration: ""
+[40.819s] -- Installing: /home/yusuf/Guzergah_SDT/install/slam_gmapping/lib/slam_gmapping/slam_gmapping
+[40.826s] -- Set runtime path of "/home/yusuf/Guzergah_SDT/install/slam_gmapping/lib/slam_gmapping/slam_gmapping" to ""
+[40.826s] -- Installing: /home/yusuf/Guzergah_SDT/install/slam_gmapping/share/slam_gmapping/launch
+[40.826s] -- Installing: /home/yusuf/Guzergah_SDT/install/slam_gmapping/share/slam_gmapping/launch/slam_gmapping.launch.py
+[40.827s] -- Installing: /home/yusuf/Guzergah_SDT/install/slam_gmapping/share/ament_index/resource_index/package_run_dependencies/slam_gmapping
+[40.827s] -- Installing: /home/yusuf/Guzergah_SDT/install/slam_gmapping/share/ament_index/resource_index/parent_prefix_path/slam_gmapping
+[40.827s] -- Installing: /home/yusuf/Guzergah_SDT/install/slam_gmapping/share/slam_gmapping/environment/ament_prefix_path.sh
+[40.828s] -- Installing: /home/yusuf/Guzergah_SDT/install/slam_gmapping/share/slam_gmapping/environment/ament_prefix_path.dsv
+[40.828s] -- Installing: /home/yusuf/Guzergah_SDT/install/slam_gmapping/share/slam_gmapping/environment/path.sh
+[40.828s] -- Installing: /home/yusuf/Guzergah_SDT/install/slam_gmapping/share/slam_gmapping/environment/path.dsv
+[40.829s] -- Installing: /home/yusuf/Guzergah_SDT/install/slam_gmapping/share/slam_gmapping/local_setup.bash
+[40.829s] -- Installing: /home/yusuf/Guzergah_SDT/install/slam_gmapping/share/slam_gmapping/local_setup.sh
+[40.830s] -- Installing: /home/yusuf/Guzergah_SDT/install/slam_gmapping/share/slam_gmapping/local_setup.zsh
+[40.830s] -- Installing: /home/yusuf/Guzergah_SDT/install/slam_gmapping/share/slam_gmapping/local_setup.dsv
+[40.830s] -- Installing: /home/yusuf/Guzergah_SDT/install/slam_gmapping/share/slam_gmapping/package.dsv
+[40.831s] -- Installing: /home/yusuf/Guzergah_SDT/install/slam_gmapping/share/ament_index/resource_index/packages/slam_gmapping
+[40.832s] -- Installing: /home/yusuf/Guzergah_SDT/install/slam_gmapping/share/slam_gmapping/cmake/slam_gmappingConfig.cmake
+[40.832s] -- Installing: /home/yusuf/Guzergah_SDT/install/slam_gmapping/share/slam_gmapping/cmake/slam_gmappingConfig-version.cmake
+[40.832s] -- Installing: /home/yusuf/Guzergah_SDT/install/slam_gmapping/share/slam_gmapping/package.xml
+[40.837s] Invoked command in '/home/yusuf/Guzergah_SDT/build/slam_gmapping' returned '0': CMAKE_PREFIX_PATH=/home/yusuf/Guzergah_SDT/install/openslam_gmapping:/home/yusuf/Guzergah_SDT/install/nav2_rviz_plugins:/home/yusuf/Guzergah_SDT/install/nav2_map_server:/home/yusuf/Guzergah_SDT/install/nav_2d_utils:/home/yusuf/Guzergah_SDT/install/dwb_msgs:/home/yusuf/Guzergah_SDT/install/nav_2d_msgs:/home/yusuf/Guzergah_SDT/install/nav2_voxel_grid:/home/yusuf/Guzergah_SDT/install/nav2_velocity_smoother:/home/yusuf/Guzergah_SDT/install/nav2_lifecycle_manager:/home/yusuf/Guzergah_SDT/install/nav2_amcl:/home/yusuf/Guzergah_SDT/install/nav2_util:/home/yusuf/Guzergah_SDT/install/nav2_msgs:/home/yusuf/Guzergah_SDT/install/nav2_common:/home/yusuf/Guzergah_SDT/install/slam_gmapping:/home/yusuf/Guzergah_SDT/install/sdt_project:/home/yusuf/Guzergah_SDT/install/rf2o_laser_odometry:/home/yusuf/usb_cam/install/usb_cam:/home/yusuf/turtlebot3_ws/install/turtlebot3_simulations:/home/yusuf/turtlebot3_ws/install/turtlebot3_gazebo:/home/yusuf/turtlebot3_ws/install/turtlebot3_fake_node:/home/yusuf/Guzergah_SDT/install/nav2_simple_commander:/opt/ros/humble /usr/bin/cmake --install /home/yusuf/Guzergah_SDT/build/slam_gmapping

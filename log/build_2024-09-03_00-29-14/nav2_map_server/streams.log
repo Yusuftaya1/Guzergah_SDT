@@ -1,0 +1,55 @@
+[0.032s] Invoking command in '/home/yusuf/Guzergah_SDT/build/nav2_map_server': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/yusuf/Guzergah_SDT/build/nav2_map_server -- -j8 -l8
+[0.131s] [  8%] Built target gtest
+[0.132s] [ 11%] Built target gtest_main
+[0.160s] [ 19%] Built target map_io
+[0.217s] [ 27%] Built target test_map_saver_cli
+[0.244s] [ 36%] Built target test_map_io
+[0.244s] [ 47%] Built target map_server_core
+[0.259s] [ 55%] Built target test_map_saver_publisher
+[0.346s] [ 61%] Built target map_server
+[0.348s] [ 66%] Built target map_saver_cli
+[0.377s] [ 72%] Built target costmap_filter_info_server
+[0.389s] [ 77%] Built target map_saver_server
+[0.390s] [ 83%] Built target test_costmap_filter_info_server
+[0.392s] [ 91%] Built target test_map_saver_node
+[0.399s] [100%] Built target test_map_server_node
+[0.478s] Invoked command in '/home/yusuf/Guzergah_SDT/build/nav2_map_server' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/yusuf/Guzergah_SDT/build/nav2_map_server -- -j8 -l8
+[0.602s] Invoking command in '/home/yusuf/Guzergah_SDT/build/nav2_map_server': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/yusuf/Guzergah_SDT/build/nav2_map_server
+[0.619s] -- Install configuration: "Release"
+[0.620s] -- Up-to-date: /home/yusuf/Guzergah_SDT/install/nav2_map_server/lib/libmap_server_core.so
+[0.620s] -- Up-to-date: /home/yusuf/Guzergah_SDT/install/nav2_map_server/lib/libmap_io.so
+[0.621s] -- Up-to-date: /home/yusuf/Guzergah_SDT/install/nav2_map_server/lib/nav2_map_server/map_server
+[0.622s] -- Up-to-date: /home/yusuf/Guzergah_SDT/install/nav2_map_server/lib/nav2_map_server/map_saver_cli
+[0.622s] -- Up-to-date: /home/yusuf/Guzergah_SDT/install/nav2_map_server/lib/nav2_map_server/map_saver_server
+[0.623s] -- Up-to-date: /home/yusuf/Guzergah_SDT/install/nav2_map_server/lib/nav2_map_server/costmap_filter_info_server
+[0.623s] -- Up-to-date: /home/yusuf/Guzergah_SDT/install/nav2_map_server/include/
+[0.623s] -- Up-to-date: /home/yusuf/Guzergah_SDT/install/nav2_map_server/include//nav2_map_server
+[0.624s] -- Up-to-date: /home/yusuf/Guzergah_SDT/install/nav2_map_server/include//nav2_map_server/map_saver.hpp
+[0.624s] -- Up-to-date: /home/yusuf/Guzergah_SDT/install/nav2_map_server/include//nav2_map_server/map_mode.hpp
+[0.624s] -- Up-to-date: /home/yusuf/Guzergah_SDT/install/nav2_map_server/include//nav2_map_server/map_io.hpp
+[0.624s] -- Up-to-date: /home/yusuf/Guzergah_SDT/install/nav2_map_server/include//nav2_map_server/costmap_filter_info_server.hpp
+[0.625s] -- Up-to-date: /home/yusuf/Guzergah_SDT/install/nav2_map_server/include//nav2_map_server/map_server.hpp
+[0.625s] -- Up-to-date: /home/yusuf/Guzergah_SDT/install/nav2_map_server/share/nav2_map_server/launch
+[0.626s] -- Up-to-date: /home/yusuf/Guzergah_SDT/install/nav2_map_server/share/nav2_map_server/launch/map_saver_server.launch.py
+[0.626s] -- Up-to-date: /home/yusuf/Guzergah_SDT/install/nav2_map_server/share/nav2_map_server/environment/library_path.sh
+[0.626s] -- Up-to-date: /home/yusuf/Guzergah_SDT/install/nav2_map_server/share/nav2_map_server/environment/library_path.dsv
+[0.626s] -- Up-to-date: /home/yusuf/Guzergah_SDT/install/nav2_map_server/share/ament_index/resource_index/package_run_dependencies/nav2_map_server
+[0.626s] -- Up-to-date: /home/yusuf/Guzergah_SDT/install/nav2_map_server/share/ament_index/resource_index/parent_prefix_path/nav2_map_server
+[0.626s] -- Up-to-date: /home/yusuf/Guzergah_SDT/install/nav2_map_server/share/nav2_map_server/environment/ament_prefix_path.sh
+[0.627s] -- Up-to-date: /home/yusuf/Guzergah_SDT/install/nav2_map_server/share/nav2_map_server/environment/ament_prefix_path.dsv
+[0.627s] -- Up-to-date: /home/yusuf/Guzergah_SDT/install/nav2_map_server/share/nav2_map_server/environment/path.sh
+[0.627s] -- Up-to-date: /home/yusuf/Guzergah_SDT/install/nav2_map_server/share/nav2_map_server/environment/path.dsv
+[0.627s] -- Up-to-date: /home/yusuf/Guzergah_SDT/install/nav2_map_server/share/nav2_map_server/local_setup.bash
+[0.627s] -- Up-to-date: /home/yusuf/Guzergah_SDT/install/nav2_map_server/share/nav2_map_server/local_setup.sh
+[0.627s] -- Up-to-date: /home/yusuf/Guzergah_SDT/install/nav2_map_server/share/nav2_map_server/local_setup.zsh
+[0.628s] -- Up-to-date: /home/yusuf/Guzergah_SDT/install/nav2_map_server/share/nav2_map_server/local_setup.dsv
+[0.628s] -- Installing: /home/yusuf/Guzergah_SDT/install/nav2_map_server/share/nav2_map_server/package.dsv
+[0.628s] -- Up-to-date: /home/yusuf/Guzergah_SDT/install/nav2_map_server/share/ament_index/resource_index/packages/nav2_map_server
+[0.628s] -- Up-to-date: /home/yusuf/Guzergah_SDT/install/nav2_map_server/share/ament_index/resource_index/rclcpp_components/nav2_map_server
+[0.628s] -- Up-to-date: /home/yusuf/Guzergah_SDT/install/nav2_map_server/share/nav2_map_server/cmake/ament_cmake_export_include_directories-extras.cmake
+[0.628s] -- Up-to-date: /home/yusuf/Guzergah_SDT/install/nav2_map_server/share/nav2_map_server/cmake/ament_cmake_export_libraries-extras.cmake
+[0.628s] -- Up-to-date: /home/yusuf/Guzergah_SDT/install/nav2_map_server/share/nav2_map_server/cmake/ament_cmake_export_dependencies-extras.cmake
+[0.629s] -- Up-to-date: /home/yusuf/Guzergah_SDT/install/nav2_map_server/share/nav2_map_server/cmake/nav2_map_serverConfig.cmake
+[0.629s] -- Up-to-date: /home/yusuf/Guzergah_SDT/install/nav2_map_server/share/nav2_map_server/cmake/nav2_map_serverConfig-version.cmake
+[0.629s] -- Up-to-date: /home/yusuf/Guzergah_SDT/install/nav2_map_server/share/nav2_map_server/package.xml
+[0.633s] Invoked command in '/home/yusuf/Guzergah_SDT/build/nav2_map_server' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/yusuf/Guzergah_SDT/build/nav2_map_server

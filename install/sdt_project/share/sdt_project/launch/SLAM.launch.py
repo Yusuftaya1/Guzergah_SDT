@@ -1,6 +1,7 @@
 import os
 from launch import LaunchDescription
 from launch_ros.actions import Node
+from launch.actions import IncludeLaunchDescription
 
 def generate_launch_description():
     return LaunchDescription([
@@ -9,19 +10,12 @@ def generate_launch_description():
             executable='sllidar_node',
             name='lidar',
             output='screen'
-        ),
-         Node(
-            package='slam_toolbox', 
-            executable='sync_slam_toolbox_node',
-            name='slam_toolbox',
-            output='screen',
-            parameters=[{
-                'use_sim_time': False
-            }],
-            remappings=[
-                ('/scan', '/my_scan_topic'), 
-                ('/map', '/my_map_topic'),
-            ]
+        ),  
+        Node(
+            package='slam_gmapping',
+            executable='slam_gmapping',
+            name='mapping',
+            output='screen'
         ),
         Node(
             package='usb_cam',
@@ -32,7 +26,7 @@ def generate_launch_description():
         Node(
             package='sdt_project',
             executable='pid_library.py',
-            name='camera',
+            name='pid_controller',
             output='screen'
         ),
         Node(
@@ -50,7 +44,21 @@ def generate_launch_description():
         Node(
             package='sdt_project',
             executable='TCP_com.py',
-            name='usb_node',
+            name='tcp_node',
             output='screen'
+        ),
+        Node(
+            package='tf2_ros',
+            executable='static_transform_publisher',
+            name='static_tf_base_to_laser',
+            output='screen',
+            arguments=['0', '0', '0', '0', '0', '0', 'base_link', 'laser']
+        ),
+        Node(
+            package='tf2_ros',
+            executable='static_transform_publisher',
+            name='static_tf_odom_to_base',
+            output='screen',
+            arguments=['0', '0', '0', '0', '0', '0', 'odom', 'base_link']
         ),
     ])

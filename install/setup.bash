@@ -25,10 +25,13 @@ _colcon_prefix_chain_bash_source_script "$COLCON_CURRENT_PREFIX/local_setup.bash
 COLCON_CURRENT_PREFIX="/home/yusuf/turtlebot3_ws/install"
 _colcon_prefix_chain_bash_source_script "$COLCON_CURRENT_PREFIX/local_setup.bash"
 # setting COLCON_CURRENT_PREFIX avoids determining the prefix in the sourced script
-COLCON_CURRENT_PREFIX="/home/yusuf/tcp/install"
+COLCON_CURRENT_PREFIX="/home/yusuf/usb_cam/install"
 _colcon_prefix_chain_bash_source_script "$COLCON_CURRENT_PREFIX/local_setup.bash"
 # setting COLCON_CURRENT_PREFIX avoids determining the prefix in the sourced script
-COLCON_CURRENT_PREFIX="/home/yusuf/usb_cam/install"
+COLCON_CURRENT_PREFIX="/home/yusuf/sllidar_ros2/install"
+_colcon_prefix_chain_bash_source_script "$COLCON_CURRENT_PREFIX/local_setup.bash"
+# setting COLCON_CURRENT_PREFIX avoids determining the prefix in the sourced script
+COLCON_CURRENT_PREFIX="/home/yusuf/slam_gmapping_Humble/slam_gmapping/install"
 _colcon_prefix_chain_bash_source_script "$COLCON_CURRENT_PREFIX/local_setup.bash"
 
 # source this prefix

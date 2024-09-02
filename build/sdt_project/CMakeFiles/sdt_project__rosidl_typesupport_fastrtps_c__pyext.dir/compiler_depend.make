@@ -245,15 +245,8 @@ CMakeFiles/sdt_project__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generato
   rosidl_generator_c/sdt_project/msg/detail/motor_values__type_support.h \
   rosidl_generator_c/sdt_project/msg/rosidl_generator_c__visibility_control.h \
   rosidl_generator_c/sdt_project/msg/detail/motor_values__struct.h \
-  rosidl_generator_c/sdt_project/msg/detail/motor_values__functions.h \
-  rosidl_generator_c/sdt_project/msg/detail/sensor_values__type_support.h \
-  rosidl_generator_c/sdt_project/msg/detail/sensor_values__struct.h \
-  rosidl_generator_c/sdt_project/msg/detail/sensor_values__functions.h
+  rosidl_generator_c/sdt_project/msg/detail/motor_values__functions.h
 
-
-rosidl_generator_c/sdt_project/msg/detail/sensor_values__functions.h:
-
-rosidl_generator_c/sdt_project/msg/detail/sensor_values__type_support.h:
 
 rosidl_generator_c/sdt_project/msg/rosidl_generator_c__visibility_control.h:
 
@@ -714,8 +707,6 @@ rosidl_generator_py/sdt_project/_sdt_project_s.ep.rosidl_typesupport_fastrtps_c.
 /usr/include/x86_64-linux-gnu/bits/select.h:
 
 /usr/include/x86_64-linux-gnu/bits/struct_stat.h:
-
-rosidl_generator_c/sdt_project/msg/detail/sensor_values__struct.h:
 
 /usr/include/linux/stat.h:
 

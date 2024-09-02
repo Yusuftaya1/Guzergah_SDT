@@ -365,6 +365,7 @@ endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/sdt_project" TYPE PROGRAM FILES
+    "/home/yusuf/Guzergah_SDT/src/sdt_project/src/deneme_pid2.py"
     "/home/yusuf/Guzergah_SDT/src/sdt_project/src/usb_com.py"
     "/home/yusuf/Guzergah_SDT/src/sdt_project/src/TCP_com.py"
     "/home/yusuf/Guzergah_SDT/src/sdt_project/src/diff_node.py"
@@ -387,6 +388,8 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
     "/home/yusuf/Guzergah_SDT/src/sdt_project/launch/mission2.launch.py"
     "/home/yusuf/Guzergah_SDT/src/sdt_project/launch/mission3.launch.py"
     "/home/yusuf/Guzergah_SDT/src/sdt_project/launch/mission4.launch.py"
+    "/home/yusuf/Guzergah_SDT/src/sdt_project/launch/cartographer.launch.py"
+    "/home/yusuf/Guzergah_SDT/src/sdt_project/launch/occupancy_grid.launch.py"
     )
 endif()
 

@@ -1,4 +1,0 @@
-float64 sag_motor_sicaklik
-float64 sol_motor_sicaklik
-
-float64 motor_akim

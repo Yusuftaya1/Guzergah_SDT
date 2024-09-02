@@ -204,7 +204,4 @@ CMakeFiles/sdt_project__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generato
  /home/yusuf/Guzergah_SDT/build/sdt_project/rosidl_generator_c/sdt_project/msg/detail/motor_values__type_support.h \
  /home/yusuf/Guzergah_SDT/build/sdt_project/rosidl_generator_c/sdt_project/msg/rosidl_generator_c__visibility_control.h \
  /home/yusuf/Guzergah_SDT/build/sdt_project/rosidl_generator_c/sdt_project/msg/detail/motor_values__struct.h \
- /home/yusuf/Guzergah_SDT/build/sdt_project/rosidl_generator_c/sdt_project/msg/detail/motor_values__functions.h \
- /home/yusuf/Guzergah_SDT/build/sdt_project/rosidl_generator_c/sdt_project/msg/detail/sensor_values__type_support.h \
- /home/yusuf/Guzergah_SDT/build/sdt_project/rosidl_generator_c/sdt_project/msg/detail/sensor_values__struct.h \
- /home/yusuf/Guzergah_SDT/build/sdt_project/rosidl_generator_c/sdt_project/msg/detail/sensor_values__functions.h
+ /home/yusuf/Guzergah_SDT/build/sdt_project/rosidl_generator_c/sdt_project/msg/detail/motor_values__functions.h

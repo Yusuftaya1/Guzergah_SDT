@@ -1,6 +1,7 @@
 import os
 from launch import LaunchDescription
 from launch_ros.actions import Node
+from launch.actions import IncludeLaunchDescription
 
 def generate_launch_description():
     return LaunchDescription([
@@ -10,28 +11,35 @@ def generate_launch_description():
             name='lidar',
             output='screen'
         ),
-         Node(
-            package='slam_toolbox', 
-            executable='sync_slam_toolbox_node',
-            name='slam_toolbox',
+        Node(
+            package='sdt_project',
+            executable='deneme_pid2.py',
+            name='mapping',
+            output='screen'
+        ),
+        Node(
+            package='tf2_ros',
+            executable='static_transform_publisher',
+            name='static_tf_base_to_laser',
             output='screen',
-            parameters=[{
-                'use_sim_time': False
-            }],
-            remappings=[
-                ('/scan', '/my_scan_topic'), 
-                ('/map', '/my_map_topic'),
-            ]
+            arguments=['0', '0', '0', '0', '0', '0', 'base_link', 'laser']
+        ),
+        Node(
+            package='tf2_ros',
+            executable='static_transform_publisher',
+            name='static_tf_odom_to_base',
+            output='screen',
+            arguments=['0', '0', '0', '0', '0', '0', 'odom', 'base_link']
+        ),
+        Node(
+            package='slam_gmapping',
+            executable='slam_gmapping',
+            name='mapping',
+            output='screen'
         ),
         Node(
             package='usb_cam',
             executable='usb_cam_node_exe',
-            name='camera',
-            output='screen'
-        ),
-        Node(
-            package='sdt_project',
-            executable='pid_library.py',
             name='camera',
             output='screen'
         ),
@@ -50,7 +58,7 @@ def generate_launch_description():
         Node(
             package='sdt_project',
             executable='TCP_com.py',
-            name='usb_node',
+            name='tcp_node',
             output='screen'
         ),
     ])
