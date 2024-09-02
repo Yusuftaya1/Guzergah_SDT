@@ -15,10 +15,6 @@ set(CMAKE_MULTIPLE_OUTPUT_PAIRS
   "/home/yusuf/Guzergah_SDT/build/sdt_project/rosidl_generator_cpp/sdt_project/msg/detail/motor_values__builder.hpp" "/home/yusuf/Guzergah_SDT/build/sdt_project/rosidl_generator_cpp/sdt_project/msg/motor_values.hpp"
   "/home/yusuf/Guzergah_SDT/build/sdt_project/rosidl_generator_cpp/sdt_project/msg/detail/motor_values__struct.hpp" "/home/yusuf/Guzergah_SDT/build/sdt_project/rosidl_generator_cpp/sdt_project/msg/motor_values.hpp"
   "/home/yusuf/Guzergah_SDT/build/sdt_project/rosidl_generator_cpp/sdt_project/msg/detail/motor_values__traits.hpp" "/home/yusuf/Guzergah_SDT/build/sdt_project/rosidl_generator_cpp/sdt_project/msg/motor_values.hpp"
-  "/home/yusuf/Guzergah_SDT/build/sdt_project/rosidl_generator_cpp/sdt_project/msg/detail/sensor_values__builder.hpp" "/home/yusuf/Guzergah_SDT/build/sdt_project/rosidl_generator_cpp/sdt_project/msg/motor_values.hpp"
-  "/home/yusuf/Guzergah_SDT/build/sdt_project/rosidl_generator_cpp/sdt_project/msg/detail/sensor_values__struct.hpp" "/home/yusuf/Guzergah_SDT/build/sdt_project/rosidl_generator_cpp/sdt_project/msg/motor_values.hpp"
-  "/home/yusuf/Guzergah_SDT/build/sdt_project/rosidl_generator_cpp/sdt_project/msg/detail/sensor_values__traits.hpp" "/home/yusuf/Guzergah_SDT/build/sdt_project/rosidl_generator_cpp/sdt_project/msg/motor_values.hpp"
-  "/home/yusuf/Guzergah_SDT/build/sdt_project/rosidl_generator_cpp/sdt_project/msg/sensor_values.hpp" "/home/yusuf/Guzergah_SDT/build/sdt_project/rosidl_generator_cpp/sdt_project/msg/motor_values.hpp"
   )
 
 

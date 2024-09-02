@@ -36,12 +36,6 @@ def generate_launch_description():
         ),
         Node(
             package='sdt_project',
-            executable='usb_com.py',
-            name='usb_node',
-            output='screen'
-        ),
-        Node(
-            package='sdt_project',
             executable='TCP_com.py',
             name='usb_node',
             output='screen'

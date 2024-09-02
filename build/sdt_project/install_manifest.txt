@@ -66,9 +66,7 @@
 /home/yusuf/Guzergah_SDT/install/sdt_project/local/lib/python3.10/dist-packages/sdt_project/sdt_project_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
 /home/yusuf/Guzergah_SDT/install/sdt_project/lib/libsdt_project__rosidl_generator_py.so
 /home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/msg/MotorValues.idl
-/home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/msg/SensorValues.idl
 /home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/msg/MotorValues.msg
-/home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/msg/SensorValues.msg
 /home/yusuf/Guzergah_SDT/install/sdt_project/lib/sdt_project/usb_com.py
 /home/yusuf/Guzergah_SDT/install/sdt_project/lib/sdt_project/TCP_com.py
 /home/yusuf/Guzergah_SDT/install/sdt_project/lib/sdt_project/diff_node.py

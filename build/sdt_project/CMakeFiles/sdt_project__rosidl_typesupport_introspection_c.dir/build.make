@@ -78,18 +78,11 @@ rosidl_typesupport_introspection_c/sdt_project/msg/detail/motor_values__rosidl_t
 rosidl_typesupport_introspection_c/sdt_project/msg/detail/motor_values__rosidl_typesupport_introspection_c.h: /opt/ros/humble/share/rosidl_typesupport_introspection_c/resource/srv__rosidl_typesupport_introspection_c.h.em
 rosidl_typesupport_introspection_c/sdt_project/msg/detail/motor_values__rosidl_typesupport_introspection_c.h: /opt/ros/humble/share/rosidl_typesupport_introspection_c/resource/srv__type_support.c.em
 rosidl_typesupport_introspection_c/sdt_project/msg/detail/motor_values__rosidl_typesupport_introspection_c.h: rosidl_adapter/sdt_project/msg/MotorValues.idl
-rosidl_typesupport_introspection_c/sdt_project/msg/detail/motor_values__rosidl_typesupport_introspection_c.h: rosidl_adapter/sdt_project/msg/SensorValues.idl
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/yusuf/Guzergah_SDT/build/sdt_project/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C introspection for ROS interfaces"
 	/usr/bin/python3 /opt/ros/humble/lib/rosidl_typesupport_introspection_c/rosidl_typesupport_introspection_c --generator-arguments-file /home/yusuf/Guzergah_SDT/build/sdt_project/rosidl_typesupport_introspection_c__arguments.json
 
-rosidl_typesupport_introspection_c/sdt_project/msg/detail/sensor_values__rosidl_typesupport_introspection_c.h: rosidl_typesupport_introspection_c/sdt_project/msg/detail/motor_values__rosidl_typesupport_introspection_c.h
-	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_introspection_c/sdt_project/msg/detail/sensor_values__rosidl_typesupport_introspection_c.h
-
 rosidl_typesupport_introspection_c/sdt_project/msg/detail/motor_values__type_support.c: rosidl_typesupport_introspection_c/sdt_project/msg/detail/motor_values__rosidl_typesupport_introspection_c.h
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_introspection_c/sdt_project/msg/detail/motor_values__type_support.c
-
-rosidl_typesupport_introspection_c/sdt_project/msg/detail/sensor_values__type_support.c: rosidl_typesupport_introspection_c/sdt_project/msg/detail/motor_values__rosidl_typesupport_introspection_c.h
-	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_introspection_c/sdt_project/msg/detail/sensor_values__type_support.c
 
 CMakeFiles/sdt_project__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/sdt_project/msg/detail/motor_values__type_support.c.o: CMakeFiles/sdt_project__rosidl_typesupport_introspection_c.dir/flags.make
 CMakeFiles/sdt_project__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/sdt_project/msg/detail/motor_values__type_support.c.o: rosidl_typesupport_introspection_c/sdt_project/msg/detail/motor_values__type_support.c
@@ -105,37 +98,21 @@ CMakeFiles/sdt_project__rosidl_typesupport_introspection_c.dir/rosidl_typesuppor
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sdt_project__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/sdt_project/msg/detail/motor_values__type_support.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/yusuf/Guzergah_SDT/build/sdt_project/rosidl_typesupport_introspection_c/sdt_project/msg/detail/motor_values__type_support.c -o CMakeFiles/sdt_project__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/sdt_project/msg/detail/motor_values__type_support.c.s
 
-CMakeFiles/sdt_project__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/sdt_project/msg/detail/sensor_values__type_support.c.o: CMakeFiles/sdt_project__rosidl_typesupport_introspection_c.dir/flags.make
-CMakeFiles/sdt_project__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/sdt_project/msg/detail/sensor_values__type_support.c.o: rosidl_typesupport_introspection_c/sdt_project/msg/detail/sensor_values__type_support.c
-CMakeFiles/sdt_project__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/sdt_project/msg/detail/sensor_values__type_support.c.o: CMakeFiles/sdt_project__rosidl_typesupport_introspection_c.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yusuf/Guzergah_SDT/build/sdt_project/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/sdt_project__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/sdt_project/msg/detail/sensor_values__type_support.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/sdt_project__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/sdt_project/msg/detail/sensor_values__type_support.c.o -MF CMakeFiles/sdt_project__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/sdt_project/msg/detail/sensor_values__type_support.c.o.d -o CMakeFiles/sdt_project__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/sdt_project/msg/detail/sensor_values__type_support.c.o -c /home/yusuf/Guzergah_SDT/build/sdt_project/rosidl_typesupport_introspection_c/sdt_project/msg/detail/sensor_values__type_support.c
-
-CMakeFiles/sdt_project__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/sdt_project/msg/detail/sensor_values__type_support.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/sdt_project__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/sdt_project/msg/detail/sensor_values__type_support.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/yusuf/Guzergah_SDT/build/sdt_project/rosidl_typesupport_introspection_c/sdt_project/msg/detail/sensor_values__type_support.c > CMakeFiles/sdt_project__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/sdt_project/msg/detail/sensor_values__type_support.c.i
-
-CMakeFiles/sdt_project__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/sdt_project/msg/detail/sensor_values__type_support.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/sdt_project__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/sdt_project/msg/detail/sensor_values__type_support.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/yusuf/Guzergah_SDT/build/sdt_project/rosidl_typesupport_introspection_c/sdt_project/msg/detail/sensor_values__type_support.c -o CMakeFiles/sdt_project__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/sdt_project/msg/detail/sensor_values__type_support.c.s
-
 # Object files for target sdt_project__rosidl_typesupport_introspection_c
 sdt_project__rosidl_typesupport_introspection_c_OBJECTS = \
-"CMakeFiles/sdt_project__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/sdt_project/msg/detail/motor_values__type_support.c.o" \
-"CMakeFiles/sdt_project__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/sdt_project/msg/detail/sensor_values__type_support.c.o"
+"CMakeFiles/sdt_project__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/sdt_project/msg/detail/motor_values__type_support.c.o"
 
 # External object files for target sdt_project__rosidl_typesupport_introspection_c
 sdt_project__rosidl_typesupport_introspection_c_EXTERNAL_OBJECTS =
 
 libsdt_project__rosidl_typesupport_introspection_c.so: CMakeFiles/sdt_project__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/sdt_project/msg/detail/motor_values__type_support.c.o
-libsdt_project__rosidl_typesupport_introspection_c.so: CMakeFiles/sdt_project__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/sdt_project/msg/detail/sensor_values__type_support.c.o
 libsdt_project__rosidl_typesupport_introspection_c.so: CMakeFiles/sdt_project__rosidl_typesupport_introspection_c.dir/build.make
 libsdt_project__rosidl_typesupport_introspection_c.so: libsdt_project__rosidl_generator_c.so
 libsdt_project__rosidl_typesupport_introspection_c.so: /opt/ros/humble/lib/librosidl_typesupport_introspection_c.so
 libsdt_project__rosidl_typesupport_introspection_c.so: /opt/ros/humble/lib/librosidl_runtime_c.so
 libsdt_project__rosidl_typesupport_introspection_c.so: /opt/ros/humble/lib/librcutils.so
 libsdt_project__rosidl_typesupport_introspection_c.so: CMakeFiles/sdt_project__rosidl_typesupport_introspection_c.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/yusuf/Guzergah_SDT/build/sdt_project/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking C shared library libsdt_project__rosidl_typesupport_introspection_c.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/yusuf/Guzergah_SDT/build/sdt_project/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C shared library libsdt_project__rosidl_typesupport_introspection_c.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/sdt_project__rosidl_typesupport_introspection_c.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -148,8 +125,6 @@ CMakeFiles/sdt_project__rosidl_typesupport_introspection_c.dir/clean:
 
 CMakeFiles/sdt_project__rosidl_typesupport_introspection_c.dir/depend: rosidl_typesupport_introspection_c/sdt_project/msg/detail/motor_values__rosidl_typesupport_introspection_c.h
 CMakeFiles/sdt_project__rosidl_typesupport_introspection_c.dir/depend: rosidl_typesupport_introspection_c/sdt_project/msg/detail/motor_values__type_support.c
-CMakeFiles/sdt_project__rosidl_typesupport_introspection_c.dir/depend: rosidl_typesupport_introspection_c/sdt_project/msg/detail/sensor_values__rosidl_typesupport_introspection_c.h
-CMakeFiles/sdt_project__rosidl_typesupport_introspection_c.dir/depend: rosidl_typesupport_introspection_c/sdt_project/msg/detail/sensor_values__type_support.c
 	cd /home/yusuf/Guzergah_SDT/build/sdt_project && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/yusuf/Guzergah_SDT/src/sdt_project /home/yusuf/Guzergah_SDT/src/sdt_project /home/yusuf/Guzergah_SDT/build/sdt_project /home/yusuf/Guzergah_SDT/build/sdt_project /home/yusuf/Guzergah_SDT/build/sdt_project/CMakeFiles/sdt_project__rosidl_typesupport_introspection_c.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/sdt_project__rosidl_typesupport_introspection_c.dir/depend
 

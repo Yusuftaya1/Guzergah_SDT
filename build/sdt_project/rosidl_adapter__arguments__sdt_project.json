@@ -1,7 +1,6 @@
 {
   "package_name": "sdt_project",
   "non_idl_tuples": [
-    "/home/yusuf/Guzergah_SDT/src/sdt_project:msg/MotorValues.msg",
-    "/home/yusuf/Guzergah_SDT/src/sdt_project:msg/SensorValues.msg"
+    "/home/yusuf/Guzergah_SDT/src/sdt_project:msg/MotorValues.msg"
   ]
 }

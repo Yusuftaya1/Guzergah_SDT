@@ -17,8 +17,6 @@ set(CMAKE_MULTIPLE_OUTPUT_PAIRS
   "/home/yusuf/Guzergah_SDT/build/sdt_project/rosidl_generator_py/sdt_project/msg/__init__.py" "/home/yusuf/Guzergah_SDT/build/sdt_project/rosidl_generator_py/sdt_project/_sdt_project_s.ep.rosidl_typesupport_fastrtps_c.c"
   "/home/yusuf/Guzergah_SDT/build/sdt_project/rosidl_generator_py/sdt_project/msg/_motor_values.py" "/home/yusuf/Guzergah_SDT/build/sdt_project/rosidl_generator_py/sdt_project/_sdt_project_s.ep.rosidl_typesupport_fastrtps_c.c"
   "/home/yusuf/Guzergah_SDT/build/sdt_project/rosidl_generator_py/sdt_project/msg/_motor_values_s.c" "/home/yusuf/Guzergah_SDT/build/sdt_project/rosidl_generator_py/sdt_project/_sdt_project_s.ep.rosidl_typesupport_fastrtps_c.c"
-  "/home/yusuf/Guzergah_SDT/build/sdt_project/rosidl_generator_py/sdt_project/msg/_sensor_values.py" "/home/yusuf/Guzergah_SDT/build/sdt_project/rosidl_generator_py/sdt_project/_sdt_project_s.ep.rosidl_typesupport_fastrtps_c.c"
-  "/home/yusuf/Guzergah_SDT/build/sdt_project/rosidl_generator_py/sdt_project/msg/_sensor_values_s.c" "/home/yusuf/Guzergah_SDT/build/sdt_project/rosidl_generator_py/sdt_project/_sdt_project_s.ep.rosidl_typesupport_fastrtps_c.c"
   )
 
 

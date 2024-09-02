@@ -78,18 +78,11 @@ rosidl_typesupport_fastrtps_c/sdt_project/msg/detail/motor_values__rosidl_typesu
 rosidl_typesupport_fastrtps_c/sdt_project/msg/detail/motor_values__rosidl_typesupport_fastrtps_c.h: /opt/ros/humble/share/rosidl_typesupport_fastrtps_c/resource/srv__rosidl_typesupport_fastrtps_c.h.em
 rosidl_typesupport_fastrtps_c/sdt_project/msg/detail/motor_values__rosidl_typesupport_fastrtps_c.h: /opt/ros/humble/share/rosidl_typesupport_fastrtps_c/resource/srv__type_support_c.cpp.em
 rosidl_typesupport_fastrtps_c/sdt_project/msg/detail/motor_values__rosidl_typesupport_fastrtps_c.h: rosidl_adapter/sdt_project/msg/MotorValues.idl
-rosidl_typesupport_fastrtps_c/sdt_project/msg/detail/motor_values__rosidl_typesupport_fastrtps_c.h: rosidl_adapter/sdt_project/msg/SensorValues.idl
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/yusuf/Guzergah_SDT/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C type support for eProsima Fast-RTPS"
 	/usr/bin/python3 /opt/ros/humble/lib/rosidl_typesupport_fastrtps_c/rosidl_typesupport_fastrtps_c --generator-arguments-file /home/yusuf/Guzergah_SDT/build/rosidl_typesupport_fastrtps_c__arguments.json
 
 rosidl_typesupport_fastrtps_c/sdt_project/msg/detail/motor_values__type_support_c.cpp: rosidl_typesupport_fastrtps_c/sdt_project/msg/detail/motor_values__rosidl_typesupport_fastrtps_c.h
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_fastrtps_c/sdt_project/msg/detail/motor_values__type_support_c.cpp
-
-rosidl_typesupport_fastrtps_c/sdt_project/msg/detail/sensor_values__rosidl_typesupport_fastrtps_c.h: rosidl_typesupport_fastrtps_c/sdt_project/msg/detail/motor_values__rosidl_typesupport_fastrtps_c.h
-	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_fastrtps_c/sdt_project/msg/detail/sensor_values__rosidl_typesupport_fastrtps_c.h
-
-rosidl_typesupport_fastrtps_c/sdt_project/msg/detail/sensor_values__type_support_c.cpp: rosidl_typesupport_fastrtps_c/sdt_project/msg/detail/motor_values__rosidl_typesupport_fastrtps_c.h
-	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_fastrtps_c/sdt_project/msg/detail/sensor_values__type_support_c.cpp
 
 CMakeFiles/sdt_project__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/sdt_project/msg/detail/motor_values__type_support_c.cpp.o: CMakeFiles/sdt_project__rosidl_typesupport_fastrtps_c.dir/flags.make
 CMakeFiles/sdt_project__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/sdt_project/msg/detail/motor_values__type_support_c.cpp.o: rosidl_typesupport_fastrtps_c/sdt_project/msg/detail/motor_values__type_support_c.cpp
@@ -105,30 +98,14 @@ CMakeFiles/sdt_project__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fas
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sdt_project__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/sdt_project/msg/detail/motor_values__type_support_c.cpp.s"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yusuf/Guzergah_SDT/build/rosidl_typesupport_fastrtps_c/sdt_project/msg/detail/motor_values__type_support_c.cpp -o CMakeFiles/sdt_project__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/sdt_project/msg/detail/motor_values__type_support_c.cpp.s
 
-CMakeFiles/sdt_project__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/sdt_project/msg/detail/sensor_values__type_support_c.cpp.o: CMakeFiles/sdt_project__rosidl_typesupport_fastrtps_c.dir/flags.make
-CMakeFiles/sdt_project__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/sdt_project/msg/detail/sensor_values__type_support_c.cpp.o: rosidl_typesupport_fastrtps_c/sdt_project/msg/detail/sensor_values__type_support_c.cpp
-CMakeFiles/sdt_project__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/sdt_project/msg/detail/sensor_values__type_support_c.cpp.o: CMakeFiles/sdt_project__rosidl_typesupport_fastrtps_c.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yusuf/Guzergah_SDT/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/sdt_project__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/sdt_project/msg/detail/sensor_values__type_support_c.cpp.o"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sdt_project__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/sdt_project/msg/detail/sensor_values__type_support_c.cpp.o -MF CMakeFiles/sdt_project__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/sdt_project/msg/detail/sensor_values__type_support_c.cpp.o.d -o CMakeFiles/sdt_project__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/sdt_project/msg/detail/sensor_values__type_support_c.cpp.o -c /home/yusuf/Guzergah_SDT/build/rosidl_typesupport_fastrtps_c/sdt_project/msg/detail/sensor_values__type_support_c.cpp
-
-CMakeFiles/sdt_project__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/sdt_project/msg/detail/sensor_values__type_support_c.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sdt_project__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/sdt_project/msg/detail/sensor_values__type_support_c.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yusuf/Guzergah_SDT/build/rosidl_typesupport_fastrtps_c/sdt_project/msg/detail/sensor_values__type_support_c.cpp > CMakeFiles/sdt_project__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/sdt_project/msg/detail/sensor_values__type_support_c.cpp.i
-
-CMakeFiles/sdt_project__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/sdt_project/msg/detail/sensor_values__type_support_c.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sdt_project__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/sdt_project/msg/detail/sensor_values__type_support_c.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yusuf/Guzergah_SDT/build/rosidl_typesupport_fastrtps_c/sdt_project/msg/detail/sensor_values__type_support_c.cpp -o CMakeFiles/sdt_project__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/sdt_project/msg/detail/sensor_values__type_support_c.cpp.s
-
 # Object files for target sdt_project__rosidl_typesupport_fastrtps_c
 sdt_project__rosidl_typesupport_fastrtps_c_OBJECTS = \
-"CMakeFiles/sdt_project__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/sdt_project/msg/detail/motor_values__type_support_c.cpp.o" \
-"CMakeFiles/sdt_project__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/sdt_project/msg/detail/sensor_values__type_support_c.cpp.o"
+"CMakeFiles/sdt_project__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/sdt_project/msg/detail/motor_values__type_support_c.cpp.o"
 
 # External object files for target sdt_project__rosidl_typesupport_fastrtps_c
 sdt_project__rosidl_typesupport_fastrtps_c_EXTERNAL_OBJECTS =
 
 libsdt_project__rosidl_typesupport_fastrtps_c.so: CMakeFiles/sdt_project__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/sdt_project/msg/detail/motor_values__type_support_c.cpp.o
-libsdt_project__rosidl_typesupport_fastrtps_c.so: CMakeFiles/sdt_project__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/sdt_project/msg/detail/sensor_values__type_support_c.cpp.o
 libsdt_project__rosidl_typesupport_fastrtps_c.so: CMakeFiles/sdt_project__rosidl_typesupport_fastrtps_c.dir/build.make
 libsdt_project__rosidl_typesupport_fastrtps_c.so: /opt/ros/humble/lib/librosidl_typesupport_fastrtps_cpp.so
 libsdt_project__rosidl_typesupport_fastrtps_c.so: /opt/ros/humble/lib/librosidl_typesupport_fastrtps_c.so
@@ -138,7 +115,7 @@ libsdt_project__rosidl_typesupport_fastrtps_c.so: /opt/ros/humble/lib/librmw.so
 libsdt_project__rosidl_typesupport_fastrtps_c.so: /opt/ros/humble/lib/librosidl_runtime_c.so
 libsdt_project__rosidl_typesupport_fastrtps_c.so: /opt/ros/humble/lib/librcutils.so
 libsdt_project__rosidl_typesupport_fastrtps_c.so: CMakeFiles/sdt_project__rosidl_typesupport_fastrtps_c.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/yusuf/Guzergah_SDT/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX shared library libsdt_project__rosidl_typesupport_fastrtps_c.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/yusuf/Guzergah_SDT/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX shared library libsdt_project__rosidl_typesupport_fastrtps_c.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/sdt_project__rosidl_typesupport_fastrtps_c.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -151,8 +128,6 @@ CMakeFiles/sdt_project__rosidl_typesupport_fastrtps_c.dir/clean:
 
 CMakeFiles/sdt_project__rosidl_typesupport_fastrtps_c.dir/depend: rosidl_typesupport_fastrtps_c/sdt_project/msg/detail/motor_values__rosidl_typesupport_fastrtps_c.h
 CMakeFiles/sdt_project__rosidl_typesupport_fastrtps_c.dir/depend: rosidl_typesupport_fastrtps_c/sdt_project/msg/detail/motor_values__type_support_c.cpp
-CMakeFiles/sdt_project__rosidl_typesupport_fastrtps_c.dir/depend: rosidl_typesupport_fastrtps_c/sdt_project/msg/detail/sensor_values__rosidl_typesupport_fastrtps_c.h
-CMakeFiles/sdt_project__rosidl_typesupport_fastrtps_c.dir/depend: rosidl_typesupport_fastrtps_c/sdt_project/msg/detail/sensor_values__type_support_c.cpp
 	cd /home/yusuf/Guzergah_SDT/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/yusuf/Guzergah_SDT/src/sdt_project /home/yusuf/Guzergah_SDT/src/sdt_project /home/yusuf/Guzergah_SDT/build /home/yusuf/Guzergah_SDT/build /home/yusuf/Guzergah_SDT/build/CMakeFiles/sdt_project__rosidl_typesupport_fastrtps_c.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/sdt_project__rosidl_typesupport_fastrtps_c.dir/depend
 

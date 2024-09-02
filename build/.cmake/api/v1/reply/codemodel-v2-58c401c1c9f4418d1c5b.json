@@ -1,0 +1,233 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-b835cfc92a7f2cfaeb00.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17
+					]
+				},
+				{
+					"build" : "sdt_project__py",
+					"jsonFile" : "directory-sdt_project__py-Debug-35a54dcdf24b907e65b1.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "/home/yusuf/Guzergah_SDT/build/sdt_project__py",
+					"targetIndexes" : 
+					[
+						4
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1
+					],
+					"name" : "sdt_project",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_build_sdt_project_egg::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_build_sdt_project_egg-Debug-a35245285f94e95e25b0.json",
+					"name" : "ament_cmake_python_build_sdt_project_egg",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_copy_sdt_project::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_copy_sdt_project-Debug-0ca28693bb5e5ffb79af.json",
+					"name" : "ament_cmake_python_copy_sdt_project",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "sdt_project::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-sdt_project-Debug-b0886b39c5551d485b70.json",
+					"name" : "sdt_project",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "sdt_project__cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-sdt_project__cpp-Debug-043decbb4dff430e002c.json",
+					"name" : "sdt_project__cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "sdt_project__py::@f6c0099154b20a1823cd",
+					"jsonFile" : "target-sdt_project__py-Debug-5662e88a9b2190cb87d6.json",
+					"name" : "sdt_project__py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "sdt_project__rosidl_generator_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-sdt_project__rosidl_generator_c-Debug-4c0976681058e43782cc.json",
+					"name" : "sdt_project__rosidl_generator_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "sdt_project__rosidl_generator_py::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-sdt_project__rosidl_generator_py-Debug-9e5fe87b0097f955e099.json",
+					"name" : "sdt_project__rosidl_generator_py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "sdt_project__rosidl_typesupport_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-sdt_project__rosidl_typesupport_c-Debug-e7e55b067e47d52394fa.json",
+					"name" : "sdt_project__rosidl_typesupport_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "sdt_project__rosidl_typesupport_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-sdt_project__rosidl_typesupport_c__pyext-Debug-39c02caa86c46c6a58a8.json",
+					"name" : "sdt_project__rosidl_typesupport_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "sdt_project__rosidl_typesupport_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-sdt_project__rosidl_typesupport_cpp-Debug-029f1d04ce40c7890d5f.json",
+					"name" : "sdt_project__rosidl_typesupport_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "sdt_project__rosidl_typesupport_fastrtps_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-sdt_project__rosidl_typesupport_fastrtps_c-Debug-3aa57132da2cc940f538.json",
+					"name" : "sdt_project__rosidl_typesupport_fastrtps_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "sdt_project__rosidl_typesupport_fastrtps_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-sdt_project__rosidl_typesupport_fastrtps_c__pyext-Debug-1c2cbadc16f13cf87781.json",
+					"name" : "sdt_project__rosidl_typesupport_fastrtps_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "sdt_project__rosidl_typesupport_fastrtps_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-sdt_project__rosidl_typesupport_fastrtps_cpp-Debug-3b4e0b905d52196d3ba7.json",
+					"name" : "sdt_project__rosidl_typesupport_fastrtps_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "sdt_project__rosidl_typesupport_introspection_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-sdt_project__rosidl_typesupport_introspection_c-Debug-01cdc05144a6a52d00bf.json",
+					"name" : "sdt_project__rosidl_typesupport_introspection_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "sdt_project__rosidl_typesupport_introspection_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-sdt_project__rosidl_typesupport_introspection_c__pyext-Debug-2677759107d8d829dfdf.json",
+					"name" : "sdt_project__rosidl_typesupport_introspection_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "sdt_project__rosidl_typesupport_introspection_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-sdt_project__rosidl_typesupport_introspection_cpp-Debug-5d1b8435636d8f0693d1.json",
+					"name" : "sdt_project__rosidl_typesupport_introspection_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "sdt_project_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-sdt_project_uninstall-Debug-41b101b6b1804ed21555.json",
+					"name" : "sdt_project_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-Debug-5186b5d33dc1c99daf2a.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/yusuf/Guzergah_SDT/build",
+		"source" : "/home/yusuf/Guzergah_SDT/src/sdt_project"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

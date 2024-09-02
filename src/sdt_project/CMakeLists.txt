@@ -13,7 +13,6 @@ find_package(rclpy REQUIRED)
 
 set(msg_files
   "msg/MotorValues.msg"
-  "msg/SensorValues.msg"
 )
 
 rosidl_generate_interfaces(${PROJECT_NAME}

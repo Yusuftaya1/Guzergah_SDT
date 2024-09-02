@@ -76,7 +76,6 @@ class MotorController(Node):
         self.coef = 0.02
         self.qr_id = None
         self.engel_detected = False
-        self.lidar_detected = False
         self.task_manager = TaskManager(self)
         self.angle_sub          = self.create_subscription(Float64, '/AGV/angle', self.angle_callback, 10)
         self.mode_status_sub    = self.create_subscription(String, '/mode_status', self.mode_callback, 10)
@@ -124,7 +123,7 @@ class MotorController(Node):
     def angle_callback(self, msg):
         angle = msg.data
         linear = 0.1
-        if not self.engel_detected and not self.lidar_detected:
+        if not self.engel_detected and not self.engel_detected:
             w = angle * (1.0 - self.coef)
             
             if w != 0.0:

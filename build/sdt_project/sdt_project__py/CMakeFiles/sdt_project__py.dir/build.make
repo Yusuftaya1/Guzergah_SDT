@@ -70,10 +70,8 @@ sdt_project__py/CMakeFiles/sdt_project__py: rosidl_generator_py/sdt_project/_sdt
 sdt_project__py/CMakeFiles/sdt_project__py: rosidl_generator_py/sdt_project/_sdt_project_s.ep.rosidl_typesupport_introspection_c.c
 sdt_project__py/CMakeFiles/sdt_project__py: rosidl_generator_py/sdt_project/_sdt_project_s.ep.rosidl_typesupport_c.c
 sdt_project__py/CMakeFiles/sdt_project__py: rosidl_generator_py/sdt_project/msg/_motor_values.py
-sdt_project__py/CMakeFiles/sdt_project__py: rosidl_generator_py/sdt_project/msg/_sensor_values.py
 sdt_project__py/CMakeFiles/sdt_project__py: rosidl_generator_py/sdt_project/msg/__init__.py
 sdt_project__py/CMakeFiles/sdt_project__py: rosidl_generator_py/sdt_project/msg/_motor_values_s.c
-sdt_project__py/CMakeFiles/sdt_project__py: rosidl_generator_py/sdt_project/msg/_sensor_values_s.c
 
 rosidl_generator_py/sdt_project/_sdt_project_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ros/humble/lib/rosidl_generator_py/rosidl_generator_py
 rosidl_generator_py/sdt_project/_sdt_project_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ros/humble/local/lib/python3.10/dist-packages/rosidl_generator_py/__init__.py
@@ -89,7 +87,6 @@ rosidl_generator_py/sdt_project/_sdt_project_s.ep.rosidl_typesupport_fastrtps_c.
 rosidl_generator_py/sdt_project/_sdt_project_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ros/humble/share/rosidl_generator_py/resource/_srv_pkg_typesupport_entry_point.c.em
 rosidl_generator_py/sdt_project/_sdt_project_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ros/humble/share/rosidl_generator_py/resource/_srv.py.em
 rosidl_generator_py/sdt_project/_sdt_project_s.ep.rosidl_typesupport_fastrtps_c.c: rosidl_adapter/sdt_project/msg/MotorValues.idl
-rosidl_generator_py/sdt_project/_sdt_project_s.ep.rosidl_typesupport_fastrtps_c.c: rosidl_adapter/sdt_project/msg/SensorValues.idl
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/yusuf/Guzergah_SDT/build/sdt_project/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Python code for ROS interfaces"
 	cd /home/yusuf/Guzergah_SDT/build/sdt_project/sdt_project__py && /usr/bin/python3 /opt/ros/humble/share/rosidl_generator_py/cmake/../../../lib/rosidl_generator_py/rosidl_generator_py --generator-arguments-file /home/yusuf/Guzergah_SDT/build/sdt_project/rosidl_generator_py__arguments.json --typesupport-impls "rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c;rosidl_typesupport_c"
 
@@ -102,17 +99,11 @@ rosidl_generator_py/sdt_project/_sdt_project_s.ep.rosidl_typesupport_c.c: rosidl
 rosidl_generator_py/sdt_project/msg/_motor_values.py: rosidl_generator_py/sdt_project/_sdt_project_s.ep.rosidl_typesupport_fastrtps_c.c
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/sdt_project/msg/_motor_values.py
 
-rosidl_generator_py/sdt_project/msg/_sensor_values.py: rosidl_generator_py/sdt_project/_sdt_project_s.ep.rosidl_typesupport_fastrtps_c.c
-	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/sdt_project/msg/_sensor_values.py
-
 rosidl_generator_py/sdt_project/msg/__init__.py: rosidl_generator_py/sdt_project/_sdt_project_s.ep.rosidl_typesupport_fastrtps_c.c
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/sdt_project/msg/__init__.py
 
 rosidl_generator_py/sdt_project/msg/_motor_values_s.c: rosidl_generator_py/sdt_project/_sdt_project_s.ep.rosidl_typesupport_fastrtps_c.c
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/sdt_project/msg/_motor_values_s.c
-
-rosidl_generator_py/sdt_project/msg/_sensor_values_s.c: rosidl_generator_py/sdt_project/_sdt_project_s.ep.rosidl_typesupport_fastrtps_c.c
-	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/sdt_project/msg/_sensor_values_s.c
 
 sdt_project__py: rosidl_generator_py/sdt_project/_sdt_project_s.ep.rosidl_typesupport_c.c
 sdt_project__py: rosidl_generator_py/sdt_project/_sdt_project_s.ep.rosidl_typesupport_fastrtps_c.c
@@ -120,8 +111,6 @@ sdt_project__py: rosidl_generator_py/sdt_project/_sdt_project_s.ep.rosidl_typesu
 sdt_project__py: rosidl_generator_py/sdt_project/msg/__init__.py
 sdt_project__py: rosidl_generator_py/sdt_project/msg/_motor_values.py
 sdt_project__py: rosidl_generator_py/sdt_project/msg/_motor_values_s.c
-sdt_project__py: rosidl_generator_py/sdt_project/msg/_sensor_values.py
-sdt_project__py: rosidl_generator_py/sdt_project/msg/_sensor_values_s.c
 sdt_project__py: sdt_project__py/CMakeFiles/sdt_project__py
 sdt_project__py: sdt_project__py/CMakeFiles/sdt_project__py.dir/build.make
 .PHONY : sdt_project__py

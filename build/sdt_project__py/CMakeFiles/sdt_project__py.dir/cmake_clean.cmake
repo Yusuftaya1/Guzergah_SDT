@@ -5,8 +5,6 @@ file(REMOVE_RECURSE
   "../rosidl_generator_py/sdt_project/msg/__init__.py"
   "../rosidl_generator_py/sdt_project/msg/_motor_values.py"
   "../rosidl_generator_py/sdt_project/msg/_motor_values_s.c"
-  "../rosidl_generator_py/sdt_project/msg/_sensor_values.py"
-  "../rosidl_generator_py/sdt_project/msg/_sensor_values_s.c"
   "CMakeFiles/sdt_project__py"
 )
 

@@ -39,7 +39,7 @@ frames:
         w: 1.0
 
   - name: base_footprint
-    parent: base_link
+    parent: odom
     transform:
       translation:
         x: 0.0

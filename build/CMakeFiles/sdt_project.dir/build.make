@@ -67,7 +67,6 @@ include CMakeFiles/sdt_project.dir/compiler_depend.make
 include CMakeFiles/sdt_project.dir/progress.make
 
 CMakeFiles/sdt_project: /home/yusuf/Guzergah_SDT/src/sdt_project/msg/MotorValues.msg
-CMakeFiles/sdt_project: /home/yusuf/Guzergah_SDT/src/sdt_project/msg/SensorValues.msg
 
 sdt_project: CMakeFiles/sdt_project
 sdt_project: CMakeFiles/sdt_project.dir/build.make

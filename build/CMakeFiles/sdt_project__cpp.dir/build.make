@@ -70,10 +70,6 @@ CMakeFiles/sdt_project__cpp: rosidl_generator_cpp/sdt_project/msg/motor_values.h
 CMakeFiles/sdt_project__cpp: rosidl_generator_cpp/sdt_project/msg/detail/motor_values__builder.hpp
 CMakeFiles/sdt_project__cpp: rosidl_generator_cpp/sdt_project/msg/detail/motor_values__struct.hpp
 CMakeFiles/sdt_project__cpp: rosidl_generator_cpp/sdt_project/msg/detail/motor_values__traits.hpp
-CMakeFiles/sdt_project__cpp: rosidl_generator_cpp/sdt_project/msg/sensor_values.hpp
-CMakeFiles/sdt_project__cpp: rosidl_generator_cpp/sdt_project/msg/detail/sensor_values__builder.hpp
-CMakeFiles/sdt_project__cpp: rosidl_generator_cpp/sdt_project/msg/detail/sensor_values__struct.hpp
-CMakeFiles/sdt_project__cpp: rosidl_generator_cpp/sdt_project/msg/detail/sensor_values__traits.hpp
 
 rosidl_generator_cpp/sdt_project/msg/motor_values.hpp: /opt/ros/humble/lib/rosidl_generator_cpp/rosidl_generator_cpp
 rosidl_generator_cpp/sdt_project/msg/motor_values.hpp: /opt/ros/humble/local/lib/python3.10/dist-packages/rosidl_generator_cpp/__init__.py
@@ -91,7 +87,6 @@ rosidl_generator_cpp/sdt_project/msg/motor_values.hpp: /opt/ros/humble/share/ros
 rosidl_generator_cpp/sdt_project/msg/motor_values.hpp: /opt/ros/humble/share/rosidl_generator_cpp/resource/srv__struct.hpp.em
 rosidl_generator_cpp/sdt_project/msg/motor_values.hpp: /opt/ros/humble/share/rosidl_generator_cpp/resource/srv__traits.hpp.em
 rosidl_generator_cpp/sdt_project/msg/motor_values.hpp: rosidl_adapter/sdt_project/msg/MotorValues.idl
-rosidl_generator_cpp/sdt_project/msg/motor_values.hpp: rosidl_adapter/sdt_project/msg/SensorValues.idl
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/yusuf/Guzergah_SDT/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C++ code for ROS interfaces"
 	/usr/bin/python3 /opt/ros/humble/share/rosidl_generator_cpp/cmake/../../../lib/rosidl_generator_cpp/rosidl_generator_cpp --generator-arguments-file /home/yusuf/Guzergah_SDT/build/rosidl_generator_cpp__arguments.json
 
@@ -104,27 +99,11 @@ rosidl_generator_cpp/sdt_project/msg/detail/motor_values__struct.hpp: rosidl_gen
 rosidl_generator_cpp/sdt_project/msg/detail/motor_values__traits.hpp: rosidl_generator_cpp/sdt_project/msg/motor_values.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/sdt_project/msg/detail/motor_values__traits.hpp
 
-rosidl_generator_cpp/sdt_project/msg/sensor_values.hpp: rosidl_generator_cpp/sdt_project/msg/motor_values.hpp
-	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/sdt_project/msg/sensor_values.hpp
-
-rosidl_generator_cpp/sdt_project/msg/detail/sensor_values__builder.hpp: rosidl_generator_cpp/sdt_project/msg/motor_values.hpp
-	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/sdt_project/msg/detail/sensor_values__builder.hpp
-
-rosidl_generator_cpp/sdt_project/msg/detail/sensor_values__struct.hpp: rosidl_generator_cpp/sdt_project/msg/motor_values.hpp
-	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/sdt_project/msg/detail/sensor_values__struct.hpp
-
-rosidl_generator_cpp/sdt_project/msg/detail/sensor_values__traits.hpp: rosidl_generator_cpp/sdt_project/msg/motor_values.hpp
-	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/sdt_project/msg/detail/sensor_values__traits.hpp
-
 sdt_project__cpp: CMakeFiles/sdt_project__cpp
 sdt_project__cpp: rosidl_generator_cpp/sdt_project/msg/detail/motor_values__builder.hpp
 sdt_project__cpp: rosidl_generator_cpp/sdt_project/msg/detail/motor_values__struct.hpp
 sdt_project__cpp: rosidl_generator_cpp/sdt_project/msg/detail/motor_values__traits.hpp
-sdt_project__cpp: rosidl_generator_cpp/sdt_project/msg/detail/sensor_values__builder.hpp
-sdt_project__cpp: rosidl_generator_cpp/sdt_project/msg/detail/sensor_values__struct.hpp
-sdt_project__cpp: rosidl_generator_cpp/sdt_project/msg/detail/sensor_values__traits.hpp
 sdt_project__cpp: rosidl_generator_cpp/sdt_project/msg/motor_values.hpp
-sdt_project__cpp: rosidl_generator_cpp/sdt_project/msg/sensor_values.hpp
 sdt_project__cpp: CMakeFiles/sdt_project__cpp.dir/build.make
 .PHONY : sdt_project__cpp
 

@@ -3,8 +3,7 @@
   "output_dir": "/home/yusuf/Guzergah_SDT/build/sdt_project/rosidl_typesupport_c/sdt_project",
   "template_dir": "/opt/ros/humble/share/rosidl_typesupport_c/resource",
   "idl_tuples": [
-    "/home/yusuf/Guzergah_SDT/build/sdt_project/rosidl_adapter/sdt_project:msg/MotorValues.idl",
-    "/home/yusuf/Guzergah_SDT/build/sdt_project/rosidl_adapter/sdt_project:msg/SensorValues.idl"
+    "/home/yusuf/Guzergah_SDT/build/sdt_project/rosidl_adapter/sdt_project:msg/MotorValues.idl"
   ],
   "target_dependencies": [
     "/opt/ros/humble/lib/rosidl_typesupport_c/rosidl_typesupport_c",
@@ -13,7 +12,6 @@
     "/opt/ros/humble/share/rosidl_typesupport_c/resource/idl__type_support.cpp.em",
     "/opt/ros/humble/share/rosidl_typesupport_c/resource/msg__type_support.cpp.em",
     "/opt/ros/humble/share/rosidl_typesupport_c/resource/srv__type_support.cpp.em",
-    "/home/yusuf/Guzergah_SDT/build/sdt_project/rosidl_adapter/sdt_project/msg/MotorValues.idl",
-    "/home/yusuf/Guzergah_SDT/build/sdt_project/rosidl_adapter/sdt_project/msg/SensorValues.idl"
+    "/home/yusuf/Guzergah_SDT/build/sdt_project/rosidl_adapter/sdt_project/msg/MotorValues.idl"
   ]
 }

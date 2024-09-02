@@ -7,7 +7,7 @@ from sensor_msgs.msg import Image
 from std_msgs.msg import String
 from cv_bridge import CvBridge
 import cv2
-
+ 
 class QRCodeDetector(Node):
     def __init__(self):
         super().__init__('qr_code_detector')

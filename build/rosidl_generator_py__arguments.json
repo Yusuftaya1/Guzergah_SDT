@@ -3,8 +3,7 @@
   "output_dir": "/home/yusuf/Guzergah_SDT/build/rosidl_generator_py/sdt_project",
   "template_dir": "/opt/ros/humble/share/rosidl_generator_py/cmake/../resource",
   "idl_tuples": [
-    "/home/yusuf/Guzergah_SDT/build/rosidl_adapter/sdt_project:msg/MotorValues.idl",
-    "/home/yusuf/Guzergah_SDT/build/rosidl_adapter/sdt_project:msg/SensorValues.idl"
+    "/home/yusuf/Guzergah_SDT/build/rosidl_adapter/sdt_project:msg/MotorValues.idl"
   ],
   "target_dependencies": [
     "/opt/ros/humble/share/rosidl_generator_py/cmake/../../../lib/rosidl_generator_py/rosidl_generator_py",
@@ -20,7 +19,6 @@
     "/opt/ros/humble/share/rosidl_generator_py/cmake/../resource/_msg.py.em",
     "/opt/ros/humble/share/rosidl_generator_py/cmake/../resource/_srv_pkg_typesupport_entry_point.c.em",
     "/opt/ros/humble/share/rosidl_generator_py/cmake/../resource/_srv.py.em",
-    "/home/yusuf/Guzergah_SDT/build/rosidl_adapter/sdt_project/msg/MotorValues.idl",
-    "/home/yusuf/Guzergah_SDT/build/rosidl_adapter/sdt_project/msg/SensorValues.idl"
+    "/home/yusuf/Guzergah_SDT/build/rosidl_adapter/sdt_project/msg/MotorValues.idl"
   ]
 }

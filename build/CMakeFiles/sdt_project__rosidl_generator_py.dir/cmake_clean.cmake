@@ -1,8 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/sdt_project__rosidl_generator_py.dir/rosidl_generator_py/sdt_project/msg/_motor_values_s.c.o"
   "CMakeFiles/sdt_project__rosidl_generator_py.dir/rosidl_generator_py/sdt_project/msg/_motor_values_s.c.o.d"
-  "CMakeFiles/sdt_project__rosidl_generator_py.dir/rosidl_generator_py/sdt_project/msg/_sensor_values_s.c.o"
-  "CMakeFiles/sdt_project__rosidl_generator_py.dir/rosidl_generator_py/sdt_project/msg/_sensor_values_s.c.o.d"
   "rosidl_generator_py/sdt_project/libsdt_project__rosidl_generator_py.pdb"
   "rosidl_generator_py/sdt_project/libsdt_project__rosidl_generator_py.so"
 )

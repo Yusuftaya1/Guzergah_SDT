@@ -1,4 +1,2 @@
 msg/MotorValues.idl
 msg/MotorValues.msg
-msg/SensorValues.idl
-msg/SensorValues.msg
