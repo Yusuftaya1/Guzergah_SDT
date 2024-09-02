@@ -6,7 +6,7 @@ import json
 import socket
 from rclpy.node import Node
 from sdt_project.msg import SensorValues
-from std_msgs.msg import String
+from std_msgs.msg import String,Bool
 from nav_msgs.msg import OccupancyGrid
 
 class TCP_Socket():
@@ -61,7 +61,7 @@ class UI_sub(Node):
         self.socket = TCP_Socket()
         self.socket.connect()
         self.subscription = self.create_subscription(SensorValues, '/AGV/sensor_values', self.sensor_callback, 10)
-        self.engel_status = self.create_subscription(String, 'engel_tespit', self.engel_callback, 10)
+        self.engel_status = self.create_subscription(Bool, 'engel_tespit', self.engel_callback, 10)
         self.map_sub = self.create_subscription(OccupancyGrid, 'map', self.map_callback, 10)
         self.charge_pub = self.create_publisher(String, 'charge_status', 10)
         self.timer = self.create_timer(1.0, self.merge_and_send)
@@ -69,13 +69,7 @@ class UI_sub(Node):
     def sensor_callback(self, msg):
         self.sag_motor_sicaklik = msg.sag_motor_sicaklik
         self.sol_motor_sicaklik = msg.sol_motor_sicaklik
-        self.lift_sicaklik = msg.lift_sicaklik
-    
-        self.sag_motor_akim = msg.sag_motor_akim
-        self.sol_motor_akim = msg.sol_motor_akim
-        self.lift_akim = msg.lift_akim
-
-        self.asiri_agirlik = msg.asiri_agirlik
+        self.motor_akim = msg.motor_akim
 
     def engel_callback(self, msg):
         self.engel_statu = msg.data
@@ -87,13 +81,9 @@ class UI_sub(Node):
         msg_dict = {
             "sag_motor_sicaklik": self.sag_motor_sicaklik,
             "sol_motor_sicaklik": self.sol_motor_sicaklik,
-            "lift_sicaklik":      self.lift_sicaklik,
 
-            "sag_motor_akim":     self.sag_motor_akim,
-            "sol_motor_akim":     self.sol_motor_akim,
-            "lift_akim":          self.lift_akim,
-
-            "asiri_agirlik":      self.asiri_agirlik,
+            "motor_akim":         self.motor_akim,
+            
             "engel":              self.engel_statu,
             "map":                self.map
         }

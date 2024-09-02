@@ -279,6 +279,10 @@
 	"dependencies" : 
 	[
 		{
+			"backtrace" : 7,
+			"id" : "sdt_project__rosidl_generator_py::@6890427a1f51a3e7e1df"
+		},
+		{
 			"backtrace" : 13,
 			"id" : "sdt_project__py::@f6c0099154b20a1823cd"
 		},
@@ -293,10 +297,6 @@
 		{
 			"backtrace" : 13,
 			"id" : "sdt_project__rosidl_typesupport_c::@6890427a1f51a3e7e1df"
-		},
-		{
-			"backtrace" : 7,
-			"id" : "sdt_project__rosidl_generator_py::@6890427a1f51a3e7e1df"
 		}
 	],
 	"id" : "sdt_project__rosidl_typesupport_introspection_c__pyext::@6890427a1f51a3e7e1df",

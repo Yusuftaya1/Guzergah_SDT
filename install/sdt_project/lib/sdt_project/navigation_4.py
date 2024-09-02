@@ -70,17 +70,3 @@ class Navigation(Node):
                 self.mode_msg = "Finish"
             else:
                 self.mode_msg = "None"
-
-    def publish_mode_status(self):
-        msg = String()
-        msg.data = self.mode_msg
-        self.mode_status_pub.publish(msg)
-
-def main(args=None):
-    rclpy.init(args=args)
-    node = Navigation()
-    rclpy.spin(node)
-    rclpy.shutdown()
-
-if __name__ == '__main__':
-    main()

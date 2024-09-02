@@ -9,16 +9,14 @@ class OccupancyGridListener(Node):
     def __init__(self):
         super().__init__('occupancy_grid_listener')
 
-        # "occupancy_grid" konusunu abone olarak ayarla
         self.subscription = self.create_subscription(
             OccupancyGrid,
             'occupancy_grid',
             self.listener_callback,
-            10  # QoS profilini belirle (örneğin, 10)
+            10
         )
 
     def listener_callback(self, msg):
-        # Mesajı ekrana yazdır
         self.get_logger().info('Received OccupancyGrid message:')
         self.get_logger().info(f'Header: {msg.header}')
         self.get_logger().info(f'Info: {msg.info}')

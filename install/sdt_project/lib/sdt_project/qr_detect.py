@@ -34,7 +34,7 @@ class QRCodeDetector(Node):
             data = None
 
         qr_msg = String()
-        qr = "0"  # qr değişkenini varsayılan bir değerle başlatıyoruz
+        qr = "0" 
 
         if data:
             qr = self.extract_first_part(data)

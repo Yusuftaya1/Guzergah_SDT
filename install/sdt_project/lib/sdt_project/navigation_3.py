@@ -21,55 +21,61 @@ class Navigation(Node):
         super().__init__('Navigation')
         self.qr_status_sub = self.create_subscription(String, '/qr_code_data', self.qr_callback, 10)
         self.mode_status_pub = self.create_publisher(String, '/mode_status', 10)
-        self.target_point = "C"
+        self.target_point = "D"
         self.mode_msg = "Start"
-        
+    
     def qr_callback(self,msg):
         self.qr_id = msg.data
 
         if self.target_point == "A":
-            if self.qr_id in ["Q40", "Q11"]:
-                self.mode_msg = "Turn Right"
+            if self.qr_id in ["Q43", "Q18"]:
+                self.mode_msg = "Turn Left"
             elif self.qr_id == "Q50":
-                self.mode_msg = "Unload"
-                self.target_point = "B"
+                self.mode_msg = "Load"
+                self.target_point = "C"
             else:
                 self.mode_msg = "None"
 
         elif self.target_point == "B":
-            if self.qr_id in ["Q52", "Q19"]:
+            if self.qr_id in ["Q31", "Q9"]:
                 self.mode_msg = "Turn Right"
             elif self.qr_id == "Q45":
-                self.mode_msg = "Load"
-                self.target_point = "D"
-            else:
-                self.mode_msg = "None"
-
-        elif self.target_point == "C":
-            if self.qr_id in ["Q42", "Q24"]:
-                self.mode_msg = "Turn Right"
-            elif self.qr_id == "Q38":
-                self.mode_msg = "Load"
+                self.mode_msg = "Unload"
                 self.target_point = "A"
             else:
                 self.mode_msg = "None"
 
-        elif self.target_point == "D":
-            if self.qr_id in ["Q47", "Q3"]:
+        elif self.target_point == "C":
+            if self.qr_id in ["Q48", "Q5"]:
                 self.mode_msg = "Turn Left"
-            elif self.qr_id == "Q33":
+            elif self.qr_id == "Q38":
                 self.mode_msg = "Unload"
                 self.target_point = "S2"
             else:
                 self.mode_msg = "None"
-        
+
+        elif self.target_point == "D":
+            if self.qr_id in ["Q42", "Q26"]:
+                self.mode_msg = "Turn Right"
+            elif self.qr_id == "Q33":
+                self.mode_msg = "Load"
+                self.target_point = "B"
+            else:
+                self.mode_msg = "None"
+
         elif self.target_point == "S2":
-            if self.qr_id in ["Q35", "Q23"]:
+            if self.qr_id in ["Q36", "Q23"]:
                 self.mode_msg = "Turn Left" 
             elif self.qr_id == "Q7":
                 self.mode_msg = "Finish"
             else:
                 self.mode_msg = "None"
+
+        if self.mode_msg:
+            self.publish_mode_status()
+            self.get_logger().info(f'QR ID: {self.qr_id}')
+            self.get_logger().info(f'TARGET: {self.target_point}')
+            self.get_logger().info(f'MODE: {self.mode_msg}')
 
     def publish_mode_status(self):
         msg = String()

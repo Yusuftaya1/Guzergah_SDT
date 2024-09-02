@@ -26,7 +26,7 @@ class Navigation(Node):
 
     def qr_callback(self, msg):
         self.qr_id = msg.data
-
+        
         if self.target_point == "A":
             if self.qr_id in ["Q11", "Q41"]:
                 self.mode_msg = "Turn Right"

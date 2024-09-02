@@ -12,7 +12,7 @@ Motor kontrolleri burada yapılır
 
 import rclpy
 from rclpy.node import Node
-from std_msgs.msg import Float64, String
+from std_msgs.msg import Float64, String ,Bool
 from sensor_msgs.msg import LaserScan
 from sdt_project.msg import MotorValues
 import numpy as np
@@ -76,13 +76,13 @@ class MotorController(Node):
         self.coef = 0.02
         self.qr_id = None
         self.engel_detected = False
-        self.lidar_detected = False
         self.task_manager = TaskManager(self)
         self.angle_sub          = self.create_subscription(Float64, '/AGV/angle', self.angle_callback, 10)
         self.mode_status_sub    = self.create_subscription(String, '/mode_status', self.mode_callback, 10)
         self.charge_sub         = self.create_subscription(String, 'charge_status', self.charge_callback)
         self.lidar_sub          = self.create_subscription(LaserScan, '/scan', self.lidar_callback, 10)
         self.motor_values_pub   = self.create_publisher(MotorValues, '/AGV/motor_values', 10)
+        self.engel_status_pub   = self.create_publisher(Bool,'engel_tespit',10)
         self.engel_check_timer  = self.create_timer(1.0, self.check_engel_status)
         self.motor_values_msg   = MotorValues()
 
@@ -123,7 +123,7 @@ class MotorController(Node):
     def angle_callback(self, msg):
         angle = msg.data
         linear = 0.1
-        if not self.engel_detected and not self.lidar_detected:
+        if not self.engel_detected and not self.engel_detected:
             w = angle * (1.0 - self.coef)
             
             if w != 0.0:
@@ -148,6 +148,7 @@ class MotorController(Node):
         angle_increment = msg.angle_increment
         scanned_angle_min = -2.3523
         scanned_angle_max = 2.3523
+        msg_engel = Bool()
 
         start_index = int((scanned_angle_min - angle_min) / angle_increment)
         end_index = int((scanned_angle_max - angle_min) / angle_increment)
@@ -159,22 +160,30 @@ class MotorController(Node):
 
         if obstacles:
             self.engel_detected = True
+            msg_engel.data = True
             self.get_logger().info('Engel tespit edildi!')
+            self.set_motor_values(0.0, 0.0)
         else:
             self.engel_detected = False
-                
+            msg_engel.data = False
+            
+        self.engel_status_pub.publish(msg_engel)
+
     def check_engel_status(self):
         if self.engel_detected:
-            if self.engel == False:
+            if not self.engel_detected:
                 self.get_logger().info('Engel ortadan kalktı, devam ediliyor...')
                 self.engel_detected = False
+                self.engel_timer_count = 0
             else:
                 self.engel_timer_count += 1
                 if self.engel_timer_count >= 7:
                     self.get_logger().info('Engel 7 saniye boyunca ortadan kalkmadı, engelden kaçılıyor...')
                     self.task_manager.engelden_kacma()
                     self.engel_detected = False
-    
+                    self.engel_timer_count = 0
+
+
     def set_motor_values(self, right_speed, left_speed, actuator_value=0):
         self.motor_values_msg.sag_teker_hiz = right_speed
         self.motor_values_msg.sol_teker_hiz = left_speed

@@ -380,6 +380,9 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
     "/home/yusuf/Guzergah_SDT/src/sdt_project/src/pid_library.py"
     "/home/yusuf/Guzergah_SDT/src/sdt_project/src/manuel_kumanda.py"
     "/home/yusuf/Guzergah_SDT/src/sdt_project/src/navigation_1.py"
+    "/home/yusuf/Guzergah_SDT/src/sdt_project/src/navigation_2.py"
+    "/home/yusuf/Guzergah_SDT/src/sdt_project/src/navigation_3.py"
+    "/home/yusuf/Guzergah_SDT/src/sdt_project/src/navigation_4.py"
     "/home/yusuf/Guzergah_SDT/src/sdt_project/src/qr_detect.py"
     "/home/yusuf/Guzergah_SDT/src/sdt_project/src/map.py"
     )
@@ -387,9 +390,11 @@ endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/sdt_project/launch" TYPE FILE FILES
+    "/home/yusuf/Guzergah_SDT/src/sdt_project/launch/SLAM.launch.py"
     "/home/yusuf/Guzergah_SDT/src/sdt_project/launch/mission1.launch.py"
     "/home/yusuf/Guzergah_SDT/src/sdt_project/launch/mission2.launch.py"
-    "/home/yusuf/Guzergah_SDT/src/sdt_project/launch/SLAM.launch.py"
+    "/home/yusuf/Guzergah_SDT/src/sdt_project/launch/mission3.launch.py"
+    "/home/yusuf/Guzergah_SDT/src/sdt_project/launch/mission4.launch.py"
     )
 endif()
 

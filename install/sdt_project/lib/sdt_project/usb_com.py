@@ -24,14 +24,21 @@ class USBComNode(Node):
         self.wheel_separation = 0.5
         self.wheel_radius = 0.1
         self.timer = self.create_timer(2.0, self.read_serialport_and_publish)
+        self.timer = self.create_timer(0.3, self.trysome)
         self.sensor_values_msg = SensorValues()
 
     def motor_values_callback(self, msg):
-        right_wheel_velocity  = 333 #msg.sag_teker_hiz
-        left_wheel_velocity   = 444 #msg.sol_teker_hiz
-        linear_actuator       = 555 #msg.linear_actuator
+        right_wheel_velocity  = msg.sag_teker_hiz
+        left_wheel_velocity   = msg.sol_teker_hiz
+        linear_actuator       = msg.linear_actuator
         self.send_wheel_velocities(right_wheel_velocity, left_wheel_velocity, linear_actuator)
-    
+
+    def trysome(self):
+        right_wheel_velocity  = 333
+        left_wheel_velocity   = 444
+        linear_actuator       = 555
+        self.send_wheel_velocities(right_wheel_velocity, left_wheel_velocity, linear_actuator)
+
     def send_wheel_velocities(self, right_wheel_velocity, left_wheel_velocity, linear_actuator):
         right_wheel_velocity_str = f'{int(right_wheel_velocity):05}'
         left_wheel_velocity_str = f'{int(left_wheel_velocity):05}'

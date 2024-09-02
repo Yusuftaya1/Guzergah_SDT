@@ -29,6 +29,9 @@ install(PROGRAMS
   src/pid_library.py
   src/manuel_kumanda.py
   src/navigation_1.py
+  src/navigation_2.py
+  src/navigation_3.py
+  src/navigation_4.py
   src/qr_detect.py
   src/map.py
   DESTINATION lib/${PROJECT_NAME}
@@ -36,9 +39,11 @@ install(PROGRAMS
 
 ###############  LAUNCH  ###############
 install(FILES
+  launch/SLAM.launch.py 
   launch/mission1.launch.py
   launch/mission2.launch.py
-  launch/SLAM.launch.py 
+  launch/mission3.launch.py
+  launch/mission4.launch.py
   DESTINATION share/${PROJECT_NAME}/launch
 )
 
