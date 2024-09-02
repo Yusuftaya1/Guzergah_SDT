@@ -21,6 +21,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
 
 ###############  NODES  ###############
 install(PROGRAMS
+  src/deneme_pid2.py
   src/usb_com.py
   src/TCP_com.py
   src/diff_node.py

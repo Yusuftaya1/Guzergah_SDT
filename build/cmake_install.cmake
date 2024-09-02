@@ -365,6 +365,7 @@ endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/sdt_project" TYPE PROGRAM FILES
+    "/home/yusuf/Guzergah_SDT/src/sdt_project/src/deneme_pid2.py"
     "/home/yusuf/Guzergah_SDT/src/sdt_project/src/usb_com.py"
     "/home/yusuf/Guzergah_SDT/src/sdt_project/src/TCP_com.py"
     "/home/yusuf/Guzergah_SDT/src/sdt_project/src/diff_node.py"

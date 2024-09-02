@@ -375,13 +375,13 @@
 			{
 				"command" : 0,
 				"file" : 2,
-				"line" : 40,
+				"line" : 41,
 				"parent" : 0
 			},
 			{
 				"command" : 12,
 				"file" : 2,
-				"line" : 50,
+				"line" : 51,
 				"parent" : 0
 			},
 			{
@@ -985,6 +985,7 @@
 			"destination" : "lib/sdt_project",
 			"paths" : 
 			[
+				"src/deneme_pid2.py",
 				"src/usb_com.py",
 				"src/TCP_com.py",
 				"src/diff_node.py",
