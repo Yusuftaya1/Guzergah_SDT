@@ -4,6 +4,7 @@
 import rclpy
 import json
 import socket
+import serial  # pyserial kütüphanesi import edildi
 import numpy as np
 from rclpy.node import Node
 from std_msgs.msg import String, Bool
@@ -14,7 +15,6 @@ class TCP_Socket:
         self.target_host = "10.7.91.224"
         self.target_port = 2626
         self.client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        #self.client.settimeout(1.0)
         self.connected = False
         self.received_msg = None
 
@@ -33,8 +33,6 @@ class TCP_Socket:
         
         if self.connected:
             self.client.send(msg)
-            #response = self.client.recv(4096).decode('utf-8')
-            #self.received_msg = response
 
     def close(self):
         if self.connected:
@@ -57,24 +55,40 @@ class UI_sub(Node):
         self.engel_status = self.create_subscription(Bool, 'engel_tespit', self.engel_callback, 10)
         self.map_sub = self.create_subscription(OccupancyGrid, 'map', self.map_callback, 10)
         self.charge_pub = self.create_publisher(String, 'charge_status', 10)
+        self.ser = serial.Serial('/dev/ttyTHS0', 115200, timeout=1)
+
         self.sag_motor_sicaklik = 0.0
         self.sol_motor_sicaklik = 0.0
         self.motor_akim = 0.0
         self.engel_statu = False
         self.map = None
-        self.timer = self.create_timer(3.0, self.process_data)
 
+        self.timer = self.create_timer(3.0, self.process_data)
+        
     def engel_callback(self, msg):
         self.engel_statu = msg.data
 
     def map_callback(self, msg):
-        grid_data   = np.array(msg.data, dtype=np.int8)        
-        width       = msg.info.width
-        height      = msg.info.height
-        grid_data   = grid_data.reshape((height, width))
-        self.map    = self.get_middle_section(grid_data, 100).astype(int).tolist()
+        grid_data = np.array(msg.data, dtype=np.int8)        
+        width = msg.info.width
+        height = msg.info.height
+        grid_data = grid_data.reshape((height, width))
+        self.map = self.get_middle_section(grid_data, 100).astype(int).tolist()
 
-    def get_middle_section(self,matrix, section_size):
+    def read_serial(self):
+        if self.ser.in_waiting > 0:
+            try:
+                usb_data = self.ser.readline().decode('utf-8').strip()
+                self.get_logger().info(f'Seri porttan gelen veri: {usb_data}')
+                sensor_values = usb_data.split(',')
+                if len(sensor_values) == 3:
+                    self.sag_motor_sicaklik = float(sensor_values[0])
+                    self.sol_motor_sicaklik = float(sensor_values[1])
+                    self.motor_akim = float(sensor_values[2])
+            except Exception as e:
+                self.get_logger().error(f'Seri port verisi okunurken hata: {str(e)}')
+
+    def get_middle_section(self, matrix, section_size):
         """
         Bu fonksiyon, bir matrisin ortasında verilen boyutta bir bölüm döner.
         
@@ -93,6 +107,10 @@ class UI_sub(Node):
         return matrix[start_row:end_row, start_col:end_col]
 
     def process_data(self):
+        # Sensör verilerini seri porttan okuma
+        self.read_serial()
+        
+        # Sensör ve diğer verileri bir sözlükte birleştir
         msg_dict = {    
             "sag_motor_sicaklik": self.sag_motor_sicaklik,
             "sol_motor_sicaklik": self.sol_motor_sicaklik,
@@ -101,13 +119,14 @@ class UI_sub(Node):
             "map": self.map
         }
         
+        # TCP bağlantısı üzerinden verileri gönder
         self.socket.send_data(msg_dict)
-        #received_msg = self.socket.get_received_msg()
+        # received_msg = self.socket.get_received_msg()
 
-        #if received_msg == "Charge":
-        #    charge_msg = String()
-        #    charge_msg.data = "Charge"
-        #    self.charge_pub.publish(charge_msg)
+        # if received_msg == "Charge":
+        #     charge_msg = String()
+        #     charge_msg.data = "Charge"
+        #     self.charge_pub.publish(charge_msg)
 
 def main(args=None):
     rclpy.init(args=args)

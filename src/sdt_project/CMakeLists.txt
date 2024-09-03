@@ -11,6 +11,7 @@ find_package(rosidl_default_generators REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(rclpy REQUIRED)
 
+
 set(msg_files
   "msg/MotorValues.msg"
 )
@@ -25,7 +26,6 @@ install(PROGRAMS
   src/usb_com.py
   src/TCP_com.py
   src/diff_node.py
-  src/tf_brodcast.py
   src/pid_library.py
   src/manuel_kumanda.py
   src/navigation_1.py
@@ -33,7 +33,7 @@ install(PROGRAMS
   src/navigation_3.py
   src/navigation_4.py
   src/qr_detect.py
-  src/map.py
+  src/tcp_usb.py
   DESTINATION lib/${PROJECT_NAME}
 )
 

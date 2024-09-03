@@ -20,8 +20,6 @@ class USBComNode(Node):
         self.subscription = self.create_subscription(MotorValues,'/AGV/motor_values',self.motor_values_callback,10)
         self.wheel_separation = 0.5
         self.wheel_radius = 0.1
-        self.timer = self.create_timer(2.0, self.read_serialport_and_publish)
-
     def motor_values_callback(self, msg):
         right_wheel_velocity  = msg.sag_teker_hiz
         left_wheel_velocity   = msg.sol_teker_hiz

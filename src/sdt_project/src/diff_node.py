@@ -79,8 +79,9 @@ class MotorController(Node):
         self.task_manager = TaskManager(self)
         self.angle_sub          = self.create_subscription(Float64, '/AGV/angle', self.angle_callback, 10)
         self.mode_status_sub    = self.create_subscription(String, '/mode_status', self.mode_callback, 10)
-        self.charge_sub         = self.create_subscription(String, 'charge_status', self.charge_callback)
+        self.charge_sub         = self.create_subscription(String, 'charge_status', self.charge_callback,10)
         self.lidar_sub          = self.create_subscription(LaserScan, '/scan', self.lidar_callback, 10)
+        self.corner_detect_sub  = self.create_subscription(String, '/kose_detect',self.corner_detect ,10)
         self.motor_values_pub   = self.create_publisher(MotorValues, '/AGV/motor_values', 10)
         self.engel_status_pub   = self.create_publisher(Bool,'engel_tespit',10)
         self.engel_check_timer  = self.create_timer(1.0, self.check_engel_status)
@@ -90,6 +91,13 @@ class MotorController(Node):
         self.charge_status = msg
         if self.charge_status < 20:
             self.task_manager.autonom_charge()
+
+    def corner_detect(self,msg):
+        self.corner = msg
+        if self.corner == 'right_corner':
+            self.task_manager.perform_turn("right")
+        elif self.corner == 'left_corner':
+            self.task_manager.perform_turn("left")
 
     def mode_callback(self, msg):
         self.mode = msg
@@ -121,9 +129,9 @@ class MotorController(Node):
             rclpy.shutdown()
 
     def angle_callback(self, msg):
-        angle = msg.data
+        angle = msg.data/1000.0
         linear = 0.1
-        if not self.engel_detected and not self.engel_detected:
+        if not self.engel_detected:
             w = angle * (1.0 - self.coef)
             
             if w != 0.0:

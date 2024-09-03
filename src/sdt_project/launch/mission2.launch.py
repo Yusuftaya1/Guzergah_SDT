@@ -1,8 +1,21 @@
 import os
 from launch import LaunchDescription
 from launch_ros.actions import Node
+from launch.actions import IncludeLaunchDescription
+from launch.launch_description_sources import PythonLaunchDescriptionSource
+from ament_index_python.packages import get_package_share_directory
 
 def generate_launch_description():
+    sllidar_launch = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            os.path.join(
+                get_package_share_directory('sllidar_ros2'),
+                'launch',
+                'sllidar_s1_launch.py'
+            )
+        )
+    )
+
     return LaunchDescription([
         Node(
             package='usb_cam',
@@ -10,15 +23,12 @@ def generate_launch_description():
             name='camera',
             output='screen'
         ),
-        Node(
-            package='sllidar_ros2',
-            executable='sllidar_node',
-            name='lidar',
-            output='screen'
-        ),
+        
+        sllidar_launch,
+
         Node(
             package='sdt_project',
-            executable='pid_library.py',
+            executable='deneme_pid2.py',
             name='camera',
             output='screen'
         ),

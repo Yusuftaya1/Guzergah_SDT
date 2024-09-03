@@ -1,3 +1,5 @@
+#!/usr/local/pyenv/shims python3
+# # -*- coding: utf-8 -*-
 import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import Image
@@ -35,7 +37,7 @@ class ImageProcessingNode(Node):
         self.corner_pub = self.create_publisher(String, '/kose_detect', 10)
 
         # YOLOv8 modelini yükle
-        self.model = YOLO('/home/yusuf/Guzergah_SDT/line_follow')  
+        self.model = YOLO('/home/yusuf/Guzergah_SDT/line_follow/5.pt')
         self.pid = PID(kp=0.6, ki=0.01, kd=0.4, setpoint=360)
         self.corner_detected_time = None
         self.lost_line_time = None
@@ -70,7 +72,7 @@ class ImageProcessingNode(Node):
                     self.angle_pub.publish(Float64(data=control_signal))
                     self.get_logger().info(f"PID Kontrol Sinyali: {control_signal:.2f}")
 
-                self.lost_line_time = None  # Çizgi kaybolma zamanlayıcısını sıfırla
+                self.lost_line_time = None
             else:
                 self.get_logger().info("Segment algılanamadı!")
         else:
