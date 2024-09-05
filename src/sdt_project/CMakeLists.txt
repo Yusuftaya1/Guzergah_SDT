@@ -26,7 +26,7 @@ install(PROGRAMS
   src/usb_com.py
   src/TCP_com.py
   src/diff_node.py
-  src/pid_library.py
+  src/line_follow_main.py
   src/manuel_kumanda.py
   src/navigation_1.py
   src/navigation_2.py
@@ -34,6 +34,7 @@ install(PROGRAMS
   src/navigation_4.py
   src/qr_detect.py
   src/tcp_usb.py
+  src/pid_line_follower.py
   DESTINATION lib/${PROJECT_NAME}
 )
 

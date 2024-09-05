@@ -1,0 +1,34 @@
+[  3%] Built target sdt_project__cpp
+[ 12%] Built target sdt_project__rosidl_generator_c
+[ 12%] Built target ament_cmake_python_copy_sdt_project
+[ 22%] Built target sdt_project__rosidl_typesupport_introspection_cpp
+[ 32%] Built target sdt_project__rosidl_typesupport_fastrtps_cpp
+[ 41%] Built target sdt_project__rosidl_typesupport_cpp
+[ 51%] Built target sdt_project__rosidl_typesupport_introspection_c
+[ 61%] Built target sdt_project__rosidl_typesupport_c
+[ 70%] Built target sdt_project__rosidl_typesupport_fastrtps_c
+[ 70%] Built target sdt_project
+Traceback (most recent call last):
+  File "/home/yusuf/Guzergah_SDT/build/sdt_project/ament_cmake_python/sdt_project/setup.py", line 1, in <module>
+    from setuptools import find_packages
+  File "/usr/lib/python3/dist-packages/setuptools/__init__.py", line 16, in <module>
+gmake[1]: *** [CMakeFiles/Makefile2:591: sdt_project__py/CMakeFiles/sdt_project__py.dir/all] Interrupt
+    import setuptools.version
+  File "/usr/lib/python3/dist-packages/setuptools/version.py", line 1, in <module>
+    import pkg_resources
+  File "/usr/lib/python3/dist-packages/pkg_resources/__init__.py", line 28, in <module>
+    import pkgutil
+  File "/usr/lib/python3.10/pkgutil.py", line 137, in <module>
+    def iter_importer_modules(importer, prefix=''):
+  File "/usr/lib/python3.10/functools.py", line 812, in singledispatch
+    import types, weakref
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 879, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1012, in get_code
+  File "<frozen importlib._bootstrap_external>", line 672, in _compile_bytecode
+KeyboardInterrupt
+gmake[2]: *** [CMakeFiles/ament_cmake_python_build_sdt_project_egg.dir/build.make:70: CMakeFiles/ament_cmake_python_build_sdt_project_egg] Interrupt
+gmake[1]: *** [CMakeFiles/Makefile2:447: CMakeFiles/ament_cmake_python_build_sdt_project_egg.dir/all] Interrupt
+gmake: *** [Makefile:146: all] Interrupt

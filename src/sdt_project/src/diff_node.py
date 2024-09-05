@@ -32,13 +32,14 @@ class TaskManager:
 
     def perform_turn(self, direction):
         if direction == "right":
-            self.motor_controller.set_motor_values(180.0, 330.0)
+            self.run_forward()
+            self.motor_controller.set_motor_values(360.0, 660.0)
             self.motor_controller.get_logger().info('Sağa dönüş...')
         elif direction == "left":
-            self.motor_controller.set_motor_values(300.0, 180.0)
+            self.run_forward()
+            self.motor_controller.set_motor_values(600.0, 360.0)
             self.motor_controller.get_logger().info('Sola dönüş...')
-        time.sleep(4.2 )
-        self.motor_controller.qr_id = None
+        time.sleep(5.2)
 
     def run_forward(self):
         self.motor_controller.set_motor_values(250.0, 250.0)
@@ -77,6 +78,7 @@ class MotorController(Node):
         self.qr_id = None
         self.engel_detected = False
         self.task_manager = TaskManager(self)
+        self.qr_status_sub      = self.create_subscription(String, '/qr_code_data', self.qr_callback, 10)
         self.angle_sub          = self.create_subscription(Float64, '/AGV/angle', self.angle_callback, 10)
         self.mode_status_sub    = self.create_subscription(String, '/mode_status', self.mode_callback, 10)
         self.charge_sub         = self.create_subscription(String, 'charge_status', self.charge_callback,10)
@@ -86,12 +88,29 @@ class MotorController(Node):
         self.engel_status_pub   = self.create_publisher(Bool,'engel_tespit',10)
         self.engel_check_timer  = self.create_timer(1.0, self.check_engel_status)
         self.motor_values_msg   = MotorValues()
+    
+    def qr_callback(self,msg):
+        qr_data = msg.data
+        self.get_logger().info(f'QR ID: {qr_data}')
+        self.qr_id = self.extract_first_part(qr_data)
 
+        if self.qr_id == 'Q28':
+            self.task_manager.perform_turn("right")
+        elif self.qr_id == 'Q29':
+            self.task_manager.perform_turn("left")
+    
+        
     def charge_callback(self, msg):
         self.charge_status = msg
         if self.charge_status < 20:
             self.task_manager.autonom_charge()
-
+    ###################
+    def extract_first_part(self, qr_data):
+        parts = qr_data.split(';')
+        if parts:
+            return parts[0]
+        return None
+    
     def corner_detect(self,msg):
         self.corner = msg
         if self.corner == 'right_corner':
@@ -129,9 +148,9 @@ class MotorController(Node):
             rclpy.shutdown()
 
     def angle_callback(self, msg):
-        angle = msg.data/1000.0
-        linear = 0.1
-        if not self.engel_detected:
+        angle = msg.data
+        linear = 0.15
+               
             w = angle * (1.0 - self.coef)
             
             if w != 0.0:
@@ -147,7 +166,7 @@ class MotorController(Node):
             self.set_motor_values(
                 np.clip(1000 * right_speed_normalized, -1000, 1000),
                 np.clip(1000 * left_speed_normalized, -1000, 1000)
-            )
+                )
 
     def lidar_callback(self, msg):
         ranges = msg.ranges
@@ -164,7 +183,7 @@ class MotorController(Node):
         start_index = max(0, start_index)
         end_index = min(len(ranges) - 1, end_index)
         scanned_ranges = ranges[:start_index] + ranges[end_index:]
-        obstacles = [r for r in scanned_ranges if r < 1.6]
+        obstacles = [r for r in scanned_ranges if r < 1.2]
 
         if obstacles:
             self.engel_detected = True
@@ -192,7 +211,7 @@ class MotorController(Node):
                     self.engel_timer_count = 0
 
 
-    def set_motor_values(self, right_speed, left_speed, actuator_value=0):
+    def set_motor_values(self, right_speed, left_speed, actuator_value=0.0):
         self.motor_values_msg.sag_teker_hiz = right_speed
         self.motor_values_msg.sol_teker_hiz = left_speed
         self.motor_values_msg.linear_actuator = actuator_value

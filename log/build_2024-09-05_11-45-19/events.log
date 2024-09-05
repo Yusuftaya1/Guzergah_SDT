@@ -1,0 +1,8 @@
+[0.000000] (-) TimerEvent: {}
+[0.000875] (rf2o_laser_odometry) JobQueued: {'identifier': 'rf2o_laser_odometry', 'dependencies': OrderedDict()}
+[0.001124] (sdt_project) JobQueued: {'identifier': 'sdt_project', 'dependencies': OrderedDict()}
+[0.001167] (rf2o_laser_odometry) JobStarted: {'identifier': 'rf2o_laser_odometry'}
+[0.016371] (sdt_project) JobStarted: {'identifier': 'sdt_project'}
+[0.023426] (sdt_project) JobEnded: {'identifier': 'sdt_project', 'rc': 0}
+[0.025138] (rf2o_laser_odometry) JobEnded: {'identifier': 'rf2o_laser_odometry', 'rc': 'SIGINT'}
+[0.035788] (-) EventReactorShutdown: {}

@@ -1,0 +1,5 @@
+[0.024s] Invoking command in '/home/yusuf/Guzergah_SDT/build/rf2o_laser_odometry': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/yusuf/Guzergah_SDT/build/rf2o_laser_odometry -- -j8 -l8
+[0.116s] [ 40%] Built target rf2o_laser_odometry
+[0.125s] [100%] Built target rf2o_laser_odometry_node
+[0.160s] Invoked command in '/home/yusuf/Guzergah_SDT/build/rf2o_laser_odometry' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/yusuf/Guzergah_SDT/build/rf2o_laser_odometry -- -j8 -l8
+[0.212s] Invoking command in '/home/yusuf/Guzergah_SDT/build/rf2o_laser_odometry': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/yusuf/Guzergah_SDT/build/rf2o_laser_odometry
