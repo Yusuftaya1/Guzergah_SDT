@@ -96,8 +96,21 @@ class MotorController(Node):
 def main(args=None):
     rclpy.init(args=args)
     motor_controller = MotorController()
-    rclpy.spin(motor_controller)
-    rclpy.shutdown()
+    
+    # ROS düğümünü döngü içinde çalıştır
+    try:
+        while rclpy.ok():
+            rclpy.spin_once(motor_controller)
+            
+            # Eğer görüntü işlendiyse göster
+            if motor_controller.binary_image is not None:
+                cv2.imshow("Filtrelenmis Goruntu", motor_controller.binary_image)
+                cv2.waitKey(1)  # Pencereyi güncellemek için bekleme süresi
+    except KeyboardInterrupt:
+        print("Çıkış yapılıyor...")
+    finally:
+        cv2.destroyAllWindows()
+        rclpy.shutdown()
 
 if __name__ == "__main__":
     main()

@@ -34,7 +34,6 @@ class MotorController(Node):
         self.image_sub = self.create_subscription(Image, 'image_raw', self.image_callback, 10)
         self.bridge = CvBridge()
         self.binary_image = None
-        #self.pid = PID(kp=6.25, ki=0.15, kd=0.2, setpoint=160)
         self.pid = PID(kp=10.5, ki=0.15, kd=0.6, setpoint=160)
         self.base_speed = 350
         self.max_speed = 1000
@@ -97,8 +96,21 @@ class MotorController(Node):
 def main(args=None):
     rclpy.init(args=args)
     motor_controller = MotorController()
-    rclpy.spin(motor_controller)
-    rclpy.shutdown()
+    
+    # ROS düğümünü döngü içinde çalıştır
+    try:
+        while rclpy.ok():
+            rclpy.spin_once(motor_controller)
+            
+            # Eğer görüntü işlendiyse göster
+            if motor_controller.binary_image is not None:
+                cv2.imshow("Filtrelenmis Goruntu", motor_controller.binary_image)
+                cv2.waitKey(1)  # Pencereyi güncellemek için bekleme süresi
+    except KeyboardInterrupt:
+        print("Çıkış yapılıyor...")
+    finally:
+        cv2.destroyAllWindows()
+        rclpy.shutdown()
 
 if __name__ == "__main__":
     main()

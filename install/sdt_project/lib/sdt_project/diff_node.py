@@ -21,30 +21,38 @@ import time
 class TaskManager:
     def __init__(self, motor_controller):
         self.motor_controller = motor_controller
+        self.busy = False
     
     def perform_load_action(self, actuator_value):
+        self.busy = True
         self.motor_controller.set_motor_values(0.0, 0.0, actuator_value)
         action = 'Yük alımı için' if actuator_value == 1000.0 else 'Yük bırakmak için'
         self.motor_controller.get_logger().info(f'{action} duruyor...')
         time.sleep(14)
         self.run_forward()
-        self.motor_controller.qr_id = None
+        self.busy = False
 
     def perform_turn(self, direction):
+        self.busy = True
+        self.run_forward()
+        time.sleep(2.0)
         if direction == "right":
-            self.motor_controller.set_motor_values(360.0, 660.0)
+            self.motor_controller.set_motor_values(180.0, 360.0)
             self.motor_controller.get_logger().info('Sağa dönüş...')
+
         elif direction == "left":
-            self.motor_controller.set_motor_values(600.0, 360.0)
+            self.motor_controller.set_motor_values(360.0, 180.0)
             self.motor_controller.get_logger().info('Sola dönüş...')
-        time.sleep(5.2 )
-        self.motor_controller.qr_id = None
+            
+        time.sleep(5.2)
+        self.busy = False
 
     def run_forward(self):
         self.motor_controller.set_motor_values(250.0, 250.0)
         time.sleep(2)
     
     def engelden_kacma(self):
+        self.busy = True
         self.motor_controller.set_motor_values(-300.0, -300.0)
         time.sleep(1.6)
         self.motor_controller.set_motor_values(350.0, 0.0)
@@ -53,10 +61,11 @@ class TaskManager:
         time.sleep(4.5)
         self.motor_controller.set_motor_values(0.0, 350.0)
         time.sleep(3.0)
-        self.motor_controller.set_motor_values(300.0, 350.0)
+        self.motor_controller.set_motor_values(350.0, 350.0)
         time.sleep(4.0)
         self.motor_controller.set_motor_values(350.0, 0.0)
         time.sleep(1.2)
+        self.busy = False
     
     def rotate_around(self, direction, duration=2.0):
         if direction == "clockwise":
@@ -93,11 +102,10 @@ class MotorController(Node):
         self.get_logger().info(f'QR ID: {qr_data}')
         self.qr_id = self.extract_first_part(qr_data)
 
-        if self.qr_id == 'Q28':
+        if self.qr_id == 'Q2':
             self.task_manager.perform_turn("right")
-        elif self.qr_id == 'Q29':
+        elif self.qr_id == 'Q31':
             self.task_manager.perform_turn("left")
-    
         
     def charge_callback(self, msg):
         self.charge_status = msg
@@ -147,8 +155,10 @@ class MotorController(Node):
             rclpy.shutdown()
 
     def angle_callback(self, msg):
+        if self.engel_detected or self.task_manager.busy:
+            return
         angle = msg.data
-        linear = 0.15           
+        linear = 0.125
         w = angle * (1.0 - self.coef)
         
         if w != 0.0:
@@ -165,7 +175,7 @@ class MotorController(Node):
             np.clip(1000 * right_speed_normalized, -1000, 1000),
             np.clip(1000 * left_speed_normalized, -1000, 1000)
             )
-
+        
     def lidar_callback(self, msg):
         ranges = msg.ranges
         angle_min = msg.angle_min
