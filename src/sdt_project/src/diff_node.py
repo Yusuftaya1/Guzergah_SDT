@@ -25,6 +25,8 @@ class TaskManager:
     
     def perform_load_action(self, actuator_value):
         self.busy = True
+        self.motor_controller.set_motor_values(250.0, 250.0, actuator_value)
+        time.sleep(1.4)
         self.motor_controller.set_motor_values(0.0, 0.0, actuator_value)
         action = 'Yük alımı için' if actuator_value == 1000.0 else 'Yük bırakmak için'
         self.motor_controller.get_logger().info(f'{action} duruyor...')
@@ -54,16 +56,16 @@ class TaskManager:
     def engelden_kacma(self):
         self.busy = True
         self.motor_controller.set_motor_values(-300.0, -300.0)
-        time.sleep(1.6)
+        time.sleep(1.4)
         self.motor_controller.set_motor_values(350.0, 0.0)
         time.sleep(1.4)
         self.motor_controller.set_motor_values(350.0, 350.0)
-        time.sleep(4.5)
+        time.sleep(7.0)
         self.motor_controller.set_motor_values(0.0, 350.0)
-        time.sleep(3.0)
+        time.sleep(2.5)
         self.motor_controller.set_motor_values(350.0, 350.0)
-        time.sleep(4.0)
-        self.motor_controller.set_motor_values(350.0, 0.0)
+        time.sleep(5.3)
+        self.motor_controller.set_motor_values(350.0, -150.0)
         time.sleep(1.2)
         self.busy = False
     
@@ -85,48 +87,26 @@ class MotorController(Node):
         self.coef = 0.02
         self.qr_id = None
         self.engel_detected = False
+        self.engel_timer_count = 0
         self.task_manager = TaskManager(self)
-        self.qr_status_sub      = self.create_subscription(String, '/qr_code_data', self.qr_callback, 10)
         self.angle_sub          = self.create_subscription(Float64, '/AGV/angle', self.angle_callback, 10)
         self.mode_status_sub    = self.create_subscription(String, '/mode_status', self.mode_callback, 10)
-        self.charge_sub         = self.create_subscription(String, 'charge_status', self.charge_callback,10)
         self.lidar_sub          = self.create_subscription(LaserScan, '/scan', self.lidar_callback, 10)
-        self.corner_detect_sub  = self.create_subscription(String, '/kose_detect',self.corner_detect ,10)
+        self.agitlik_sub        = self.create_subscription(Bool,'lift_agirlik',self.agirlik_callback)
         self.motor_values_pub   = self.create_publisher(MotorValues, '/AGV/motor_values', 10)
         self.engel_status_pub   = self.create_publisher(Bool,'engel_tespit',10)
         self.engel_check_timer  = self.create_timer(1.0, self.check_engel_status)
         self.motor_values_msg   = MotorValues()
+        self.busy_publisher     = self.create_publisher(Bool,'cizgi_izlemee',10)
     
-    def qr_callback(self,msg):
-        qr_data = msg.data
-        self.get_logger().info(f'QR ID: {qr_data}')
-        self.qr_id = self.extract_first_part(qr_data)
-
-        if self.qr_id == 'Q2':
-            self.task_manager.perform_turn("right")
-        elif self.qr_id == 'Q31':
-            self.task_manager.perform_turn("left")
-        
-    def charge_callback(self, msg):
-        self.charge_status = msg
-        if self.charge_status < 20:
-            self.task_manager.autonom_charge()
-    ###################
     def extract_first_part(self, qr_data):
         parts = qr_data.split(';')
         if parts:
             return parts[0]
         return None
-    
-    def corner_detect(self,msg):
-        self.corner = msg
-        if self.corner == 'right_corner':
-            self.task_manager.perform_turn("right")
-        elif self.corner == 'left_corner':
-            self.task_manager.perform_turn("left")
 
     def mode_callback(self, msg):
-        self.mode = msg
+        self.mode = msg.data
         if self.mode == "Turn Right":
             self.task_manager.perform_turn("right")
 
@@ -142,6 +122,7 @@ class MotorController(Node):
         if self.mode == "Load":
             self.task_manager.perform_load_action(1000.0)
             self.get_logger().info('Yük alındı, devam ediliyor...')
+
             self.task_manager.run_forward()
 
         if self.mode == "Unload":
@@ -157,6 +138,7 @@ class MotorController(Node):
     def angle_callback(self, msg):
         if self.engel_detected or self.task_manager.busy:
             return
+        
         angle = msg.data
         linear = 0.125
         w = angle * (1.0 - self.coef)
@@ -181,8 +163,8 @@ class MotorController(Node):
         angle_min = msg.angle_min
         angle_max = msg.angle_max
         angle_increment = msg.angle_increment
-        scanned_angle_min = -2.3523
-        scanned_angle_max = 2.3523
+        scanned_angle_min = -2.378
+        scanned_angle_max = 2.378
         msg_engel = Bool()
 
         start_index = int((scanned_angle_min - angle_min) / angle_increment)
@@ -191,7 +173,7 @@ class MotorController(Node):
         start_index = max(0, start_index)
         end_index = min(len(ranges) - 1, end_index)
         scanned_ranges = ranges[:start_index] + ranges[end_index:]
-        obstacles = [r for r in scanned_ranges if r < 1.2]
+        obstacles = [r for r in scanned_ranges if r < 0.45]
 
         if obstacles:
             self.engel_detected = True
@@ -202,23 +184,24 @@ class MotorController(Node):
             self.engel_detected = False
             msg_engel.data = False
             
-        self.engel_status_pub.publish(msg_engel)
+        #self.engel_status_pub.publish(msg_engel)
 
     def check_engel_status(self):
         if self.engel_detected:
             if not self.engel_detected:
                 self.get_logger().info('Engel ortadan kalktı, devam ediliyor...')
-                self.engel_detected = False
-                self.engel_timer_count = 0
+                self.engel_detected = True
             else:
                 self.engel_timer_count += 1
-                if self.engel_timer_count >= 7:
+                if self.engel_timer_count >= 5:
                     self.get_logger().info('Engel 7 saniye boyunca ortadan kalkmadı, engelden kaçılıyor...')
+                    self.busy_publisher.publish(msg=True)
                     self.task_manager.engelden_kacma()
+                    self.busy_publisher.publish(msg=False)
                     self.engel_detected = False
-                    self.engel_timer_count = 0
-
-
+        else:
+            self.engel_timer_count = 0
+            
     def set_motor_values(self, right_speed, left_speed, actuator_value=0.0):
         self.motor_values_msg.sag_teker_hiz = right_speed
         self.motor_values_msg.sol_teker_hiz = left_speed

@@ -9,7 +9,7 @@ from std_msgs.msg import String
 class Navigation(Node):
     def __init__(self):
         super().__init__('Navigation')
-        self.qr_status_sub = self.create_subscription(String, '/qr_code_data', self.qr_callback, 10)
+        self.qr_status_sub = self.create_subscription(String, '/barcode', self.qr_callback, 10)
         self.mode_status_pub = self.create_publisher(String, '/mode_status', 10)
         self.target_point = "B"
         self.mode_msg = None

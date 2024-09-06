@@ -15,7 +15,6 @@ def generate_launch_description():
             )
         )
     )
-
     return LaunchDescription([
         Node(
             package='usb_cam',
@@ -23,13 +22,11 @@ def generate_launch_description():
             name='camera',
             output='screen'
         ),
-        
         sllidar_launch,
-
         Node(
             package='sdt_project',
-            executable='deneme_pid2.py',
-            name='camera',
+            executable='line_follow_main.py',
+            name='line',
             output='screen'
         ),
         Node(
@@ -39,8 +36,8 @@ def generate_launch_description():
             output='screen'
         ),
         Node(
-            package='sdt_project',
-            executable='qr_detect.py',
+            package='zbar_ros',
+            executable='barcode_reader',
             name='qr_detectt',
             output='screen'
         ),
@@ -55,6 +52,11 @@ def generate_launch_description():
             executable='navigation2.py',
             name='usb_node',
             output='screen'
-        )
-        
+        ),
+        Node(
+            package='sdt_project',
+            executable='usb_com.py',
+            name='usb',  # It's better to use a unique name to avoid conflicts
+            output='screen'
+        ),
     ])

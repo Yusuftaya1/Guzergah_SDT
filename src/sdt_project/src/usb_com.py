@@ -14,7 +14,7 @@ from sdt_project.msg import MotorValues
 class USBComNode(Node):
     def __init__(self):
         super().__init__('usb_com_node')
-        self.serial_port = serial.Serial('/dev/ttyUSB0', 115200, timeout=1)
+        self.serial_port = serial.Serial('/dev/ttyUSB1', 115200, timeout=1)
         self.subscription = self.create_subscription(MotorValues,'/AGV/motor_values',self.motor_values_callback,10)
         self.wheel_separation = 0.5
         self.wheel_radius = 0.1

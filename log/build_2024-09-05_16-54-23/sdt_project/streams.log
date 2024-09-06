@@ -1,0 +1,42 @@
+[0.024s] Invoking command in '/home/yusuf/Guzergah_SDT/build/sdt_project': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/yusuf/Guzergah_SDT/build/sdt_project -- -j8 -l8
+[0.097s] [  9%] Built target sdt_project__rosidl_generator_c
+[0.111s] [ 12%] Built target sdt_project__cpp
+[0.127s] [ 12%] Built target ament_cmake_python_copy_sdt_project
+[0.152s] [ 22%] Built target sdt_project__rosidl_typesupport_fastrtps_c
+[0.161s] [ 32%] Built target sdt_project__rosidl_typesupport_introspection_c
+[0.161s] [ 41%] Built target sdt_project__rosidl_typesupport_c
+[0.163s] [ 51%] Built target sdt_project__rosidl_typesupport_cpp
+[0.171s] [ 61%] Built target sdt_project__rosidl_typesupport_fastrtps_cpp
+[0.176s] [ 70%] Built target sdt_project__rosidl_typesupport_introspection_cpp
+[0.203s] [ 70%] Built target sdt_project
+[0.239s] [ 74%] Built target sdt_project__py
+[0.281s] [ 80%] Built target sdt_project__rosidl_generator_py
+[0.292s] Traceback (most recent call last):
+[0.295s]   File "/home/yusuf/Guzergah_SDT/build/sdt_project/ament_cmake_python/sdt_project/setup.py", line 1, in <module>
+[0.296s] gmake[2]: *** [CMakeFiles/sdt_project__rosidl_typesupport_fastrtps_c__pyext.dir/build.make:121: CMakeFiles/sdt_project__rosidl_typesupport_fastrtps_c__pyext.dir/depend] Interrupt
+[0.296s] gmake[2]: *** wait: No child processes.  Stop.
+[0.296s] gmake[2]: *** Waiting for unfinished jobs....
+[0.296s] gmake[2]: *** wait: No child processes.  Stop.
+[0.296s]     from setuptools import find_packages
+[0.296s]   File "/usr/lib/python3/dist-packages/setuptools/__init__.py", line 16, in <module>
+[0.297s]     import setuptools.version
+[0.297s]   File "/usr/lib/python3/dist-packages/setuptools/version.py", line 1, in <module>
+[0.297s]     import pkg_resources
+[0.297s]   File "/usr/lib/python3/dist-packages/pkg_resources/__init__.py", line 76, in <module>
+[0.297s]     __import__('pkg_resources.extern.packaging.version')
+[0.298s]   File "/usr/lib/python3/dist-packages/pkg_resources/_vendor/packaging/version.py", line 9, in <module>
+[0.298s] gmake[1]: *** [CMakeFiles/Makefile2:504: CMakeFiles/sdt_project__rosidl_typesupport_fastrtps_c__pyext.dir/all] Interrupt
+[0.298s] gmake[1]: *** [CMakeFiles/Makefile2:563: CMakeFiles/sdt_project__rosidl_typesupport_c__pyext.dir/all] Error 2
+[0.298s] gmake[2]: *** [CMakeFiles/sdt_project__rosidl_typesupport_introspection_c__pyext.dir/build.make:118: CMakeFiles/sdt_project__rosidl_typesupport_introspection_c__pyext.dir/depend] Interrupt
+[0.299s]     from typing import Callable, Iterator, List, Optional, SupportsInt, Tuple, Union
+[0.299s] gmake[1]: *** [CMakeFiles/Makefile2:534: CMakeFiles/sdt_project__rosidl_typesupport_introspection_c__pyext.dir/all] Interrupt
+[0.299s]   File "/usr/lib/python3.10/typing.py", line 2218, in <module>
+[0.300s]     class SupportsIndex(Protocol):
+[0.301s]   File "/usr/lib/python3.10/abc.py", line 106, in __new__
+[0.302s]     cls = super().__new__(mcls, name, bases, namespace, **kwargs)
+[0.302s]   File "/usr/lib/python3.10/typing.py", line 1549, in __init_subclass__
+[0.302s]     def __init_subclass__(cls, *args, **kwargs):
+[0.302s] KeyboardInterrupt
+[0.319s] gmake[2]: *** [CMakeFiles/ament_cmake_python_build_sdt_project_egg.dir/build.make:70: CMakeFiles/ament_cmake_python_build_sdt_project_egg] Interrupt
+[0.319s] gmake[1]: *** [CMakeFiles/Makefile2:447: CMakeFiles/ament_cmake_python_build_sdt_project_egg.dir/all] Interrupt
+[0.320s] gmake: *** [Makefile:146: all] Interrupt

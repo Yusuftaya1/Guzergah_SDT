@@ -1,0 +1,16 @@
+[0.022s] Invoking command in '/home/yusuf/Guzergah_SDT/build/sdt_project': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/yusuf/Guzergah_SDT/build/sdt_project -- -j8 -l8
+[0.086s] [  3%] Built target sdt_project__cpp
+[0.099s] [ 12%] Built target sdt_project__rosidl_generator_c
+[0.123s] [ 12%] Built target ament_cmake_python_copy_sdt_project
+[0.124s] gmake[1]: *** [CMakeFiles/Makefile2:370: CMakeFiles/sdt_project__rosidl_typesupport_introspection_cpp.dir/all] Interrupt
+[0.124s] gmake[1]: *** [CMakeFiles/Makefile2:422: CMakeFiles/ament_cmake_python_copy_sdt_project.dir/all] Interrupt
+[0.125s] gmake[1]: *** [CMakeFiles/Makefile2:395: CMakeFiles/sdt_project__rosidl_typesupport_cpp.dir/all] Interrupt
+[0.125s] gmake[1]: *** [CMakeFiles/Makefile2:343: CMakeFiles/sdt_project__rosidl_typesupport_fastrtps_cpp.dir/all] Interrupt
+[0.125s] gmake[2]: *** [CMakeFiles/sdt_project__rosidl_typesupport_fastrtps_c.dir/build.make:131: CMakeFiles/sdt_project__rosidl_typesupport_fastrtps_c.dir/depend] Interrupt
+[0.125s] gmake[1]: *** [CMakeFiles/Makefile2:238: CMakeFiles/sdt_project__rosidl_typesupport_fastrtps_c.dir/all] Interrupt
+[0.126s] gmake[2]: *** [CMakeFiles/sdt_project__rosidl_typesupport_introspection_c.dir/build.make:128: CMakeFiles/sdt_project__rosidl_typesupport_introspection_c.dir/depend] Interrupt
+[0.126s] gmake[1]: *** [CMakeFiles/Makefile2:264: CMakeFiles/sdt_project__rosidl_typesupport_introspection_c.dir/all] Interrupt
+[0.126s] gmake[2]: *** [CMakeFiles/sdt_project__rosidl_typesupport_c.dir/build.make:122: CMakeFiles/sdt_project__rosidl_typesupport_c.dir/depend] Interrupt
+[0.126s] gmake[1]: *** [CMakeFiles/Makefile2:290: CMakeFiles/sdt_project__rosidl_typesupport_c.dir/all] Interrupt
+[0.126s] gmake: *** [Makefile:146: all] Interrupt
+[0.131s] Invoked command in '/home/yusuf/Guzergah_SDT/build/sdt_project' returned '-2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/yusuf/Guzergah_SDT/build/sdt_project -- -j8 -l8

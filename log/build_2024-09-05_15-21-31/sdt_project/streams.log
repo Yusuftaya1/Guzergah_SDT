@@ -1,0 +1,44 @@
+[0.021s] Invoking command in '/home/yusuf/Guzergah_SDT/build/sdt_project': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/yusuf/Guzergah_SDT/build/sdt_project -- -j8 -l8
+[0.083s] [  3%] Built target sdt_project__cpp
+[0.085s] [ 12%] Built target sdt_project__rosidl_generator_c
+[0.113s] [ 12%] Built target ament_cmake_python_copy_sdt_project
+[0.123s] [ 22%] Built target sdt_project__rosidl_typesupport_introspection_cpp
+[0.126s] [ 32%] Built target sdt_project__rosidl_typesupport_cpp
+[0.128s] [ 41%] Built target sdt_project__rosidl_typesupport_fastrtps_cpp
+[0.132s] [ 51%] Built target sdt_project__rosidl_typesupport_introspection_c
+[0.134s] [ 61%] Built target sdt_project__rosidl_typesupport_fastrtps_c
+[0.136s] [ 70%] Built target sdt_project__rosidl_typesupport_c
+[0.163s] [ 70%] Built target sdt_project
+[0.190s] [ 74%] Built target sdt_project__py
+[0.218s] [ 80%] Built target sdt_project__rosidl_generator_py
+[0.255s] [ 87%] Built target sdt_project__rosidl_typesupport_c__pyext
+[0.256s] [ 93%] Built target sdt_project__rosidl_typesupport_fastrtps_c__pyext
+[0.261s] [100%] Built target sdt_project__rosidl_typesupport_introspection_c__pyext
+[0.363s] Traceback (most recent call last):
+[0.363s]   File "/home/yusuf/Guzergah_SDT/build/sdt_project/ament_cmake_python/sdt_project/setup.py", line 1, in <module>
+[0.363s]     from setuptools import find_packages
+[0.363s]   File "/usr/lib/python3/dist-packages/setuptools/__init__.py", line 16, in <module>
+[0.363s]     import setuptools.version
+[0.364s]   File "/usr/lib/python3/dist-packages/setuptools/version.py", line 1, in <module>
+[0.364s]     import pkg_resources
+[0.364s]   File "/usr/lib/python3/dist-packages/pkg_resources/__init__.py", line 3267, in <module>
+[0.364s]     def _initialize_master_working_set():
+[0.364s]   File "/usr/lib/python3/dist-packages/pkg_resources/__init__.py", line 3241, in _call_aside
+[0.365s]     f(*args, **kwargs)
+[0.365s]   File "/usr/lib/python3/dist-packages/pkg_resources/__init__.py", line 3279, in _initialize_master_working_set
+[0.365s]     working_set = WorkingSet._build_master()
+[0.365s]   File "/usr/lib/python3/dist-packages/pkg_resources/__init__.py", line 564, in _build_master
+[0.365s]     ws = cls()
+[0.365s]   File "/usr/lib/python3/dist-packages/pkg_resources/__init__.py", line 557, in __init__
+[0.366s]     self.add_entry(entry)
+[0.366s]   File "/usr/lib/python3/dist-packages/pkg_resources/__init__.py", line 613, in add_entry
+[0.366s]     for dist in find_distributions(entry, True):
+[0.366s]   File "/usr/lib/python3/dist-packages/pkg_resources/__init__.py", line 2076, in find_on_path
+[0.366s]     factory = dist_factory(path_item, entry, only)
+[0.366s]   File "/usr/lib/python3/dist-packages/pkg_resources/__init__.py", line 2084, in dist_factory
+[0.366s]     is_egg_info = lower.endswith('.egg-info')
+[0.366s] KeyboardInterrupt
+[0.383s] gmake[2]: *** [CMakeFiles/ament_cmake_python_build_sdt_project_egg.dir/build.make:70: CMakeFiles/ament_cmake_python_build_sdt_project_egg] Interrupt
+[0.383s] gmake[1]: *** [CMakeFiles/Makefile2:447: CMakeFiles/ament_cmake_python_build_sdt_project_egg.dir/all] Interrupt
+[0.384s] gmake: *** [Makefile:146: all] Interrupt
+[0.385s] Invoked command in '/home/yusuf/Guzergah_SDT/build/sdt_project' returned '-2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/yusuf/Guzergah_SDT/build/sdt_project -- -j8 -l8

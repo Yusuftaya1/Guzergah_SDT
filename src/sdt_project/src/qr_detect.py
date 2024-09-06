@@ -44,15 +44,11 @@ class QRCodeDetector(Node):
 
         self.qr_pub.publish(qr_msg)
         self.get_logger().info(f"QR kod okundu: {qr}")
-
+    
     def extract_first_part(self, qr_data):
         parts = qr_data.split(';')
         return parts[0]
     
-        # Görüntüyü göstermek için (isteğe bağlı)
-        #cv2.imshow("QRCodeScanner", cv_image)
-        #cv2.waitKey(1)
-        
 def main(args=None):
     rclpy.init(args=args)
     qr_code_detector = QRCodeDetector()

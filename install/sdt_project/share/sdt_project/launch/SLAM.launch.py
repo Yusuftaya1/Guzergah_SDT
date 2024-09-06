@@ -15,7 +15,6 @@ def generate_launch_description():
             )
         )
     )
-
     sllidar_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             os.path.join(
@@ -25,7 +24,6 @@ def generate_launch_description():
             )
         )
     )
-
     return LaunchDescription([
         sllidar_launch,
         Node(
@@ -43,5 +41,35 @@ def generate_launch_description():
             arguments=['0', '0', '0', '0', '0', '0', 'odom', 'base_link']
         ),
         slam_gmapping_launch,
+        Node(
+            package='usb_cam',
+            executable='usb_cam_node_exe',
+            name='camera',
+            output='screen'
+        ),
+        Node(
+            package='std_profect',
+            executable='line_follow_main.py',
+            name='camera',
+            output='screen'
+        ),
+        Node(
+            package='sdt_project',
+            executable='diff_node.py',
+            name='diff_node',
+            output='screen'
+        ),
+        Node(
+            package='sdt_project',
+            executable='qr_detect.py',
+            name='qr_detectt',
+            output='screen'
+        ),
+        Node(
+            package='sdt_project',
+            executable='TCP_com.py',
+            name='usb_node',
+            output='screen'
+        ),
 
     ])

@@ -19,13 +19,15 @@ from std_msgs.msg import String
 class Navigation(Node):
     def __init__(self):
         super().__init__('Navigation')
-        self.qr_status_sub = self.create_subscription(String, '/qr_code_data', self.qr_callback, 10)
+        self.qr_status_sub = self.create_subscription(String, '/barcode', self.qr_callback, 10)
         self.mode_status_pub = self.create_publisher(String, '/mode_status', 10)
         self.target_point = "A"
         self.mode_msg = "Start"
 
     def qr_callback(self, msg):
-        self.qr_id = msg.data
+        qr_data = msg.data
+        self.get_logger().info(f'QR ID: {qr_data}')
+        self.qr_id = self.extract_first_part(qr_data)  
         
         if self.target_point == "A":
             if self.qr_id in ["Q11", "Q41"]:
@@ -76,7 +78,12 @@ class Navigation(Node):
             self.get_logger().info(f'QR ID: {self.qr_id}')
             self.get_logger().info(f'TARGET: {self.target_point}')
             self.get_logger().info(f'MODE: {self.mode_msg}')
-
+    
+    def extract_first_part(self, qr_data):
+        parts = qr_data.split(';')
+        if parts:
+            return parts[0]
+        return None
 
     def publish_mode_status(self):
         msg = String()

@@ -63,6 +63,8 @@
 /home/yusuf/Guzergah_SDT/install/sdt_project/lib/sdt_project/qr_detect.py
 /home/yusuf/Guzergah_SDT/install/sdt_project/lib/sdt_project/tcp_usb.py
 /home/yusuf/Guzergah_SDT/install/sdt_project/lib/sdt_project/pid_line_follower.py
+/home/yusuf/Guzergah_SDT/install/sdt_project/lib/sdt_project/qr_mask.py
+/home/yusuf/Guzergah_SDT/install/sdt_project/lib/sdt_project/usb2_sensor.py
 /home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/launch/SLAM.launch.py
 /home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/launch/mission1.launch.py
 /home/yusuf/Guzergah_SDT/install/sdt_project/share/sdt_project/launch/mission2.launch.py

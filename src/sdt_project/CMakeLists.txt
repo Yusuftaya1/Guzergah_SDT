@@ -35,6 +35,8 @@ install(PROGRAMS
   src/qr_detect.py
   src/tcp_usb.py
   src/pid_line_follower.py
+  src/qr_mask.py
+  src/usb2_sensor.py
   DESTINATION lib/${PROJECT_NAME}
 )
 

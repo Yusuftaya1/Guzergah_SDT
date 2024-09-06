@@ -25,7 +25,9 @@ class Navigation(Node):
         self.mode_msg = "Start"
         
     def qr_callback(self,msg):
-        self.qr_id = msg.data
+        qr_data = msg.data
+        self.get_logger().info(f'QR ID: {qr_data}')
+        self.qr_id = self.extract_first_part(qr_data)
 
         if self.target_point == "A":
             if self.qr_id in ["Q40", "Q11"]:
@@ -70,7 +72,12 @@ class Navigation(Node):
                 self.mode_msg = "Finish"
             else:
                 self.mode_msg = "None"
-
+    def extract_first_part(self, qr_data):
+        parts = qr_data.split(';')
+        if parts:
+            return parts[0]
+        return None
+    
     def publish_mode_status(self):
         msg = String()
         msg.data = self.mode_msg

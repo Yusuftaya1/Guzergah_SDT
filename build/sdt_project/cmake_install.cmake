@@ -378,6 +378,8 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
     "/home/yusuf/Guzergah_SDT/src/sdt_project/src/qr_detect.py"
     "/home/yusuf/Guzergah_SDT/src/sdt_project/src/tcp_usb.py"
     "/home/yusuf/Guzergah_SDT/src/sdt_project/src/pid_line_follower.py"
+    "/home/yusuf/Guzergah_SDT/src/sdt_project/src/qr_mask.py"
+    "/home/yusuf/Guzergah_SDT/src/sdt_project/src/usb2_sensor.py"
     )
 endif()
 
