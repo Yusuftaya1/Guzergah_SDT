@@ -1,3 +1,0 @@
-gmake[1]: *** [CMakeFiles/Makefile2:140: CMakeFiles/rf2o_laser_odometry_node.dir/all] Interrupt
-gmake[1]: *** [CMakeFiles/Makefile2:166: CMakeFiles/rf2o_laser_odometry.dir/all] Interrupt
-gmake: *** [Makefile:146: all] Interrupt

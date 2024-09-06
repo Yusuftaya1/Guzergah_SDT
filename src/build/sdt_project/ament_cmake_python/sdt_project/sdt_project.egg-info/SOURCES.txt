@@ -1,6 +1,0 @@
-setup.py
-sdt_project/__init__.py
-sdt_project.egg-info/PKG-INFO
-sdt_project.egg-info/SOURCES.txt
-sdt_project.egg-info/dependency_links.txt
-sdt_project.egg-info/top_level.txt

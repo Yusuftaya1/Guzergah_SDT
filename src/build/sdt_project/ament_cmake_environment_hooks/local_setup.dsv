@@ -1,4 +1,0 @@
-source;share/sdt_project/environment/ament_prefix_path.sh
-source;share/sdt_project/environment/library_path.sh
-source;share/sdt_project/environment/path.sh
-source;share/sdt_project/environment/pythonpath.sh
